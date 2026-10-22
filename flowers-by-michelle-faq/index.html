@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+
+<html class="no-js" lang="en" xmlns:og="http://opengraphprotocol.org/schema/">
+<head><base href="https://www.flowersbymichelle.com/"/><meta content="noindex, nofollow" name="robots"/>
+<link href="//assets.eflorist.com/site/EF-3628/favicon.ico?1591208898180" rel="shortcut icon" type="image/x-icon"/>
+<script>
+            dataLayer = [];
+    </script>
+
+
+<title>FAQ | Flowers By Michelle</title>
+<link href="https://www.flowersbymichelle.com/frequently-asked-questions" rel="canonical"/>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link as="style" href="//assets.eflorist.com/css/ef-screen.css?v=20261021111658" rel="preload"/>
+<link href="//assets.eflorist.com/css/ef-screen.css?v=20261021111658" rel="stylesheet" type="text/css"/>
+<link href="" rel="stylesheet" type="text/css"/>
+<link as="style" href="//assets.eflorist.com/themes/custom-templates/3/39333900/39333900-green/css/theme.css?v=20260212135755" rel="preload"/>
+<link href="//assets.eflorist.com/themes/custom-templates/3/39333900/39333900-green/css/theme.css?v=20260212135755" rel="stylesheet" type="text/css"/>
+<style media="screen" type="text/css">
+</style>
+<script src="//assets.eflorist.com/js/lib/jquery-3.7.1.min.js?v=20260928211629" type="text/javascript"></script>
+<script src="//assets.eflorist.com/js/lib/modernizr-dev.js?v=20210910122358" type="text/javascript"></script>
+<script async="" defer="" src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"></script>
+<script type="text/javascript">
+        (function () {
+            // TFT-45474 : until the visitor solves Turnstile, show the submit/OK button as disabled with a "verify you are human" tooltip, and block submission (guards below) as the hard enforcement.
+            var TF_MSG = 'Please verify you are human before continuing.';
+            var TF_TIP = 'Please verify you are human';
+            // The "scope" holding a widget + its submit controls: usually a <form>, but the QuickView modal (#quickviewDiv) has no <form> in the live DOM, so fall back to it.
+            function efFormOf(el) { return (el && el.closest) ? (el.closest('form') || el.closest('#quickviewDiv')) : null; }
+            function efSubmitControls(form) {
+                // input[data-tf-submit] opts in controls that submit via JS but are type=button (e.g. #billingReviewBtn)
+                var all = form.querySelectorAll('button, input[type="submit"], input[type="image"], input[data-tf-submit], [data-tf-gate-click]');
+                var out = [];
+                for (var i = 0; i < all.length; i++) {
+                    var b = all[i], t = (b.getAttribute('type') || '').toLowerCase();
+                    var isSubmit = b.hasAttribute('data-tf-gate-click')
+                                || ((b.tagName === 'BUTTON') ? (t !== 'button' && t !== 'reset') : (t === 'submit' || t === 'image' || b.hasAttribute('data-tf-submit')));
+                    if (isSubmit) { out.push(b); }
+                }
+                return out;
+            }
+            // Render the submit controls as disabled (greyed, not-allowed, aria-disabled) with the hover tooltip; aria-disabled rather than the native disabled attribute so the tooltip still shows on hover.
+            function efGateButtons(form, gated) {
+                if (!form) { return; }
+                var ctrls = efSubmitControls(form);
+                for (var i = 0; i < ctrls.length; i++) {
+                    var c = ctrls[i];
+                    if (gated) {
+                        // remember the original title once, then (re)apply every pass so page scripts that
+                        // re-render or re-enable the button cannot silently drop the gated state
+                        if (!c.getAttribute('data-tf-gated')) {
+                            c.setAttribute('data-tf-gated', '1');
+                            c.setAttribute('data-tf-otitle', c.getAttribute('title') || '');
+                        }
+                        c.setAttribute('aria-disabled', 'true');
+                        c.setAttribute('title', TF_TIP);
+                        c.style.setProperty('opacity', '0.5', 'important');
+                        c.style.setProperty('cursor', 'not-allowed', 'important');
+                    } else if (c.getAttribute('data-tf-gated')) {
+                        var orig = c.getAttribute('data-tf-otitle') || '';
+                        if (orig) { c.setAttribute('title', orig); } else { c.removeAttribute('title'); }
+                        c.removeAttribute('aria-disabled');
+                        c.style.removeProperty('opacity');
+                        c.style.removeProperty('cursor');
+                        c.removeAttribute('data-tf-gated');
+                        c.removeAttribute('data-tf-otitle');
+                    }
+                }
+            }
+            function efFormNeedsVerification(form) {
+                if (!form || !form.querySelector) { return false; }
+                if (!form.querySelector('.cf-turnstile[data-sitekey]')) { return false; }
+                var input = form.querySelector('input[name="cf-turnstile-response"]');
+                return !(input && input.value && input.value.trim() !== '');
+            }
+            function efShowMsg(form) {
+                var holder = form.querySelector('.tf-turnstile-error');
+                if (!holder) {
+                    holder = document.createElement('div');
+                    holder.className = 'tf-turnstile-error';
+                    holder.setAttribute('role', 'alert');
+                    holder.setAttribute('aria-live', 'assertive');
+                    holder.style.color = '#c00';
+                    holder.style.marginTop = '6px';
+                    holder.style.fontSize = '13px';
+                    holder.textContent = TF_MSG;
+                    var anchor = form.querySelector('.cf-turnstile') ||
+                                 form.querySelector('button[type="submit"], input[type="submit"], input[type="image"], button:not([type])');
+                    if (anchor && anchor.parentNode) { anchor.parentNode.insertBefore(holder, anchor.nextSibling); }
+                    else { form.appendChild(holder); }
+                }
+                holder.style.setProperty('display', 'block', 'important');
+            }
+            function efHideMsg(form) {
+                if (!form) { return; }
+                var holder = form.querySelector('.tf-turnstile-error');
+                if (holder) { holder.style.setProperty('display', 'none', 'important'); }
+            }
+            function efCaptureTurnstileToken(widgetEl, token) {
+                var form = efFormOf(widgetEl);
+                if (!form) { return; }
+                var inputs = form.querySelectorAll('input[name="cf-turnstile-response"]');
+                if (inputs.length === 0) {
+                    var input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = 'cf-turnstile-response';
+                    input.className = 'cf-turnstile-response';
+                    form.appendChild(input);
+                    inputs = [input];
+                }
+                for (var i = 0; i < inputs.length; i++) { inputs[i].value = token || ''; }
+                if (token) { efHideMsg(form); efGateButtons(form, false); }
+                else { efGateButtons(form, true); }
+            }
+            function efRenderOne(el) {
+                if (!el || el.getAttribute('data-ef-rendered') || el.querySelector('iframe')) { return; }
+                var sitekey = el.getAttribute('data-sitekey');
+                if (!sitekey) { return; }
+                el.setAttribute('data-ef-rendered', '1');
+                efGateButtons(efFormOf(el), true);
+                // billing page scripts toggle the place-order button after load; re-assert until the token arrives
+                var reassert = window.setInterval(function () {
+                    var f = efFormOf(el);
+                    if (!f || !efFormNeedsVerification(f)) { window.clearInterval(reassert); return; }
+                    efGateButtons(f, true);
+                }, 500);
+                window.setTimeout(function () { window.clearInterval(reassert); }, 30000);
+                try {
+                    window.turnstile.render(el, {
+                        sitekey: sitekey,
+                        callback: function (token) { efCaptureTurnstileToken(el, token); },
+                        'expired-callback': function () { efCaptureTurnstileToken(el, ''); },
+                        'error-callback': function () { efCaptureTurnstileToken(el, ''); }
+                    });
+                } catch (e) {
+                }
+            }
+            window.efRenderTurnstileWidgets = function () {
+                if (!(window.turnstile && window.turnstile.render)) { return window.setTimeout(window.efRenderTurnstileWidgets, 200); }
+                var els = document.querySelectorAll('.cf-turnstile[data-sitekey]:not([data-ef-rendered])');
+                for (var i = 0; i < els.length; i++) { efRenderOne(els[i]); }
+            };
+            function efBlockAndWarn(form) {
+                // undo any double-submit disabling (e.g. the PDP add-to-cart button, or #billingReviewBtn which
+                // formValidation_new.js disables just before triggering the submit) so the user can retry after verifying
+                var ctrls = form.querySelectorAll('button[disabled], input[type="submit"][disabled], input[type="image"][disabled], input[data-tf-submit][disabled]');
+                for (var k = 0; k < ctrls.length; k++) { ctrls[k].disabled = false; }
+                efShowMsg(form);
+                var w = form.querySelector('.cf-turnstile');
+                if (w && w.scrollIntoView) { try { w.scrollIntoView({ block: 'center' }); } catch (ignore) {} }
+            }
+            // Capture-phase submit guard: catches native/Enter-key form submits before any jQuery handler.
+            document.addEventListener('submit', function (e) {
+                var form = e.target;
+                if (efFormNeedsVerification(form)) {
+                    e.preventDefault();
+                    if (e.stopImmediatePropagation) { e.stopImmediatePropagation(); } else { e.stopPropagation(); }
+                    efBlockAndWarn(form);
+                }
+            }, true);
+            // Capture-phase click guard: many PDP add-to-cart buttons submit via AJAX (preventDefault + $.ajax) and never fire a submit event; catch the click before their handler runs.
+            document.addEventListener('click', function (e) {
+                var el = e.target;
+                // Deliberately NOT matching input[data-tf-submit] here: those controls submit via their own click handler
+                // which also runs the page's field validation, and stopImmediatePropagation would suppress it. They reach
+                // a real type=submit control, so the submit guard above still enforces Turnstile.
+                var btn = (el && el.closest) ? el.closest('button, input[type="submit"], input[type="image"], [data-tf-gate-click]') : null;
+                if (!btn) { return; }
+                var type = (btn.getAttribute('type') || '').toLowerCase();
+                var isSubmitIntent = btn.hasAttribute('data-tf-gate-click')
+                                  || ((btn.tagName === 'BUTTON') ? (type !== 'button' && type !== 'reset') : (type === 'submit' || type === 'image'));
+                if (!isSubmitIntent) { return; }
+                var form = efFormOf(btn);
+                if (efFormNeedsVerification(form)) {
+                    e.preventDefault();
+                    if (e.stopImmediatePropagation) { e.stopImmediatePropagation(); } else { e.stopPropagation(); }
+                    efBlockAndWarn(form);
+                }
+            }, true);
+            if (document.readyState !== 'loading') { window.efRenderTurnstileWidgets(); }
+            else { document.addEventListener('DOMContentLoaded', window.efRenderTurnstileWidgets); }
+        })();
+    	var t_custPage = '';
+      //individual pages ask for this variable to load their individual resources
+      var initLoad = false;
+      var pickerLoad = false;
+      
+      /////////////////////////////////////////////////////////////////////
+      ////////////////////////////////////////////////////////////////////
+      //////////////    Internet Explorer Console Log Fix   //////////////
+      ////////////////////////////////////////////////////////////////////
+
+      /*
+        Protect window.console method calls, e.g. console is not defined on IE
+       * unless dev tools are open, and IE doesn't define console.debug
+       */
+      if (!window.console) {
+        window.console = {};
+      }
+      // union of Chrome, FF, IE, and Safari console methods
+      var m = [ "log", "info", "warn", "error", "debug", "trace", "dir", "group", "groupCollapsed", "groupEnd", "time", "timeEnd", "profile", "profileEnd", "dirxml", "assert", "count", "markTimeline",
+          "timeStamp", "clear" ];
+      // define undefined methods as noops to prevent errors
+      for ( var i = 0; i < m.length; i++) {
+        if (!window.console[m[i]]) {
+          window.console[m[i]] = function() {
+          };
+        }
+      }
+    
+    </script>
+<meta content="UA-35811197-1" name="t_google_id"/>
+<script>
+window.appData = window.appData || {
+    pageType:  "",
+    product:   {},
+    cart:      {},
+    customer:  {},
+    recipient: {},
+    delivery:  {},
+    billing:   {},
+    order:     {},
+    shipments: []
+};
+
+// Reverses the HTML escaping c:out applies when the JSP writes a value into a JS string literal.
+// c:out escapes exactly these five characters, so decoding them restores the original text --
+// &amp; must go last, otherwise "&amp;lt;" would wrongly decode to "<". Without this, a product
+// named "Teleflora's Uniquely Chic" reaches Klaviyo as "Teleflora&#039;s Uniquely Chic" (script
+// content is never entity-decoded by the HTML parser).
+window.tfDecodeAppDataText = function (text) {
+    if (text.indexOf('&') === -1) { return text; }
+    return text.replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+               .replace(/&#034;/g, '"').replace(/&#039;/g, "'")
+               .replace(/&amp;/g, '&');
+};
+
+// Strips "", null, and undefined leaf values (recursively, including array elements) from an
+// appData section before it's assigned -- e.g. a commerce item with no shipping-group relationship
+// yet, or a billing address field the pipeline never populated, should be absent from the object
+// rather than present as an empty string. If every key of a nested object strips away (e.g. a
+// recipient whose firstName/lastName are both blank at this point in checkout), the now-empty {}
+// shell collapses too, so it's omitted from its own parent the same as any other empty leaf --
+// otherwise the object would still show up as bare {} instead of being absent. 0, false, and
+// empty arrays are left alone -- those are meaningful values, not "missing data". Never throws.
+window.tfCompactAppDataValue = function (value) {
+    if (Array.isArray(value)) {
+        return value.map(window.tfCompactAppDataValue);
+    }
+    if (value && typeof value === 'object') {
+        var out = {};
+        for (var key in value) {
+            if (!Object.prototype.hasOwnProperty.call(value, key)) { continue; }
+            var compacted = window.tfCompactAppDataValue(value[key]);
+            if (compacted === '' || compacted === null || compacted === undefined) { continue; }
+            out[key] = compacted;
+        }
+        return Object.keys(out).length ? out : undefined;
+    }
+    if (typeof value === 'string') { return window.tfDecodeAppDataText(value); }
+    return value;
+};
+
+window.tfCompactAppData = function (value) {
+    var compacted = window.tfCompactAppDataValue(value);
+    if (compacted === undefined && value && typeof value === 'object' && !Array.isArray(value)) {
+        return {};
+    }
+    return compacted;
+};
+
+// Refreshes appData.customer/billing from the live Billing page form fields -- the server-rendered
+// values at page load reflect any pre-fill only. Shared by checkout-billing.js and
+// formValidation_new.js, which both bind a click handler to #billingReviewBtn; defined once here
+// (loaded in <head>, well before either script's click handler can fire) so the two call sites
+// don't duplicate the same field-reading logic. Never throws -- a DOM read failure here must not
+// block either handler's own submit logic.
+window.tfRefreshBillingAppData = function () {
+    if (!window.appData) { return; }
+    try {
+        var apState = $('#state:visible').val() || $('#province:visible').val() || $('#territory:visible').val() || '';
+        var apCompact = (typeof window.tfCompactAppData === 'function')
+            ? window.tfCompactAppData : function (apValue) { return apValue; };
+        window.appData.customer = apCompact({
+            email:     $('#email').val() || '',
+            firstName: $('#first_name').val() || '',
+            lastName:  $('#last_name').val() || '',
+            phone:     $('#phone_number').val() || ''
+        });
+        window.appData.billing = apCompact({
+            address1: $('#address1').val() || '',
+            city:     $('#city').val() || '',
+            state:    apState,
+            zip:      $('#zip').val() || '',
+            country:  $('#country').val() || ''
+        });
+    } catch (e) { /* appData refresh must never block the caller's own submit flow */ }
+};
+
+window.tfRefreshPdpAppData = function (skuId) {
+    if (!window.appData || !window.appData.product || !skuId) { return; }
+    try {
+        var apCompact = (typeof window.tfCompactAppData === 'function')
+            ? window.tfCompactAppData : function (apValue) { return apValue; };
+        var $apRadio = $('input[name="skuRadio"][value="' + skuId + '"]');
+        if (!$apRadio.length) { return; }
+        var $apPriceEl = $('#' + skuId + '-price');
+        var apPriceText = $apPriceEl.length ? ($apPriceEl.text() || '') : ($apRadio.attr('aria-label') || '');
+        var apPriceMatches = apPriceText.match(/[0-9]+(\.[0-9]+)?/g);
+        var apPrice = apPriceMatches && apPriceMatches.length ? parseFloat(apPriceMatches[apPriceMatches.length - 1]) : 0;
+        window.appData.product = apCompact($.extend({}, window.appData.product, {
+            sku:      skuId,
+            price:    apPrice,
+            imageUrl: $apRadio.attr('data-image') || window.appData.product.imageUrl
+        }));
+    } catch (e) { /* appData refresh must never block the radio's own handlers */ }
+};
+
+window.tfRefreshCartAppData = function () {
+    try {
+        var apBase = (typeof window.siteContextPath !== 'undefined') ? window.siteContextPath : '';
+        $.get(apBase + '/checkout/cartPriceInfo.jsp', function (apHtml) {
+            $('<div>').html(apHtml).find('script').each(function () {
+                $.globalEval(this.text || this.textContent || '');
+            });
+        });
+    } catch (e) { /* appData refresh must never block the caller's own flow */ }
+};
+
+window.tfRefreshDeliveryAppData = function () {
+    if (!window.appData) { return; }
+    try {
+        var apCompact = (typeof window.tfCompactAppData === 'function')
+            ? window.tfCompactAppData : function (apValue) { return apValue; };
+        window.appData.recipient = apCompact({
+            firstName: $('#firstName0').val() || '',
+            lastName:  $('#lastName0').val() || ''
+        });
+        window.appData.delivery = apCompact({
+            date:   $('#deliveryInfoDate-0').val() || '',
+            method: ($('#setEfloristStorePickup-1').val() === 'true') ? 'pickup' : 'delivery',
+            zip:    $('#zip-0').val() || '',
+            city:   $('#city0').val() || ''
+        });
+    } catch (e) { /* appData refresh must never block the caller's own submit flow */ }
+};
+
+// Fires a Klaviyo event only if the onsite script loaded (i.e. the site is connected + tracking
+// enabled). Callers never need to branch on connection state themselves. Never throws -- tracking
+// must never be able to interrupt a caller's own flow (e.g. Express Checkout's synchronous wallet
+// dispatch in ecPlaceOrder()).
+// Returns true only when the event was actually handed to Klaviyo, so klaviyoTrackOnce can tell a
+// real dispatch from a silent no-op.
+window.klaviyoTrack = function (eventName, properties) {
+    try {
+        if (typeof klaviyo === 'undefined') { return false; }
+        console.log(eventName +"-->"+properties);
+        klaviyo.push(['track', eventName, properties]);
+        return true;
+    } catch (e) { /* tracking failure must never block the caller */ }
+    return false;
+};
+
+// Fires an event at most once per guardKey (sessionStorage-backed), so a page refresh or repeated
+// transition within the same checkout session never re-fires the same event. sessionStorage access
+// is wrapped -- it can throw (e.g. Safari private browsing, storage disabled by policy), and this
+// function is called synchronously from checkout-critical paths (ecPlaceOrder's wallet dispatch),
+// so a storage failure must degrade to "always track" rather than ever propagate an exception.
+window.klaviyoTrackOnce = function (guardKey, eventName, properties) {
+    var marker = 'klaviyoFired:' + guardKey;
+    try {
+        if (sessionStorage.getItem(marker)) { return; }
+    } catch (e) { /* storage unavailable — fall through and track anyway */ }
+    // Only burn the guard on a real dispatch. Marking a no-op (site not connected, klaviyo.js
+    // blocked) would suppress the event for the rest of the session once tracking does work.
+    if (!window.klaviyoTrack(eventName, properties)) { return; }
+    try {
+        sessionStorage.setItem(marker, '1');
+    } catch (e) { /* storage unavailable/full — non-fatal, dedupe just won't persist */ }
+};
+</script>
+<style>
+:root{--twm-gold:#B98B3E;--twm-green:#5f6b5b;--twm-sage:#99A594;--twm-ink:#1b1b1b;--twm-text:#4f4f4f;--twm-line:#e4e0d8;--twm-paper:#fcfbf8}
+.twm-chg{position:relative;outline:2px dashed var(--twm-gold)!important;outline-offset:6px;border-radius:2px;transition:outline-color .2s}
+.twm-chg.twm-flash{outline-color:#d9534f!important;outline-style:solid!important}
+.twm-badge{position:absolute!important;top:-14px;right:-12px;left:auto;z-index:50;width:28px!important;height:28px!important;border-radius:50%;background:var(--twm-gold)!important;color:#fff!important;font:600 13px/28px system-ui,-apple-system,"Segoe UI",Arial,sans-serif!important;text-align:center;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.25);letter-spacing:0!important;padding:0!important;margin:0!important;display:block!important;text-transform:none!important}
+body.twm-off .twm-chg{outline:none!important}
+body.twm-off .twm-badge{display:none!important}
+#twm-bar{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:2147483000;display:flex;align-items:center;gap:6px;background:#1d1f1c;color:#fff;border-radius:40px;padding:6px 6px 6px 18px;box-shadow:0 8px 28px rgba(0,0,0,.3);font:500 13px/1.2 system-ui,-apple-system,"Segoe UI",Arial,sans-serif;max-width:calc(100vw - 32px);box-sizing:border-box}
+#twm-bar .twm-bar-label{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#fff}
+#twm-bar button{font:600 12px/1 system-ui,-apple-system,"Segoe UI",Arial,sans-serif;letter-spacing:.06em;border:0;border-radius:30px;padding:10px 14px;cursor:pointer;white-space:nowrap;margin:0;text-transform:none;min-height:0;width:auto;height:auto}
+#twm-open{background:var(--twm-gold);color:#fff}
+#twm-toggle{background:#3a3d38;color:#fff}
+#twm-drawer{position:fixed;top:0;right:0;bottom:0;width:440px;max-width:100vw;background:var(--twm-paper);z-index:2147483001;transform:translateX(105%);transition:transform .28s ease;box-shadow:-10px 0 40px rgba(0,0,0,.18);display:flex;flex-direction:column;font-family:Georgia,"Times New Roman",serif;color:#333;text-align:left;box-sizing:border-box}
+#twm-drawer *{box-sizing:border-box}
+#twm-drawer.open{transform:none}
+.twm-dh{padding:22px 24px 16px;border-bottom:1px solid var(--twm-line);display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.twm-dh h2{font:400 1.55rem/1.2 Georgia,serif;margin:2px 0 6px;color:var(--twm-ink);text-transform:none;letter-spacing:0}
+.twm-dh p{margin:0;font-size:1rem;color:var(--twm-text);line-height:1.45}
+.twm-kicker{font:600 11px/1.4 system-ui,-apple-system,Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--twm-green)}
+#twm-close{background:none;border:0;font:28px/1 system-ui;color:#666;cursor:pointer;padding:0 4px;width:auto;min-height:0}
+.twm-list{overflow-y:auto;padding:8px 24px 120px;-webkit-overflow-scrolling:touch}
+.twm-group{font:600 11px/1.4 system-ui,-apple-system,Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8a8a84;margin:22px 0 4px}
+.twm-item{border-bottom:1px solid var(--twm-line);padding:14px 0;margin:0}
+.twm-item summary{list-style:none;cursor:pointer;display:flex;gap:12px;align-items:flex-start}
+.twm-item summary::-webkit-details-marker{display:none}
+.twm-num{flex:none;width:26px;height:26px;border-radius:50%;background:var(--twm-gold);color:#fff;font:600 12px/26px system-ui,-apple-system,Arial,sans-serif;text-align:center;margin-top:2px}
+.twm-num.bts{background:var(--twm-green)}
+.twm-st{font-size:1.15rem;line-height:1.3;color:var(--twm-ink)}
+.twm-st small{display:block;font:500 12px/1.4 system-ui,-apple-system,Arial,sans-serif;color:#7d7d77;letter-spacing:.02em;margin-top:3px}
+.twm-tag{display:inline-block;font:600 10px/1 system-ui,-apple-system,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--twm-sage);padding:4px 6px;border-radius:2px;margin-left:6px;vertical-align:2px}
+.twm-body{padding:10px 0 0 38px;font-size:1rem;line-height:1.5;color:#444}
+.twm-body p{margin:0 0 10px}
+.twm-body ul{margin:0 0 10px;padding-left:18px}
+.twm-lbl{font:600 10.5px/1.4 system-ui,-apple-system,Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8a8a84;display:block;margin:12px 0 4px}
+.twm-before{background:#f1efe9;border-left:3px solid #c9c3b6;padding:8px 12px;font-size:.96rem;color:#666;overflow-wrap:anywhere}
+.twm-after{background:#eef1ec;border-left:3px solid var(--twm-sage);padding:8px 12px;font-size:.96rem;color:#333;overflow-wrap:anywhere}
+.twm-how{font:13px/1.5 system-ui,-apple-system,Arial,sans-serif;color:#555;background:#fff;border:1px solid var(--twm-line);padding:8px 12px;border-radius:3px}
+.twm-go{font:600 11px/1 system-ui,-apple-system,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;background:none;border:1px solid var(--twm-sage);color:var(--twm-green);padding:8px 12px;cursor:pointer;margin-top:6px;width:auto;min-height:0;border-radius:0}
+.twm-serp{background:#fff;border:1px solid var(--twm-line);border-radius:8px;padding:12px 14px;font-family:Arial,sans-serif;margin:4px 0 6px}
+.twm-serp .u{font-size:12px;color:#4d5156}
+.twm-serp .t{font-size:18px;line-height:1.3;color:#1a0dab;margin:3px 0}
+.twm-serp .d{font-size:13px;line-height:1.45;color:#4d5156}
+.twm-intro-note{font-size:.98rem;color:var(--twm-text);background:#fff;border:1px solid var(--twm-line);padding:10px 12px;margin:16px 0 0;line-height:1.45}
+@media (max-width:600px){#twm-bar .twm-bar-label{display:none}#twm-drawer{width:100vw}}
+</style></head>
+<body>
+
+
+<a aria-label="Skip to Main Content" class="skip-main" href="#main-content">Skip to Main Content</a>
+<script type="text/javascript">
+                var sitePayPalFastButton = false;
+                var loadPayPalFastjs = false;
+               
+                </script>
+<script type="text/javascript">
+                 sitePayPalFastButton = 'true';
+                
+                </script>
+<script type="speculationrules"><p>
+    { "prerender": [{"source": "document","where": {"and": [{"selector_matches": ".nav-container"}]},"eagerness": "eager"}], "prefetch": [ { "urls": [ "/deal-of-the-day/prod740001","/birthday/cat1000017","/get-well/cat1000018","/just-because/cat1080022","/love-romance/cat1000019","/sympathy-bouquets/cat1000026","/sympathy-plants/cat1000027","/funeral-service-bouquets/cat1000023","/best-sellers/cat1070001","/summer-bouquets/cat1080006","/womens-equality-day/cat2920002"], "requires": ["anonymous-client-ip-when-cross-origin"], "referrer_policy": "no-referrer" } ] }
+</p></script>
+<div class="page-loader hidden"></div>
+<div class="logo-center" id="wrapper">
+<input data-user="default" id="marketSite" type="hidden" value="false"/>
+<input data-obituaryid="" id="obituaryId" type="hidden" value=""/>
+<input id="efCurrDateFormat" type="hidden" value="mm/dd/yyyy"/>
+<input id="vendorType" type="hidden" value="vendorType:VT03"/>
+<input id="arTotalBalance" type="hidden" value="0.0"/>
+<script>
+        let encodedEmail = '';
+    	if(encodedEmail){
+    	    var base64Encoded = replaceCRLF(encodedEmail);
+            var decodedEmailId = decodeBase64(base64Encoded);
+            console.log("decodedEmailId for tracking",decodedEmailId);
+            let siteEmail = localStorage.getItem('userInfo-EF-3628');
+            var cookieName = 'enCIterableEndUserId';
+            var cookieValue = base64Encoded;
+            var myDate = new Date();
+            myDate.setMonth(myDate.getMonth() + 12);
+            document.cookie = cookieName +"=" + cookieValue + ";expires=" + myDate 
+                              + ";+domain="+window.location.hostname+";path=/";           
+            if (localStorage.getItem('userInfo-EF-3628') == null && decodedEmailId !== null) {
+              localStorage.setItem('userInfo-EF-3628' , decodedEmailId);
+                         } 
+    	  
+    	}
+        function replaceCRLF(input) {
+          return input.replace(/\r\n/g, "\n");
+        }
+    
+        function decodeBase64(input) {
+          var decoded = atob(input);
+          return decoded;
+        }
+    
+        
+    </script>
+<input id="currentSiteId" type="hidden" value="EF-3628"/>
+<input id="pageNameForlogin" name="vPageParam" type="hidden" value=""/>
+<header class="master-header">
+<nav class="m-supernav fluid avenir clearfix">
+<div class="l-wrapper">
+<div class="cart-add-popup"></div>
+<div class="sc-wrapper">
+<div class="sc-overlay"></div>
+<div class="sc-view">
+<div class="sc-topbar"></div>
+</div>
+</div>
+<a aria-label="menu" class="m-supernav-navtrigger display-block float-left m-supvernav-icon no-desktop" href="javascript:void(0);" id="navTrigger" role="button">
+<div class="m-supernav-navtrigger-icon icon-kahuna-burger"></div>
+</a>
+<div class="divider float-left no-margin display-block no-desktop"></div>
+<div class="m-navbar-search-wrapper m-navbar-item bottom-border float-left no-right no-padding no-border desktop-view" id="search">
+<input id="skuTypeDimension" type="hidden" value="2307186877"/>
+<div id="atg_store_search">
+<div role="search">
+<form action="/browse" class="m-navbar-search-form" id="searchForm" name="searchForm" onsubmit="return validateSearchForm(this);"><input name="_dyncharset" type="hidden" value="UTF-8"/><input aria-label="Search" autocomplete="off" class="m-navbar-search atg_store_searchInput" id="" name="Ntt" placeholder="Search" title="Search" type="text"/>
+<input aria-label="Go buttons" class="m-navbar-search-btn" name="search" title="Go" type="submit"/><input name="_D:search" type="hidden" value=" "/><a class="pdplink" href="/" id="InternalSearchTypeAhead" navlink="Internal Search: Recommend" style="display: none;">Internal Search: Recommend </a>
+<input name="_DARGS" type="hidden" value="/cartridges/SearchBox/SearchBox.jsp.searchForm"/></form></div>
+<script type="text/javascript">
+                var minAutoSuggestInputLength = "3", defaultNavState = "", autoSuggestServiceUrl = "/rest/model/teleflora/autosuggest/AutoSuggestActor/getAutoSuggestResults", collection = "/content/Shared/Auto-Suggest Panels", productUrl = "", containerClass = "dimSearchSuggContainer", defaultImage = "//assets.eflorist.com/images/no_image_auto_suggest.gif",dodImage="//assets.eflorist.com/site/23186503/Deal of the Day Product/DC-general.png",subscImage="//assets.eflorist.com/images/subscriptions/subscription-custom.jpg", skuTypeDimension = "2307186877"
+                var serverUrl="//assets.eflorist.com/site/",nonSecureBaseUrl="//assets.eflorist.com",siteType="EFlorist";
+				
+            </script>
+</div>
+</div>
+<div class="m-supernav-logo float-left logo">
+<a aria-label="Flowers By Michelle Homepage" href="/"> <span id="shop-logo-alt" style="display: none;">Flowers By Michelle</span>
+<figure class="fluid">
+<img alt="Flowers by Michelle" class="" fetchpriority="high" height="1093" id="" onerror="this.parentNode.style.display='none';document.getElementById('shop-logo-alt').style.display='block';" src="//assets.eflorist.com/site/EF-3628/Logo/FlowersByMichelle_Logo_Design1.png?1650672389794" width="3300"/>
+</figure>
+</a>
+</div>
+
+<div class="m-supernav-right-tray">
+<div class="m-supernav-item m-supernav-number no-mobile clearfix">
+<div class="m-supernav-content no-hover">
+<span class="tel"><a href="tel:(702) 255-0209">(702) 255-0209</a></span>
+</div>
+</div>
+<div class="m-supernav-item m-supernav-account clearfix">
+<a alt="Log In" href="#" id="accountTrigger" title="Log In"> <div class="m-supernav-icon icon-user" style=""></div>
+<div class="m-supernav-content m-supernav-account-status">
+                                Log In</div>
+</a>
+</div>
+<div class="m-supernav-item m-supernav-cart clearfix">
+<a href="/cart" id="cartTrigger"><script type="text/javascript">
+		               var cartItemCount = 0;
+		               if(cartItemCount == '1'){
+		                 $("#cartTrigger").attr("aria-label", "Cart, "+ cartItemCount +" item");
+		                 $("#altCartTrigger").attr("aria-label", "Cart, "+ cartItemCount +" item");
+		               }
+		               else if(cartItemCount > '1'){
+		                 $("#cartTrigger").attr("aria-label", "Cart, "+ cartItemCount +" items");
+		                 $("#altCartTrigger").attr("aria-label", "Cart, "+ cartItemCount +" items");
+		               }
+		               else{
+		                 $("#cartTrigger").attr("aria-label", "Cart");
+		                 $("#altCartTrigger").attr("aria-label", "Cart");
+		               }
+		         </script>
+<div class="icon-cart"></div>
+<div class="m-supernav-content">Cart</div>
+</a></div>
+</div>
+<div>
+</div>
+</div></nav>
+</header>
+<nav aria-label="Top Navigation Menu" class="m-navbar position-absolute no-top no-bottom full-height fluid no-top no-left bottom-border clearfix">
+<input id="marketSite" type="hidden" value="false"/>
+<div class="l-wrapper">
+<a aria-label="Close Menu" class="pull-right icon-close nav-close no-desktop" href="#"></a>
+<div class="m-navbar-search-wrapper m-navbar-item bottom-border float-left no-right no-padding no-border mobile-view" id="search">
+<input id="skuTypeDimension" type="hidden" value="2307186877"/>
+<div id="atg_store_search">
+<div role="search">
+<form action="/browse" class="m-navbar-search-form" id="searchForm" name="searchForm" onsubmit="return validateSearchForm(this);"><input name="_dyncharset" type="hidden" value="UTF-8"/><input aria-label="Search" autocomplete="off" class="m-navbar-search atg_store_searchInput" id="" name="Ntt" placeholder="Search" title="Search" type="text"/>
+<input aria-label="Go buttons" class="m-navbar-search-btn" name="search" title="Go" type="submit"/><input name="_D:search" type="hidden" value=" "/><a class="pdplink" href="/" id="InternalSearchTypeAhead" navlink="Internal Search: Recommend" style="display: none;">Internal Search: Recommend </a>
+<input name="_DARGS" type="hidden" value="/cartridges/SearchBox/SearchBox.jsp.searchForm"/></form></div>
+<script type="text/javascript">
+                var minAutoSuggestInputLength = "3", defaultNavState = "", autoSuggestServiceUrl = "/rest/model/teleflora/autosuggest/AutoSuggestActor/getAutoSuggestResults", collection = "/content/Shared/Auto-Suggest Panels", productUrl = "", containerClass = "dimSearchSuggContainer", defaultImage = "//assets.eflorist.com/images/no_image_auto_suggest.gif",dodImage="//assets.eflorist.com/site/23186503/Deal of the Day Product/DC-general.png",subscImage="//assets.eflorist.com/images/subscriptions/subscription-custom.jpg", skuTypeDimension = "2307186877"
+                var serverUrl="//assets.eflorist.com/site/",nonSecureBaseUrl="//assets.eflorist.com",siteType="EFlorist";
+				
+            </script>
+</div>
+</div>
+<div aria-label="Main" class="nav-container" role="navigation">
+<ul class="m-navbar-toplevel fluid auto-height no-margin no-padding" role="menubar">
+<li class="m-navbar-item bottom-border float-left m-navbar-has-subnav m-navbar-item-first" role="presentation">
+<a aria-controls="subMenu_0" aria-expanded="false" aria-haspopup="true" aria-label="Occasions" class="m-navbar-link uppercase float-left position-relative m-subnav-trigger c-top-nav-link" data-subnav="occasions" href="#" role="menuitem">Occasions<i class="fa fa-angle-down-icon"></i></a>
+<ul class="m-navbar-secondlevel fluid auto-height no-margin no-padding no-right" id="subMenu_0" role="menu">
+
+<li class="m-navbar-item bottom-border float-left no-desktop" role="none"><a aria-label="Main Menu" class="m-navbar-link uppercase float-left position-relative m-navbar-escape alt-pink" href="#" role="menuitem">Main Menu</a></li>
+
+<li class="m-navbar-set m-navbar-set-large m-navbar-occassions" role="presentation">
+<ul role="menu">
+<li class="m-navbar-item bottom-border float-left m-navbar-divider" role="presentation"><span aria-label="Occcasions" class="m-navbar-title uppercase float-left position-relative">Occcasions</span></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Halloween" class="m-navbar-link uppercase float-left position-relative" href="https://www.flowersbymichelle.com/halloween/cat11700038" role="menuitem">Halloween</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Thanksgiving" class="m-navbar-link uppercase float-left position-relative" href="https://www.flowersbymichelle.com/thanksgiving/cat11700039" role="menuitem">Thanksgiving</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Anniversary &amp; Romance" class="m-navbar-link uppercase float-left position-relative" href="https://www.flowersbymichelle.com/anniversary-romance/cat11480021" role="menuitem">Anniversary &amp; Romance</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Birthday" class="m-navbar-link uppercase float-left position-relative" href="https://www.flowersbymichelle.com/birthday/cat11480022" role="menuitem">Birthday</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Get Well" class="m-navbar-link uppercase float-left position-relative" href="https://www.flowersbymichelle.com/get-well/cat11480023" role="menuitem">Get Well</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Just Because" class="m-navbar-link uppercase float-left position-relative" href="https://www.flowersbymichelle.com/just-because/cat11480024" role="menuitem">Just Because</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="New Baby" class="m-navbar-link uppercase float-left position-relative" href="https://www.flowersbymichelle.com/new-baby/cat11480025" role="menuitem">New Baby</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Thank You" class="m-navbar-link uppercase float-left position-relative" href="https://www.flowersbymichelle.com/thank-you/cat11480026" role="menuitem">Thank You</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Corsages/Boutonnieres" class="m-navbar-link uppercase float-left position-relative" href="https://www.flowersbymichelle.com/corsagesboutonnieres/cat11480028" role="menuitem">Corsages/Boutonnieres</a></li>
+</ul>
+</li>
+<li class="m-navbar-set m-navbar-occassions" role="presentation">
+<ul role="menu">
+<li class="m-navbar-item bottom-border float-left m-navbar-divider" role="presentation"><span class="m-navbar-title uppercase float-left position-relative">Upcoming Occasions</span></li>
+<li class="m-navbar-item bottom-border float-left m-navbar-upcoming" role="presentation">
+<div class="m-navbar-cal float-left centered no-mobile">
+<span class="m-navbar-month horizonal-seperator float-left">Oct</span> <span class="m-navbar-day horizonal-seperator float-left">31</span>
+</div> <a aria-label="Halloween" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Halloween,OCCASION,TopNav" href=" https://www.flowersbymichelle.com/halloween/cat11700038" role="menuitem">Halloween</a>
+</li>
+<li class="m-navbar-item bottom-border float-left m-navbar-upcoming" role="presentation">
+<div class="m-navbar-cal float-left centered no-mobile">
+<span class="m-navbar-month horizonal-seperator float-left">Nov</span> <span class="m-navbar-day horizonal-seperator float-left">26</span>
+</div> <a aria-label="Thanksgiving" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Thanksgiving,OCCASION,TopNav" href=" https://www.flowersbymichelle.com/thanksgiving/cat11700039" role="menuitem">Thanksgiving</a>
+</li>
+</ul>
+</li>
+<li class="m-navbar-set m-navbar-occassions" role="presentation">
+<ul role="menu">
+<li class="m-navbar-item bottom-border float-left m-navbar-divider" role="presentation"><span class="m-navbar-title uppercase float-left position-relative">Customer's Favorites</span></li>
+<li class="m-navbar-item bottom-border float-left m-navbar-thumbnail" role="presentation"><a class="m-navbar-link uppercase float-left centered position-relative" href="https://www.flowersbymichelle.com/flower-arrangement/sunshine-spritz/prod15650321?nav=clear" role="menuitem"> <figure class="fluid">
+<img alt="Sunshine Spritz" loading="lazy" src="//assets.eflorist.com/site/23186503/assets/products/PHR_/skusku15350717.jpg?v=1782762902897"/>
+</figure><span aria-label="Sunshine Spritz $85.00" class="centered">
+                        $85.00</span>
+</a></li>
+<li class="m-navbar-item bottom-border float-left m-navbar-thumbnail" role="presentation"><a class="m-navbar-link uppercase float-left centered position-relative" href="https://www.flowersbymichelle.com/flower-arrangement/sunflowers-and-love-knots/prod12180446?nav=clear" role="menuitem"> <figure class="fluid">
+<img alt="Sunflowers and Love Knots" loading="lazy" src="//assets.eflorist.com/site/23186503/assets/products/PHR_/sku11870828.jpg"/>
+</figure><span aria-label="Sunflowers and Love Knots $75.00" class="centered">
+                        $75.00</span>
+</a></li>
+<li class="m-navbar-item bottom-border float-left m-navbar-thumbnail" role="presentation"><a class="m-navbar-link uppercase float-left centered position-relative" href="https://www.flowersbymichelle.com/flower-arrangement/amethyst-moon/prod15650265?nav=clear" role="menuitem"> <figure class="fluid">
+<img alt="Amethyst Moon" loading="lazy" src="//assets.eflorist.com/site/23186503/assets/products/PHR_/skusku15350557.jpg?v=1782760596241"/>
+</figure><span aria-label="Amethyst Moon $99.00" class="centered">
+                        $99.00</span>
+</a></li>
+<li class="m-navbar-item bottom-border float-left m-navbar-thumbnail" role="presentation"><a class="m-navbar-link uppercase float-left centered position-relative" href="https://www.flowersbymichelle.com/flower-arrangement/lovely-lush-hydrangea/prod14270889?nav=clear" role="menuitem"> <figure class="fluid">
+<img alt="Lovely Lush Hydrangea" loading="lazy" src="//assets.eflorist.com/site/23186503/assets/products/PHR_/skusku13951658.jpg"/>
+</figure><span aria-label="Lovely Lush Hydrangea $149.00" class="centered">
+                        $149.00</span>
+</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="m-navbar-item bottom-border float-left m-navbar-has-subnav" role="presentation">
+<a aria-controls="subMenu_1" aria-expanded="false" aria-haspopup="true" aria-label="Flowers &amp; Plants" class="m-navbar-link uppercase float-left position-relative m-subnav-trigger c-top-nav-link" data-subnav="occasions" href="#" role="menuitem">Flowers &amp; Plants<i class="fa fa-angle-down-icon"></i></a>
+<ul class="m-navbar-secondlevel fluid auto-height no-margin no-padding no-right" id="subMenu_1" role="menu">
+
+<li class="m-navbar-item bottom-border float-left no-desktop" role="none"><a aria-label="Main Menu" class="m-navbar-link uppercase float-left position-relative m-navbar-escape alt-pink" href="#" role="menuitem">Main Menu</a></li>
+
+<li class="m-navbar-set m-navbar-set-large m-navbar-occassions" role="presentation">
+<ul role="menu">
+<li class="m-navbar-item bottom-border float-left m-navbar-divider" role="presentation"><span aria-label="Shop By Flower Type" class="m-navbar-title uppercase float-left position-relative">Shop By Flower Type</span></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Fall Flowers" class="m-navbar-link uppercase float-left position-relative" href="https://www.flowersbymichelle.com/fall-flowers/cat11480029" role="menuitem">Fall Flowers</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Best Sellers" class="m-navbar-link uppercase float-left position-relative" href="https://www.flowersbymichelle.com/best-sellers/cat11480030" role="menuitem">Best Sellers</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Modern" class="m-navbar-link uppercase float-left position-relative" href="https://www.flowersbymichelle.com/modern/cat1080001" role="menuitem">Modern</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Luxury Blooms" class="m-navbar-link uppercase float-left position-relative" href="https://www.flowersbymichelle.com/luxury-blooms/cat11480031" role="menuitem">Luxury Blooms</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Roses" class="m-navbar-link uppercase float-left position-relative" href="https://www.flowersbymichelle.com/roses/cat11480032" role="menuitem">Roses</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Patriotic Blooms" class="m-navbar-link uppercase float-left position-relative" href="https://www.flowersbymichelle.com/patriotic-blooms/cat11700040" role="menuitem">Patriotic Blooms</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Plants" class="m-navbar-link uppercase float-left position-relative" href="https://www.flowersbymichelle.com/plants/cat11480033" role="menuitem">Plants</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Gift Baskets" class="m-navbar-link uppercase float-left position-relative" href="https://www.flowersbymichelle.com/gift-baskets/cat11480034" role="menuitem">Gift Baskets</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Floral Subscription" class="m-navbar-link uppercase float-left position-relative" href="https://www.flowersbymichelle.com/floral-subscription/cat11480036" role="menuitem">Floral Subscription</a></li>
+</ul>
+</li>
+<li class="m-navbar-set m-navbar-occassions" role="presentation">
+<ul role="menu">
+<li class="m-navbar-item bottom-border float-left m-navbar-divider" role="presentation"><span class="m-navbar-title uppercase float-left position-relative">Best Selling Products and Plants</span></li>
+<li class="m-navbar-item bottom-border float-left m-navbar-thumbnail" role="presentation"><a class="m-navbar-link uppercase float-left centered position-relative" href="https://www.flowersbymichelle.com/flower-arrangement/roses-and-romance/prod13510383?nav=clear" role="menuitem"> <figure class="fluid">
+<img alt="Roses and Romance" loading="lazy" src="//assets.eflorist.com/site/23186503/assets/products/PHR_/skusku13190744.jpg"/>
+</figure><span aria-label="Roses and Romance $89.00" class="centered">
+                        $89.00</span>
+</a></li>
+<li class="m-navbar-item bottom-border float-left m-navbar-thumbnail" role="presentation"><a class="m-navbar-link uppercase float-left centered position-relative" href="https://www.flowersbymichelle.com/flower-arrangement/peace-lily-plant/prod12280313?nav=clear" role="menuitem"> <figure class="fluid">
+<img alt="Peace Lily Plant" loading="lazy" src="//assets.eflorist.com/site/23186503/assets/products/PHR_/skusku11970820.jpg"/>
+</figure><span aria-label="Peace Lily Plant $65.00" class="centered">
+                        $65.00</span>
+</a></li>
+<li class="m-navbar-item bottom-border float-left m-navbar-thumbnail" role="presentation"><a class="m-navbar-link uppercase float-left centered position-relative" href="https://www.flowersbymichelle.com/flower-arrangement/blooming-briar/prod15650294?nav=clear" role="menuitem"> <figure class="fluid">
+<img alt="Blooming Briar" loading="lazy" src="//assets.eflorist.com/site/23186503/assets/products/PHR_/skusku15350636.jpg?v=1782760368419"/>
+</figure><span aria-label="Blooming Briar $89.00" class="centered">
+                        $89.00</span>
+</a></li>
+<li class="m-navbar-item bottom-border float-left m-navbar-thumbnail" role="presentation"><a class="m-navbar-link uppercase float-left centered position-relative" href="https://www.flowersbymichelle.com/flower-arrangement/petal-parade/prod15650327?nav=clear" role="menuitem"> <figure class="fluid">
+<img alt="Petal Parade" loading="lazy" src="//assets.eflorist.com/site/23186503/assets/products/PHR_/skusku15350735.jpg?v=1782763540333"/>
+</figure><span aria-label="Petal Parade $145.00" class="centered">
+                        $145.00</span>
+</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="m-navbar-item bottom-border float-left m-navbar-has-subnav" role="presentation">
+<a aria-controls="subMenu_2" aria-expanded="false" aria-haspopup="true" aria-label="Sympathy &amp; Funeral" class="m-navbar-link uppercase float-left position-relative m-subnav-trigger c-top-nav-link" data-subnav="occasions" href="#" role="menuitem">Sympathy &amp; Funeral<i class="fa fa-angle-down-icon"></i></a>
+<ul class="m-navbar-secondlevel fluid auto-height no-margin no-padding no-right" id="subMenu_2" role="menu">
+
+<li class="m-navbar-item bottom-border float-left no-desktop" role="none"><a aria-label="Main Menu" class="m-navbar-link uppercase float-left position-relative m-navbar-escape alt-pink" href="#" role="menuitem">Main Menu</a></li>
+
+<li class="m-navbar-set m-navbar-occassions" role="presentation">
+<ul role="menu">
+<li class="m-navbar-item bottom-border float-left m-navbar-divider" role="presentation"><span class="m-navbar-title uppercase float-left position-relative">FOR THE HOME</span></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Flowers For The Home" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Flowers For The Home,OCCASION,TopNav" href="https://www.flowersbymichelle.com/flowers-for-the-home/cat11550004" role="menuitem">Flowers For The Home</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Plants for Sympathy" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Plants for Sympathy,OCCASION,TopNav" href="https://www.flowersbymichelle.com/plants-for-sympathy/cat11550005" role="menuitem">Plants for Sympathy</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="A Personal Touch" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="A Personal Touch,OCCASION,TopNav" href="https://www.flowersbymichelle.com/a-personal-touch/cat11550006" role="menuitem">A Personal Touch</a></li>
+</ul>
+</li>
+<li class="m-navbar-set m-navbar-occassions" role="presentation">
+<ul role="menu">
+<li class="m-navbar-item bottom-border float-left m-navbar-divider" role="presentation"><span class="m-navbar-title uppercase float-left position-relative">FOR THE SERVICE</span></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Floral Arrangements for the Service" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Floral Arrangements for the Service,OCCASION,TopNav" href="https://www.flowersbymichelle.com/floral-arrangements-for-the-service/cat12270001" role="menuitem">Floral Arrangements for the Service</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Sympathy Collections Trios" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Sympathy Collections Trios,OCCASION,TopNav" href="https://www.flowersbymichelle.com/sympathy-collections-trios/cat11500039" role="menuitem">Sympathy Collections Trios</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Casket Sprays" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Casket Sprays,OCCASION,TopNav" href="https://www.flowersbymichelle.com/casket-sprays/cat11550007" role="menuitem">Casket Sprays</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Cremation" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Cremation,OCCASION,TopNav" href="https://www.flowersbymichelle.com/cremation/cat11550008" role="menuitem">Cremation</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Wreaths and Sprays" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Wreaths and Sprays,OCCASION,TopNav" href="https://www.flowersbymichelle.com/wreaths-and-sprays/cat11550009" role="menuitem">Wreaths and Sprays</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Color Collections" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Color Collections,OCCASION,TopNav" href="https://www.flowersbymichelle.com/color-collections/cat11550010" role="menuitem">Color Collections</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="m-navbar-item bottom-border float-left m-navbar-has-subnav" role="presentation">
+<a aria-controls="subMenu_3" aria-expanded="false" aria-haspopup="true" aria-label="Gifts &amp; More" class="m-navbar-link uppercase float-left position-relative m-subnav-trigger c-top-nav-link" data-subnav="occasions" href="#" role="menuitem">Gifts &amp; More<i class="fa fa-angle-down-icon"></i></a>
+<ul class="m-navbar-secondlevel fluid auto-height no-margin no-padding no-right" id="subMenu_3" role="menu">
+
+<li class="m-navbar-item bottom-border float-left no-desktop" role="none"><a aria-label="Main Menu" class="m-navbar-link uppercase float-left position-relative m-navbar-escape alt-pink" href="#" role="menuitem">Main Menu</a></li>
+
+<li class="m-navbar-set m-navbar-set no-border" role="presentation">
+<ul role="menu">
+<li class="m-navbar-item bottom-border float-left m-navbar-divider" role="presentation"><span class="m-navbar-title uppercase float-left position-relative"></span></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="JellyCat Plush" class="m-navbar-link uppercase float-left position-relative" href="/jellycat-plush/cat13500004" role="menuitem">JellyCat Plush</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="HydroJug Sips and Petals" class="m-navbar-link uppercase float-left position-relative" href="/hydrojug-sips-and-petals/cat13450058" role="menuitem">HydroJug Sips and Petals</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Weddings (Opens in new tab)" class="m-navbar-link uppercase float-left position-relative c-top-nav-link" href="https://flowersbymichelle.weddingday.pro/" role="menuitem" target="_blank">Weddings</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Upcoming Events" class="m-navbar-link uppercase float-left position-relative c-top-nav-link" href="https://www.flowersbymichelle.com/upcoming-events/cat9460014" role="menuitem">Upcoming Events</a></li>
+<li class="m-navbar-item bottom-border float-left m-navbar-has-subnav" role="presentation">
+<a aria-controls="subMenu_6" aria-expanded="false" aria-haspopup="true" aria-label="About Us" class="m-navbar-link uppercase float-left position-relative m-subnav-trigger c-top-nav-link" data-subnav="occasions" href="https://www.flowersbymichelle.com/about-us" role="menuitem">About Us<i class="fa fa-angle-down-icon"></i></a>
+<ul class="m-navbar-secondlevel fluid auto-height no-margin no-padding no-right" id="subMenu_6" role="menu">
+
+<li class="m-navbar-item bottom-border float-left no-desktop" role="none"><a aria-label="Main Menu" class="m-navbar-link uppercase float-left position-relative m-navbar-escape alt-pink" href="#" role="menuitem">Main Menu</a></li>
+
+<li class="m-navbar-set m-navbar-set no-border" role="presentation">
+<ul role="menu">
+<li class="m-navbar-item bottom-border float-left m-navbar-divider" role="presentation"><span class="m-navbar-title uppercase float-left position-relative"><blank></blank></span></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="About Us" class="m-navbar-link uppercase float-left position-relative" href="/about-us" role="menuitem">About Us</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Frequently Asked Questions" class="m-navbar-link uppercase float-left position-relative" href="/frequently-asked-questions" role="menuitem">Frequently Asked Questions</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Reviews" class="m-navbar-link uppercase float-left position-relative" href="/reviews" role="menuitem">Reviews</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Blog" class="m-navbar-link uppercase float-left position-relative" href="/blog" role="menuitem">Blog</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="m-navbar-item bottom-border float-left m-navbar-divider no-desktop" role="presentation"><span class="m-navbar-title uppercase float-left position-relative">Customer Service</span></li>
+<li class="m-navbar-footer m-navbar-item bottom-border float-left no-desktop" role="presentation"><a aria-label="e-mail us" class="m-navbar-link uppercase float-left position-relative" href="mailto:sales@flowersbymichelle.com" role="menuitem">e-mail
+                            us</a></li>
+<li class="m-navbar-footer m-navbar-item bottom-border float-left no-desktop" role="presentation"><a aria-label="(702) 255-0209" class="m-navbar-link uppercase float-left position-relative" href="tel:(702) 255-0209" role="menuitem">(702) 255-0209</a>
+</li>
+</ul>
+</div>
+<div class="m-navbar-secondlevel-bkg" id="secondLevelBkg">
+<div class="m-navbar-pinkline"></div>
+</div>
+<div class="m-navbar-secondlevel-bkg is-quickshop" id="secondLevelBkgQS">
+<div class="m-navbar-pinkline"></div>
+</div>
+
+<input class="btn nav-close no-desktop" id="closeNavBtn" name="closeNavBtn" type="button" value="Close"/>
+</div>
+
+</nav>
+<div aria-hidden="false" class="modal hide fade in" data-width="460" id="SessionTimeOutWarn" style="display: none; width: 460px; margin-left: -229px; margin-top: -211px;">
+<div class="m-pdp-modal-header modal-header">
+<p class="m-pdp-modal-header-text">
+<strong>Warning</strong><span><a class="pull-right icon-close icon-close-modal" data-dismiss="modal" href="#"></a></span>
+</p>
+</div>
+<div class="modal-body pdp-modal-body centered">
+<p class="m-pdp-header-modal-body">
+                session about to expire in few minutes</p>
+</div>
+<div class="modal-footer pdp-modal-footer">
+<a class="pdp-modal-footer-link" data-dismiss="modal" href="#">Back to Shopping</a>
+</div>
+</div>
+<div class="l-wrapper topSlider">
+</div>
+<div class="m-navbar-offcanvas-divider no-top no-bottom full-height no-desktop"></div>
+<form action="/WEB-INF/fragments/common/?_DARGS=/WEB-INF/fragments/common/header.jsp#" id="checkoutLoginForm" method="POST" name="checkoutLoginForm"><input name="_dyncharset" type="hidden" value="UTF-8"/><input name="_dynSessConf" type="hidden" value="2903798664473738915"/><input id="logInEmailfield" name="email" title="Email" type="hidden" value=""/>
+<input id="logInPasswordfield" name="password" title="Password" type="hidden" value=""/>
+</form><script>
+ function executeSubmit() {
+    var form = $('#logInForm');
+    var validForm = form.valid();
+    if (validForm) {
+    form = $('#checkoutLoginForm');
+    $.ajax({
+    type : "POST",
+    url : '/fragments/loginErrors.jsp?',
+    async: false,
+    data : form.serialize(),
+    success : function(data) {
+    var trimStr = data.trim();
+     if (trimStr != 'success') {
+     var redirectURL= $('#checkoutLoginErrURL').val();
+     redirectURL = redirectURL+"&chkoutErrMsg="+trimStr.split('</br>')[0];
+     window.location.href = redirectURL;
+    } else if (trimStr == '' || trimStr == undefined) {
+    var redirectURL= $('#checkoutLoginErrURL').val();
+         redirectURL = redirectURL+"&chkoutErrMsg="+trimStr.split('</br>')[0];
+        window.location.href = redirectURL;
+    } else {
+    setTimeout(function(){// wait for 5 secs(2)
+    location.reload(); // then reload the page.(3)
+    }, 1000);
+
+    }
+    },
+    error : function(data) {
+    location.reload(true);
+    }
+    });
+    }
+    }
+</script>
+<script>
+                const isAccountBilling = false;
+            </script>
+<section class="m-homepage layout1 centered clearfix" id="main-content"><div class="fbm-faq"><style>.fbm-faq{max-width:880px;margin:0 auto;padding:8px 16px 48px;color:#242424;font-size:16px;line-height:1.6;box-sizing:border-box;text-align:left}.fbm-faq *{box-sizing:border-box}.fbm-faq .fbm-head{text-align:center;padding:30px 16px 20px}.fbm-faq .fbm-head h1{font-size:34px;line-height:1.15;color:#53753c;margin:0 0 14px;font-weight:700;border:0;text-transform:none;letter-spacing:0}.fbm-faq .fbm-head p{font-size:16px;color:#4a4a4a;margin:0 auto;max-width:680px;line-height:1.6}.fbm-faq a{color:#53753c;text-decoration:underline}.fbm-faq .fbm-head a{font-weight:600}.fbm-faq .fbm-nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:24px 0 34px}.fbm-faq .fbm-nav a{display:inline-block;padding:8px 16px;border-radius:999px;background:#f2f7ee;color:#53753c;font-size:13.5px;font-weight:600;text-decoration:none;border:1px solid #dce6d4;transition:background .15s,color .15s}.fbm-faq .fbm-nav a:hover{background:#53753c;color:#fff;border-color:#53753c}.fbm-faq h2.fbm-sec{font-size:23px;color:#53753c;font-weight:700;margin:40px 0 18px;padding-bottom:10px;border-bottom:2px solid #dce6d4;display:flex;align-items:center;gap:11px;scroll-margin-top:90px;text-transform:none;letter-spacing:0;text-align:left}.fbm-faq h2.fbm-sec::before{content:"";display:inline-block;flex:0 0 auto;width:10px;height:10px;border-radius:50%;background:#53753c}.fbm-faq details.fbm-item{border:1px solid #dce6d4;border-radius:12px;margin:0 0 12px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05);overflow:hidden;transition:box-shadow .2s,border-color .2s}.fbm-faq details.fbm-item[open]{border-color:#53753c;box-shadow:0 5px 16px rgba(0,0,0,.08)}.fbm-faq summary.fbm-q{list-style:none;cursor:pointer;padding:17px 54px 17px 22px;position:relative;font-size:16.5px;font-weight:600;color:#242424;line-height:1.45}.fbm-faq summary.fbm-q::-webkit-details-marker{display:none}.fbm-faq summary.fbm-q:hover{background:#f2f7ee}.fbm-faq summary.fbm-q::after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:26px;font-weight:300;color:#53753c;line-height:1;transition:transform .25s ease}.fbm-faq details.fbm-item[open] summary.fbm-q::after{transform:translateY(-50%) rotate(45deg)}.fbm-faq .fbm-a{padding:16px 22px 20px;color:#242424;font-size:15.5px;line-height:1.65;border-top:1px solid #dce6d4}.fbm-faq .fbm-a p{margin:0 0 10px}.fbm-faq .fbm-a p:last-child{margin:0}.fbm-faq .fbm-a ul{margin:6px 0 10px;padding-left:20px}.fbm-faq .fbm-a li{margin:0 0 4px}.fbm-faq .fbm-foot{text-align:center;margin:40px 0 0;padding:26px 20px;background:#f2f7ee;border-radius:14px;color:#4a4a4a;font-size:15.5px}.fbm-faq .fbm-foot strong{color:#53753c;display:block;font-size:18px;margin-bottom:6px}@media(max-width:640px){.fbm-faq .fbm-head h1{font-size:27px}.fbm-faq h2.fbm-sec{font-size:20px}.fbm-faq summary.fbm-q{font-size:15.5px;padding:15px 46px 15px 16px}.fbm-faq .fbm-a{padding-left:16px;padding-right:16px}}</style><div class="fbm-head twm-chg" data-twm="1"><span class="twm-badge" data-twm-go="1">1</span><h1>Frequently Asked Questions</h1><p>Answers to the questions we hear most about ordering, same-day delivery across Las Vegas and Henderson, funeral and hospital deliveries, weddings and our two family shops. Can't find your answer? Call Las Vegas at <a href="tel:7022550209">(702) 255-0209</a> or Henderson at <a href="tel:7024456000">(702) 445-6000</a>.</p></div><div class="fbm-nav"><a href="#fbm-sec-0">Ordering</a><a href="#fbm-sec-1">Delivery</a><a href="#fbm-sec-2">Sympathy &amp; Funeral</a><a href="#fbm-sec-3">Weddings &amp; Events</a><a href="#fbm-sec-4">Flowers by Occasion</a><a href="#fbm-sec-5">Flower Care</a><a href="#fbm-sec-6">About the Shop</a></div><h2 class="fbm-sec twm-chg" data-twm="2" data-twm-key="s2" id="fbm-sec-0"><span class="twm-badge" data-twm-go="2">2</span>Ordering</h2><details class="fbm-item"><summary class="fbm-q">How do I order flowers from Flowers By Michelle?</summary><div class="fbm-a"><p>Order online at flowersbymichelle.com, call our Las Vegas shop at <a href="tel:7022550209">(702) 255-0209</a> or our Henderson shop at <a href="tel:7024456000">(702) 445-6000</a>, or visit either location. Every arrangement is hand designed with fresh flowers. Start with our <a href="https://www.flowersbymichelle.com/best-sellers/cat11480030">best sellers</a> if you are not sure what to choose.</p></div></details><details class="fbm-item"><summary class="fbm-q">What payment methods do you accept?</summary><div class="fbm-a"><p>We accept Apple Pay, Visa, MasterCard, Discover, American Express, house accounts with invoicing, and payment over the phone.</p></div></details><details class="fbm-item"><summary class="fbm-q">Can you create a custom arrangement?</summary><div class="fbm-a"><p>Yes. Tell us the colors, the flowers and the occasion, and our designers will build something just for that person. Call either shop to talk it through.</p></div></details><details class="fbm-item"><summary class="fbm-q">What if a flower in my arrangement is not available?</summary><div class="fbm-a"><p>We substitute a similar bloom of equal or higher value and keep the design and style of the arrangement you chose.</p></div></details><details class="fbm-item"><summary class="fbm-q">What if I have a problem with my order?</summary><div class="fbm-a"><p>Call us. We help with care tips, replacements and any delivery concern after your flowers arrive.</p></div></details><details class="fbm-item"><summary class="fbm-q">Do you offer a flower subscription?</summary><div class="fbm-a"><p>Yes. A <a href="https://www.flowersbymichelle.com/floral-subscription/cat11480036">floral subscription</a> sends fresh flowers on a regular schedule, for your own home, an office or someone you want to remember all year.</p></div></details><h2 class="fbm-sec twm-chg" data-twm="3" data-twm-key="s3" id="fbm-sec-1"><span class="twm-badge" data-twm-go="3">3</span>Delivery</h2><details class="fbm-item"><summary class="fbm-q">Where does Flowers By Michelle deliver?</summary><div class="fbm-a"><p>We deliver throughout the Las Vegas Valley, including Las Vegas, Henderson, North Las Vegas, Summerlin, Sun City Summerlin, Green Valley, The Lakes, Spanish Trail, Lake Las Vegas and Southern Highlands. See our <a href="https://www.flowersbymichelle.com/las-vegas-florist/cat13270048">Las Vegas florist</a> page.</p></div></details><details class="fbm-item"><summary class="fbm-q">Do you offer same-day flower delivery?</summary><div class="fbm-a"><p>Yes. Order early in the day and we can usually deliver the same day. You can also schedule delivery for any future date at checkout. If it is already the afternoon, call <a href="tel:7022550209">(702) 255-0209</a> and we will tell you what is still possible.</p></div></details><details class="fbm-item"><summary class="fbm-q">Do you deliver on Sundays?</summary><div class="fbm-a"><p>No. Both shops are closed on Sundays and we do not deliver that day.</p></div></details><details class="fbm-item"><summary class="fbm-q">Can you deliver flowers to a Las Vegas hotel?</summary><div class="fbm-a"><p>Yes, we deliver to hotels and resorts across Las Vegas. Give us the guest's full name as it appears on the reservation, the hotel, and a room number or the guest's phone number if you have it. Hotels hold deliveries at the front desk or bell desk when they cannot reach the guest.</p></div></details><details class="fbm-item"><summary class="fbm-q">Do you deliver to Las Vegas and Henderson hospitals?</summary><div class="fbm-a"><p>Yes. We deliver to Sunrise Hospital and Medical Center, University Medical Center, Summerlin Hospital, Centennial Hills Hospital, Southern Hills Hospital, Spring Valley Hospital, Mountain View Hospital, Valley Hospital Medical Center and Desert Springs Hospital, among others.</p><p>Include the patient's full name and room number if you have it. Shop <a href="https://www.flowersbymichelle.com/get-well/cat11480023">get well flowers</a>.</p></div></details><details class="fbm-item"><summary class="fbm-q">Do you deliver to nursing homes and senior living communities?</summary><div class="fbm-a"><p>Yes. We deliver to assisted living, memory care and nursing communities across the valley every week. If you are not sure whether we go to a particular community, call <a href="tel:7022550209">(702) 255-0209</a>.</p></div></details><details class="fbm-item"><summary class="fbm-q">How far ahead should I order for a holiday?</summary><div class="fbm-a"><p>Place your order at least one day before Thanksgiving, Christmas, New Year's Day, Valentine's Day, Easter, Administrative Professionals Week, Mother's Day, Memorial Day, Father's Day, Independence Day and Labor Day.</p><p>Both shops are closed on Thanksgiving Day, Christmas Day, New Year's Day, Easter, Memorial Day, Father's Day, Independence Day and Labor Day.</p></div></details><h2 class="fbm-sec twm-chg" data-twm="4" data-twm-key="s4" id="fbm-sec-2"><span class="twm-badge" data-twm-go="4">4</span>Sympathy &amp; Funeral</h2><details class="fbm-item"><summary class="fbm-q">Do you deliver to funeral homes in Las Vegas and Henderson?</summary><div class="fbm-a"><p>Yes, every day. We deliver to Palm Mortuaries and their chapels, Davis Funeral Homes, Bunkers Mortuary, Giddens Memorial Chapel, Kraft-Sussman Funeral Services, La Paloma Funeral Services, Serenity Funeral Home and King David Cemetery, among others.</p><p>Give us the full name of the person who has died, the funeral home, and the date and time of the service. If you do not see the funeral home you need, call <a href="tel:7022550209">(702) 255-0209</a>.</p></div></details><details class="fbm-item"><summary class="fbm-q">What should I send to the service, and what should go to the home?</summary><div class="fbm-a"><p>For the service, choose from <a href="https://www.flowersbymichelle.com/floral-arrangements-for-the-service/cat12270001">arrangements for the service</a>, <a href="https://www.flowersbymichelle.com/casket-sprays/cat11550007">casket sprays</a> and <a href="https://www.flowersbymichelle.com/wreaths-and-sprays/cat11550009">wreaths and sprays</a>. For a memorial with an urn, see <a href="https://www.flowersbymichelle.com/cremation/cat11550008">cremation</a> tributes.</p><p>For the family's home, <a href="https://www.flowersbymichelle.com/flowers-for-the-home/cat11550004">flowers for the home</a> or <a href="https://www.flowersbymichelle.com/plants-for-sympathy/cat11550005">plants for sympathy</a> are the usual choice.</p></div></details><details class="fbm-item"><summary class="fbm-q">Who sends the casket spray?</summary><div class="fbm-a"><p>Traditionally the immediate family. Friends, coworkers and neighbors usually send a standing spray, a wreath or flowers for the family's home. If you are not sure, call and a designer will help you choose.</p></div></details><details class="fbm-item"><summary class="fbm-q">Can a sympathy order include more than one piece?</summary><div class="fbm-a"><p>Yes. Our <a href="https://www.flowersbymichelle.com/sympathy-collections-trios/cat11500039">sympathy collections and trios</a> are designed as matching sets for the service.</p></div></details><h2 class="fbm-sec twm-chg" data-twm="5" data-twm-key="s5" id="fbm-sec-3"><span class="twm-badge" data-twm-go="5">5</span>Weddings &amp; Events</h2><details class="fbm-item"><summary class="fbm-q">Do you do wedding flowers?</summary><div class="fbm-a"><p>Yes. We design bouquets, centerpieces and venue decor for weddings in Las Vegas and Henderson. Call either shop to start planning.</p></div></details><details class="fbm-item"><summary class="fbm-q">Can you handle large events and corporate orders?</summary><div class="fbm-a"><p>Yes. We design custom flowers for corporate events, parties and large gatherings throughout Las Vegas and Henderson.</p></div></details><details class="fbm-item"><summary class="fbm-q">Do you make corsages and boutonnieres?</summary><div class="fbm-a"><p>Yes. Order <a href="https://www.flowersbymichelle.com/corsagesboutonnieres/cat11480028">corsages and boutonnieres</a> for proms, homecomings, weddings and dances.</p></div></details><h2 class="fbm-sec twm-chg" data-twm="6" data-twm-key="s6" id="fbm-sec-4"><span class="twm-badge" data-twm-go="6">6</span>Flowers by Occasion</h2><details class="fbm-item"><summary class="fbm-q">What are your most popular flowers?</summary><div class="fbm-a"><p>Start with our <a href="https://www.flowersbymichelle.com/best-sellers/cat11480030">best sellers</a>, <a href="https://www.flowersbymichelle.com/roses/cat11480032">roses</a> and <a href="https://www.flowersbymichelle.com/luxury-blooms/cat11480031">luxury blooms</a>. For something more contemporary, see <a href="https://www.flowersbymichelle.com/modern/cat1080001">modern</a> designs.</p></div></details><details class="fbm-item"><summary class="fbm-q">What should I send for a birthday or anniversary?</summary><div class="fbm-a"><p>See <a href="https://www.flowersbymichelle.com/birthday/cat11480022">birthday flowers</a> and <a href="https://www.flowersbymichelle.com/anniversary-romance/cat11480021">anniversary and romance</a>. A bright mixed bouquet suits most birthdays; roses are still the favorite for an anniversary.</p></div></details><details class="fbm-item"><summary class="fbm-q">What can I send to someone who is sick or has a new baby?</summary><div class="fbm-a"><p>Our <a href="https://www.flowersbymichelle.com/get-well/cat11480023">get well</a> and <a href="https://www.flowersbymichelle.com/new-baby/cat11480025">new baby</a> collections are sized for a hospital room or a nursery. A plant is a good choice for a longer stay.</p></div></details><details class="fbm-item"><summary class="fbm-q">Do you sell gifts as well as flowers?</summary><div class="fbm-a"><p>Yes. We carry <a href="https://www.flowersbymichelle.com/gift-baskets/cat11480034">gift baskets</a>, <a href="https://www.flowersbymichelle.com/plants/cat11480033">plants and succulents</a>, <a href="https://www.flowersbymichelle.com/jellycat-plush/cat13500004">JellyCat plush</a> and <a href="https://www.flowersbymichelle.com/hydrojug-sips-and-petals/cat13450058">HydroJug Sips and Petals</a>, which can be added to a flower order.</p></div></details><h2 class="fbm-sec twm-chg" data-twm="7" data-twm-key="s7" id="fbm-sec-5"><span class="twm-badge" data-twm-go="7">7</span>Flower Care</h2><details class="fbm-item"><summary class="fbm-q">How do I make my flowers last longer?</summary><div class="fbm-a"><p>Top up the vase with fresh water every day and change it completely every two or three days. Trim about an inch from each stem at an angle, and pull any leaves that sit below the waterline. In the desert heat, keep flowers out of direct sun and away from air conditioning vents.</p></div></details><details class="fbm-item"><summary class="fbm-q">How often should I water a plant?</summary><div class="fbm-a"><p>Most indoor plants like bright, indirect light and water only when the top of the soil feels dry. Succulents need even less. Too much water is a more common problem than too little.</p></div></details><details class="fbm-item"><summary class="fbm-q">Are any flowers dangerous for pets?</summary><div class="fbm-a"><p>Yes. Lilies are highly toxic to cats, including the pollen and the vase water. If the recipient has a cat, tell us and we will design without lilies.</p></div></details><h2 class="fbm-sec twm-chg" data-twm="8" data-twm-key="s8" id="fbm-sec-6"><span class="twm-badge" data-twm-go="8">8</span>About the Shop</h2><details class="fbm-item"><summary class="fbm-q">How long has Flowers By Michelle been in business?</summary><div class="fbm-a"><p>Since 1992. Flowers By Michelle is a family-owned flower and gift boutique that has served the Las Vegas Valley for more than 30 years. Read more <a href="https://www.flowersbymichelle.com/about-us">about us</a>.</p></div></details><details class="fbm-item"><summary class="fbm-q">Where are your shops, and when are they open?</summary><div class="fbm-a"><p>Las Vegas: 6510 N. Buffalo Dr., Suite 140, Las Vegas, NV 89131, <a href="tel:7022550209">(702) 255-0209</a>.</p><p>Henderson: 290 E. Horizon Dr., Henderson, NV 89015, <a href="tel:7024456000">(702) 445-6000</a>.</p><p>Both shops are open Monday through Friday from 8:00 a.m. to 5:30 p.m. and Saturday from 9:00 a.m. to 4:00 p.m., and closed Sunday.</p></div></details><details class="fbm-item"><summary class="fbm-q">Has Flowers By Michelle won any awards?</summary><div class="fbm-a"><p>Yes. Flowers By Michelle is a 2025 Best of Las Vegas Gold winner in the Las Vegas Review-Journal readers' poll, and has been a Best of Las Vegas winner ten years in a row.</p></div></details><details class="fbm-item"><summary class="fbm-q">What do customers say about Flowers By Michelle?</summary><div class="fbm-a"><p>We have more than 2,000 Google reviews averaging 4.9 stars. Read a selection on our <a href="https://www.flowersbymichelle.com/reviews">reviews</a> page.</p></div></details><div class="fbm-foot"><strong>Still have a question?</strong>Call our Las Vegas shop at <a href="tel:7022550209">(702) 255-0209</a> or our Henderson shop at <a href="tel:7024456000">(702) 445-6000</a>, Monday through Saturday, and we will be glad to help.</div></div></section>
+<input id="sessionConfirmationNumber" name="sessionConfirmationNumber" type="hidden" value="6419666975954934776"/>
+<script type="application/ld+json">
+                         {
+  "@context": "https://schema.org",
+  "@type": "Florist",
+  "name": "Flowers By Michelle",
+  "image": "https://assets.eflorist.com/EF-3628/Logo/FlowersByMichelle_Logo_Design1.png?1650672389794",
+  "URL": "www.flowersbymichelle.com",
+  "telephone": "+17022550209",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "6510 N. Buffalo Dr",
+    "addressLocality": "Las Vegas",
+    "addressRegion": "NV",
+    "postalCode": "89131",
+    "addressCountry": "US"
+  },
+  "@id": "https://www.flowersbymichelle.com#florist",
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "36.2803945",
+    "longitude": "-115.2661431"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": 4.9,
+    "reviewCount": 2055
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Monday",
+      "opens": "08:00",
+      "closes": "17:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Tuesday",
+      "opens": "08:00",
+      "closes": "17:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Wednesday",
+      "opens": "08:00",
+      "closes": "17:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Thursday",
+      "opens": "08:00",
+      "closes": "17:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Friday",
+      "opens": "08:00",
+      "closes": "17:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00",
+      "closes": "16:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/pg/Flowers-By-Michelle-186320662418/",
+    "https://goo.gl/gTtreC",
+    "https://www.instagram.com/flowersbymichelle/",
+    "https://www.pinterest.com/flowersbymichelle/?eq=flowers%20by%20michelle&etslf=7867",
+    "https://www.yelp.com/biz/flowers-by-michelle-las-vegas-2"
+  ],
+  "description": "For the best and freshest flowers in Las Vegas, Henderson, and Boulder City, NV, Flowers By Michelle is committed to creating beautiful flower arrangements and floral gifts for any occasion in and around these areas"
+}</script>
+<script type="text/javascript">
+                               var siteTypeVal = 'EFlorist';
+                        </script>
+<footer class="m-footer m-primary-bg-container top-border">
+<div class="l-wrapper top-padding bottom-padding">
+<div class="container_4 d-container_12 m-footer-top-half clearfix">
+<style>
+        .nickName{display: none}
+        .grecaptcha-badge { visibility: hidden; }
+    </style>
+<div class="grid_4 d-grid_4 alpha d-alpha minHeightApplied">
+<form action="/account/externalUserSubscriptions.jsp?_DARGS=/WEB-INF/fragments/common/footerEmailSignUp.jspf.loginfileFormSubscription" autocomplete="off" class="m-footer-email" id="loginfileFormSubscription" method="POST" name="loginfileFormSubscription"><input name="_dyncharset" type="hidden" value="UTF-8"/><input name="_dynSessConf" type="hidden" value="2903798664473738915"/><input class="nickName" id="nickName" maxlength="75" name="nickName" type="text" value=""/><input name="_D:nickName" type="hidden" value=" "/><label for="optinEmailAddress">Sign up for special offers!</label>
+<input aria-label="Email Sign up" autocomplete="email" class="m-footer-email-input clear-margin-bottom float-left full-height" id="optinEmailAddress" maxsize="100" name="optinEmailAddress" placeholder="Enter E-Mail Address" size="15" title="Email Sign up" type="email" value=""/><input name="_D:optinEmailAddress" type="hidden" value=" "/><input name="/atg/userprofiling/ProfileFormHandler.createSuccessURL" type="hidden" value="/account/externalUserSubscriptions.jsp"/><input name="_D:/atg/userprofiling/ProfileFormHandler.createSuccessURL" type="hidden" value=" "/><input name="errorurl" type="hidden" value="/account/externalUserSubscriptions.jsp"/><input name="_D:errorurl" type="hidden" value=" "/><input aria-label="Go" class="btn m-footer-email-btn clear-margin-bottom float-left full-height" id="emailOptinBtn" name="/atg/userprofiling/ProfileFormHandler.logEmailPreference" title="Go" type="submit" value="go"/><input name="_D:/atg/userprofiling/ProfileFormHandler.logEmailPreference" type="hidden" value=" "/><input name="_DARGS" type="hidden" value="/WEB-INF/fragments/common/footerEmailSignUp.jspf.loginfileFormSubscription"/></form><style>
+        .nickName{display: none}
+        .grecaptcha-badge { visibility: hidden; }
+    </style>
+</div>
+<div class="grid_4 d-grid_4 alpha m-footer-border-bottom">
+</div>
+<input id="addressCountryCBD" type="hidden" value=""/>
+<div class="grid_4 d-grid_4 d-alpha m-footer-border-bottom pull-right m-social-icons-container">
+<div class="m-footer-c-social-list">
+<a aria-label="Facebook (opens in new tab)" class="icon-social-img" href="https://www.facebook.com/pg/Flowers-By-Michelle-186320662418/" rel="noreferrer nofollow" target="_blank"> <img alt="" height="25" src="//assets.eflorist.com/images/social-media-icons/brand-colors/fb.png" width="25"/>
+<span class="sr-only"> Opens in new tab</span>
+</a>
+<a aria-label="GooglePlus (opens in new tab)" class="icon-social-img" href="https://goo.gl/gTtreC" rel="noreferrer nofollow" target="_blank"> <img alt="" height="25" src="//assets.eflorist.com/images/social-media-icons/brand-colors/googleplus.png" width="25"/>
+<span class="sr-only"> Opens in new tab</span>
+</a>
+<a aria-label="Instagram (opens in new tab)" class="icon-social-img" href="https://www.instagram.com/flowersbymichelle/" rel="noreferrer nofollow" target="_blank"> <img alt="" height="25" src="//assets.eflorist.com/images/social-media-icons/brand-colors/instagram.png" width="25"/>
+<span class="sr-only"> Opens in new tab</span>
+</a>
+<a aria-label="Pinterest (opens in new tab)" class="icon-social-img" href="https://www.pinterest.com/flowersbymichelle/?eq=flowers%20by%20michelle&amp;etslf=7867" rel="noreferrer nofollow" target="_blank"> <img alt="" height="25" src="//assets.eflorist.com/images/social-media-icons/brand-colors/pinterest.png" width="25"/>
+<span class="sr-only"> Opens in new tab</span>
+</a>
+<a aria-label="Yelp (opens in new tab)" class="icon-social-img" href="https://www.yelp.com/biz/flowers-by-michelle-las-vegas-2" rel="noreferrer nofollow" target="_blank"> <img alt="" height="25" src="//assets.eflorist.com/images/social-media-icons/brand-colors/yelp.png" width="25"/>
+<span class="sr-only"> Opens in new tab</span>
+</a>
+</div>
+</div>
+</div>
+<div class="clear"></div>
+<div class="content-divider-primary no-desktop"></div>
+
+<div class="modal hide fade" data-width="600" id="addonErrorModal" style="display: none;" tabindex="-1">
+
+<div class="m-pdp-modal-header modal-header">
+
+<p class="m-pdp-modal-header-text">
+
+<span><a aria-label="Close error window" class="pull-right icon-close icon-close-modal" data-dismiss="modal" href="#" onclick="return handleAddonErrorContinue();"></a></span>
+</p>
+</div>
+
+
+<div class="modal-body pdp-modal-body centered" id="addonErrorModal1">
+
+<p class="m-pdp-header-modal-body">Sorry!</p>
+<br/>
+
+<p>Only three add on items can be selected at a time. If you wish to change your selection, please set one of your currently selected items back to default.</p>
+<br/>
+</div>
+
+<div class="clearfix"></div>
+<div class="modal-footer">
+<input aria-label="Back to shopping" class="btn btn-submit" data-dismiss="modal" id="addonErrorContinue" name="addonErrorContinue" onclick="return handleAddonErrorContinue();" tabindex="3" type="button" value="Back to Shopping"/>
+</div>
+</div>
+
+<div class="container_4 d-container_12 clearfix">
+<div class="grid_2 d-grid_3 d-alpha">
+<h5>Learn More About</h5>
+<ul class="link-list">
+<li><a href="/about-us">About Us</a></li>
+<li><a href="/faq#Privacy Policy / Security">Safe Shopping</a></li>
+<li><a href="/faq#Privacy Policy / Security">Privacy</a></li>
+<li><a href="/about-us#Delivery Policy">Delivery</a></li>
+<li><a href="/faq#Policy Info">Substitutions</a></li>
+<li><a href="/sitemap">Site Map</a></li>
+</ul></div>
+<div class="grid_2 d-grid_3">
+<h5>Shop</h5>
+<ul class="link-list">
+<li><a aria-label="Destination Weddings" href="/destination-weddings/de-315699">Destination Weddings</a></li>
+<li><a aria-label="Thank You" href="/thank-you/cat11480026">Thank You</a></li>
+<li><a aria-label="Corsages/Boutonnieres" href="/corsagesboutonnieres/cat11480028">Corsages/Boutonnieres</a></li>
+<li><a aria-label="Birthday" href="/birthday/cat11480022">Birthday</a></li>
+<li><a aria-label="Get Well" href="/get-well/cat11480023">Get Well</a></li>
+</ul>
+</div>
+<div class="clear no-desktop"></div>
+<div class="grid_2 d-grid_3 d-omega">
+<h5>Customer Service</h5>
+<div class="link-list">
+<a href="/faq">Help/FAQs</a>
+</div></div>
+</div>
+<div class="homePageFooterText container_4 d-container_12 clearfix">
+<div class="custom-footer-address-1"><h5>Flowers by Michelle - Las Vegas</h5><div class="footer-contact-info"><p>6510 N. Buffalo Dr Ste. 140</p><p>Las Vegas, NV 89131</p><p><a class="phoneNo" href="tel:(702) 255-0209" id="tel2">(702) 255-0209</a></p></div><div class="google-maps-container"><iframe allowfullscreen="" height="213" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12865.261904405545!2d-115.2661431!3d36.2803945!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1c9666e9328a0536!2sFlowers%20By%20Michelle!5e0!3m2!1sen!2sus!4v1667319387494!5m2!1sen!2sus" style="border-width:0;" width="310"></iframe></div></div><div class="custom-footer-address-2"><h5>Flowers by Michelle - Henderson</h5><div class="footer-contact-info"><p>290 E. Horizon Dr</p><p>Henderson, NV 89015</p><p><a class="phoneNo" href="tel:(702) 445-6000" id="tel2">(702) 445-6000</a></p></div><div class="google-maps-container"><iframe allowfullscreen="" height="213" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6454.603199015146!2d-114.98636857401169!3d36.012927801312266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8d41a004e6459%3A0x8f69593cab2fae14!2s290%20E%20Horizon%20Dr%2C%20Henderson%2C%20NV%2089015!5e0!3m2!1sen!2sus!4v1770314975422!5m2!1sen!2sus" style="border-width:0;" width="310"></iframe></div><p><img alt="Proud Partner of Teleflora" class="tf-network" src="https://assets.eflorist.com/images/teleflora-network-gg.svg"/></p></div></div>
+<div>
+<meta content="NBWSB7sI3PgOqWhD8Mt3GkOX7lfcNpu0rnSscz1RXmw" name="google-site-verification"/>
+
+<div id="floating-widget-wrapper">
+<script async="" src="https://reviews.eflorist.com/embed/v7/169835390909658/8/98765432188151831206935" type="text/javascript"></script>
+<div id="bf-revz-widget-98765432188151831206935"></div>
+</div>
+<style>
+
+        /* Style to position the widget at the bottom left */
+        #floating-widget-wrapper {
+            position: fixed;
+            bottom: 20px; /* Distance from the bottom */
+            left: 20px; /* Distance from the left */
+            z-index: 9999; /* Ensure it's on top of other elements */
+            width: auto;
+            height: auto;
+        }
+
+
+        /* Mobile-specific styles */
+        @media (max-width: 767px) {
+            #floating-widget-wrapper {
+                transform: scale(0.7); /* Reduce the size */
+                transform-origin: bottom left; /* Keep the scaling from the bottom left */
+            }
+        }
+    </style></div>
+</div>
+</footer>
+<div class="message-manager-chat-box hide align-right">
+<div class="mm-chat-box">
+<div class="header">
+<div class="message-header-left">
+<span class="chat-title short-title">How can we help?</span>
+<h4 class="success-chat-msg hide">Message Sent!</h4>
+</div>
+<div class="message-header-close">
+<button class="close-btn pull-right">
+<svg height="20" viewbox="0 0 27 27" width="20">
+<path d="M 7 7 L 20 20" fill="transparent" opacity="1" stroke="hsl(0, 0%, 99%)" stroke-linecap="round" stroke-width="3"></path>
+<path d="M 7 20 L 20 7" fill="transparent" opacity="1" stroke="hsl(0, 0%, 99%)" stroke-linecap="round" stroke-width="3"></path></svg>
+</button>
+</div>
+</div>
+<div class="chat-content">
+<div class="info-text">Enter your information, and our team will message you back shortly.</div>
+<form action="/WEB-INF/fragments/common/?_DARGS=/WEB-INF/fragments/common/chatAndEmail.jspf.messageManagerForm#" autocomplete="off" id="messageManagerForm" method="POST" name="messageManagerForm"><input name="_dyncharset" type="hidden" value="UTF-8"/><input name="_dynSessConf" type="hidden" value="2903798664473738915"/><div class="l-wrapper">
+<div class="form-field width-half">
+<label for="first_name">First Name * </label><input aria-required="true" autocomplete="given-name" class="message_first_name" id="message_first_name" name="message_first_name" type="text" value=""/><input name="_D:message_first_name" type="hidden" value=" "/></div>
+<div class="form-field width-half">
+<label for="last_name">Last Name * </label><input aria-required="true" autocomplete="family-name" class="message_last_name" id="message_last_name" name="message_last_name" type="text" value=""/><input name="_D:message_last_name" type="hidden" value=" "/></div>
+<div class="form-field width-half">
+<label for="email">Email Address * </label><input aria-required="true" autocomplete="email" class="message_email" id="message_email" name="message_email" type="text" value=""/><input name="_D:message_email" type="hidden" value=" "/></div>
+<div class="form-field width-half">
+<label for="phone_number">Phone Number * </label><input aria-required="true" autocomplete="tel" class="message_phone_number phoneNumber" id="message_phone_number" name="message_phone_number" pattern="[\(]\d{3}[\)]\s\d{3}[\-]\d{4}" type="text" value=""/><input name="_D:message_phone_number" type="hidden" value=" "/></div>
+<div class="form-field d-grid_3 grid_4">
+<div class="form-field d-grid_3 grid_4">
+<label for="preferredModeOfContact">Preferred Mode of Contact * </label>
+<p>How would you prefer we contact you?</p>
+<p>We'll use a text message or email so you don't have to keep this browser window open.</p>
+</div>
+<div class="form-field d-grid_3 grid_4 radio_buttons">
+<div class="form-field width-half">
+<input aria-required="true" class="preferredModeOfContact" id="preferredModeOfContact1" name="preferredModeOfContact" type="radio" value="Email"/><input name="_D:preferredModeOfContact" type="hidden" value=" "/><label for="preferredModeOfContact1">Email</label>
+</div>
+<div class="form-field width-half">
+<input aria-required="true" class="preferredModeOfContact" id="preferredModeOfContact2" name="preferredModeOfContact" type="radio" value="Phone"/><input name="_D:preferredModeOfContact" type="hidden" value=" "/><label for="preferredModeOfContact2">Phone</label>
+</div>
+</div>
+<div class="form-field d-grid_3 grid_4">
+<label for="inquiryMessage">Message :  </label><input name="_D:inquiryMessage" type="hidden" value=" "/><textarea class="inquiryMessage" id="inquiryMessage" name="inquiryMessage" type="text"></textarea></div>
+</div>
+</div>
+<input class="nickName" id="nickName" maxlength="50" name="nickName" type="text" value=""/><input name="_D:nickName" type="hidden" value=" "/><div class="message-manager-button">
+<input class="btn btn-submit" id="messageManagerBtn" name="messageManagerBtn" type="button" value="Submit"/><input name="_D:messageManagerBtn" type="hidden" value=" "/></div>
+<input name="_DARGS" type="hidden" value="/WEB-INF/fragments/common/chatAndEmail.jspf.messageManagerForm"/></form><div class="chat-confirmation info-text hide" id="messageDiv">Thanks for reaching out to us. A member of our team will contact you via text or email soon. You can also text us directly at [(702) 255-0209]</div>
+</div>
+</div>
+</div>
+<button class="message-manager-chat-button open align-right" style="background-color:#000000">
+<svg fill="none" height="30" viewbox="0 0 20 20" width="30">
+<path clip-rule="evenodd" d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z" fill="#FFFFFF" fill-rule="evenodd" opacity="1"></path></svg>
+</button>
+<button class="message-manager-chat-button close hide align-right" style="background-color:#000000">
+<svg height="27" viewbox="0 0 27 27" width="27">
+<path d="M 7 7 L 20 20" fill="transparent" opacity="1" stroke="#FFFFFF" stroke-linecap="round" stroke-width="3"></path>
+<path d="M 7 20 L 20 7" fill="transparent" opacity="1" stroke="#FFFFFF" stroke-linecap="round" stroke-width="3"></path></svg>
+</button>
+<script type="text/javascript">
+          var excludedPromoBanners = {};
+        </script>
+<script type="text/javascript">
+     	
+     		var isEflorist = true;
+            var t_efods = ["ef-fax","localsearch","messagemanager","osm","reviewmanager","yelp"];
+            var t_parent = "FC Mix 2/Sympathy B";
+            var t_parentid = "23186503";
+            var t_ga_account = "UA-35811197-1";
+            var t_ga4_account = "G-CHDH67XLMS";
+            var t_template = "39333900 - Flowers by Michelle | green";
+            var t_engagement = "";
+            var t_billingemail = "";
+           /*  s.eVar55 = t_parent;
+            s.eVar7 = t_template; */
+            t_homepagetype = "";
+            t_ecom_campaign = "";
+            t_service_test = "";
+        </script>
+<script type="text/javascript">
+    	var enableEnsightenTrackingCall = 'true';
+   		 // Added a property of starts with for JS
+        if ( typeof String.prototype.startsWith != 'function' ) {
+          String.prototype.startsWith = function( str ) {
+            return this.substring( 0, str.length ) === str;
+          }
+        };
+        if(typeof t_events == 'undefined') {
+            var t_events = "";
+    	}
+        var fromHeader = 'false';
+        if(fromHeader == 'true') {
+            t_events = "event42";
+        }
+        var referer = "";
+        var t_product_name = "";
+        var splitref = document.referrer.split("/",6);
+        if(splitref[2]) {
+            referer = splitref[0]+"//"+splitref[2];
+        }
+        // This method is to parse and replace the appostory encoded string array with the normal javascript accepted appostropy
+        function replaceEncodedArrayWithApostrophy(t_product_name) {
+            if (!(t_product_name instanceof Array)){
+                t_product_name = t_product_name.replace(/&#039;/g, '\'');
+                t_product_name = t_product_name.replace(/&amp;/g, '\&');
+                return t_product_name;
+                } else {
+                for(var i=0; i < t_product_name.length; i++) {
+                    t_product_name[i] = t_product_name[i].replace(/&#039;/g, '\'');
+                    t_product_name[i] = t_product_name[i].replace(/&amp;/g, '\&');
+                } 
+                return t_product_name;
+            }
+         }
+        
+        
+       function registerEvent8() {
+        var event8Array = [];
+        for(var i=0; i < t_yousaved.length; i++) {
+            if(t_yousaved[i]!= 0 && event8Array.indexOf('event8')<0){
+                event8Array.push('event8');
+            } else {
+            	if(event8Array.indexOf('event8')>0){
+                event8Array.push(' ');
+            }
+        }
+        }
+    		if(t_events != '') {
+                t_events = t_events + ','+ event8Array;
+            } else {
+                t_events = event8Array;
+            }
+        }  
+        var t_service_test = ''
+    </script>
+<script type="text/javascript">
+              var t_channel = "Custom";
+              var t_page_name = "Custom: Frequently Asked Questions";
+              var t_page_type = 'Custom';
+          </script>
+<script type="text/javascript">
+            /* Getting the hostname from the location object and identifying the language based on the prefix at the url.
+                    if the prefix is es. or es-, it will be identified as spanish and if its fr. or fr-, it will be identified as
+                    french. Rest of the cases will be identified as english
+            */
+            var hostName = location.hostname;
+            var t_lang = "english";
+            if(hostName.indexOf("es.") == 0 || hostName.indexOf("es-") == 0) {
+                t_lang = "spanish";
+            } else if (hostName.indexOf("fr.") == 0 || hostName.indexOf("fr-") == 0) {
+                t_lang = "french";
+            } 
+            var t_customerid = "";
+            if ("" == 'true') {
+                t_customerid = "ef10895693340";
+            }
+            var t_ref_dom = referer;
+            var t_partnername="Flowers By Michelle";
+            var t_lastvisit = readTimeFromLastSiteAccess();
+            eraseCookie('lastLogInDayToTeleflora');
+            createCookie('lastLogInDayToTeleflora', new Date().getTime(),365);
+            var t_startofsession = getTimeParting('h', '-6', new Date().getFullYear()); 
+            var t_dayofweek =  getTimeParting('d', '-6', new Date().getFullYear()); 
+            var t_typeofday = getTimeParting('w', '-6', new Date().getFullYear());
+            var t_s_code_URL="vendor/0005557/javascript/s_code.js";
+            var t_server = 'www';
+            var t_serverip = '.7.120';
+            var t_pageurl = window.location.pathname;
+            var t_account="efloristcom,39333900";
+            var t_tfid ="39333900";
+            var t_region="US";
+            var t_currency="USD";
+            var t_promo_code = '';
+            var t_coupon_code = [];
+            var t_ecom_campaign = '';
+
+            // This parameter is taken from the URL. Should be set in the URL of an external source to identify from where the URL originated
+            var t_source_code='';
+            t_product_name = replaceEncodedArrayWithApostrophy(t_product_name);
+
+           /*  s.server = t_server;
+            s.account=t_account;
+            s.channel=t_channel;
+            s.pageName=t_page_name;
+            s.eVar40 = t_partnername;
+            s.prop22 = t_serverip;
+            s.prop16 = t_pageurl
+            s.eVar47 = t_tfid;
+            s.prop8 = t_lastvisit;
+            s.prop13 = t_startofsession;
+            s.prop14 = t_dayofweek;
+            s.prop15 = t_typeofday ;
+            s.prop26 = t_lang;
+            s_code_URL = t_s_code_URL
+            s.eVar34 = "";
+            s.eVar23 = "";
+            s.eVar1=t_ecom_campaign;
+            s.eVar6=t_ref_dom;
+            s.eVar13=t_startofsession;
+            s.eVar14=t_dayofweek;
+            s.eVar15=t_typeofday;
+            s.eVar38=t_lang; */
+            function getTimeParting(t, z, y) {
+                dc = new Date('1/1/2000');
+                f = 15;
+                ne = 8;
+                if (dc.getDay() != 6 || dc.getMonth() != 0) {
+                    return 'Data Not Available';
+                } else {
+                    z = parseInt(z);
+                    if (y == '2009') {
+                        f = 8;
+                        ne = 1;
+                    }
+                    gmar = new Date('3/1/' + y);
+                    dsts = f - gmar.getDay();
+                    gnov = new Date('11/1/' + y);
+                    dste = ne - gnov.getDay();
+                    spr = new Date('3/' + dsts + '/' + y);
+                    fl = new Date('11/' + dste + '/' + y);
+                    cd = new Date();
+                    if (cd > spr && cd < fl) {
+                        z = z + 1;
+                    } else {
+                        z = z;
+                    }
+                    utc = cd.getTime() + (cd.getTimezoneOffset() * 60000);
+                    tz = new Date(utc + (3600000 * z));
+                    thisy = tz.getFullYear();
+                    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                    if (thisy != y) {
+                        return 'Data Not Available';
+                    } else {
+                        thish = tz.getHours();
+                        thismin = tz.getMinutes();
+                        thisd = tz.getDay();
+                        var dow = days[thisd];
+                        var ap = 'AM';
+                        var dt = 'Weekday';
+                        var mint = '00';
+                        if (thismin > 30) {
+                            mint = '30';
+                        }
+                        if (thish >= 12) {
+                            ap = 'PM';
+                            thish = thish - 12;
+                        }
+                        if (thish == 0) {
+                            thish = 12;
+                        }
+                        if (thisd == 6 || thisd == 0) {
+                            dt = 'Weekend';
+                        }
+                        var timestring = thish + ':' + mint + ap;
+                        var daystring = dow;
+                        var endstring = dt;
+                        if (t == 'h') {
+                            return timestring;
+                        }
+                        if (t == 'd') {
+                            return daystring;
+                        }
+                        if (t == 'w') {
+                            return endstring;
+                        }
+                    }
+                }
+            }
+
+            function createCookie(name,value,days) {
+                if (days) {
+                    var date = new Date();
+                    date.setTime(date.getTime()+(days*24*60*60*1000));
+                    var expires = '; expires='+date.toGMTString();
+                }
+                else var expires = '';
+                document.cookie = name+'='+value+expires+'; path=/';
+            }
+
+            function readCookie(name) {
+                var nameEQ = name + '=';
+                var ca = document.cookie.split(';');
+                for(var i=0;i < ca.length;i++) {
+                    var c = ca[i];
+                    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+                }
+                return null;
+            }
+
+            function eraseCookie(name) {
+                createCookie(name,'',-1);
+            }
+
+             function readTimeFromLastSiteAccess() {
+                var todaysDate = new Date();
+                var lastVisitTime = readCookie('lastLogInDayToTeleflora')
+                 if(lastVisitTime == null){
+                    return ''
+                }
+                var timeDiff = Math.abs(todaysDate.getTime() - lastVisitTime);
+                var diffDays = Math.floor(timeDiff / (1000 * 3600 * 24));
+                
+                switch (diffDays) {
+                  case 0:
+                    return 'Less than 1 Day';
+                    break;
+                  case 16139:
+                      return 'Greater than 16138 Days';
+                      break;                        
+                  default:
+                    return diffDays+' Days';
+                }
+            }
+        </script>
+<script type="text/javascript">
+</script>
+</div>
+<form>
+<input id="siteCurrencyCode" type="hidden" value="$"/>
+</form>
+<div class="isNonWinstonSite">
+<div class="m-bookmarks-bar hide-after-tablet" data-save-limit="20" id="bookmarksBar" style="">
+<nav class="m-bookmarks-bar-nav" style="cursor: pointer;">
+<div class="l-wrapper">
+<a href="#" id="bookmarkTrigger"><span class="toggle-arrow icon-arrow-down-pink"></span> Compare Your Favorites (<span id="bookmarkedNumber">0</span>)</a><span class="pull-right font-size-14px">Log in to save this item as a favorite. Items will be saved for 14 days</span>
+</div>
+</nav>
+<div id="bookmarksContent">
+<div class="l-wrapper">
+<div class="flexslider" id="booksCaro">
+<div class="flex-viewport" style="overflow: hidden; position: relative;">
+<ul class="slides bookmarks-drop" style="width: 1600%; -webkit-transition: 0s; transition: 0s; -webkit-transform: translate3d(0px, 0, 0);">
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<input id="vContextPath" type="hidden" value=""/>
+<script type="text/javascript">
+	var showGoogleAutocomplete = false;
+    
+    var exitIntentEnabled = false;
+    
+        var showLobAutocomplete = true;
+        
+                var lobAbNoAutoAddr = '';
+            
+            var lobApiKey = 'live_pub_52037687e7e5ebf45578e4323775e62';
+            var lobApiUrl = 'https://api.lob.com/v1/us_autocompletions';
+        
+    var townLookupUrl = "https://pin.petals.com.au/PIN/api/PBO/TownLookup";
+  	var townLookupResultCount = "99";
+    var townLookupMinCharCount = "3";
+    var townLookupTimeout = "3000";
+    var townLookupCountry = "";
+    var townLookupEnabled = false;
+    var isApplepayForQV = false;
+    
+    var postCodeMinLength = 5; //5 is the default length if no behavior flag found or contains null as current EF has 5
+    
+  	var configuredPhoneFormat = '';
+  	var configuredPhoneMaxLength = '';
+    var phoneCountry = '';
+    
+  	var showAffiliateModal = false;
+    
+  	var pasCalendarServiceEnabled = false;
+    
+    var pasCalendarSpinnerEnabled = false;
+    
+    var pasServiceDown = false;
+  	
+  	var showHolidayPriceUnderDateLabel = true;
+	var showHolidayPriceOnDateButtons = true;
+    var addressSearchV2URL = "https://api.edq.com/capture/address/v2/search";
+	var displayMaximumAddresses = "50";
+	var experianAuthToken = "";
+	var isAVSServiceDown = "false";
+	var isAVSServiceDisabled = "true";
+	var siteVendorType = "EFlorist";
+  	var varContextPath = "";
+  	var nonSecureBaseUrlImg = "//assets.eflorist.com/images";
+  	var nonSecurejsFolderPath = "//assets.eflorist.com/js";
+  	var loginEmailId ="";
+	var siteCutOffDays = [1];
+	siteCutOffDays =(siteCutOffDays !=0)?siteCutOffDays:[0];
+	var siteType="EFlorist";
+	var SessionAddTime="300";
+	var SessionWarningMsg="session about to expire in few minutes";
+	var vSessionTimeout = "1800";
+	var urlWithSiteContext = function(anchor) {
+	      anchor.href = '' + anchor.pathname + anchor.search;
+	  };
+	var telefloraHeaderProp = {
+	      loggedInUser : false,
+	      isCKeyCookieExists : false,
+	      fbConnectLoggedIn : false,
+	      facebookId : null,
+	      myAccountEnabled: true
+      };
+	 var siteId = 'EF-3628';
+	 var pasServiceEnabled = true;
+	 var calenderServiceEnabled = false;
+	 var siteHasHolidays = true;
+	 var siteHolidays = null;
+	 var flexsliderZ = false;
+	 var vCartSize = 0;
+	 var cartItemCount = 0;
+	 var passwordRestUrl = '/rest/model/teleflora/userprofiling/ForgotPasswordActor/processForgotPassword';
+	 var siteValue ='EF-3628';
+	 
+	 var isStripeEnabled = false;
+	 
+	 var disableEcommerceFunctionality = false;
+	 var maxCartValue = 0.0;
+	 var isDisablePlaceOrderButton = false;
+	 var isIBUSite = false;
+	 var isPetalsSite = false;
+	 var isInternationalSite = false;
+	 var globalCurrency = "$";
+	 var globalCountryISOCode = "USA";
+	 var vPageParam = "";
+	 var siteContextPath = '';
+	 var categoryId = '';
+	 
+     var subProd = "";
+     var giftTaxValue = "";
+     var shopName = "Flowers By Michelle";
+     var shopAdd1 = "6510 N. Buffalo Dr";
+     var shopAdd2 = "Ste. 140";
+     var cityName = "Las Vegas";
+     var stateLongname = "Nevada";
+     var stateCode = "NV";
+     var zip = "89131";
+     var shopEmail =  "sales@flowersbymichelle.com";
+     var shopPhone = "(702) 255-0209";
+     var shopPhoneTollfree = "(800) 798-1847";
+     var isMarketSite = false;
+</script>
+<script type="text/javascript">
+    var bookmarkCount = $('#bookmarkedNumber').html();
+    var flyoutEnable = "staticFormat"
+    var applepayFile="//assets.eflorist.com/js/apple-pay.js?v=20260928204803";
+    var pazeFile="//assets.eflorist.com/js/pazewallet.js?v=20260928210901";
+    var googlePayApiFile='https://pay.google.com/gp/p/js/pay.js';
+    var googlePayFile="//assets.eflorist.com/js/google-pay.js?v=20251008205104";
+    var marketFile="//assets.eflorist.com/js/theMarket-common.js?v=20241009003700";
+    var gatherFile="//assets.eflorist.com/js/gather-common.js?v=20260928204803";
+    </script>
+<script type="text/javascript">
+                                    var pageValue ='';
+                                    var pageSpecificFiles = ["//assets.eflorist.com/js/sections/ef-general.js?v=20260928210901",applepayFile,pazeFile];
+                            </script>
+<script type="text/javascript">
+        var pickerLoad = true, _complete_selenium = false, externalJSFile = "", externalPageSpecJSFile="", subCatParam = false,currentPage="";
+        var themeJS = "//assets.eflorist.com/themes/custom-templates/3/39333900/39333900-green/js/theme.js?v=20260218090050";
+        var externalChck = ((typeof pdpParm != "undefined" && pdpParm) || subCatParam || typeof homePageParam != "undefined" && homePageParam);
+
+        (siteVendorType === "EFlorist") && pageSpecificFiles.push(themeJS);
+        
+        if(externalJSFile !=="" ) {
+            pageSpecificFiles.push(externalJSFile);
+        }
+        if(externalChck && externalPageSpecJSFile !="" && externalPageSpecJSFile !="null"){
+            pageSpecificFiles.push(externalPageSpecJSFile);
+        }
+
+          if (typeof checkoutParam != "undefined" && checkoutParam) {
+            var askExpertWait = 3;
+            var t_cardtype;
+            var t_promocode;
+          } else if (typeof pdpParm != "undefined" && pdpParm) {
+            var PDPlogged = false;
+          }
+          if(currentPage =="homePage"){
+            var excepthompage = false;
+          }
+          else{
+            var excepthompage = true;
+          }
+          if(currentPage =="homePage" ||currentPage =="subcatPageParam" ){ 
+            currentPage = false;
+          }else{
+            currentPage = true;
+          }
+         Modernizr.load([ {
+            test : Modernizr.hasJquery,
+            complete: function() {
+                   //TFD-1110 - Fix
+                  Modernizr
+                      .load([
+                            {test : currentPage,              
+                            yep :["//assets.eflorist.com/js/sections/minified/ef-common.js?v=20260928210901"]
+                             },
+                             {
+                               load : pageSpecificFiles,
+                               complete : function() {
+                                 if(excepthompage){
+                                 teleflora.modenizrInitFn();
+                                 }
+                                 if(typeof googlePayJSloaded !="undefined" && googlePayJSloaded){
+                                   onGooglePayLoaded();
+                                 }
+                                 // TFT-45011: Init Lob autocomplete after ef-common.js bundle loads
+                                 if (typeof lobAutocomplete !== 'undefined' && typeof showLobAutocomplete !== 'undefined' && showLobAutocomplete) {
+                                     var skipLob = false;
+                                     if (typeof lobAbNoAutoAddr !== 'undefined' && lobAbNoAutoAddr !== '') {
+                                         if (typeof lobFromPage !== 'undefined' && lobFromPage === 'deliveryInfo' && lobAbNoAutoAddr === 'addr-ac-delinfo-no') skipLob = true;
+                                         if (typeof lobFromPage !== 'undefined' && lobFromPage === 'pdpModal' && lobAbNoAutoAddr === 'addr-ac-pdp-no') skipLob = true;
+                                     }
+                                     if (!skipLob) {
+                                         lobAutocomplete.init();
+                                     }
+                                 }
+                               }
+                             }
+                          ]);
+            }
+          }]);
+
+          Modernizr.load([ {
+            test : Modernizr.touch,
+            yep : ["//assets.eflorist.com/js/fastbutton.js?v=20211215111303" ]
+          } ]);
+          
+          
+        </script>
+
+<div aria-label="Preview controls" id="twm-bar" role="region">
+<span class="twm-bar-label">FAQ page preview: 10 items</span>
+<button id="twm-open" type="button">View changes</button>
+<button id="twm-toggle" type="button">Hide highlights</button>
+</div>
+<aside aria-hidden="true" aria-label="Changes on this page" id="twm-drawer">
+<div class="twm-dh">
+<div>
+<div class="twm-kicker">Two Wheels Marketing · October 2026</div>
+<h2>New FAQ Page</h2>
+<p>This is your FAQ page with our new version in place. Numbered sections are highlighted on the page. Nothing on your live site changes until you approve.</p>
+</div>
+<button aria-label="Close" id="twm-close" type="button">×</button>
+</div>
+<div class="twm-list">
+<p class="twm-intro-note">The header, menu and footer of your site stay exactly as they are. Only the FAQ content changes.</p>
+<div class="twm-group">On the page</div><details class="twm-item" data-n="1">
+<summary><span class="twm-num">1</span><span class="twm-st">A fuller FAQ page replaces the current one<small>Same address: /frequently-asked-questions</small></span></summary>
+<div class="twm-body">
+<span class="twm-lbl">Before</span>
+<div class="twm-before">Frequently Asked Questions What florist services in Henderson, NV and Las Vegas, NV does Flowers by Michelle offer? Flowers by Michelle provides full-service florist solutions including custom bouquets, wedding flowers, sympathy arrangements, gift baskets, and same-day flower delivery across Henderson, NV and Las Vegas, NV. Do you offer affordable flower delivery near Henderson and Las Vegas, NV? Yes, Flowers by Michelle offers affordable floral arrangements along with premium options, ensuring ...</div>
+<span class="twm-lbl">After</span>
+<div class="twm-after">31 questions in 7 sections, with a quick menu at the top, answers that open with a tap, and your two shops' phone numbers at the bottom.</div>
+<span class="twm-lbl">Why</span>
+<p>Google and AI tools like ChatGPT pull direct answers from FAQ pages. Clear answers about delivery, timing and care make Flowers By Michelle more likely to be the shop that gets recommended in Las Vegas and Henderson.</p>
+<button class="twm-go" data-go="1" type="button">Show on page</button>
+</div>
+</details>
+<details class="twm-item" data-n="2">
+<summary><span class="twm-num">2</span><span class="twm-st">Ordering<span class="twm-tag">New</span><small>Questions and answers</small></span></summary>
+<div class="twm-body">
+<span class="twm-lbl">Why</span>
+<p>How to order, pay and what to expect, answered the way you would answer on the phone. These are the first questions a new customer has.</p>
+<button class="twm-go" data-go="2" type="button">Show on page</button>
+</div>
+</details>
+<details class="twm-item" data-n="3">
+<summary><span class="twm-num">3</span><span class="twm-st">Delivery<span class="twm-tag">New</span><small>Questions and answers</small></span></summary>
+<div class="twm-body">
+<span class="twm-lbl">Why</span>
+<p>Where you deliver and how same-day delivery works. People ask Google and AI tools these questions word for word, and short direct answers are what gets quoted.</p>
+<button class="twm-go" data-go="3" type="button">Show on page</button>
+</div>
+</details>
+<details class="twm-item" data-n="4">
+<summary><span class="twm-num">4</span><span class="twm-st">Sympathy &amp; Funeral<span class="twm-tag">New</span><small>Questions and answers</small></span></summary>
+<div class="twm-body">
+<span class="twm-lbl">Why</span>
+<p>Funeral and sympathy questions are some of the most searched, and families want a clear answer fast. These cover timing, what to send and where.</p>
+<button class="twm-go" data-go="4" type="button">Show on page</button>
+</div>
+</details>
+<details class="twm-item" data-n="5">
+<summary><span class="twm-num">5</span><span class="twm-st">Weddings &amp; Events<span class="twm-tag">New</span><small>Questions and answers</small></span></summary>
+<div class="twm-body">
+<span class="twm-lbl">Why</span>
+<p>Wedding and event questions bring in some of your highest-value customers. Clear answers start that conversation.</p>
+<button class="twm-go" data-go="5" type="button">Show on page</button>
+</div>
+</details>
+<details class="twm-item" data-n="6">
+<summary><span class="twm-num">6</span><span class="twm-st">Flowers by Occasion<span class="twm-tag">New</span><small>Questions and answers</small></span></summary>
+<div class="twm-body">
+<span class="twm-lbl">Why</span>
+<p>Which flowers suit which occasion, answered plainly.</p>
+<button class="twm-go" data-go="6" type="button">Show on page</button>
+</div>
+</details>
+<details class="twm-item" data-n="7">
+<summary><span class="twm-num">7</span><span class="twm-st">Flower Care<span class="twm-tag">New</span><small>Questions and answers</small></span></summary>
+<div class="twm-body">
+<span class="twm-lbl">Why</span>
+<p>Care tips keep customers happy after delivery, and care questions are some of the most common searches about flowers.</p>
+<button class="twm-go" data-go="7" type="button">Show on page</button>
+</div>
+</details>
+<details class="twm-item" data-n="8">
+<summary><span class="twm-num">8</span><span class="twm-st">About the Shop<span class="twm-tag">New</span><small>Questions and answers</small></span></summary>
+<div class="twm-body">
+<span class="twm-lbl">Why</span>
+<p>Who you are, where you are and when you are open. AI tools use these facts to decide which local florist to recommend.</p>
+<button class="twm-go" data-go="8" type="button">Show on page</button>
+</div>
+</details><div class="twm-group">Behind the scenes (not visible on the page)</div><details class="twm-item" data-n="9">
+<summary><span class="twm-num bts">9</span><span class="twm-st">Page title in Google<small>What shows in Google search results</small></span></summary>
+<div class="twm-body">
+<span class="twm-lbl">Before</span>
+<div class="twm-before">Flowers by Michelle - Frequently Asked Questions</div>
+<span class="twm-lbl">After</span>
+<div class="twm-after">FAQ | Flowers By Michelle</div>
+<span class="twm-lbl">Why</span>
+<p>A shorter, cleaner title that Google shows in full.</p>
+</div>
+</details>
+<details class="twm-item" data-n="10">
+<summary><span class="twm-num bts">10</span><span class="twm-st">How it goes live<small>Nothing changes until you approve</small></span></summary>
+<div class="twm-body">
+<span class="twm-lbl">Why</span>
+<p>We set the new page up hidden on your site first. Once you approve, it replaces the current FAQ at the same address, so any links to your FAQ keep working.</p>
+</div>
+</details>
+</div>
+</aside>
+<script>
+(function(){
+  var d=document, b=d.body, drawer=d.getElementById('twm-drawer');
+  function open(n){
+    drawer.classList.add('open'); drawer.setAttribute('aria-hidden','false');
+    if(n){ var it=drawer.querySelector('.twm-item[data-n="'+n+'"]'); if(it){ it.open=true; it.scrollIntoView({block:'start',behavior:'smooth'}); } }
+  }
+  function close(){ drawer.classList.remove('open'); drawer.setAttribute('aria-hidden','true'); }
+  function go(n){
+    var el=d.querySelector('.twm-chg[data-twm="'+n+'"]'); if(!el) return;
+    if(window.innerWidth<900) close();
+    var y=el.getBoundingClientRect().top+window.pageYOffset-120; window.scrollTo({top:y,behavior:'smooth'});
+    el.classList.add('twm-flash'); setTimeout(function(){el.classList.remove('twm-flash');},1600);
+  }
+  d.getElementById('twm-open').addEventListener('click',function(e){e.preventDefault();open();});
+  d.getElementById('twm-close').addEventListener('click',function(e){e.preventDefault();close();});
+  d.getElementById('twm-toggle').addEventListener('click',function(e){
+    e.preventDefault(); b.classList.toggle('twm-off');
+    this.textContent=b.classList.contains('twm-off')?'Show highlights':'Hide highlights';
+  });
+  d.addEventListener('click',function(e){
+    var t=e.target.closest('[data-twm-go]'); if(t){ e.preventDefault(); e.stopPropagation(); open(t.getAttribute('data-twm-go')); return; }
+    var g=e.target.closest('.twm-go'); if(g){ e.preventDefault(); go(g.getAttribute('data-go')); }
+  },true);
+  d.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+  function placeBadges(){
+    d.querySelectorAll('.twm-badge').forEach(function(bd){
+      bd.style.right=''; var r=bd.parentElement.getBoundingClientRect();
+      if(r.right>document.documentElement.clientWidth-20){ bd.style.right='4px'; }
+    });
+  }
+  window.addEventListener('load',placeBadges); window.addEventListener('resize',placeBadges); setTimeout(placeBadges,1500);
+})();
+</script>
+</body>
+</html>

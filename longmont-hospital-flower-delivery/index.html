@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+
+<html class="no-js" lang="en" xmlns:og="http://opengraphprotocol.org/schema/">
+<head><base href="https://www.longmontflorist.com/"/><meta content="noindex, nofollow" name="robots"/>
+<link href="//assets.eflorist.com/site/EF-403/favicon.ico?1562621033886" rel="shortcut icon" type="image/x-icon"/>
+<script>
+            dataLayer = [];
+    </script>
+
+
+<title>Hospital Flower Delivery in Longmont, CO | Longmont Florist</title>
+<meta content="hospital flower delivery Longmont, get well flowers Longmont, Longs Peak Hospital flowers, Longmont United Hospital flowers, Longmont Florist" name="keywords"/>
+<meta content="Get well flowers delivered to Longmont United, UCHealth Longs Peak and hospitals across Boulder County by Longmont Florist, family owned since 1969." name="description"/>
+<link href="https://www.longmontflorist.com/hospital-flower-delivery" rel="canonical"/>
+
+<script>
+(function () {
+  var CART_KEY = 'tfCart';
+  var CLIENT_ID_COOKIE = 'klaviyoID';
+
+  !(function () {
+    if (!window.klaviyo) {
+      window._klOnsite = window._klOnsite || [];
+
+      try {
+        window.klaviyo = new Proxy({}, {
+          get: function (_, method) {
+            return method === 'push'
+              ? function () {
+                  window._klOnsite.push.apply(window._klOnsite, arguments);
+                }
+              : function () {
+                  var args = Array.prototype.slice.call(arguments);
+                  var callback = typeof args[args.length - 1] === 'function' ? args.pop() : null;
+
+                  return new Promise(function (resolve) {
+                    window._klOnsite.push([method].concat(args, [function (result) {
+                      if (callback) callback(result);
+                      resolve(result);
+                    }]));
+                  });
+                };
+          }
+        });
+      } catch (error) {
+        window.klaviyo = window.klaviyo || [];
+        window.klaviyo.push = function () {
+          window._klOnsite.push.apply(window._klOnsite, arguments);
+        };
+      }
+    }
+  })();
+
+  function onReady(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback);
+    } else {
+      callback();
+    }
+  }
+
+  function safeTrack(eventName, payload) {
+    try {
+      if (window.klaviyo && typeof window.klaviyo.track === 'function') {
+        window.klaviyo.track(eventName, payload);
+      }
+    } catch (error) {}
+  }
+
+  function safeIdentify(payload) {
+    try {
+      if (window.klaviyo && typeof window.klaviyo.identify === 'function') {
+        window.klaviyo.identify(payload);
+      }
+    } catch (error) {}
+  }
+
+  function generateClientID() {
+    if (window.crypto && typeof window.crypto.randomUUID === 'function') {
+      return window.crypto.randomUUID();
+    }
+
+    return 'kl_' + Date.now() + '_' + Math.random().toString(36).slice(2);
+  }
+
+  function getCookie(name) {
+    var cookies = document.cookie ? document.cookie.split('; ') : [];
+
+    for (var i = 0; i < cookies.length; i++) {
+      var parts = cookies[i].split('=');
+
+      if (decodeURIComponent(parts[0]) === name) {
+        return decodeURIComponent(parts.slice(1).join('='));
+      }
+    }
+
+    return null;
+  }
+
+  function setCookie(name, value) {
+    var secure = window.location.protocol === 'https:' ? '; Secure' : '';
+
+    document.cookie =
+      encodeURIComponent(name) + '=' + encodeURIComponent(value) +
+      '; path=/; max-age=31536000; SameSite=Strict' + secure;
+  }
+
+  function getOrCreateClientID() {
+    var id = getCookie(CLIENT_ID_COOKIE);
+
+    if (!id) {
+      id = generateClientID();
+      setCookie(CLIENT_ID_COOKIE, id);
+    }
+
+    return id;
+  }
+
+  function getCart() {
+    try {
+      var rawCart = localStorage.getItem(CART_KEY);
+      var cart = rawCart ? JSON.parse(rawCart) : [];
+
+      return Array.isArray(cart) ? cart : [];
+    } catch (error) {
+      return [];
+    }
+  }
+
+  function saveCart(cart) {
+    try {
+      localStorage.setItem(CART_KEY, JSON.stringify(cart || []));
+    } catch (error) {}
+  }
+
+  function getItemNames(cart) {
+    return cart
+      .filter(function (item) {
+        return item && item.ProductName;
+      })
+      .map(function (item) {
+        return item.ProductName;
+      });
+  }
+
+  function getTotalPrice(cart) {
+    return cart.reduce(function (total, item) {
+      var price = item && parseFloat(item.ItemPrice);
+      return total + (isNaN(price) ? 0 : price);
+    }, 0);
+  }
+
+  function normalizeImageUrl(url) {
+    if (!url) return '';
+
+    if (url.indexOf('//') === 0) {
+      return window.location.protocol + url;
+    }
+
+    if (url.indexOf('http://') === 0 || url.indexOf('https://') === 0) {
+      return url;
+    }
+
+    if (url.charAt(0) === '/') {
+      return window.location.origin + url;
+    }
+
+    return url;
+  }
+
+  function getText(selector) {
+    var element = document.querySelector(selector);
+    return element ? element.textContent.replace(/^\s+/, '').trim() : '';
+  }
+
+  function getSelectedSkuInput() {
+    return document.querySelector('.custom-radio input[type="radio"]:checked') ||
+      document.querySelector('[name="skuRadio"]:checked');
+  }
+
+  function getSelectedPrice() {
+    var selectedSku = getSelectedSkuInput();
+
+    if (!selectedSku) return 0;
+
+    var parent = selectedSku.parentElement;
+    var priceInput = parent
+      ? parent.querySelector('input[type="hidden"], input:not([type="radio"])')
+      : null;
+
+    var rawPrice = priceInput ? priceInput.value : selectedSku.getAttribute('data-price');
+    var price = parseFloat(rawPrice);
+
+    return isNaN(price) ? 0 : price;
+  }
+
+  function getQuantity() {
+    var quantityInput = document.getElementById('qty');
+    var quantity = quantityInput ? parseInt(quantityInput.value, 10) : 1;
+
+    return isNaN(quantity) || quantity < 1 ? 1 : quantity;
+  }
+
+  function isProductPage() {
+    return !!(
+      document.getElementById('pdpAddToCartBtn') &&
+      document.querySelector('.m-pdp-header') &&
+      getSelectedSkuInput()
+    );
+  }
+
+  function getProductData() {
+    var selectedSku = getSelectedSkuInput();
+    var mainImage = document.getElementById('pdpMainImage');
+
+    var imageUrl =
+      selectedSku && selectedSku.getAttribute('data-image') ||
+      mainImage && mainImage.getAttribute('src') ||
+      '';
+
+    return {
+      ProductName: getText('.m-pdp-header'),
+      ProductID: typeof window.t_product_id !== 'undefined' ? String(window.t_product_id) : '',
+      SKU: selectedSku ? selectedSku.value : '',
+      ImageURL: normalizeImageUrl(imageUrl),
+      URL: window.location.href,
+      Price: getSelectedPrice()
+    };
+  }
+
+  function identifyFromQueryParam() {
+    var params = new URLSearchParams(window.location.search);
+    var email = params.get('email') || params.get('utm_email');
+
+    if (email) {
+      safeIdentify({ email: email });
+    }
+  }
+
+  function setupActiveOnSite() {
+    getOrCreateClientID();
+
+    if (!localStorage.getItem(CART_KEY)) {
+      saveCart([]);
+    }
+  }
+
+  function setupRemoveFromCart() {
+    var buttons = document.querySelectorAll('.removeFromCart');
+
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].addEventListener('click', function () {
+        var id = this.getAttribute('data-id');
+        var cart = getCart();
+
+        var updatedCart = cart.filter(function (item) {
+          return String(item.ProductID) !== String(id);
+        });
+
+        saveCart(updatedCart);
+      });
+    }
+  }
+
+  function trackViewedProduct() {
+    if (!isProductPage()) return;
+
+    var product = getProductData();
+
+    if (!product.ProductID && !product.ProductName) return;
+
+    safeTrack('Viewed Product', product);
+  }
+
+  function setupAddedToCart() {
+    var button = document.getElementById('pdpAddToCartBtn');
+
+    if (!button || !isProductPage()) return;
+
+    button.addEventListener('click', function () {
+      window.setTimeout(function () {
+        var isError = document.querySelector('.is-error');
+
+        if (isError) return;
+
+        var product = getProductData();
+        var quantity = getQuantity();
+        var cart = getCart();
+
+        var cartItem = {
+          ProductID: product.ProductID,
+          SKU: product.SKU,
+          ProductName: product.ProductName,
+          ItemPrice: product.Price,
+          ProductURL: product.URL,
+          ImageURL: product.ImageURL,
+          Quantity: quantity
+        };
+
+        cart.push(cartItem);
+        saveCart(cart);
+
+        safeTrack('Added to Cart', {
+          $value: product.Price * quantity,
+          AddedItemProductName: product.ProductName,
+          AddedItemProductID: product.ProductID,
+          AddedItemSKU: product.SKU,
+          AddedItemImageURL: product.ImageURL,
+          AddedItemURL: product.URL,
+          AddedItemPrice: product.Price,
+          AddedItemQuantity: quantity,
+          ItemNames: getItemNames(cart),
+          CheckoutURL: window.location.origin + '/checkout',
+          Items: cart
+        });
+      }, 0);
+    });
+  }
+
+  function trackStartedCheckoutIfNeeded() {
+    var pageParam = typeof window.vPageParam !== 'undefined' ? String(window.vPageParam) : '';
+    var path = window.location.pathname.toLowerCase();
+
+    var isCheckoutPage =
+      pageParam.toLowerCase().indexOf('checkout') !== -1 ||
+      path.indexOf('checkout') !== -1;
+
+    if (!isCheckoutPage) return;
+
+    var cart = getCart();
+
+    safeTrack('Started Checkout', {
+      $event_id: getOrCreateClientID() + '_' + new Date().getTime(),
+      $value: getTotalPrice(cart),
+      ItemNames: getItemNames(cart),
+      CheckoutURL: window.location.href,
+      Items: cart
+    });
+  }
+
+  onReady(function () {
+    setupActiveOnSite();
+    identifyFromQueryParam();
+    setupRemoveFromCart();
+    trackViewedProduct();
+    setupAddedToCart();
+    trackStartedCheckoutIfNeeded();
+  });
+})();
+</script><meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link as="style" href="//assets.eflorist.com/css/ef-screen.css?v=20261021111658" rel="preload"/>
+<link href="//assets.eflorist.com/css/ef-screen.css?v=20261021111658" rel="stylesheet" type="text/css"/>
+<link href="" rel="stylesheet" type="text/css"/>
+<link as="style" href="//assets.eflorist.com/themes/custom-templates/1/16158400/16158400-green/css/theme.css?v=20260713074848" rel="preload"/>
+<link href="//assets.eflorist.com/themes/custom-templates/1/16158400/16158400-green/css/theme.css?v=20260713074848" rel="stylesheet" type="text/css"/>
+<style media="screen" type="text/css">
+</style>
+<script src="//assets.eflorist.com/js/lib/jquery-3.7.1.min.js?v=20260928211629" type="text/javascript"></script>
+<script src="//assets.eflorist.com/js/lib/modernizr-dev.js?v=20210910122358" type="text/javascript"></script>
+<script async="" defer="" src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"></script>
+<script type="text/javascript">
+        (function () {
+            // TFT-45474 : until the visitor solves Turnstile, show the submit/OK button as disabled with a "verify you are human" tooltip, and block submission (guards below) as the hard enforcement.
+            var TF_MSG = 'Please verify you are human before continuing.';
+            var TF_TIP = 'Please verify you are human';
+            // The "scope" holding a widget + its submit controls: usually a <form>, but the QuickView modal (#quickviewDiv) has no <form> in the live DOM, so fall back to it.
+            function efFormOf(el) { return (el && el.closest) ? (el.closest('form') || el.closest('#quickviewDiv')) : null; }
+            function efSubmitControls(form) {
+                // input[data-tf-submit] opts in controls that submit via JS but are type=button (e.g. #billingReviewBtn)
+                var all = form.querySelectorAll('button, input[type="submit"], input[type="image"], input[data-tf-submit], [data-tf-gate-click]');
+                var out = [];
+                for (var i = 0; i < all.length; i++) {
+                    var b = all[i], t = (b.getAttribute('type') || '').toLowerCase();
+                    var isSubmit = b.hasAttribute('data-tf-gate-click')
+                                || ((b.tagName === 'BUTTON') ? (t !== 'button' && t !== 'reset') : (t === 'submit' || t === 'image' || b.hasAttribute('data-tf-submit')));
+                    if (isSubmit) { out.push(b); }
+                }
+                return out;
+            }
+            // Render the submit controls as disabled (greyed, not-allowed, aria-disabled) with the hover tooltip; aria-disabled rather than the native disabled attribute so the tooltip still shows on hover.
+            function efGateButtons(form, gated) {
+                if (!form) { return; }
+                var ctrls = efSubmitControls(form);
+                for (var i = 0; i < ctrls.length; i++) {
+                    var c = ctrls[i];
+                    if (gated) {
+                        // remember the original title once, then (re)apply every pass so page scripts that
+                        // re-render or re-enable the button cannot silently drop the gated state
+                        if (!c.getAttribute('data-tf-gated')) {
+                            c.setAttribute('data-tf-gated', '1');
+                            c.setAttribute('data-tf-otitle', c.getAttribute('title') || '');
+                        }
+                        c.setAttribute('aria-disabled', 'true');
+                        c.setAttribute('title', TF_TIP);
+                        c.style.setProperty('opacity', '0.5', 'important');
+                        c.style.setProperty('cursor', 'not-allowed', 'important');
+                    } else if (c.getAttribute('data-tf-gated')) {
+                        var orig = c.getAttribute('data-tf-otitle') || '';
+                        if (orig) { c.setAttribute('title', orig); } else { c.removeAttribute('title'); }
+                        c.removeAttribute('aria-disabled');
+                        c.style.removeProperty('opacity');
+                        c.style.removeProperty('cursor');
+                        c.removeAttribute('data-tf-gated');
+                        c.removeAttribute('data-tf-otitle');
+                    }
+                }
+            }
+            function efFormNeedsVerification(form) {
+                if (!form || !form.querySelector) { return false; }
+                if (!form.querySelector('.cf-turnstile[data-sitekey]')) { return false; }
+                var input = form.querySelector('input[name="cf-turnstile-response"]');
+                return !(input && input.value && input.value.trim() !== '');
+            }
+            function efShowMsg(form) {
+                var holder = form.querySelector('.tf-turnstile-error');
+                if (!holder) {
+                    holder = document.createElement('div');
+                    holder.className = 'tf-turnstile-error';
+                    holder.setAttribute('role', 'alert');
+                    holder.setAttribute('aria-live', 'assertive');
+                    holder.style.color = '#c00';
+                    holder.style.marginTop = '6px';
+                    holder.style.fontSize = '13px';
+                    holder.textContent = TF_MSG;
+                    var anchor = form.querySelector('.cf-turnstile') ||
+                                 form.querySelector('button[type="submit"], input[type="submit"], input[type="image"], button:not([type])');
+                    if (anchor && anchor.parentNode) { anchor.parentNode.insertBefore(holder, anchor.nextSibling); }
+                    else { form.appendChild(holder); }
+                }
+                holder.style.setProperty('display', 'block', 'important');
+            }
+            function efHideMsg(form) {
+                if (!form) { return; }
+                var holder = form.querySelector('.tf-turnstile-error');
+                if (holder) { holder.style.setProperty('display', 'none', 'important'); }
+            }
+            function efCaptureTurnstileToken(widgetEl, token) {
+                var form = efFormOf(widgetEl);
+                if (!form) { return; }
+                var inputs = form.querySelectorAll('input[name="cf-turnstile-response"]');
+                if (inputs.length === 0) {
+                    var input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = 'cf-turnstile-response';
+                    input.className = 'cf-turnstile-response';
+                    form.appendChild(input);
+                    inputs = [input];
+                }
+                for (var i = 0; i < inputs.length; i++) { inputs[i].value = token || ''; }
+                if (token) { efHideMsg(form); efGateButtons(form, false); }
+                else { efGateButtons(form, true); }
+            }
+            function efRenderOne(el) {
+                if (!el || el.getAttribute('data-ef-rendered') || el.querySelector('iframe')) { return; }
+                var sitekey = el.getAttribute('data-sitekey');
+                if (!sitekey) { return; }
+                el.setAttribute('data-ef-rendered', '1');
+                efGateButtons(efFormOf(el), true);
+                // billing page scripts toggle the place-order button after load; re-assert until the token arrives
+                var reassert = window.setInterval(function () {
+                    var f = efFormOf(el);
+                    if (!f || !efFormNeedsVerification(f)) { window.clearInterval(reassert); return; }
+                    efGateButtons(f, true);
+                }, 500);
+                window.setTimeout(function () { window.clearInterval(reassert); }, 30000);
+                try {
+                    window.turnstile.render(el, {
+                        sitekey: sitekey,
+                        callback: function (token) { efCaptureTurnstileToken(el, token); },
+                        'expired-callback': function () { efCaptureTurnstileToken(el, ''); },
+                        'error-callback': function () { efCaptureTurnstileToken(el, ''); }
+                    });
+                } catch (e) {
+                }
+            }
+            window.efRenderTurnstileWidgets = function () {
+                if (!(window.turnstile && window.turnstile.render)) { return window.setTimeout(window.efRenderTurnstileWidgets, 200); }
+                var els = document.querySelectorAll('.cf-turnstile[data-sitekey]:not([data-ef-rendered])');
+                for (var i = 0; i < els.length; i++) { efRenderOne(els[i]); }
+            };
+            function efBlockAndWarn(form) {
+                // undo any double-submit disabling (e.g. the PDP add-to-cart button, or #billingReviewBtn which
+                // formValidation_new.js disables just before triggering the submit) so the user can retry after verifying
+                var ctrls = form.querySelectorAll('button[disabled], input[type="submit"][disabled], input[type="image"][disabled], input[data-tf-submit][disabled]');
+                for (var k = 0; k < ctrls.length; k++) { ctrls[k].disabled = false; }
+                efShowMsg(form);
+                var w = form.querySelector('.cf-turnstile');
+                if (w && w.scrollIntoView) { try { w.scrollIntoView({ block: 'center' }); } catch (ignore) {} }
+            }
+            // Capture-phase submit guard: catches native/Enter-key form submits before any jQuery handler.
+            document.addEventListener('submit', function (e) {
+                var form = e.target;
+                if (efFormNeedsVerification(form)) {
+                    e.preventDefault();
+                    if (e.stopImmediatePropagation) { e.stopImmediatePropagation(); } else { e.stopPropagation(); }
+                    efBlockAndWarn(form);
+                }
+            }, true);
+            // Capture-phase click guard: many PDP add-to-cart buttons submit via AJAX (preventDefault + $.ajax) and never fire a submit event; catch the click before their handler runs.
+            document.addEventListener('click', function (e) {
+                var el = e.target;
+                // Deliberately NOT matching input[data-tf-submit] here: those controls submit via their own click handler
+                // which also runs the page's field validation, and stopImmediatePropagation would suppress it. They reach
+                // a real type=submit control, so the submit guard above still enforces Turnstile.
+                var btn = (el && el.closest) ? el.closest('button, input[type="submit"], input[type="image"], [data-tf-gate-click]') : null;
+                if (!btn) { return; }
+                var type = (btn.getAttribute('type') || '').toLowerCase();
+                var isSubmitIntent = btn.hasAttribute('data-tf-gate-click')
+                                  || ((btn.tagName === 'BUTTON') ? (type !== 'button' && type !== 'reset') : (type === 'submit' || type === 'image'));
+                if (!isSubmitIntent) { return; }
+                var form = efFormOf(btn);
+                if (efFormNeedsVerification(form)) {
+                    e.preventDefault();
+                    if (e.stopImmediatePropagation) { e.stopImmediatePropagation(); } else { e.stopPropagation(); }
+                    efBlockAndWarn(form);
+                }
+            }, true);
+            if (document.readyState !== 'loading') { window.efRenderTurnstileWidgets(); }
+            else { document.addEventListener('DOMContentLoaded', window.efRenderTurnstileWidgets); }
+        })();
+    	var t_custPage = '';
+      //individual pages ask for this variable to load their individual resources
+      var initLoad = false;
+      var pickerLoad = false;
+      
+      /////////////////////////////////////////////////////////////////////
+      ////////////////////////////////////////////////////////////////////
+      //////////////    Internet Explorer Console Log Fix   //////////////
+      ////////////////////////////////////////////////////////////////////
+
+      /*
+        Protect window.console method calls, e.g. console is not defined on IE
+       * unless dev tools are open, and IE doesn't define console.debug
+       */
+      if (!window.console) {
+        window.console = {};
+      }
+      // union of Chrome, FF, IE, and Safari console methods
+      var m = [ "log", "info", "warn", "error", "debug", "trace", "dir", "group", "groupCollapsed", "groupEnd", "time", "timeEnd", "profile", "profileEnd", "dirxml", "assert", "count", "markTimeline",
+          "timeStamp", "clear" ];
+      // define undefined methods as noops to prevent errors
+      for ( var i = 0; i < m.length; i++) {
+        if (!window.console[m[i]]) {
+          window.console[m[i]] = function() {
+          };
+        }
+      }
+    
+    </script>
+<meta content="UA-2918618-1" name="t_google_id"/>
+<script>
+window.appData = window.appData || {
+    pageType:  "",
+    product:   {},
+    cart:      {},
+    customer:  {},
+    recipient: {},
+    delivery:  {},
+    billing:   {},
+    order:     {},
+    shipments: []
+};
+
+// Reverses the HTML escaping c:out applies when the JSP writes a value into a JS string literal.
+// c:out escapes exactly these five characters, so decoding them restores the original text --
+// &amp; must go last, otherwise "&amp;lt;" would wrongly decode to "<". Without this, a product
+// named "Teleflora's Uniquely Chic" reaches Klaviyo as "Teleflora&#039;s Uniquely Chic" (script
+// content is never entity-decoded by the HTML parser).
+window.tfDecodeAppDataText = function (text) {
+    if (text.indexOf('&') === -1) { return text; }
+    return text.replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+               .replace(/&#034;/g, '"').replace(/&#039;/g, "'")
+               .replace(/&amp;/g, '&');
+};
+
+// Strips "", null, and undefined leaf values (recursively, including array elements) from an
+// appData section before it's assigned -- e.g. a commerce item with no shipping-group relationship
+// yet, or a billing address field the pipeline never populated, should be absent from the object
+// rather than present as an empty string. If every key of a nested object strips away (e.g. a
+// recipient whose firstName/lastName are both blank at this point in checkout), the now-empty {}
+// shell collapses too, so it's omitted from its own parent the same as any other empty leaf --
+// otherwise the object would still show up as bare {} instead of being absent. 0, false, and
+// empty arrays are left alone -- those are meaningful values, not "missing data". Never throws.
+window.tfCompactAppDataValue = function (value) {
+    if (Array.isArray(value)) {
+        return value.map(window.tfCompactAppDataValue);
+    }
+    if (value && typeof value === 'object') {
+        var out = {};
+        for (var key in value) {
+            if (!Object.prototype.hasOwnProperty.call(value, key)) { continue; }
+            var compacted = window.tfCompactAppDataValue(value[key]);
+            if (compacted === '' || compacted === null || compacted === undefined) { continue; }
+            out[key] = compacted;
+        }
+        return Object.keys(out).length ? out : undefined;
+    }
+    if (typeof value === 'string') { return window.tfDecodeAppDataText(value); }
+    return value;
+};
+
+window.tfCompactAppData = function (value) {
+    var compacted = window.tfCompactAppDataValue(value);
+    if (compacted === undefined && value && typeof value === 'object' && !Array.isArray(value)) {
+        return {};
+    }
+    return compacted;
+};
+
+// Refreshes appData.customer/billing from the live Billing page form fields -- the server-rendered
+// values at page load reflect any pre-fill only. Shared by checkout-billing.js and
+// formValidation_new.js, which both bind a click handler to #billingReviewBtn; defined once here
+// (loaded in <head>, well before either script's click handler can fire) so the two call sites
+// don't duplicate the same field-reading logic. Never throws -- a DOM read failure here must not
+// block either handler's own submit logic.
+window.tfRefreshBillingAppData = function () {
+    if (!window.appData) { return; }
+    try {
+        var apState = $('#state:visible').val() || $('#province:visible').val() || $('#territory:visible').val() || '';
+        var apCompact = (typeof window.tfCompactAppData === 'function')
+            ? window.tfCompactAppData : function (apValue) { return apValue; };
+        window.appData.customer = apCompact({
+            email:     $('#email').val() || '',
+            firstName: $('#first_name').val() || '',
+            lastName:  $('#last_name').val() || '',
+            phone:     $('#phone_number').val() || ''
+        });
+        window.appData.billing = apCompact({
+            address1: $('#address1').val() || '',
+            city:     $('#city').val() || '',
+            state:    apState,
+            zip:      $('#zip').val() || '',
+            country:  $('#country').val() || ''
+        });
+    } catch (e) { /* appData refresh must never block the caller's own submit flow */ }
+};
+
+window.tfRefreshPdpAppData = function (skuId) {
+    if (!window.appData || !window.appData.product || !skuId) { return; }
+    try {
+        var apCompact = (typeof window.tfCompactAppData === 'function')
+            ? window.tfCompactAppData : function (apValue) { return apValue; };
+        var $apRadio = $('input[name="skuRadio"][value="' + skuId + '"]');
+        if (!$apRadio.length) { return; }
+        var $apPriceEl = $('#' + skuId + '-price');
+        var apPriceText = $apPriceEl.length ? ($apPriceEl.text() || '') : ($apRadio.attr('aria-label') || '');
+        var apPriceMatches = apPriceText.match(/[0-9]+(\.[0-9]+)?/g);
+        var apPrice = apPriceMatches && apPriceMatches.length ? parseFloat(apPriceMatches[apPriceMatches.length - 1]) : 0;
+        window.appData.product = apCompact($.extend({}, window.appData.product, {
+            sku:      skuId,
+            price:    apPrice,
+            imageUrl: $apRadio.attr('data-image') || window.appData.product.imageUrl
+        }));
+    } catch (e) { /* appData refresh must never block the radio's own handlers */ }
+};
+
+window.tfRefreshCartAppData = function () {
+    try {
+        var apBase = (typeof window.siteContextPath !== 'undefined') ? window.siteContextPath : '';
+        $.get(apBase + '/checkout/cartPriceInfo.jsp', function (apHtml) {
+            $('<div>').html(apHtml).find('script').each(function () {
+                $.globalEval(this.text || this.textContent || '');
+            });
+        });
+    } catch (e) { /* appData refresh must never block the caller's own flow */ }
+};
+
+window.tfRefreshDeliveryAppData = function () {
+    if (!window.appData) { return; }
+    try {
+        var apCompact = (typeof window.tfCompactAppData === 'function')
+            ? window.tfCompactAppData : function (apValue) { return apValue; };
+        window.appData.recipient = apCompact({
+            firstName: $('#firstName0').val() || '',
+            lastName:  $('#lastName0').val() || ''
+        });
+        window.appData.delivery = apCompact({
+            date:   $('#deliveryInfoDate-0').val() || '',
+            method: ($('#setEfloristStorePickup-1').val() === 'true') ? 'pickup' : 'delivery',
+            zip:    $('#zip-0').val() || '',
+            city:   $('#city0').val() || ''
+        });
+    } catch (e) { /* appData refresh must never block the caller's own submit flow */ }
+};
+
+// Fires a Klaviyo event only if the onsite script loaded (i.e. the site is connected + tracking
+// enabled). Callers never need to branch on connection state themselves. Never throws -- tracking
+// must never be able to interrupt a caller's own flow (e.g. Express Checkout's synchronous wallet
+// dispatch in ecPlaceOrder()).
+// Returns true only when the event was actually handed to Klaviyo, so klaviyoTrackOnce can tell a
+// real dispatch from a silent no-op.
+window.klaviyoTrack = function (eventName, properties) {
+    try {
+        if (typeof klaviyo === 'undefined') { return false; }
+        console.log(eventName +"-->"+properties);
+        klaviyo.push(['track', eventName, properties]);
+        return true;
+    } catch (e) { /* tracking failure must never block the caller */ }
+    return false;
+};
+
+// Fires an event at most once per guardKey (sessionStorage-backed), so a page refresh or repeated
+// transition within the same checkout session never re-fires the same event. sessionStorage access
+// is wrapped -- it can throw (e.g. Safari private browsing, storage disabled by policy), and this
+// function is called synchronously from checkout-critical paths (ecPlaceOrder's wallet dispatch),
+// so a storage failure must degrade to "always track" rather than ever propagate an exception.
+window.klaviyoTrackOnce = function (guardKey, eventName, properties) {
+    var marker = 'klaviyoFired:' + guardKey;
+    try {
+        if (sessionStorage.getItem(marker)) { return; }
+    } catch (e) { /* storage unavailable — fall through and track anyway */ }
+    // Only burn the guard on a real dispatch. Marking a no-op (site not connected, klaviyo.js
+    // blocked) would suppress the event for the rest of the session once tracking does work.
+    if (!window.klaviyoTrack(eventName, properties)) { return; }
+    try {
+        sessionStorage.setItem(marker, '1');
+    } catch (e) { /* storage unavailable/full — non-fatal, dedupe just won't persist */ }
+};
+</script>
+<style>
+:root{--twm-gold:#B98B3E;--twm-green:#5f6b5b;--twm-sage:#99A594;--twm-ink:#1b1b1b;--twm-text:#4f4f4f;--twm-line:#e4e0d8;--twm-paper:#fcfbf8}
+.twm-chg{position:relative;outline:2px dashed var(--twm-gold)!important;outline-offset:6px;border-radius:2px;transition:outline-color .2s}
+.twm-chg.twm-flash{outline-color:#d9534f!important;outline-style:solid!important}
+.twm-badge{position:absolute!important;top:-14px;right:-12px;left:auto;z-index:50;width:28px!important;height:28px!important;border-radius:50%;background:var(--twm-gold)!important;color:#fff!important;font:600 13px/28px system-ui,-apple-system,"Segoe UI",Arial,sans-serif!important;text-align:center;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.25);letter-spacing:0!important;padding:0!important;margin:0!important;display:block!important;text-transform:none!important}
+body.twm-off .twm-chg{outline:none!important}
+body.twm-off .twm-badge{display:none!important}
+#twm-bar{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:2147483000;display:flex;align-items:center;gap:6px;background:#1d1f1c;color:#fff;border-radius:40px;padding:6px 6px 6px 18px;box-shadow:0 8px 28px rgba(0,0,0,.3);font:500 13px/1.2 system-ui,-apple-system,"Segoe UI",Arial,sans-serif;max-width:calc(100vw - 32px);box-sizing:border-box}
+#twm-bar .twm-bar-label{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#fff}
+#twm-bar button{font:600 12px/1 system-ui,-apple-system,"Segoe UI",Arial,sans-serif;letter-spacing:.06em;border:0;border-radius:30px;padding:10px 14px;cursor:pointer;white-space:nowrap;margin:0;text-transform:none;min-height:0;width:auto;height:auto}
+#twm-open{background:var(--twm-gold);color:#fff}
+#twm-toggle{background:#3a3d38;color:#fff}
+#twm-drawer{position:fixed;top:0;right:0;bottom:0;width:440px;max-width:100vw;background:var(--twm-paper);z-index:2147483001;transform:translateX(105%);transition:transform .28s ease;box-shadow:-10px 0 40px rgba(0,0,0,.18);display:flex;flex-direction:column;font-family:Georgia,"Times New Roman",serif;color:#333;text-align:left;box-sizing:border-box}
+#twm-drawer *{box-sizing:border-box}
+#twm-drawer.open{transform:none}
+.twm-dh{padding:22px 24px 16px;border-bottom:1px solid var(--twm-line);display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.twm-dh h2{font:400 1.55rem/1.2 Georgia,serif;margin:2px 0 6px;color:var(--twm-ink);text-transform:none;letter-spacing:0}
+.twm-dh p{margin:0;font-size:1rem;color:var(--twm-text);line-height:1.45}
+.twm-kicker{font:600 11px/1.4 system-ui,-apple-system,Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--twm-green)}
+#twm-close{background:none;border:0;font:28px/1 system-ui;color:#666;cursor:pointer;padding:0 4px;width:auto;min-height:0}
+.twm-list{overflow-y:auto;padding:8px 24px 120px;-webkit-overflow-scrolling:touch}
+.twm-group{font:600 11px/1.4 system-ui,-apple-system,Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8a8a84;margin:22px 0 4px}
+.twm-item{border-bottom:1px solid var(--twm-line);padding:14px 0;margin:0}
+.twm-item summary{list-style:none;cursor:pointer;display:flex;gap:12px;align-items:flex-start}
+.twm-item summary::-webkit-details-marker{display:none}
+.twm-num{flex:none;width:26px;height:26px;border-radius:50%;background:var(--twm-gold);color:#fff;font:600 12px/26px system-ui,-apple-system,Arial,sans-serif;text-align:center;margin-top:2px}
+.twm-num.bts{background:var(--twm-green)}
+.twm-st{font-size:1.15rem;line-height:1.3;color:var(--twm-ink)}
+.twm-st small{display:block;font:500 12px/1.4 system-ui,-apple-system,Arial,sans-serif;color:#7d7d77;letter-spacing:.02em;margin-top:3px}
+.twm-tag{display:inline-block;font:600 10px/1 system-ui,-apple-system,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--twm-sage);padding:4px 6px;border-radius:2px;margin-left:6px;vertical-align:2px}
+.twm-body{padding:10px 0 0 38px;font-size:1rem;line-height:1.5;color:#444}
+.twm-body p{margin:0 0 10px}
+.twm-body ul{margin:0 0 10px;padding-left:18px}
+.twm-lbl{font:600 10.5px/1.4 system-ui,-apple-system,Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8a8a84;display:block;margin:12px 0 4px}
+.twm-before{background:#f1efe9;border-left:3px solid #c9c3b6;padding:8px 12px;font-size:.96rem;color:#666;overflow-wrap:anywhere}
+.twm-after{background:#eef1ec;border-left:3px solid var(--twm-sage);padding:8px 12px;font-size:.96rem;color:#333;overflow-wrap:anywhere}
+.twm-how{font:13px/1.5 system-ui,-apple-system,Arial,sans-serif;color:#555;background:#fff;border:1px solid var(--twm-line);padding:8px 12px;border-radius:3px}
+.twm-go{font:600 11px/1 system-ui,-apple-system,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;background:none;border:1px solid var(--twm-sage);color:var(--twm-green);padding:8px 12px;cursor:pointer;margin-top:6px;width:auto;min-height:0;border-radius:0}
+.twm-serp{background:#fff;border:1px solid var(--twm-line);border-radius:8px;padding:12px 14px;font-family:Arial,sans-serif;margin:4px 0 6px}
+.twm-serp .u{font-size:12px;color:#4d5156}
+.twm-serp .t{font-size:18px;line-height:1.3;color:#1a0dab;margin:3px 0}
+.twm-serp .d{font-size:13px;line-height:1.45;color:#4d5156}
+.twm-intro-note{font-size:.98rem;color:var(--twm-text);background:#fff;border:1px solid var(--twm-line);padding:10px 12px;margin:16px 0 0;line-height:1.45}
+@media (max-width:600px){#twm-bar .twm-bar-label{display:none}#twm-drawer{width:100vw}}
+</style></head>
+<body>
+
+
+<a aria-label="Skip to Main Content" class="skip-main" href="#main-content">Skip to Main Content</a>
+<script type="text/javascript">
+                var sitePayPalFastButton = false;
+                var loadPayPalFastjs = false;
+               
+                </script>
+<script type="text/javascript">
+                 sitePayPalFastButton = 'true';
+                
+                </script>
+<div class="page-loader hidden"></div>
+<div class="logo-center" id="wrapper">
+<input data-user="default" id="marketSite" type="hidden" value="false"/>
+<input data-obituaryid="" id="obituaryId" type="hidden" value=""/>
+<input id="efCurrDateFormat" type="hidden" value="mm/dd/yyyy"/>
+<input id="vendorType" type="hidden" value="vendorType:VT03"/>
+<input id="arTotalBalance" type="hidden" value="0.0"/>
+<script>
+        let encodedEmail = '';
+    	if(encodedEmail){
+    	    var base64Encoded = replaceCRLF(encodedEmail);
+            var decodedEmailId = decodeBase64(base64Encoded);
+            console.log("decodedEmailId for tracking",decodedEmailId);
+            let siteEmail = localStorage.getItem('userInfo-EF-403');
+            var cookieName = 'enCIterableEndUserId';
+            var cookieValue = base64Encoded;
+            var myDate = new Date();
+            myDate.setMonth(myDate.getMonth() + 12);
+            document.cookie = cookieName +"=" + cookieValue + ";expires=" + myDate 
+                              + ";+domain="+window.location.hostname+";path=/";           
+            if (localStorage.getItem('userInfo-EF-403') == null && decodedEmailId !== null) {
+              localStorage.setItem('userInfo-EF-403' , decodedEmailId);
+                         } 
+    	  
+    	}
+        function replaceCRLF(input) {
+          return input.replace(/\r\n/g, "\n");
+        }
+    
+        function decodeBase64(input) {
+          var decoded = atob(input);
+          return decoded;
+        }
+    
+        
+    </script>
+<input id="currentSiteId" type="hidden" value="EF-403"/>
+<input id="pageNameForlogin" name="vPageParam" type="hidden" value=""/>
+<header class="master-header">
+<nav class="m-supernav fluid avenir clearfix">
+<div class="l-wrapper">
+<div class="cart-add-popup"></div>
+<div class="sc-wrapper">
+<div class="sc-overlay"></div>
+<div class="sc-view">
+<div class="sc-topbar"></div>
+</div>
+</div>
+<a aria-label="menu" class="m-supernav-navtrigger display-block float-left m-supvernav-icon no-desktop" href="javascript:void(0);" id="navTrigger" role="button">
+<div class="m-supernav-navtrigger-icon icon-kahuna-burger"></div>
+</a>
+<div class="divider float-left no-margin display-block no-desktop"></div>
+<div class="m-navbar-search-wrapper m-navbar-item bottom-border float-left no-right no-padding no-border desktop-view" id="search">
+<input id="skuTypeDimension" type="hidden" value="2307186877"/>
+<div id="atg_store_search">
+<div role="search">
+<form action="/browse" class="m-navbar-search-form" id="searchForm" name="searchForm" onsubmit="return validateSearchForm(this);"><input name="_dyncharset" type="hidden" value="UTF-8"/><input aria-label="Search" autocomplete="off" class="m-navbar-search atg_store_searchInput" id="" name="Ntt" placeholder="Search" title="Search" type="text"/>
+<input aria-label="Go buttons" class="m-navbar-search-btn" name="search" title="Go" type="submit"/><input name="_D:search" type="hidden" value=" "/><a class="pdplink" href="/" id="InternalSearchTypeAhead" navlink="Internal Search: Recommend" style="display: none;">Internal Search: Recommend </a>
+<input name="_DARGS" type="hidden" value="/cartridges/SearchBox/SearchBox.jsp.searchForm"/></form></div>
+<script type="text/javascript">
+                var minAutoSuggestInputLength = "3", defaultNavState = "", autoSuggestServiceUrl = "/rest/model/teleflora/autosuggest/AutoSuggestActor/getAutoSuggestResults", collection = "/content/Shared/Auto-Suggest Panels", productUrl = "", containerClass = "dimSearchSuggContainer", defaultImage = "//assets.eflorist.com/images/no_image_auto_suggest.gif",dodImage="//assets.eflorist.com/site/EF-403/Deal of the Day Product/FC.jpg",subscImage="//assets.eflorist.com/images/subscriptions/subscription-custom.jpg", skuTypeDimension = "2307186877"
+                var serverUrl="//assets.eflorist.com/site/",nonSecureBaseUrl="//assets.eflorist.com",siteType="EFlorist";
+				
+            </script>
+</div>
+</div>
+<div class="m-supernav-logo float-left logo">
+<a aria-label="Longmont Florist Homepage" href="/"> <span id="shop-logo-alt" style="display: none;">Longmont Florist</span>
+<figure class="fluid">
+<img alt="Longmont Florist - Logo" class="" fetchpriority="high" height="1012" id="" onerror="this.parentNode.style.display='none';document.getElementById('shop-logo-alt').style.display='block';" src="//assets.eflorist.com/site/EF-403/Logo/Longmont.png" width="1442"/>
+</figure>
+</a>
+</div>
+
+<div class="m-supernav-right-tray">
+<div class="m-supernav-item m-supernav-number no-mobile clearfix">
+<div class="m-supernav-content no-hover">
+<span class="tel"><a href="tel:(303) 776-2804">(303) 776-2804</a></span>
+<span class="csnTel no-mobile"></span>
+<span class="tel"><a href="tel:(800) 932-4876">(800) 932-4876</a></span>
+</div>
+</div>
+<div class="m-supernav-item m-supernav-account clearfix">
+<a alt="Log In" href="#" id="accountTrigger" title="Log In"> <div class="m-supernav-icon icon-user" style=""></div>
+<div class="m-supernav-content m-supernav-account-status">
+                                Log In</div>
+</a>
+</div>
+<div class="m-supernav-item m-supernav-cart clearfix">
+<a href="/cart" id="cartTrigger"><script type="text/javascript">
+		               var cartItemCount = 0;
+		               if(cartItemCount == '1'){
+		                 $("#cartTrigger").attr("aria-label", "Cart, "+ cartItemCount +" item");
+		                 $("#altCartTrigger").attr("aria-label", "Cart, "+ cartItemCount +" item");
+		               }
+		               else if(cartItemCount > '1'){
+		                 $("#cartTrigger").attr("aria-label", "Cart, "+ cartItemCount +" items");
+		                 $("#altCartTrigger").attr("aria-label", "Cart, "+ cartItemCount +" items");
+		               }
+		               else{
+		                 $("#cartTrigger").attr("aria-label", "Cart");
+		                 $("#altCartTrigger").attr("aria-label", "Cart");
+		               }
+		         </script>
+<div class="icon-cart"></div>
+<div class="m-supernav-content">Cart</div>
+</a></div>
+</div>
+<div>
+</div>
+</div></nav>
+</header>
+<nav aria-label="Top Navigation Menu" class="m-navbar position-absolute no-top no-bottom full-height fluid no-top no-left bottom-border clearfix">
+<input id="marketSite" type="hidden" value="false"/>
+<div class="l-wrapper">
+<a aria-label="Close Menu" class="pull-right icon-close nav-close no-desktop" href="#"></a>
+<div class="m-navbar-search-wrapper m-navbar-item bottom-border float-left no-right no-padding no-border mobile-view" id="search">
+<input id="skuTypeDimension" type="hidden" value="2307186877"/>
+<div id="atg_store_search">
+<div role="search">
+<form action="/browse" class="m-navbar-search-form" id="searchForm" name="searchForm" onsubmit="return validateSearchForm(this);"><input name="_dyncharset" type="hidden" value="UTF-8"/><input aria-label="Search" autocomplete="off" class="m-navbar-search atg_store_searchInput" id="" name="Ntt" placeholder="Search" title="Search" type="text"/>
+<input aria-label="Go buttons" class="m-navbar-search-btn" name="search" title="Go" type="submit"/><input name="_D:search" type="hidden" value=" "/><a class="pdplink" href="/" id="InternalSearchTypeAhead" navlink="Internal Search: Recommend" style="display: none;">Internal Search: Recommend </a>
+<input name="_DARGS" type="hidden" value="/cartridges/SearchBox/SearchBox.jsp.searchForm"/></form></div>
+<script type="text/javascript">
+                var minAutoSuggestInputLength = "3", defaultNavState = "", autoSuggestServiceUrl = "/rest/model/teleflora/autosuggest/AutoSuggestActor/getAutoSuggestResults", collection = "/content/Shared/Auto-Suggest Panels", productUrl = "", containerClass = "dimSearchSuggContainer", defaultImage = "//assets.eflorist.com/images/no_image_auto_suggest.gif",dodImage="//assets.eflorist.com/site/EF-403/Deal of the Day Product/FC.jpg",subscImage="//assets.eflorist.com/images/subscriptions/subscription-custom.jpg", skuTypeDimension = "2307186877"
+                var serverUrl="//assets.eflorist.com/site/",nonSecureBaseUrl="//assets.eflorist.com",siteType="EFlorist";
+				
+            </script>
+</div>
+</div>
+<div aria-label="Main" class="nav-container" role="navigation">
+<ul class="m-navbar-toplevel fluid auto-height no-margin no-padding" role="menubar">
+<li class="m-navbar-item bottom-border float-left m-navbar-item-first" role="presentation"><a aria-label="Fall Flowers" class="m-navbar-link uppercase float-left position-relative c-top-nav-link" href="https://www.longmontflorist.com/fall-flowers/cat1080004" role="menuitem">Fall Flowers</a></li>
+<li class="m-navbar-item bottom-border float-left m-navbar-has-subnav" role="presentation">
+<a aria-controls="subMenu_1" aria-expanded="false" aria-haspopup="true" aria-label="Occasions" class="m-navbar-link uppercase float-left position-relative m-subnav-trigger c-top-nav-link" data-subnav="occasions" href="#" role="menuitem">Occasions<i class="fa fa-angle-down-icon"></i></a>
+<ul class="m-navbar-secondlevel fluid auto-height no-margin no-padding no-right" id="subMenu_1" role="menu">
+
+<li class="m-navbar-item bottom-border float-left no-desktop" role="none"><a aria-label="Main Menu" class="m-navbar-link uppercase float-left position-relative m-navbar-escape alt-pink" href="#" role="menuitem">Main Menu</a></li>
+
+<li class="m-navbar-set m-navbar-set-large m-navbar-occassions" role="presentation">
+<ul role="menu">
+<li class="m-navbar-item bottom-border float-left m-navbar-divider" role="presentation"><span aria-label="Occasions" class="m-navbar-title uppercase float-left position-relative">Occasions</span></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Colorado Collection" class="m-navbar-link uppercase float-left position-relative" href="https://www.longmontflorist.com/colorado-collection/de-129445" role="menuitem">Colorado Collection</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Gifts &amp; Gift Boxes" class="m-navbar-link uppercase float-left position-relative" href="https://www.longmontflorist.com/gifts-gift-boxes/cat10880009" role="menuitem">Gifts &amp; Gift Boxes</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Anniversary" class="m-navbar-link uppercase float-left position-relative" href="https://www.longmontflorist.com/anniversary/cat1000016" role="menuitem">Anniversary</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Get Well" class="m-navbar-link uppercase float-left position-relative" href="https://www.longmontflorist.com/get-well/cat1000018" role="menuitem">Get Well</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Birthday" class="m-navbar-link uppercase float-left position-relative" href="https://www.longmontflorist.com/birthday/cat1000017" role="menuitem">Birthday</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Just Because" class="m-navbar-link uppercase float-left position-relative" href="https://www.longmontflorist.com/just-because/cat1080022" role="menuitem">Just Because</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Love &amp; Romance" class="m-navbar-link uppercase float-left position-relative" href="https://www.longmontflorist.com/love-romance/cat1000019" role="menuitem">Love &amp; Romance</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="New Baby" class="m-navbar-link uppercase float-left position-relative" href="https://www.longmontflorist.com/new-baby/cat1080021" role="menuitem">New Baby</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Prom &amp; Homecoming" class="m-navbar-link uppercase float-left position-relative" href="https://www.longmontflorist.com/prom-homecoming/cat10490027" role="menuitem">Prom &amp; Homecoming</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Plants" class="m-navbar-link uppercase float-left position-relative" href="https://www.longmontflorist.com/plants/cat1010006" role="menuitem">Plants</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Roses" class="m-navbar-link uppercase float-left position-relative" href="https://www.longmontflorist.com/roses/cat1000012" role="menuitem">Roses</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Sympathy" class="m-navbar-link uppercase float-left position-relative" href="https://www.longmontflorist.com/sympathy/cat3350017" role="menuitem">Sympathy</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Subscriptions" class="m-navbar-link uppercase float-left position-relative" href="https://www.longmontflorist.com/subscriptions/cat8620004" role="menuitem">Subscriptions</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Shop All Occasions" class="m-navbar-link uppercase float-left position-relative alt-pink" href="https://www.longmontflorist.com/occasions/cat1000008" role="menuitem">Shop All Occasions</a></li>
+</ul>
+</li>
+<li class="m-navbar-set m-navbar-set no-border" role="presentation">
+<ul role="menu">
+<li class="m-navbar-item bottom-border float-left m-navbar-divider" role="presentation"><span class="m-navbar-title uppercase float-left position-relative">Services</span></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Subscriptions" class="m-navbar-link uppercase float-left position-relative" href="/subscriptions/cat8620004" role="menuitem">Subscriptions</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Floral Design Classes" class="m-navbar-link uppercase float-left position-relative" href="/floral-design-classes" role="menuitem">Floral Design Classes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="m-navbar-item bottom-border float-left m-navbar-has-subnav" role="presentation">
+<a aria-controls="subMenu_2" aria-expanded="false" aria-haspopup="true" aria-label="Shop By" class="m-navbar-link uppercase float-left position-relative m-subnav-trigger c-top-nav-link" data-subnav="occasions" href="#" role="menuitem">Shop By<i class="fa fa-angle-down-icon"></i></a>
+<ul class="m-navbar-secondlevel fluid auto-height no-margin no-padding no-right" id="subMenu_2" role="menu">
+
+<li class="m-navbar-item bottom-border float-left no-desktop" role="none"><a aria-label="Main Menu" class="m-navbar-link uppercase float-left position-relative m-navbar-escape alt-pink" href="#" role="menuitem">Main Menu</a></li>
+
+<li class="m-navbar-set m-navbar-set no-border" role="presentation">
+<ul role="menu">
+<li class="m-navbar-item bottom-border float-left m-navbar-divider" role="presentation"><span class="m-navbar-title uppercase float-left position-relative">Flower Type</span></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Roses" class="m-navbar-link uppercase float-left position-relative" href="/roses/cat1000012" role="menuitem">Roses</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Lilies" class="m-navbar-link uppercase float-left position-relative" href="/lilies/cat4470002" role="menuitem">Lilies</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Orchids" class="m-navbar-link uppercase float-left position-relative" href="/orchids/cat8760007" role="menuitem">Orchids</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Sunflowers" class="m-navbar-link uppercase float-left position-relative" href="/sunflowers/cat8760006" role="menuitem">Sunflowers</a></li>
+</ul>
+</li>
+<li class="m-navbar-set m-navbar-set no-border" role="presentation">
+<ul role="menu">
+<li class="m-navbar-item bottom-border float-left m-navbar-divider" role="presentation"><span class="m-navbar-title uppercase float-left position-relative">Color</span></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Purple" class="m-navbar-link uppercase float-left position-relative" href="/purple/cat4490003" role="menuitem">Purple</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Red" class="m-navbar-link uppercase float-left position-relative" href="/red/cat4490006" role="menuitem">Red</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Yellow" class="m-navbar-link uppercase float-left position-relative" href="/yellow/cat4490001" role="menuitem">Yellow</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Orange" class="m-navbar-link uppercase float-left position-relative" href="/orange/cat4490002" role="menuitem">Orange</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Green" class="m-navbar-link uppercase float-left position-relative" href="/green/cat4490004" role="menuitem">Green</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="White" class="m-navbar-link uppercase float-left position-relative" href="/white/cat4490008" role="menuitem">White</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Pink" class="m-navbar-link uppercase float-left position-relative" href="/pink/cat4490005" role="menuitem">Pink</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Gifts" class="m-navbar-link uppercase float-left position-relative c-top-nav-link" href="https://www.longmontflorist.com/gifts-gift-boxes/cat10880009" role="menuitem">Gifts</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Sympathy" class="m-navbar-link uppercase float-left position-relative c-top-nav-link" href="https://www.longmontflorist.com/sympathy" role="menuitem">Sympathy</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Plants" class="m-navbar-link uppercase float-left position-relative c-top-nav-link" href="https://www.longmontflorist.com/plants/cat1010006" role="menuitem">Plants</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Weddings" class="m-navbar-link uppercase float-left position-relative c-top-nav-link" href="https://www.longmontflorist.com/longmont-weddings" role="menuitem">Weddings</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Subscriptions" class="m-navbar-link uppercase float-left position-relative c-top-nav-link" href="https://www.longmontflorist.com/subscriptions/cat8620004" role="menuitem">Subscriptions</a></li>
+<li class="m-navbar-item bottom-border float-left m-navbar-has-subnav" role="presentation">
+<a aria-controls="subMenu_8" aria-expanded="false" aria-haspopup="true" aria-label="Delivery" class="m-navbar-link uppercase float-left position-relative m-subnav-trigger c-top-nav-link" data-subnav="occasions" href="#" role="menuitem">Delivery<i class="fa fa-angle-down-icon"></i></a>
+<ul class="m-navbar-secondlevel fluid auto-height no-margin no-padding no-right" id="subMenu_8" role="menu">
+
+<li class="m-navbar-item bottom-border float-left no-desktop" role="none"><a aria-label="Main Menu" class="m-navbar-link uppercase float-left position-relative m-navbar-escape alt-pink" href="#" role="menuitem">Main Menu</a></li>
+
+<li class="m-navbar-set m-navbar-occassions" role="presentation">
+<ul role="menu">
+<li class="m-navbar-item bottom-border float-left m-navbar-divider" role="presentation"><span class="m-navbar-title uppercase float-left position-relative"><blank></blank></span></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Flower Delivery in Anthem, CO" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Flower Delivery in Anthem, CO,OCCASION,TopNav" href="https://www.longmontflorist.com/flower-delivery-in-anthem-co/cat12710041" role="menuitem">Flower Delivery in Anthem, CO</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Flower Delivery in Berthoud, CO" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Flower Delivery in Berthoud, CO,OCCASION,TopNav" href="https://www.longmontflorist.com/flower-delivery-in-berthoud-co/de-441411" role="menuitem">Flower Delivery in Berthoud, CO</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Flower Delivery in Boulder, CO" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Flower Delivery in Boulder, CO,OCCASION,TopNav" href="https://www.longmontflorist.com/flower-delivery-in-boulder-co/de-431826" role="menuitem">Flower Delivery in Boulder, CO</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Flower Delivery in Broomfield, CO" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Flower Delivery in Broomfield, CO,OCCASION,TopNav" href="https://www.longmontflorist.com/flower-delivery-in-broomfield-co/cat12720075" role="menuitem">Flower Delivery in Broomfield, CO</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Flower Delivery in Dacono, CO" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Flower Delivery in Dacono, CO,OCCASION,TopNav" href="https://www.longmontflorist.com/flower-delivery-in-dacono-co/de-441362" role="menuitem">Flower Delivery in Dacono, CO</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Flower Delivery in Erie, CO" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Flower Delivery in Erie, CO,OCCASION,TopNav" href="https://www.longmontflorist.com/flower-delivery-in-erie-co/de-431896" role="menuitem">Flower Delivery in Erie, CO</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Flower Delivery in Firestone, CO" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Flower Delivery in Firestone, CO,OCCASION,TopNav" href="https://www.longmontflorist.com/flower-delivery-in-firestone-co/cat12720068" role="menuitem">Flower Delivery in Firestone, CO</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Flower Delivery in Federal Heights, CO" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Flower Delivery in Federal Heights, CO,OCCASION,TopNav" href="https://www.longmontflorist.com/flower-delivery-in-federal-heights-co/cat14550010" role="menuitem">Flower Delivery in Federal Heights, CO</a></li>
+</ul>
+</li>
+<li class="m-navbar-set m-navbar-occassions" role="presentation">
+<ul role="menu">
+<li class="m-navbar-item bottom-border float-left m-navbar-divider" role="presentation"><span class="m-navbar-title uppercase float-left position-relative"><blank></blank></span></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Flower Delivery in Frederick, CO" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Flower Delivery in Frederick, CO,OCCASION,TopNav" href="https://www.longmontflorist.com/flower-delivery-in-frederick-co/de-441373" role="menuitem">Flower Delivery in Frederick, CO</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Flower Delivery in Gunbarrel, CO" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Flower Delivery in Gunbarrel, CO,OCCASION,TopNav" href="https://www.longmontflorist.com/flower-delivery-in-gunbarrel-co/cat12720067" role="menuitem">Flower Delivery in Gunbarrel, CO</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Flower Delivery in Lafayette, CO" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Flower Delivery in Lafayette, CO,OCCASION,TopNav" href="https://www.longmontflorist.com/flower-delivery-in-lafayette-co/de-431823" role="menuitem">Flower Delivery in Lafayette, CO</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Flower Delivery in Louisville, CO" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Flower Delivery in Louisville, CO,OCCASION,TopNav" href="https://www.longmontflorist.com/flower-delivery-in-louisville-co/de-441352" role="menuitem">Flower Delivery in Louisville, CO</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Flower Delivery in Lyons, CO" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Flower Delivery in Lyons, CO,OCCASION,TopNav" href="https://www.longmontflorist.com/flower-delivery-in-lyons-co/cat12720069" role="menuitem">Flower Delivery in Lyons, CO</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Flower Delivery in Mead, CO" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Flower Delivery in Mead, CO,OCCASION,TopNav" href="https://www.longmontflorist.com/flower-delivery-in-mead-co/de-432135" role="menuitem">Flower Delivery in Mead, CO</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Flower Delivery in Niwot, CO" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Flower Delivery in Niwot, CO,OCCASION,TopNav" href="https://www.longmontflorist.com/flower-delivery-in-niwot-co/de-431825" role="menuitem">Flower Delivery in Niwot, CO</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Flower Delivery in Superior, CO" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Flower Delivery in Superior, CO,OCCASION,TopNav" href="https://www.longmontflorist.com/flower-delivery-in-superior-co/cat12720070" role="menuitem">Flower Delivery in Superior, CO</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Flower Delivery in Northglenn, CO" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Flower Delivery in Northglenn, CO,OCCASION,TopNav" href="https://www.longmontflorist.com/flower-delivery-in-northglenn-co/cat14550008" role="menuitem">Flower Delivery in Northglenn, CO</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Flower Delivery in Thornton, CO" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Flower Delivery in Thornton, CO,OCCASION,TopNav" href="https://www.longmontflorist.com/flower-delivery-in-thornton-co/cat14550009" role="menuitem">Flower Delivery in Thornton, CO</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Flower Delivery in Westminster, CO" class="m-navbar-link uppercase float-left position-relative itemClick" data-per="Flower Delivery in Westminster, CO,OCCASION,TopNav" href="https://www.longmontflorist.com/flower-delivery-in-westminster-co/cat14550011" role="menuitem">Flower Delivery in Westminster, CO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="m-navbar-item bottom-border float-left m-navbar-has-subnav" role="presentation">
+<a aria-controls="subMenu_9" aria-expanded="false" aria-haspopup="true" aria-label="About Us" class="m-navbar-link uppercase float-left position-relative m-subnav-trigger c-top-nav-link" data-subnav="occasions" href="https://www.longmontflorist.com/about-us" role="menuitem">About Us<i class="fa fa-angle-down-icon"></i></a>
+<ul class="m-navbar-secondlevel fluid auto-height no-margin no-padding no-right" id="subMenu_9" role="menu">
+
+<li class="m-navbar-item bottom-border float-left no-desktop" role="none"><a aria-label="Main Menu" class="m-navbar-link uppercase float-left position-relative m-navbar-escape alt-pink" href="#" role="menuitem">Main Menu</a></li>
+
+<li class="m-navbar-set m-navbar-set no-border" role="presentation">
+<ul role="menu">
+<li class="m-navbar-item bottom-border float-left m-navbar-divider" role="presentation"><span class="m-navbar-title uppercase float-left position-relative"><br/></span></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="About Us" class="m-navbar-link uppercase float-left position-relative" href="/about-us" role="menuitem">About Us</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Blog" class="m-navbar-link uppercase float-left position-relative" href="/blog" role="menuitem">Blog</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Floral Design Classes" class="m-navbar-link uppercase float-left position-relative" href="/floral-design-classes" role="menuitem">Floral Design Classes</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Employment Inquiry Form" class="m-navbar-link uppercase float-left position-relative" href="/employment-form" role="menuitem">Employment Inquiry Form</a></li>
+<li class="m-navbar-item bottom-border float-left" role="presentation"><a aria-label="Frequently Asked Questions" class="m-navbar-link uppercase float-left position-relative" href="/longmont-florist-faq" role="menuitem">Frequently Asked Questions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="" role="presentation"><div class="m-navbar-item no-mobile social-icons" role="menuitem">
+<div class="m-header-c-social-list float-right">
+<a aria-label="Facebook (Opens in new tab)" class="icon-social-img" href="https://www.facebook.com/Longmontflorist" rel="noreferrer nofollow" target="_blank"> <img alt="" height="25" src="//assets.eflorist.com/images/social-media-icons/brand-colors/fb.png" width="25"/>
+</a>
+<a aria-label="Instagram (Opens in new tab)" class="icon-social-img" href="https://www.instagram.com/longmontflorist/" rel="noreferrer nofollow" target="_blank"> <img alt="" height="25" src="//assets.eflorist.com/images/social-media-icons/brand-colors/instagram.png" width="25"/>
+</a>
+<a aria-label="Yelp (Opens in new tab)" class="icon-social-img" href="https://www.yelp.com/biz/longmont-florist-longmont-3" rel="noreferrer nofollow" target="_blank"> <img alt="" height="25" src="//assets.eflorist.com/images/social-media-icons/brand-colors/yelp.png" width="25"/>
+</a>
+</div>
+</div>
+</li>
+<li class="m-navbar-item bottom-border float-left m-navbar-divider no-desktop" role="presentation"><span class="m-navbar-title uppercase float-left position-relative">Customer Service</span></li>
+<li class="m-navbar-footer m-navbar-item bottom-border float-left no-desktop" role="presentation"><a aria-label="e-mail us" class="m-navbar-link uppercase float-left position-relative" href="mailto:info@longmontflorist.com" role="menuitem">e-mail
+                            us</a></li>
+<li class="m-navbar-footer m-navbar-item bottom-border float-left no-desktop" role="presentation"><a aria-label="(303) 776-2804" class="m-navbar-link uppercase float-left position-relative" href="tel:(303) 776-2804" role="menuitem">(303) 776-2804</a>
+<span class="csnTel no-mobile"></span>
+</li>
+<li class="m-navbar-footer m-navbar-item bottom-border float-left no-desktop" role="presentation"><a aria-label="(800) 932-4876" class="m-navbar-link uppercase float-left position-relative" href="tel:(800) 932-4876" role="menuitem">(800) 932-4876</a>
+</li>
+</ul>
+</div>
+<div class="m-navbar-item no-desktop social-icons" role="menuitem">
+<div class="m-header-c-social-list float-right">
+<a aria-label="Facebook (Opens in new tab)" class="icon-social-img" href="https://www.facebook.com/Longmontflorist" rel="noreferrer nofollow" target="_blank"> <img alt="" height="25" src="//assets.eflorist.com/images/social-media-icons/brand-colors/fb.png" width="25"/>
+</a>
+<a aria-label="Instagram (Opens in new tab)" class="icon-social-img" href="https://www.instagram.com/longmontflorist/" rel="noreferrer nofollow" target="_blank"> <img alt="" height="25" src="//assets.eflorist.com/images/social-media-icons/brand-colors/instagram.png" width="25"/>
+</a>
+<a aria-label="Yelp (Opens in new tab)" class="icon-social-img" href="https://www.yelp.com/biz/longmont-florist-longmont-3" rel="noreferrer nofollow" target="_blank"> <img alt="" height="25" src="//assets.eflorist.com/images/social-media-icons/brand-colors/yelp.png" width="25"/>
+</a>
+</div>
+</div>
+<div class="m-navbar-secondlevel-bkg" id="secondLevelBkg">
+<div class="m-navbar-pinkline"></div>
+</div>
+<div class="m-navbar-secondlevel-bkg is-quickshop" id="secondLevelBkgQS">
+<div class="m-navbar-pinkline"></div>
+</div>
+
+<input class="btn nav-close no-desktop" id="closeNavBtn" name="closeNavBtn" type="button" value="Close"/>
+</div>
+
+</nav>
+<div aria-hidden="false" class="modal hide fade in" data-width="460" id="SessionTimeOutWarn" style="display: none; width: 460px; margin-left: -229px; margin-top: -211px;">
+<div class="m-pdp-modal-header modal-header">
+<p class="m-pdp-modal-header-text">
+<strong>Warning</strong><span><a class="pull-right icon-close icon-close-modal" data-dismiss="modal" href="#"></a></span>
+</p>
+</div>
+<div class="modal-body pdp-modal-body centered">
+<p class="m-pdp-header-modal-body">
+                session about to expire in few minutes</p>
+</div>
+<div class="modal-footer pdp-modal-footer">
+<a class="pdp-modal-footer-link" data-dismiss="modal" href="#">Back to Shopping</a>
+</div>
+</div>
+<div class="l-wrapper topSlider">
+</div>
+<div class="m-navbar-offcanvas-divider no-top no-bottom full-height no-desktop"></div>
+<form action="/WEB-INF/fragments/common/?_DARGS=/WEB-INF/fragments/common/header.jsp#" id="checkoutLoginForm" method="POST" name="checkoutLoginForm"><input name="_dyncharset" type="hidden" value="UTF-8"/><input name="_dynSessConf" type="hidden" value="-3626166140355506804"/><input id="logInEmailfield" name="email" title="Email" type="hidden" value=""/>
+<input id="logInPasswordfield" name="password" title="Password" type="hidden" value=""/>
+</form><script>
+ function executeSubmit() {
+    var form = $('#logInForm');
+    var validForm = form.valid();
+    if (validForm) {
+    form = $('#checkoutLoginForm');
+    $.ajax({
+    type : "POST",
+    url : '/fragments/loginErrors.jsp?',
+    async: false,
+    data : form.serialize(),
+    success : function(data) {
+    var trimStr = data.trim();
+     if (trimStr != 'success') {
+     var redirectURL= $('#checkoutLoginErrURL').val();
+     redirectURL = redirectURL+"&chkoutErrMsg="+trimStr.split('</br>')[0];
+     window.location.href = redirectURL;
+    } else if (trimStr == '' || trimStr == undefined) {
+    var redirectURL= $('#checkoutLoginErrURL').val();
+         redirectURL = redirectURL+"&chkoutErrMsg="+trimStr.split('</br>')[0];
+        window.location.href = redirectURL;
+    } else {
+    setTimeout(function(){// wait for 5 secs(2)
+    location.reload(); // then reload the page.(3)
+    }, 1000);
+
+    }
+    },
+    error : function(data) {
+    location.reload(true);
+    }
+    });
+    }
+    }
+</script>
+<script>
+                const isAccountBilling = false;
+            </script>
+<section class="m-homepage layout1 centered clearfix" id="main-content"><style>
+.lf-svc{--accent:#4B601A;--accent-2:#025D7F;--highlight:#BBE027;--text:#1a1a1a;--muted:#5c6355;--card:#f8faf6;--border:#e2e7dc;color:var(--text);max-width:960px;margin:0 auto;padding:28px 20px;text-align:left;box-sizing:border-box}
+.lf-svc *{box-sizing:border-box}
+.lf-svc p,.lf-svc h2,.lf-svc h3,.lf-svc h4,.lf-svc li,.lf-svc summary,.lf-svc div{text-align:left}
+.lf-svc .lf-eyebrow{display:inline-block;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-2);font-weight:700;margin-bottom:6px}
+.lf-svc h1{font-size:clamp(1.5rem,3vw,2rem);line-height:1.2;margin:0 0 12px;color:var(--accent);border:0;text-align:left;text-transform:none;letter-spacing:0}
+.lf-svc h2{font-size:1.3rem;line-height:1.3;margin:38px 0 12px;color:var(--accent);border:0;padding:0;text-transform:none;letter-spacing:0}
+.lf-svc .lf-sub{font-size:clamp(1rem,2vw,1.125rem);color:var(--muted);margin:0 0 16px}
+.lf-svc p{font-size:1rem;line-height:1.65;margin:0 0 14px}
+.lf-svc a{color:var(--accent-2);text-decoration:underline;text-underline-offset:2px}
+.lf-svc .lf-actions{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 6px}
+.lf-svc .lf-btn{display:inline-flex;align-items:center;gap:8px;border:2px solid var(--accent-2);background:var(--accent-2);color:#fff;text-decoration:none;padding:10px 16px;border-radius:999px;font-weight:700}
+.lf-svc .lf-btn--ghost{background:#fff;color:var(--accent-2)}
+.lf-svc .lf-btn:hover{background:var(--highlight);border-color:var(--highlight);color:#000}
+.lf-svc .lf-grid{display:grid;gap:14px;grid-template-columns:repeat(1,minmax(0,1fr))}
+@media (min-width:560px){.lf-svc .lf-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:880px){.lf-svc .lf-grid--3{grid-template-columns:repeat(3,minmax(0,1fr))}.lf-svc .lf-grid--4{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.lf-svc .lf-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.lf-svc .lf-card h3{font-size:1rem;margin:0;color:var(--accent-2)}
+.lf-svc .lf-card p{font-size:.94rem;line-height:1.55;margin:0;color:var(--muted)}
+.lf-svc .lf-card .lf-num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700}
+.lf-svc .lf-card a.lf-more{font-size:.9rem;font-weight:700;margin-top:auto}
+.lf-svc .lf-dir{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:6px 20px 18px}
+.lf-svc .lf-dir h3{font-size:1rem;margin:18px 0 6px;color:var(--accent-2)}
+.lf-svc .lf-dir ul{list-style:none;margin:0;padding:0;column-count:2;column-gap:28px}
+.lf-svc .lf-dir li{break-inside:avoid;padding:8px 0;border-bottom:1px solid var(--border);font-size:.95rem;line-height:1.45}
+.lf-svc .lf-dir li b{display:block}
+.lf-svc .lf-dir li span{font-size:.88rem;color:var(--muted)}
+.lf-svc .lf-dir .lf-note{font-size:.9rem;color:var(--muted);margin:14px 0 0}
+.lf-svc ul.lf-notes{margin:0;padding-left:20px}
+.lf-svc ul.lf-notes li{font-size:1rem;line-height:1.6;margin:0 0 10px}
+.lf-svc .lf-review{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px}
+.lf-svc .lf-stars{color:var(--accent);letter-spacing:2px;margin-bottom:6px}
+.lf-svc .lf-review p{font-size:.95rem;font-style:italic;margin:0 0 8px}
+.lf-svc .lf-review cite{font-style:normal;font-weight:700;font-size:.9rem;color:var(--accent-2)}
+.lf-svc .lf-cross{border-left:4px solid var(--highlight);background:var(--card);border-radius:0 14px 14px 0;padding:14px 18px;margin:30px 0}
+.lf-svc .lf-cross p{margin:0}
+.lf-svc .lf-faqs{margin-top:10px;border-top:2px solid var(--border)}
+.lf-svc details{border-bottom:1px solid var(--border);padding:12px 0}
+.lf-svc summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;font-weight:700;color:var(--accent-2)}
+.lf-svc summary::-webkit-details-marker{display:none}
+.lf-svc summary::before{content:"\25B6";font-size:.75rem;color:var(--highlight);transition:transform .2s ease}
+.lf-svc details[open] summary::before{transform:rotate(90deg)}
+.lf-svc details p{margin:8px 0 0}
+.lf-svc .lf-areas a{display:inline-block;margin:4px 3px;padding:6px 14px;border:1px solid var(--border);border-radius:999px;background:var(--card);text-decoration:none;font-size:.92rem}
+.lf-svc .lf-areas a:hover{background:var(--highlight);color:#000}
+.lf-svc .lf-close{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;margin-top:34px}
+@media (max-width:640px){.lf-svc .lf-dir ul{column-count:1}}
+.lf-svc .lf-h-top{margin-top:0}
+</style>
+<div class="lf-svc"><span class="lf-eyebrow">Longmont Florist · Since 1969</span><h1 class="twm-chg" data-twm="1"><span class="twm-badge" data-twm-go="1">1</span>Hospital Flower Delivery in Longmont and Boulder County</h1><p class="lf-sub">Get well flowers delivered to Longmont United, UCHealth Longs Peak and hospitals across Boulder County, designed in our shop on Coffman Street.</p><p>When someone is in the hospital, flowers are a way of saying you are thinking of them without asking anything in return. Longmont Florist has been delivering get well flowers to Longmont hospitals and care homes since 1969, and we know how each building likes deliveries handled.</p><p>For same-day delivery we recommend ordering by noon. Same-day orders placed after noon and before 4:00 PM may carry an express delivery fee, so please call. On Saturdays the cutoff is 1:00 PM in Longmont and 11:00 AM for surrounding areas.</p><div class="lf-actions"><a class="lf-btn" href="/get-well/cat1000018">Shop Get Well Flowers</a><a class="lf-btn lf-btn--ghost" href="tel:3037762804">Call (303) 776-2804</a></div><h2 class="twm-chg" data-twm="2" data-twm-key="twm-sec-2"><span class="twm-badge" data-twm-go="2">2</span>Why Longmont Florist</h2><div class="lf-grid lf-grid--4"><div class="lf-card"><h3>Family Owned Since 1969</h3><p>Three generations of the Golter family have run Longmont Florist. Nate and Jordan Golter lead the shop today from 614 Coffman Street.</p></div><div class="lf-card"><h3>Designed by Hand</h3><p>Every arrangement is designed in our Longmont shop by our own team, using flowers from local farms and trusted growers around the world.</p></div><div class="lf-card"><h3>Delivery Confirmed</h3><p>We send a confirmation email and a text or phone call when your flowers are delivered, so you are not left wondering.</p></div><div class="lf-card"><h3>Best of the Best</h3><p>Voted Longmont Times-Call "Best of the Best" every year since 2006, and the Longmont Chamber's 2004 Small Business of the Year.</p></div></div><h2 class="twm-chg" data-twm="3" data-twm-key="twm-sec-3"><span class="twm-badge" data-twm-go="3">3</span>How Hospital Delivery Works</h2><div class="lf-grid lf-grid--3"><div class="lf-card"><span class="lf-num">1</span><p>Choose an arrangement from our get well collection, or call us and tell us about the patient. We will design something that suits the room.</p></div><div class="lf-card"><span class="lf-num">2</span><p>Give us the patient's full name, the hospital, and the room or unit number if you have it. That one detail is the difference between a smooth delivery and a bouquet waiting at the front desk.</p></div><div class="lf-card"><span class="lf-num">3</span><p>We deliver to the hospital and follow its rules for handing off flowers, then let you know the flowers have been delivered.</p></div></div><h2 class="twm-chg" data-twm="4" data-twm-key="twm-sec-4"><span class="twm-badge" data-twm-go="4">4</span>Hospitals and Care Facilities We Deliver To</h2><div class="lf-dir"><h3>Longmont</h3><ul><li><b>CommonSpirit Longmont United Hospital</b><span>1950 Mountain View Ave, Longmont, CO 80501</span></li><li><b>UCHealth Longs Peak Hospital</b><span>1750 E. Ken Pratt Blvd, Longmont, CO 80504</span></li><li><b>TRU Hospice Care Center (inside Longmont United Hospital)</b><span>1950 Mountain View Ave, Longmont, CO 80501</span></li><li><b>Front Range Orthopedic Surgery Center</b><span>1610 Dry Creek Dr, Suite 100, Longmont, CO 80503</span></li></ul><h3>Boulder, Lafayette, Louisville and Broomfield</h3><ul><li><b>Boulder Community Health Foothills Hospital</b><span>4747 Arapahoe Ave, Boulder, CO 80303</span></li><li><b>Intermountain Health Good Samaritan Hospital</b><span>200 Exempla Circle, Lafayette, CO 80026</span></li><li><b>AdventHealth Avista</b><span>100 Health Park Dr, Louisville, CO 80027</span></li><li><b>UCHealth Broomfield Hospital</b><span>11820 Destination Dr, Broomfield, CO 80021</span></li></ul><h3>Nursing, Rehab and Assisted Living, Longmont</h3><ul><li><b>Life Care Center of Longmont</b><span>2451 Pratt St, Longmont, CO 80501</span></li><li><b>The Peaks Care Center</b><span>1440 Coffman St, Longmont, CO 80501</span></li><li><b>Applewood Living Center</b><span>1800 Stroh Pl, Longmont, CO 80501</span></li><li><b>Hover Senior Living Community</b><span>1380 Charles Dr, Longmont, CO 80503</span></li><li><b>Brookdale Longmont</b><span>2240 Pratt St, Longmont, CO 80501</span></li><li><b>The Bridge at Longmont</b><span>2444 Pratt St, Longmont, CO 80501</span></li><li><b>Atria Longmont</b><span>2310 9th Ave, Longmont, CO 80503</span></li><li><b>Solista Longmont</b><span>2210 Main St, Longmont, CO 80501</span></li></ul><h3>Senior Apartments, Longmont</h3><ul><li><b>Village on Main</b><span>600 Coffman St, Longmont, CO 80501</span></li><li><b>Longs Peak Residence</b><span>2139 Emery St, Longmont, CO 80501</span></li><li><b>Mountain View Plaza</b><span>1350 Collyer St, Longmont, CO 80501</span></li><li><b>St. Vrain Manor</b><span>606 Pratt St, Longmont, CO 80501</span></li></ul><p class="lf-note">Do not see the facility you need? Call <a href="tel:3037762804">(303) 776-2804</a> and we will confirm it. Addresses checked October 2026.</p></div><h2 class="twm-chg" data-twm="5" data-twm-key="twm-sec-5"><span class="twm-badge" data-twm-go="5">5</span>What to Send to a Hospital Room</h2><div class="lf-grid lf-grid--4"><div class="lf-card"><h3>Get Well Flowers</h3><p>Hospital rooms have little surface space, so we build get well arrangements compact and in a container that will not tip.</p><a class="lf-more" href="/get-well/cat1000018">Shop get well</a></div><div class="lf-card"><h3>Plants</h3><p>For a long stay, a green plant lasts far longer than cut flowers and goes home with the patient afterward.</p><a class="lf-more" href="/plants/cat1010006">Shop plants</a></div><div class="lf-card"><h3>New Baby</h3><p>Something soft and cheerful for the maternity floor. Include the mother's full name and the hospital.</p><a class="lf-more" href="/new-baby/cat1080021">Shop new baby</a></div><div class="lf-card"><h3>Gifts for Home Recovery</h3><p>Recovering at home? You have more freedom: a larger arrangement, a plant, or one of our gift boxes.</p><a class="lf-more" href="/gifts-gift-boxes/cat10880009">Shop gifts</a></div></div><h2 class="twm-chg" data-twm="6" data-twm-key="twm-sec-6"><span class="twm-badge" data-twm-go="6">6</span>Before You Order</h2><ul class="lf-notes"><li><b>ICU patients cannot receive flowers.</b> Longmont United Hospital and AdventHealth Avista deliver flowers to patient rooms except in the intensive care unit. Please make sure the patient is allowed to receive flowers before you order.</li><li><b>Latex balloons are not allowed</b> at Longmont United, UCHealth Longs Peak, UCHealth Broomfield or AdventHealth Avista. Longmont United and Avista allow Mylar balloons, and we use Mylar.</li><li><b>Keep the scent light.</b> A strong fragrance in a small, closed room is unpleasant for someone who already feels unwell and can bother the patient in the next bed, so we lean toward lower-scent flowers.</li><li><b>Our delivery fee starts at $9.95</b> in the 80501 zip code and increases with distance from the shop and the urgency of the delivery.</li><li><b>Deliveries to neighboring cities are usually made once per day.</b> Boulder, Lafayette, Louisville and Broomfield hospitals are on that run, so order early for same-day.</li><li><b>For a long stay,</b> a green plant or a recurring delivery keeps something living in the room week after week. Call us to set it up.</li></ul><h2 class="twm-chg" data-twm="7" data-twm-key="twm-sec-7"><span class="twm-badge" data-twm-go="7">7</span>What Customers Say</h2><div class="lf-grid lf-grid--3"><div class="lf-review"><div class="lf-stars">★★★★★</div><p>"I ordered a poinsettia for delivery to my sister in a Boulder hospital. I was pleasantly amazed to receive a phone call  from Longmont Florist that the plant had been delivered - same day as my order. Even more importantly, my sister called and said it was absolutely beautiful!<br/>Very nice job, Longmont Florist!!"</p><cite>Jim K.</cite></div><div class="lf-review"><div class="lf-stars">★★★★★</div><p>"Bouquet delivered to Longs Peak Hospital was declared by the staff and all my visitors as the most beautiful they ever saw.  Made my day!  Thank you Longmont Florist."</p><cite>Marianne S.</cite></div><div class="lf-review"><div class="lf-stars">★★★★★</div><p>"Longmont Florist delivered a beautiful bouquet to the hospice facility amazingly fast!<br/>I was so impressed by the flowers and the delivery. They have very reasonable prices and the ordering experience from their website is straight forward and easy. I highly recommend Longmont Florist, they made a sweet person’s day that’s in hospice."</p><cite>Lisa S.</cite></div></div><div class="lf-cross"><p>Sending flowers for a service instead? See our <a href="/funeral-flower-delivery">funeral and sympathy flower delivery page</a> for the funeral homes, churches and cemeteries we deliver to.</p></div><h2 class="twm-chg" data-twm="8" data-twm-key="twm-sec-8"><span class="twm-badge" data-twm-go="8">8</span>Frequently Asked Questions</h2><div class="lf-faqs"><details><summary>Can you deliver flowers to a Longmont hospital today?</summary><p>Usually, yes. For same-day delivery we recommend ordering by noon. Same-day orders placed after noon and before 4:00 PM may carry an express delivery fee, so please call. On Saturdays the cutoff is 1:00 PM in Longmont and 11:00 AM for surrounding areas. Call (303) 776-2804 and we will tell you honestly what is still possible.</p></details><details><summary>What information do you need to send flowers to a patient?</summary><p>The patient's full name, the hospital, and the room or unit number if you have it. Your phone number helps too, in case anything changes.</p></details><details><summary>Can patients in the ICU receive flowers?</summary><p>No. Intensive care patients cannot receive flower deliveries. Longmont United Hospital and AdventHealth Avista both deliver flowers to patient rooms except in the ICU. Flowers sent to the family at home are a good alternative.</p></details><details><summary>Do you deliver to UCHealth Longs Peak Hospital?</summary><p>Yes. We deliver to UCHealth Longs Peak on East Ken Pratt Boulevard and to CommonSpirit Longmont United Hospital on Mountain View Avenue, as well as hospitals in Boulder, Lafayette, Louisville and Broomfield.</p></details><details><summary>Are balloons allowed in Longmont hospitals?</summary><p>Latex balloons are not allowed at Longmont United, UCHealth Longs Peak, UCHealth Broomfield or AdventHealth Avista because of latex allergies. We use Mylar balloons.</p></details><details><summary>How will I know the flowers were delivered?</summary><p>We send a confirmation email and a text or phone call when your flowers are delivered. If you have a question before then, call us at (303) 776-2804.</p></details></div><h2 class="twm-chg" data-twm="9" data-twm-key="twm-sec-9"><span class="twm-badge" data-twm-go="9">9</span>Where We Deliver</h2><p>We deliver throughout Longmont and the surrounding towns. Pick a city for local delivery details.</p><div class="lf-areas"><a href="/flower-delivery-in-anthem-co/cat12710041">Anthem</a><a href="/flower-delivery-in-berthoud-co/de-441411">Berthoud</a><a href="/flower-delivery-in-boulder-co/de-431826">Boulder</a><a href="/flower-delivery-in-broomfield-co/cat12720075">Broomfield</a><a href="/flower-delivery-in-dacono-co/de-441362">Dacono</a><a href="/flower-delivery-in-erie-co/de-431896">Erie</a><a href="/flower-delivery-in-firestone-co/cat12720068">Firestone</a><a href="/flower-delivery-in-frederick-co/de-441373">Frederick</a><a href="/flower-delivery-in-gunbarrel-co/cat12720067">Gunbarrel</a><a href="/flower-delivery-in-lafayette-co/de-431823">Lafayette</a><a href="/flower-delivery-in-louisville-co/de-441352">Louisville</a><a href="/flower-delivery-in-lyons-co/cat12720069">Lyons</a><a href="/flower-delivery-in-mead-co/de-432135">Mead</a><a href="/flower-delivery-in-niwot-co/de-431825">Niwot</a><a href="/flower-delivery-in-superior-co/cat12720070">Superior</a><a href="/flower-delivery-in-northglenn-co/cat14550008">Northglenn</a><a href="/flower-delivery-in-thornton-co/cat14550009">Thornton</a><a href="/flower-delivery-in-westminster-co/cat14550011">Westminster</a></div><div class="lf-close twm-chg" data-twm="10" data-twm-key="twm-sec-10"><span class="twm-badge" data-twm-go="10">10</span><h2 class="lf-h-top">Send Get Well Flowers</h2><p>Order online, or call <a href="tel:3037762804">(303) 776-2804</a> and our team will help you choose.</p><div class="lf-actions"><a class="lf-btn" href="/get-well/cat1000018">Shop Get Well Flowers</a><a class="lf-btn lf-btn--ghost" href="tel:3037762804">Call (303) 776-2804</a></div></div></div></section>
+<input id="sessionConfirmationNumber" name="sessionConfirmationNumber" type="hidden" value="-4584650105889610686"/>
+<script type="application/ld+json">
+                         {
+  "@context": "https://schema.org",
+  "@type": "Florist",
+  "name": "Longmont Florist",
+  "image": "https://assets.eflorist.com/EF-403/Logo/Longmont.png",
+  "URL": "www.longmontflorist.com",
+  "telephone": "+13037762804",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "614 Coffman St",
+    "addressLocality": "Longmont",
+    "addressRegion": "CO",
+    "postalCode": "80501",
+    "addressCountry": "US"
+  },
+  "@id": "https://www.longmontflorist.com#florist",
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "40.1696807",
+    "longitude": "-105.1035303"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": 4.9,
+    "reviewCount": 1165
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Monday",
+      "opens": "08:00",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Tuesday",
+      "opens": "08:00",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Wednesday",
+      "opens": "08:00",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Thursday",
+      "opens": "08:00",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Friday",
+      "opens": "08:00",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "08:00",
+      "closes": "15:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/Longmontflorist",
+    "https://www.instagram.com/longmontflorist/",
+    "https://www.yelp.com/biz/longmont-florist-longmont-3"
+  ],
+  "description": "Order flowers online from your florist in Longmont, CO. Our flower shop offers fresh flowers and same day flower delivery throughout Longmont and beyond."
+}</script>
+<script type="text/javascript">
+                               var siteTypeVal = 'EFlorist';
+                        </script>
+<footer class="m-footer m-primary-bg-container top-border">
+<div class="l-wrapper top-padding bottom-padding">
+<div class="container_4 d-container_12 m-footer-top-half clearfix">
+<style>
+        .nickName{display: none}
+        .grecaptcha-badge { visibility: hidden; }
+    </style>
+<div class="grid_4 d-grid_4 alpha d-alpha minHeightApplied">
+<form action="/account/externalUserSubscriptions.jsp?_DARGS=/WEB-INF/fragments/common/footerEmailSignUp.jspf.loginfileFormSubscription" autocomplete="off" class="m-footer-email" id="loginfileFormSubscription" method="POST" name="loginfileFormSubscription"><input name="_dyncharset" type="hidden" value="UTF-8"/><input name="_dynSessConf" type="hidden" value="-3626166140355506804"/><input class="nickName" id="nickName" maxlength="75" name="nickName" type="text" value=""/><input name="_D:nickName" type="hidden" value=" "/><label for="optinEmailAddress">Sign up for special offers!</label>
+<input aria-label="Email Sign up" autocomplete="email" class="m-footer-email-input clear-margin-bottom float-left full-height" id="optinEmailAddress" maxsize="100" name="optinEmailAddress" placeholder="Enter E-Mail Address" size="15" title="Email Sign up" type="email" value=""/><input name="_D:optinEmailAddress" type="hidden" value=" "/><input name="/atg/userprofiling/ProfileFormHandler.createSuccessURL" type="hidden" value="/account/externalUserSubscriptions.jsp"/><input name="_D:/atg/userprofiling/ProfileFormHandler.createSuccessURL" type="hidden" value=" "/><input name="errorurl" type="hidden" value="/account/externalUserSubscriptions.jsp"/><input name="_D:errorurl" type="hidden" value=" "/><input aria-label="Go" class="btn m-footer-email-btn clear-margin-bottom float-left full-height" id="emailOptinBtn" name="/atg/userprofiling/ProfileFormHandler.logEmailPreference" title="Go" type="submit" value="go"/><input name="_D:/atg/userprofiling/ProfileFormHandler.logEmailPreference" type="hidden" value=" "/><input name="_DARGS" type="hidden" value="/WEB-INF/fragments/common/footerEmailSignUp.jspf.loginfileFormSubscription"/></form><style>
+        .nickName{display: none}
+        .grecaptcha-badge { visibility: hidden; }
+    </style>
+</div>
+<div class="grid_4 d-grid_4 alpha m-footer-border-bottom OneLinkNoTx">
+<div class="bccConfigAddress">
+<h5><img alt="Image of Longmont's Logo" class="footer-logo" height="70" src="https://assets.eflorist.com/site/EF-403/Logo/m4830008-logo-footer.png" width="218"/></h5><p></p></div>
+</div>
+<input id="addressCountryCBD" type="hidden" value=""/>
+<div class="grid_4 d-grid_4 d-alpha m-footer-border-bottom pull-right m-social-icons-container">
+<div class="m-footer-c-social-list">
+<a aria-label="Facebook (opens in new tab)" class="icon-social-img" href="https://www.facebook.com/Longmontflorist" rel="noreferrer nofollow" target="_blank"> <img alt="" height="25" src="//assets.eflorist.com/images/social-media-icons/brand-colors/fb.png" width="25"/>
+<span class="sr-only"> Opens in new tab</span>
+</a>
+<a aria-label="Instagram (opens in new tab)" class="icon-social-img" href="https://www.instagram.com/longmontflorist/" rel="noreferrer nofollow" target="_blank"> <img alt="" height="25" src="//assets.eflorist.com/images/social-media-icons/brand-colors/instagram.png" width="25"/>
+<span class="sr-only"> Opens in new tab</span>
+</a>
+<a aria-label="Yelp (opens in new tab)" class="icon-social-img" href="https://www.yelp.com/biz/longmont-florist-longmont-3" rel="noreferrer nofollow" target="_blank"> <img alt="" height="25" src="//assets.eflorist.com/images/social-media-icons/brand-colors/yelp.png" width="25"/>
+<span class="sr-only"> Opens in new tab</span>
+</a>
+</div>
+</div>
+</div>
+<div class="clear"></div>
+<div class="content-divider-primary no-desktop"></div>
+
+<div class="modal hide fade" data-width="600" id="addonErrorModal" style="display: none;" tabindex="-1">
+
+<div class="m-pdp-modal-header modal-header">
+
+<p class="m-pdp-modal-header-text">
+
+<span><a aria-label="Close error window" class="pull-right icon-close icon-close-modal" data-dismiss="modal" href="#" onclick="return handleAddonErrorContinue();"></a></span>
+</p>
+</div>
+
+
+<div class="modal-body pdp-modal-body centered" id="addonErrorModal1">
+
+<p class="m-pdp-header-modal-body">Sorry!</p>
+<br/>
+
+<p>Only three add on items can be selected at a time. If you wish to change your selection, please set one of your currently selected items back to default.</p>
+<br/>
+</div>
+
+<div class="clearfix"></div>
+<div class="modal-footer">
+<input aria-label="Back to shopping" class="btn btn-submit" data-dismiss="modal" id="addonErrorContinue" name="addonErrorContinue" onclick="return handleAddonErrorContinue();" tabindex="3" type="button" value="Back to Shopping"/>
+</div>
+</div>
+
+<div class="container_4 d-container_12 clearfix">
+<div class="clear no-desktop"></div>
+<div class="grid_2 d-grid_3 d-omega">
+</div>
+</div>
+<div class="homePageFooterText container_4 d-container_12 clearfix">
+<div class="l-wrapper"><div class="grid_2 d-grid_3 d-alpha"><h5>Learn More About</h5><ul class="link-list"><li><a href="/about-us">About Us</a></li><li><a href="/faq#Privacy Policy / Security">Safe Shopping</a></li><li><a href="/faq#Privacy Policy / Security">Privacy</a></li><li><a href="/about-us#Delivery Policy">Delivery</a></li><li><a href="/faq#Policy Info">Substitutions</a></li><li><a href="/sitemap">Site Map</a></li></ul></div><div class="grid_2 d-grid_3"><h5>Shop</h5><ul class="link-list"><li><a href="/plants/cat1010006">Plants</a></li><li><a href="/get-well/cat1000018">Get Well</a></li><li><a href="/love-romance/cat1000019">Love &amp; Romance</a></li><li><a href="/colorado-collection/colorado-collection/de-129445">Colorado Collection</a></li><li>Make Someone Smile</li></ul></div><div class="footer-address grid_4 d-grid_3"><div class="footer-social-links"><a href="https://www.facebook.com/Longmontflorist" rel="noopener noreferrer" target="_blank"><img alt="Facebook" height="25px" src="https://assets.eflorist.com/images/social-media-icons/brand-colors/fb.png" width="25px"/> </a><a href="https://www.instagram.com/longmontflorist/" rel="noopener noreferrer" target="_blank"><img alt="Instagram" height="25px" src="https://assets.eflorist.com/images/social-media-icons/brand-colors/instagram.png" width="25px"/> </a><a href="https://www.yelp.com/biz/longmont-florist-longmont-3" rel="noopener noreferrer" target="_blank"><img alt="Yelp" height="25px" src="https://assets.eflorist.com/images/social-media-icons/brand-colors/yelp.png" width="25px"/> </a><a href="https://www.pinterest.com/longmontflorist/" rel="noopener noreferrer" target="_blank"><img alt="Pinterest" height="25px" src="https://assets.eflorist.com/images/social-media-icons/brand-colors/pinterest.png" width="25px"/></a></div><p><a href="tel:3037762804" title="shop phone number">(303) 776-2804</a></p><p>614 Coffman St.<br/>Longmont, CO 80501</p><p>Hours:</p><p>Monday-Friday 8:00am-5:30pm</p><p>Saturday- 8:00am-3:00pm</p></div></div></div>
+<div>
+<style>
+.c-top-nav-link {font-size:1em !important;}
+@media screen and (max-width: 960px){#wrapper > #main-content{padding-top: 14em !important;} .m-homepage .instagramGrid iframe{max-width: 100% !important;}}
+
+.seo-half-width-img-text-container:nth-of-type(3) img{
+object-position: top;
+}
+</style></div>
+</div>
+</footer>
+<script type="text/javascript">
+          var excludedPromoBanners = {};
+        </script>
+<script type="text/javascript">
+     	
+     		var isEflorist = true;
+            var t_efods = ["ef-fax","localsearch","messagemanager","reviewmanager","url-reg"];
+            var t_parent = "eflorist US";
+            var t_parentid = "00000001";
+            var t_ga_account = "UA-2918618-1";
+            var t_ga4_account = "G-ZJJD3GQ88G";
+            var t_template = "16158400 - Longmont | green";
+            var t_engagement = "";
+            var t_billingemail = "";
+           /*  s.eVar55 = t_parent;
+            s.eVar7 = t_template; */
+            t_homepagetype = "";
+            t_ecom_campaign = "";
+            t_service_test = "";
+        </script>
+<script type="text/javascript">
+    	var enableEnsightenTrackingCall = 'true';
+   		 // Added a property of starts with for JS
+        if ( typeof String.prototype.startsWith != 'function' ) {
+          String.prototype.startsWith = function( str ) {
+            return this.substring( 0, str.length ) === str;
+          }
+        };
+        if(typeof t_events == 'undefined') {
+            var t_events = "";
+    	}
+        var fromHeader = 'false';
+        if(fromHeader == 'true') {
+            t_events = "event42";
+        }
+        var referer = "";
+        var t_product_name = "";
+        var splitref = document.referrer.split("/",6);
+        if(splitref[2]) {
+            referer = splitref[0]+"//"+splitref[2];
+        }
+        // This method is to parse and replace the appostory encoded string array with the normal javascript accepted appostropy
+        function replaceEncodedArrayWithApostrophy(t_product_name) {
+            if (!(t_product_name instanceof Array)){
+                t_product_name = t_product_name.replace(/&#039;/g, '\'');
+                t_product_name = t_product_name.replace(/&amp;/g, '\&');
+                return t_product_name;
+                } else {
+                for(var i=0; i < t_product_name.length; i++) {
+                    t_product_name[i] = t_product_name[i].replace(/&#039;/g, '\'');
+                    t_product_name[i] = t_product_name[i].replace(/&amp;/g, '\&');
+                } 
+                return t_product_name;
+            }
+         }
+        
+        
+       function registerEvent8() {
+        var event8Array = [];
+        for(var i=0; i < t_yousaved.length; i++) {
+            if(t_yousaved[i]!= 0 && event8Array.indexOf('event8')<0){
+                event8Array.push('event8');
+            } else {
+            	if(event8Array.indexOf('event8')>0){
+                event8Array.push(' ');
+            }
+        }
+        }
+    		if(t_events != '') {
+                t_events = t_events + ','+ event8Array;
+            } else {
+                t_events = event8Array;
+            }
+        }  
+        var t_service_test = ''
+    </script>
+<script type="text/javascript">
+              var t_channel = "Custom";
+              var t_page_name = "Custom: Hospital Flower Delivery (review)";
+              var t_page_type = 'Custom';
+          </script>
+<script type="text/javascript">
+            /* Getting the hostname from the location object and identifying the language based on the prefix at the url.
+                    if the prefix is es. or es-, it will be identified as spanish and if its fr. or fr-, it will be identified as
+                    french. Rest of the cases will be identified as english
+            */
+            var hostName = location.hostname;
+            var t_lang = "english";
+            if(hostName.indexOf("es.") == 0 || hostName.indexOf("es-") == 0) {
+                t_lang = "spanish";
+            } else if (hostName.indexOf("fr.") == 0 || hostName.indexOf("fr-") == 0) {
+                t_lang = "french";
+            } 
+            var t_customerid = "";
+            if ("" == 'true') {
+                t_customerid = "ef10895673280";
+            }
+            var t_ref_dom = referer;
+            var t_partnername="Longmont Florist";
+            var t_lastvisit = readTimeFromLastSiteAccess();
+            eraseCookie('lastLogInDayToTeleflora');
+            createCookie('lastLogInDayToTeleflora', new Date().getTime(),365);
+            var t_startofsession = getTimeParting('h', '-6', new Date().getFullYear()); 
+            var t_dayofweek =  getTimeParting('d', '-6', new Date().getFullYear()); 
+            var t_typeofday = getTimeParting('w', '-6', new Date().getFullYear());
+            var t_s_code_URL="vendor/0005557/javascript/s_code.js";
+            var t_server = 'www';
+            var t_serverip = '.6.163';
+            var t_pageurl = window.location.pathname;
+            var t_account="efloristcom,16158400";
+            var t_tfid ="16158400";
+            var t_region="US";
+            var t_currency="USD";
+            var t_promo_code = '';
+            var t_coupon_code = [];
+            var t_ecom_campaign = '';
+
+            // This parameter is taken from the URL. Should be set in the URL of an external source to identify from where the URL originated
+            var t_source_code='';
+            t_product_name = replaceEncodedArrayWithApostrophy(t_product_name);
+
+           /*  s.server = t_server;
+            s.account=t_account;
+            s.channel=t_channel;
+            s.pageName=t_page_name;
+            s.eVar40 = t_partnername;
+            s.prop22 = t_serverip;
+            s.prop16 = t_pageurl
+            s.eVar47 = t_tfid;
+            s.prop8 = t_lastvisit;
+            s.prop13 = t_startofsession;
+            s.prop14 = t_dayofweek;
+            s.prop15 = t_typeofday ;
+            s.prop26 = t_lang;
+            s_code_URL = t_s_code_URL
+            s.eVar34 = "";
+            s.eVar23 = "";
+            s.eVar1=t_ecom_campaign;
+            s.eVar6=t_ref_dom;
+            s.eVar13=t_startofsession;
+            s.eVar14=t_dayofweek;
+            s.eVar15=t_typeofday;
+            s.eVar38=t_lang; */
+            function getTimeParting(t, z, y) {
+                dc = new Date('1/1/2000');
+                f = 15;
+                ne = 8;
+                if (dc.getDay() != 6 || dc.getMonth() != 0) {
+                    return 'Data Not Available';
+                } else {
+                    z = parseInt(z);
+                    if (y == '2009') {
+                        f = 8;
+                        ne = 1;
+                    }
+                    gmar = new Date('3/1/' + y);
+                    dsts = f - gmar.getDay();
+                    gnov = new Date('11/1/' + y);
+                    dste = ne - gnov.getDay();
+                    spr = new Date('3/' + dsts + '/' + y);
+                    fl = new Date('11/' + dste + '/' + y);
+                    cd = new Date();
+                    if (cd > spr && cd < fl) {
+                        z = z + 1;
+                    } else {
+                        z = z;
+                    }
+                    utc = cd.getTime() + (cd.getTimezoneOffset() * 60000);
+                    tz = new Date(utc + (3600000 * z));
+                    thisy = tz.getFullYear();
+                    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                    if (thisy != y) {
+                        return 'Data Not Available';
+                    } else {
+                        thish = tz.getHours();
+                        thismin = tz.getMinutes();
+                        thisd = tz.getDay();
+                        var dow = days[thisd];
+                        var ap = 'AM';
+                        var dt = 'Weekday';
+                        var mint = '00';
+                        if (thismin > 30) {
+                            mint = '30';
+                        }
+                        if (thish >= 12) {
+                            ap = 'PM';
+                            thish = thish - 12;
+                        }
+                        if (thish == 0) {
+                            thish = 12;
+                        }
+                        if (thisd == 6 || thisd == 0) {
+                            dt = 'Weekend';
+                        }
+                        var timestring = thish + ':' + mint + ap;
+                        var daystring = dow;
+                        var endstring = dt;
+                        if (t == 'h') {
+                            return timestring;
+                        }
+                        if (t == 'd') {
+                            return daystring;
+                        }
+                        if (t == 'w') {
+                            return endstring;
+                        }
+                    }
+                }
+            }
+
+            function createCookie(name,value,days) {
+                if (days) {
+                    var date = new Date();
+                    date.setTime(date.getTime()+(days*24*60*60*1000));
+                    var expires = '; expires='+date.toGMTString();
+                }
+                else var expires = '';
+                document.cookie = name+'='+value+expires+'; path=/';
+            }
+
+            function readCookie(name) {
+                var nameEQ = name + '=';
+                var ca = document.cookie.split(';');
+                for(var i=0;i < ca.length;i++) {
+                    var c = ca[i];
+                    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+                }
+                return null;
+            }
+
+            function eraseCookie(name) {
+                createCookie(name,'',-1);
+            }
+
+             function readTimeFromLastSiteAccess() {
+                var todaysDate = new Date();
+                var lastVisitTime = readCookie('lastLogInDayToTeleflora')
+                 if(lastVisitTime == null){
+                    return ''
+                }
+                var timeDiff = Math.abs(todaysDate.getTime() - lastVisitTime);
+                var diffDays = Math.floor(timeDiff / (1000 * 3600 * 24));
+                
+                switch (diffDays) {
+                  case 0:
+                    return 'Less than 1 Day';
+                    break;
+                  case 16139:
+                      return 'Greater than 16138 Days';
+                      break;                        
+                  default:
+                    return diffDays+' Days';
+                }
+            }
+        </script>
+<script type="text/javascript">
+</script>
+</div>
+<form>
+<input id="siteCurrencyCode" type="hidden" value="$"/>
+</form>
+<div class="isNonWinstonSite">
+<div class="m-bookmarks-bar hide-after-tablet" data-save-limit="20" id="bookmarksBar" style="">
+<nav class="m-bookmarks-bar-nav" style="cursor: pointer;">
+<div class="l-wrapper">
+<a href="#" id="bookmarkTrigger"><span class="toggle-arrow icon-arrow-down-pink"></span> Compare Your Favorites (<span id="bookmarkedNumber">0</span>)</a><span class="pull-right font-size-14px">Log in to save this item as a favorite. Items will be saved for 14 days</span>
+</div>
+</nav>
+<div id="bookmarksContent">
+<div class="l-wrapper">
+<div class="flexslider" id="booksCaro">
+<div class="flex-viewport" style="overflow: hidden; position: relative;">
+<ul class="slides bookmarks-drop" style="width: 1600%; -webkit-transition: 0s; transition: 0s; -webkit-transform: translate3d(0px, 0, 0);">
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<input id="vContextPath" type="hidden" value=""/>
+<script type="text/javascript">
+	var showGoogleAutocomplete = false;
+    
+    var exitIntentEnabled = false;
+    
+        var showLobAutocomplete = true;
+        
+                var lobAbNoAutoAddr = '';
+            
+            var lobApiKey = 'live_pub_52037687e7e5ebf45578e4323775e62';
+            var lobApiUrl = 'https://api.lob.com/v1/us_autocompletions';
+        
+    var townLookupUrl = "https://pin.petals.com.au/PIN/api/PBO/TownLookup";
+  	var townLookupResultCount = "99";
+    var townLookupMinCharCount = "3";
+    var townLookupTimeout = "3000";
+    var townLookupCountry = "";
+    var townLookupEnabled = false;
+    var isApplepayForQV = false;
+    
+    var postCodeMinLength = 5; //5 is the default length if no behavior flag found or contains null as current EF has 5
+    
+  	var configuredPhoneFormat = '';
+  	var configuredPhoneMaxLength = '';
+    var phoneCountry = '';
+    
+  	var showAffiliateModal = false;
+    
+  	var pasCalendarServiceEnabled = false;
+    
+    var pasCalendarSpinnerEnabled = false;
+    
+    var pasServiceDown = false;
+  	
+  	var showHolidayPriceUnderDateLabel = true;
+	var showHolidayPriceOnDateButtons = true;
+    var addressSearchV2URL = "https://api.edq.com/capture/address/v2/search";
+	var displayMaximumAddresses = "50";
+	var experianAuthToken = "";
+	var isAVSServiceDown = "false";
+	var isAVSServiceDisabled = "true";
+	var siteVendorType = "EFlorist";
+  	var varContextPath = "";
+  	var nonSecureBaseUrlImg = "//assets.eflorist.com/images";
+  	var nonSecurejsFolderPath = "//assets.eflorist.com/js";
+  	var loginEmailId ="";
+	var siteCutOffDays = [1, 1];
+	siteCutOffDays =(siteCutOffDays !=0)?siteCutOffDays:[0];
+	var siteType="EFlorist";
+	var SessionAddTime="300";
+	var SessionWarningMsg="session about to expire in few minutes";
+	var vSessionTimeout = "1800";
+	var urlWithSiteContext = function(anchor) {
+	      anchor.href = '' + anchor.pathname + anchor.search;
+	  };
+	var telefloraHeaderProp = {
+	      loggedInUser : false,
+	      isCKeyCookieExists : false,
+	      fbConnectLoggedIn : false,
+	      facebookId : null,
+	      myAccountEnabled: true
+      };
+	 var siteId = 'EF-403';
+	 var pasServiceEnabled = true;
+	 var calenderServiceEnabled = false;
+	 var siteHasHolidays = true;
+	 var siteHolidays = null;
+	 var flexsliderZ = false;
+	 var vCartSize = 0;
+	 var cartItemCount = 0;
+	 var passwordRestUrl = '/rest/model/teleflora/userprofiling/ForgotPasswordActor/processForgotPassword';
+	 var siteValue ='EF-403';
+	 
+	 var isStripeEnabled = false;
+	 
+	 var disableEcommerceFunctionality = false;
+	 var maxCartValue = 0.0;
+	 var isDisablePlaceOrderButton = false;
+	 var isIBUSite = false;
+	 var isPetalsSite = false;
+	 var isInternationalSite = false;
+	 var globalCurrency = "$";
+	 var globalCountryISOCode = "USA";
+	 var vPageParam = "";
+	 var siteContextPath = '';
+	 var categoryId = '';
+	 
+     var subProd = "";
+     var giftTaxValue = "";
+     var shopName = "Longmont Florist";
+     var shopAdd1 = "614 Coffman St";
+     var shopAdd2 = "";
+     var cityName = "Longmont";
+     var stateLongname = "Colorado";
+     var stateCode = "CO";
+     var zip = "80501";
+     var shopEmail =  "info@longmontflorist.com";
+     var shopPhone = "(303) 776-2804";
+     var shopPhoneTollfree = "(800) 932-4876";
+     var isMarketSite = false;
+</script>
+<script type="text/javascript">
+    var bookmarkCount = $('#bookmarkedNumber').html();
+    var flyoutEnable = "staticFormat"
+    var applepayFile="//assets.eflorist.com/js/apple-pay.js?v=20260928204803";
+    var pazeFile="//assets.eflorist.com/js/pazewallet.js?v=20260928210901";
+    var googlePayApiFile='https://pay.google.com/gp/p/js/pay.js';
+    var googlePayFile="//assets.eflorist.com/js/google-pay.js?v=20251008205104";
+    var marketFile="//assets.eflorist.com/js/theMarket-common.js?v=20241009003700";
+    var gatherFile="//assets.eflorist.com/js/gather-common.js?v=20260928204803";
+    </script>
+<script type="text/javascript">
+                                    var pageValue ='';
+                                    var pageSpecificFiles = ["//assets.eflorist.com/js/sections/ef-general.js?v=20260928210901",applepayFile,pazeFile];
+                            </script>
+<script type="text/javascript">
+        var pickerLoad = true, _complete_selenium = false, externalJSFile = "", externalPageSpecJSFile="", subCatParam = false,currentPage="";
+        var themeJS = "//assets.eflorist.com/themes/custom-templates/1/16158400/16158400-green/js/theme.js?v=20260428154751";
+        var externalChck = ((typeof pdpParm != "undefined" && pdpParm) || subCatParam || typeof homePageParam != "undefined" && homePageParam);
+
+        (siteVendorType === "EFlorist") && pageSpecificFiles.push(themeJS);
+        
+        if(externalJSFile !=="" ) {
+            pageSpecificFiles.push(externalJSFile);
+        }
+        if(externalChck && externalPageSpecJSFile !="" && externalPageSpecJSFile !="null"){
+            pageSpecificFiles.push(externalPageSpecJSFile);
+        }
+
+          if (typeof checkoutParam != "undefined" && checkoutParam) {
+            var askExpertWait = 3;
+            var t_cardtype;
+            var t_promocode;
+          } else if (typeof pdpParm != "undefined" && pdpParm) {
+            var PDPlogged = false;
+          }
+          if(currentPage =="homePage"){
+            var excepthompage = false;
+          }
+          else{
+            var excepthompage = true;
+          }
+          if(currentPage =="homePage" ||currentPage =="subcatPageParam" ){ 
+            currentPage = false;
+          }else{
+            currentPage = true;
+          }
+         Modernizr.load([ {
+            test : Modernizr.hasJquery,
+            complete: function() {
+                   //TFD-1110 - Fix
+                  Modernizr
+                      .load([
+                            {test : currentPage,              
+                            yep :["//assets.eflorist.com/js/sections/minified/ef-common.js?v=20260928210901"]
+                             },
+                             {
+                               load : pageSpecificFiles,
+                               complete : function() {
+                                 if(excepthompage){
+                                 teleflora.modenizrInitFn();
+                                 }
+                                 if(typeof googlePayJSloaded !="undefined" && googlePayJSloaded){
+                                   onGooglePayLoaded();
+                                 }
+                                 // TFT-45011: Init Lob autocomplete after ef-common.js bundle loads
+                                 if (typeof lobAutocomplete !== 'undefined' && typeof showLobAutocomplete !== 'undefined' && showLobAutocomplete) {
+                                     var skipLob = false;
+                                     if (typeof lobAbNoAutoAddr !== 'undefined' && lobAbNoAutoAddr !== '') {
+                                         if (typeof lobFromPage !== 'undefined' && lobFromPage === 'deliveryInfo' && lobAbNoAutoAddr === 'addr-ac-delinfo-no') skipLob = true;
+                                         if (typeof lobFromPage !== 'undefined' && lobFromPage === 'pdpModal' && lobAbNoAutoAddr === 'addr-ac-pdp-no') skipLob = true;
+                                     }
+                                     if (!skipLob) {
+                                         lobAutocomplete.init();
+                                     }
+                                 }
+                               }
+                             }
+                          ]);
+            }
+          }]);
+
+          Modernizr.load([ {
+            test : Modernizr.touch,
+            yep : ["//assets.eflorist.com/js/fastbutton.js?v=20211215111303" ]
+          } ]);
+          
+          
+        </script>
+
+<div aria-label="Preview controls" id="twm-bar" role="region">
+<span class="twm-bar-label">Hospital Flower Delivery page preview: 12 items</span>
+<button id="twm-open" type="button">View changes</button>
+<button id="twm-toggle" type="button">Hide highlights</button>
+</div>
+<aside aria-hidden="true" aria-label="Changes on this page" id="twm-drawer">
+<div class="twm-dh">
+<div>
+<div class="twm-kicker">Two Wheels Marketing · October 2026</div>
+<h2>New Hospital Flower Delivery Page</h2>
+<p>This is your new Hospital Flower Delivery page as it will look on your site. Every numbered section is new and explained here. Nothing on your live site changes until you approve.</p>
+</div>
+<button aria-label="Close" id="twm-close" type="button">×</button>
+</div>
+<div class="twm-list">
+<div class="twm-group">On the page</div><details class="twm-item" data-n="1">
+<summary><span class="twm-num">1</span><span class="twm-st">Main heading and intro<span class="twm-tag">New</span><small>Top of the page</small></span></summary>
+<div class="twm-body">
+<span class="twm-lbl">Why</span>
+<p>The main heading names the service and the area in the words people search, like "hospital flower delivery Longmont", and the intro names the hospitals right away.</p>
+<button class="twm-go" data-go="1" type="button">Show on page</button>
+</div>
+</details>
+<details class="twm-item" data-n="2">
+<summary><span class="twm-num">2</span><span class="twm-st">Why Longmont Florist<span class="twm-tag">New</span><small>Reasons to order from you</small></span></summary>
+<div class="twm-body">
+<span class="twm-lbl">Why</span>
+<p>Specific, true reasons to choose your shop help a first-time sender trust a local florist over a national order website.</p>
+<button class="twm-go" data-go="2" type="button">Show on page</button>
+</div>
+</details>
+<details class="twm-item" data-n="3">
+<summary><span class="twm-num">3</span><span class="twm-st">How Hospital Delivery Works<span class="twm-tag">New</span><small>Step by step</small></span></summary>
+<div class="twm-body">
+<span class="twm-lbl">Why</span>
+<p>A simple step by step answers what first-time senders worry about, so they order with confidence instead of calling around.</p>
+<button class="twm-go" data-go="3" type="button">Show on page</button>
+</div>
+</details>
+<details class="twm-item" data-n="4">
+<summary><span class="twm-num">4</span><span class="twm-st">Hospitals and Care Facilities We Deliver To<span class="twm-tag">New</span><small>Local directory</small></span></summary>
+<div class="twm-body">
+<span class="twm-lbl">Why</span>
+<p>People search for flower delivery to a specific hospital or care home by name. Listing the real ones nearby, with their addresses, lets this page show up for those searches and shows you know the area.</p>
+<button class="twm-go" data-go="4" type="button">Show on page</button>
+</div>
+</details>
+<details class="twm-item" data-n="5">
+<summary><span class="twm-num">5</span><span class="twm-st">What to Send to a Hospital Room<span class="twm-tag">New</span><small>Product suggestions</small></span></summary>
+<div class="twm-body">
+<span class="twm-lbl">Why</span>
+<p>Points shoppers to the right flowers for the occasion, with links straight into your shop.</p>
+<button class="twm-go" data-go="5" type="button">Show on page</button>
+</div>
+</details>
+<details class="twm-item" data-n="6">
+<summary><span class="twm-num">6</span><span class="twm-st">Before You Order<span class="twm-tag">New</span><small>Good to know</small></span></summary>
+<div class="twm-body">
+<span class="twm-lbl">Why</span>
+<p>Practical rules (units that do not allow flowers, balloon policies) prevent failed deliveries and show real expertise. Only rules that the hospitals publish themselves are included.</p>
+<button class="twm-go" data-go="6" type="button">Show on page</button>
+</div>
+</details>
+<details class="twm-item" data-n="7">
+<summary><span class="twm-num">7</span><span class="twm-st">What Customers Say<span class="twm-tag">New</span><small>Real Google reviews</small></span></summary>
+<div class="twm-body">
+<span class="twm-lbl">Why</span>
+<p>Real Google reviews from your own customers, quoted word for word, build trust right where people decide.</p>
+<button class="twm-go" data-go="7" type="button">Show on page</button>
+</div>
+</details>
+<details class="twm-item" data-n="8">
+<summary><span class="twm-num">8</span><span class="twm-st">Frequently Asked Questions<span class="twm-tag">New</span><small>Questions and answers</small></span></summary>
+<div class="twm-body">
+<span class="twm-lbl">Why</span>
+<p>Clear answers to the questions people ask before ordering. Google and AI tools like ChatGPT pull answers straight from sections like this.</p>
+<button class="twm-go" data-go="8" type="button">Show on page</button>
+</div>
+</details>
+<details class="twm-item" data-n="9">
+<summary><span class="twm-num">9</span><span class="twm-st">Where We Deliver<span class="twm-tag">New</span><small>Delivery area</small></span></summary>
+<div class="twm-body">
+<span class="twm-lbl">Why</span>
+<p>Naming the towns you serve tells Google where you deliver, so the page can show up for searches across the Longmont area.</p>
+<button class="twm-go" data-go="9" type="button">Show on page</button>
+</div>
+</details>
+<details class="twm-item" data-n="10">
+<summary><span class="twm-num">10</span><span class="twm-st">Send Get Well Flowers<span class="twm-tag">New</span><small>Call to action</small></span></summary>
+<div class="twm-body">
+<span class="twm-lbl">Why</span>
+<p>A clear next step at the end of the page, so readers who are ready can order or call.</p>
+<button class="twm-go" data-go="10" type="button">Show on page</button>
+</div>
+</details><div class="twm-group">Behind the scenes (not visible on the page)</div><details class="twm-item" data-n="11">
+<summary><span class="twm-num bts">11</span><span class="twm-st">Google title and description<small>What shows in Google search results</small></span></summary>
+<div class="twm-body">
+<span class="twm-lbl">Today</span>
+<div class="twm-before">This is a new page, so there is nothing in Google for it yet.</div>
+<span class="twm-lbl">After</span>
+<div class="twm-serp"><div class="u">www.longmontflorist.com › hospital-flower-delivery</div><div class="t">Hospital Flower Delivery in Longmont, CO | Longmont Florist</div><div class="d">Get well flowers delivered to Longmont United, UCHealth Longs Peak and hospitals across Boulder County by Longmont Florist, family owned since 1969.</div></div>
+<span class="twm-lbl">Why</span>
+<p>The title leads with what people search for and the area you serve, and the description gives a reason to click.</p>
+</div>
+</details>
+<details class="twm-item" data-n="12">
+<summary><span class="twm-num bts">12</span><span class="twm-st">Hidden from Google until you approve<small>Private review link</small></span></summary>
+<div class="twm-body">
+<span class="twm-lbl">Why</span>
+<p>The page is on your site but has a noindex tag, is not in your sitemap and is not in your menu, so shoppers and Google do not see it yet. When you approve, we remove the tag, add the page to your sitemap and link it from your footer and your Get Well pages.</p>
+</div>
+</details>
+</div>
+</aside>
+<script>
+(function(){
+  var d=document, b=d.body, drawer=d.getElementById('twm-drawer');
+  function open(n){
+    drawer.classList.add('open'); drawer.setAttribute('aria-hidden','false');
+    if(n){ var it=drawer.querySelector('.twm-item[data-n="'+n+'"]'); if(it){ it.open=true; it.scrollIntoView({block:'start',behavior:'smooth'}); } }
+  }
+  function close(){ drawer.classList.remove('open'); drawer.setAttribute('aria-hidden','true'); }
+  function go(n){
+    var el=d.querySelector('.twm-chg[data-twm="'+n+'"]'); if(!el) return;
+    if(window.innerWidth<900) close();
+    var y=el.getBoundingClientRect().top+window.pageYOffset-120; window.scrollTo({top:y,behavior:'smooth'});
+    el.classList.add('twm-flash'); setTimeout(function(){el.classList.remove('twm-flash');},1600);
+  }
+  d.getElementById('twm-open').addEventListener('click',function(e){e.preventDefault();open();});
+  d.getElementById('twm-close').addEventListener('click',function(e){e.preventDefault();close();});
+  d.getElementById('twm-toggle').addEventListener('click',function(e){
+    e.preventDefault(); b.classList.toggle('twm-off');
+    this.textContent=b.classList.contains('twm-off')?'Show highlights':'Hide highlights';
+  });
+  d.addEventListener('click',function(e){
+    var t=e.target.closest('[data-twm-go]'); if(t){ e.preventDefault(); e.stopPropagation(); open(t.getAttribute('data-twm-go')); return; }
+    var g=e.target.closest('.twm-go'); if(g){ e.preventDefault(); go(g.getAttribute('data-go')); }
+  },true);
+  d.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+  function placeBadges(){
+    d.querySelectorAll('.twm-badge').forEach(function(bd){
+      bd.style.right=''; var r=bd.parentElement.getBoundingClientRect();
+      if(r.right>document.documentElement.clientWidth-20){ bd.style.right='4px'; }
+    });
+  }
+  window.addEventListener('load',placeBadges); window.addEventListener('resize',placeBadges); setTimeout(placeBadges,1500);
+})();
+</script>
+</body>
+</html>
