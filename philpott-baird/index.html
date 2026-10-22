@@ -1375,8 +1375,9 @@ body.twm-off .twm-badge{display:none!important}
 @media (max-width:600px){#twm-bar .twm-bar-label{display:none}#twm-drawer{width:100vw}}
 
 .boxzilla-container,.boxzilla-overlay,.boxzilla{display:none!important}
+[role="dialog"][aria-label$="Form"][class*="kl-private"],div:has(> [role="dialog"][aria-label$="Form"][class*="kl-private"]){display:none!important}
 </style>
-<template id="twm-swap-0"></template><template id="twm-swap-1"><style>.pff{--pff-green:#5c8065;--pff-green-dark:#46634e;--pff-ink:#374151;--pff-soft:#f3f3f3;--pff-mist:#eff3f6;--pff-line:#e5e7eb;color:var(--pff-ink);line-height:1.6}
+<template id="twm-swap-0"><span class="base" data-ui-id="page-title-wrapper">Baird TX Florist &amp; Flower Delivery</span></template><template id="twm-swap-1"><style>.pff{--pff-green:#5c8065;--pff-green-dark:#46634e;--pff-ink:#374151;--pff-soft:#f3f3f3;--pff-mist:#eff3f6;--pff-line:#e5e7eb;color:var(--pff-ink);line-height:1.6}
 .pff h1{color:#000;font-size:34px;line-height:1.2;font-weight:600;margin:32px 0 12px}
 .pff h2{color:#000;font-size:28px;line-height:1.25;font-weight:600;margin:0 0 14px}
 .pff h3{color:#000;font-size:19px;line-height:1.3;font-weight:600;margin:0 0 8px}
@@ -1442,7 +1443,7 @@ body.twm-off .twm-badge{display:none!important}
 .pff-grid .pff-name{font-size:15px}
 .pff-local-copy,.pff-local-list,.pff-card,.pff-review{flex-basis:100%}
 .pff-section{margin-top:44px}}</style><div class="pff">
-<h1>Baird TX Florist &amp; Flower Delivery</h1>
+
 <p class="pff-intro">Philpott Florists &amp; Greenhouses delivers fresh flowers to Baird for every occasion, from birthdays and anniversaries to services at Parker-Jacobs Funeral Home. Our Abilene designers arrange each order by hand, then we bring it right to the door.</p>
 <ul class="pff-grid">
 <li><a href="https://philpottflorists.com/sun-kissed-prairie.html"><img alt="Sun-Kissed Prairie arrangement" height="600" src="https://image.floranext.com/shared/catalog/product/F/L/FLNXT-45.jpg.webp?h=600&amp;w=600&amp;r=255&amp;g=255&amp;b=255" width="600"/><span class="pff-name">Sun-Kissed Prairie</span><span class="pff-price">$139.95</span><span class="pff-shop">Shop Now</span></a></li>
@@ -1546,7 +1547,7 @@ body.twm-off .twm-badge{display:none!important}
 <button aria-label="Close" id="twm-close" type="button">×</button>
 </div>
 <div class="twm-list">
-<p class="twm-intro-note">Your header, menu and footer stay exactly as they are. The numbered items replace the page title, the short product set and the town list in the middle of the page.</p>
+<p class="twm-intro-note">Your header, menu, page title style and footer stay exactly as they are. The numbered items change the title wording and replace the short product set and the town list in the middle of the page.</p>
 <div class="twm-group">On the page</div><details class="twm-item" data-n="1">
 <summary><span class="twm-num">1</span><span class="twm-st">Main heading (H1) names the town and the service<small>Top of the page</small></span></summary>
 <div class="twm-body">
@@ -1653,7 +1654,7 @@ body.twm-off .twm-badge{display:none!important}
 </details>
 </div>
 </aside>
-<script type="application/json" id="twm-config">{"items": [{"n": 1, "sel": {"css": ".pff > h1"}}, {"n": 2, "sel": {"css": ".pff > p.pff-intro"}}, {"n": 3, "sel": {"css": ".pff > ul.pff-grid"}}, {"n": 4, "sel": {"css": ".pff > section.pff-section", "index": 0}}, {"n": 5, "sel": {"css": ".pff > section.pff-section", "index": 1}}, {"n": 6, "sel": {"css": ".pff > section.pff-section", "index": 2}}, {"n": 7, "sel": {"css": ".pff > section.pff-section", "index": 3}}, {"n": 8, "sel": {"css": ".pff > section.pff-section", "index": 4}}], "swaps": [{"target": {"css": "main#maincontent .page-title-wrapper"}, "mode": "remove"}, {"target": {"css": "main#maincontent .columns"}, "mode": "inner"}], "renameV2": true, "title": "Baird TX Florist | Same Day Flower Delivery"}</script>
+<script type="application/json" id="twm-config">{"items": [{"n": 1, "sel": {"css": "main#maincontent .page-title-wrapper"}}, {"n": 2, "sel": {"css": ".pff > p.pff-intro"}}, {"n": 3, "sel": {"css": ".pff > ul.pff-grid"}}, {"n": 4, "sel": {"css": ".pff > section.pff-section", "index": 0}}, {"n": 5, "sel": {"css": ".pff > section.pff-section", "index": 1}}, {"n": 6, "sel": {"css": ".pff > section.pff-section", "index": 2}}, {"n": 7, "sel": {"css": ".pff > section.pff-section", "index": 3}}, {"n": 8, "sel": {"css": ".pff > section.pff-section", "index": 4}}], "swaps": [{"target": {"css": "main#maincontent .page-title-wrapper .page-title"}, "mode": "inner"}, {"target": {"css": "main#maincontent .columns"}, "mode": "inner"}], "renameV2": true, "title": "Baird TX Florist | Same Day Flower Delivery"}</script>
 <script>
 (function(){
   var d=document, b=d.body, cfg=JSON.parse(d.getElementById('twm-config').textContent);
@@ -1689,7 +1690,7 @@ body.twm-off .twm-badge{display:none!important}
   if(cfg.title){ d.title=cfg.title; }
   // 2. hide the hidden-page naming ("Best Sellers V2")
   if(cfg.renameV2){
-    var rx=/^(.*?\S)\s*[-(]?\s*V2\)?\s*$/i, walker=d.createTreeWalker(b, NodeFilter.SHOW_TEXT, null), nodes=[], n;
+    var rx=/^([\s\S]*?\S)\s*[-(]?\s*V2\)?\s*$/i, walker=d.createTreeWalker(b, NodeFilter.SHOW_TEXT, null), nodes=[], n;
     while((n=walker.nextNode())){ if(rx.test(n.nodeValue) && n.parentElement && !/SCRIPT|STYLE/.test(n.parentElement.tagName) && !n.parentElement.closest('#twm-drawer,#twm-bar')) nodes.push(n); }
     nodes.forEach(function(t){
       var p=t.parentElement, crumb=p.closest('[class*="breadcrumb"],[aria-label*="readcrumb"]');

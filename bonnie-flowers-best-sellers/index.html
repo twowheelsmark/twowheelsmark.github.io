@@ -2632,6 +2632,7 @@ body.twm-off .twm-badge{display:none!important}
 @media (max-width:600px){#twm-bar .twm-bar-label{display:none}#twm-drawer{width:100vw}}
 
 .boxzilla-container,.boxzilla-overlay,.boxzilla{display:none!important}
+[role="dialog"][aria-label$="Form"][class*="kl-private"],div:has(> [role="dialog"][aria-label$="Form"][class*="kl-private"]){display:none!important}
 </style>
 
 <div aria-label="Preview controls" id="twm-bar" role="region">
@@ -2811,7 +2812,7 @@ body.twm-off .twm-badge{display:none!important}
   if(cfg.title){ d.title=cfg.title; }
   // 2. hide the hidden-page naming ("Best Sellers V2")
   if(cfg.renameV2){
-    var rx=/^(.*?\S)\s*[-(]?\s*V2\)?\s*$/i, walker=d.createTreeWalker(b, NodeFilter.SHOW_TEXT, null), nodes=[], n;
+    var rx=/^([\s\S]*?\S)\s*[-(]?\s*V2\)?\s*$/i, walker=d.createTreeWalker(b, NodeFilter.SHOW_TEXT, null), nodes=[], n;
     while((n=walker.nextNode())){ if(rx.test(n.nodeValue) && n.parentElement && !/SCRIPT|STYLE/.test(n.parentElement.tagName) && !n.parentElement.closest('#twm-drawer,#twm-bar')) nodes.push(n); }
     nodes.forEach(function(t){
       var p=t.parentElement, crumb=p.closest('[class*="breadcrumb"],[aria-label*="readcrumb"]');
