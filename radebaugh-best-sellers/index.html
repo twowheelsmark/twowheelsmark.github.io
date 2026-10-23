@@ -2580,7 +2580,8 @@
   }
 </style>
 <style type="text/css">
-.radebaugh-city-wrap .rb-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px;}
+.radebaugh-city-wrap .rb-tiles{display:grid;grid-template-columns:1fr;gap:12px;margin-top:12px;}
+@media (min-width: 600px){.radebaugh-city-wrap .rb-tiles{grid-template-columns:repeat(2,1fr);}}
 .radebaugh-city-wrap .rb-tile{background:#fff;border:1px solid rgba(48,83,46,.18);border-radius:14px;padding:16px;}
 .radebaugh-city-wrap .rb-tile h4{margin:0 0 6px 0;color:#30532E;font-size:17px;line-height:1.25;}
 .radebaugh-city-wrap .rb-tile p{margin:0 0 8px 0;}
