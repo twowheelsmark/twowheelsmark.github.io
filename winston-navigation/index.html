@@ -9,7 +9,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-<style>
 :root{
   --ink:#1b1b1b; --ink2:#4a4a4a; --mute:#8a8580; --line:#e6e1da; --paper:#ffffff; --cream:#f7f4ef; --stone:#efeae3;
   --new:#4f6b4a; --newbg:#e8efe4; --moved:#8a5a1e; --movedbg:#f6ecdc; --rot:#5a4a78; --rotbg:#ece7f4; --rem:#9b3b3b; --rembg:#f6e3e3;
@@ -132,8 +131,6 @@ nav.dnav>ul>li>a{font-weight:var(--navw)}
 .t-soon{background:#eceae6;color:#6f6a63}
 .supernav a{text-decoration:none;color:var(--ink2)}
 .logo img{display:block;margin:0 auto;width:268px;max-width:70%;height:auto}
-.logo .wm{display:none}
-.logo.noimg .wm{display:block}
 .phone .mwm img{display:block;margin:0 auto;width:150px;height:auto}
 .col h4 a{color:inherit;text-decoration:none}
 .col h4 a:hover{text-decoration:underline;text-underline-offset:3px}
@@ -278,7 +275,7 @@ const soonTag=' <span class="tag t-soon">Page to come</span>';
 function linkHTML(l){const [label,u]=l; return u?`<li><a href="${esc(href(u))}" target="_blank" rel="noopener">${esc(label)}</a></li>`:`<li><span class="soon">${esc(label)}</span>${soonTag}</li>`;}
 function headHTML(c){ if(!c.t) return ''; const inner=c.hu?`<a href="${esc(href(c.hu))}" target="_blank" rel="noopener">${esc(c.t)}</a>`:esc(c.t); return `<h4${c.strong?' class="strong"':''}>${inner}</h4>`; }
 function supernav(){return `<div class="supernav"><span>Same-day delivery throughout Boston, New York City and Greenwich</span><span class="r"><a href="tel:+18004574901">(800) 457-4901</a><span>Log In</span><span>Cart</span></span></div>
-  <div class="logo"><a href="${BASE}/" target="_blank" rel="noopener"><img src="${LOGO}" alt="Winston Flowers" onerror="this.parentNode.parentNode.classList.add('noimg');this.remove()"></a><div class="wm">Winston Flowers</div></div>`;}
+  <div class="logo"><div class="wm">Winston</div><div class="sub">Flowers</div></div>`;}
 function desktop(nav,view){
   const items=nav.map(it=>{
     const dd = it.cols ? `<div class="dd"><div class="dd-inner">${it.cols.map(c=>c.img?`<div class="col imgtile">${c.u?`<a href="${esc(href(c.u))}" target="_blank" rel="noopener">`:''}<img src="${esc(c.img)}" alt="">${c.cap?`<span class="cap">${esc(c.cap)} &rsaquo;</span>`:''}${c.u?`</a>`:''}</div>`:`<div class="col">${headHTML(c)}<ul>${c.links.map(linkHTML).join('')}</ul>${c.sub?`<div class="subgrp"><span class="sublbl">${esc(c.sub.t)}</span><ul>${c.sub.links.map(linkHTML).join('')}</ul></div>`:''}</div>`).join('')}</div></div>`:'';
@@ -297,7 +294,7 @@ function mobile(nav,view){
     if(!it.cols) return `<li class="${it.seasonal?'seasonal':''}"><a href="${esc(href(it.u))}" target="_blank" rel="noopener"><span>${esc(it.label)}${t}</span></a></li>`;
     return `<li class="${it.seasonal?'seasonal':''}"><button type="button" data-acc="${i}"><span>${esc(it.label)}${t}</span><span class="chev">+</span></button><div class="msub">${it.cols.filter(c=>!c.img).map(c=>`${mhead(c)}${c.links.map(mlink).join('')}${c.sub?`<h6>${esc(c.sub.t)}</h6>`+c.sub.links.map(mlink).join(''):''}`).join('')}</div></li>`;}).join('');
   return `<div class="phone menu-open" id="phone">
-    <div class="mbar"><button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button><div class="mwm"><img src="${LOGO}" alt="Winston Flowers" onerror="this.outerHTML='Winston'"></div><div class="mcart">Cart</div></div>
+    <div class="mbar"><button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button><div class="mwm">Winston</div><div class="mcart">Cart</div></div>
     <div class="mmenu"><ul>${items}</ul></div>
     <div class="mhero">Tap the menu icon</div>
   </div>`;
