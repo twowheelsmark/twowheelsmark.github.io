@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Winston Flowers · Navigation Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+<style>
+:root{
+  --ink:#1b1b1b; --ink2:#4a4a4a; --mute:#8a8580; --line:#e6e1da; --paper:#ffffff; --cream:#f7f4ef; --stone:#efeae3;
+  --new:#4f6b4a; --newbg:#e8efe4; --moved:#8a5a1e; --movedbg:#f6ecdc; --rot:#5a4a78; --rotbg:#ece7f4; --rem:#9b3b3b; --rembg:#f6e3e3;
+  --serif:"Cormorant Garamond", Georgia, serif; --sans:"Jost", "Avenir Next", Avenir, Helvetica, Arial, sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--stone);color:var(--ink);font-family:var(--sans);font-weight:400;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+/* ---------- control bar ---------- */
+.bar{position:sticky;top:0;z-index:50;background:#141414;color:#f3efe9;padding:14px 24px;display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;justify-content:space-between}
+.bar h1{font-family:var(--serif);font-weight:500;font-size:22px;letter-spacing:.02em;margin:0}
+.bar h1 small{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#b9b2a8;margin-top:2px}
+.ctrls{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.seg{display:inline-flex;border:1px solid #4a4a4a;border-radius:999px;overflow:hidden}
+.seg button{background:none;border:0;color:#d8d2c9;font:500 12px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;padding:9px 14px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:#f3efe9;color:#141414}
+.ctl-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#9d968c;margin-right:6px}
+.bar select{background:#232323;color:#f3efe9;border:1px solid #4a4a4a;border-radius:999px;padding:8px 12px;font:500 12px var(--sans)}
+.chk{display:inline-flex;gap:8px;align-items:center;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#d8d2c9;cursor:pointer}
+.chk input{accent-color:#f3efe9;width:15px;height:15px}
+/* ---------- intro ---------- */
+.wrap{max-width:1240px;margin:0 auto;padding:28px 24px 60px}
+.intro{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:end;margin-bottom:22px}
+.intro p{margin:0;color:var(--ink2);font-size:15px;line-height:1.6;max-width:640px}
+.legend{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+.tag{display:inline-block;font:600 9.5px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:4px 6px;border-radius:3px;vertical-align:middle;white-space:nowrap}
+.t-new{background:var(--newbg);color:var(--new)} .t-moved{background:var(--movedbg);color:var(--moved)}
+.t-rot{background:var(--rotbg);color:var(--rot)} .t-rem{background:var(--rembg);color:var(--rem)}
+body:not(.hl) .site .tag{display:none}
+/* ---------- site frame ---------- */
+.stage{display:flex;justify-content:center}
+.site{background:var(--paper);width:100%;box-shadow:0 1px 2px rgba(0,0,0,.06),0 12px 40px rgba(0,0,0,.08);border-radius:6px;overflow:visible}
+.supernav{display:flex;justify-content:space-between;align-items:center;padding:8px 28px;border-bottom:1px solid var(--line);font-size:12px;color:var(--ink2);letter-spacing:.04em}
+.supernav .r{display:flex;gap:22px}
+.logo{text-align:center;padding:22px 0 16px}
+.logo .wm{font-family:var(--serif);font-weight:500;font-size:34px;letter-spacing:.32em;text-transform:uppercase;padding-left:.32em}
+.logo .sub{font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--mute);margin-top:4px}
+/* desktop nav */
+nav.dnav{border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative}
+nav.dnav>ul{list-style:none;margin:0 auto;padding:0 12px;display:flex;justify-content:center;flex-wrap:wrap}
+nav.dnav>ul>li{position:static}
+nav.dnav>ul>li>a{display:block;position:relative;padding:20px 13px 16px;font:500 12.5px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--ink);border-bottom:2px solid transparent;white-space:nowrap}
+nav.dnav>ul>li>a .tag{position:absolute;top:3px;left:50%;transform:translateX(-50%);font-size:8px;padding:2px 5px;letter-spacing:.1em}
+nav.dnav>ul>li.seasonal>a{color:#7a5230}
+nav.dnav>ul>li:hover>a,nav.dnav>ul>li.open>a,nav.dnav>ul>li:focus-within>a{border-bottom-color:var(--ink)}
+.dd{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);box-shadow:0 18px 30px rgba(0,0,0,.08);z-index:20;padding:26px 0 30px}
+nav.dnav>ul>li:hover .dd,nav.dnav>ul>li.open .dd,nav.dnav>ul>li:focus-within .dd{display:block}
+.dd-inner{max-width:1080px;margin:0 auto;display:flex;justify-content:center;gap:56px;padding:0 28px}
+.col{min-width:170px}
+.col h4 .tag{margin-left:6px;font-size:8.5px}
+.col h4{margin:0 0 12px;font:600 10.5px/1.2 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.col ul{list-style:none;margin:0;padding:0}
+.col li{margin:0 0 9px}
+.col a{text-decoration:none;font-size:14.5px;color:var(--ink);line-height:1.35}
+.col a:hover{text-decoration:underline;text-underline-offset:3px}
+.col li .tag{margin-left:6px}
+.col a.feature{font-family:var(--serif);font-size:19px;font-weight:600}
+.col .subgrp{margin-top:16px}
+.col .sublbl{display:block;margin-bottom:9px;font-size:14.5px;font-weight:600;color:var(--ink)}
+.col .note{font-size:12px;color:var(--mute);margin-top:12px;max-width:220px;line-height:1.45}
+.col.imgtile{min-width:0}
+.col.imgtile img{display:block;width:230px;height:190px;object-fit:cover;border-radius:2px}
+.col.imgtile a{text-decoration:none}
+.col.imgtile .cap{display:block;margin-top:10px;font-family:var(--serif);font-size:18px;font-weight:600;color:var(--ink)}
+.col.imgtile .tag{margin-top:6px}
+.col.imgtile .ph{width:210px;height:170px;background:repeating-linear-gradient(45deg,#f1ece5,#f1ece5 10px,#ebe5dc 10px,#ebe5dc 20px);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#9b948a;text-align:center}
+.col.promo{background:var(--cream);padding:18px 20px;border-radius:4px;max-width:250px}
+.hero{height:340px;background:linear-gradient(180deg,#f5f1eb,#ebe4da);display:flex;align-items:center;justify-content:center;text-align:center;color:var(--mute)}
+.hero .h{font-family:var(--serif);font-size:30px;color:#6d655b}
+.hero .s{font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-top:8px}
+/* footer */
+footer.sfoot{background:var(--cream);border-top:1px solid var(--line);padding:44px 28px 40px;border-radius:0 0 6px 6px}
+.fcols{display:grid;grid-template-columns:repeat(var(--fc,5),minmax(0,1fr));gap:26px;max-width:1160px;margin:0 auto}
+.fcols h5{margin:0 0 14px;font:600 11px/1.2 var(--sans);letter-spacing:.16em;text-transform:uppercase}
+.fcols h5 .tag{margin-left:6px}
+.fcols ul{list-style:none;margin:0;padding:0}
+.fcols li{margin:0 0 8px;font-size:13.5px;line-height:1.35}
+.fcols li a{text-decoration:none;color:var(--ink2)}
+.fcols li a:hover{color:var(--ink);text-decoration:underline}
+.fcols li .addr{display:block;font-size:12px;color:var(--mute)}
+.fcols li .tag{margin-left:6px}
+.fcols li.removed a{text-decoration:line-through;color:#a9a39b}
+/* mobile frame */
+.phone{width:390px;max-width:100%;border:10px solid #1a1a1a;border-radius:38px;background:#fff;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.18)}
+.phone .mbar{display:grid;grid-template-columns:44px 1fr 44px;align-items:center;padding:14px 12px;border-bottom:1px solid var(--line)}
+.phone .burger{width:44px;height:36px;border:0;background:none;cursor:pointer;display:flex;flex-direction:column;justify-content:center;gap:5px;padding:0 10px}
+.phone .burger span{display:block;height:1.5px;background:var(--ink)}
+.phone .mwm{text-align:center;font-family:var(--serif);font-size:19px;letter-spacing:.26em;text-transform:uppercase}
+.phone .mcart{text-align:right;font-size:12px;color:var(--ink2)}
+.mmenu{display:none;border-bottom:1px solid var(--line)}
+.phone.menu-open .mmenu{display:block}
+.mmenu>ul{list-style:none;margin:0;padding:0}
+.mmenu>ul>li{border-top:1px solid var(--line)}
+.mmenu>ul>li>button,.mmenu>ul>li>a{width:100%;display:flex;justify-content:space-between;align-items:center;background:none;border:0;padding:15px 18px;font:500 13px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink);text-decoration:none;cursor:pointer;text-align:left}
+.mmenu>ul>li.seasonal>a,.mmenu>ul>li.seasonal>button{color:#7a5230}
+.mmenu .chev{font-size:16px;transition:transform .2s}
+.mmenu li.x .chev{transform:rotate(45deg)}
+.msub{display:none;background:var(--cream);padding:6px 18px 14px}
+.mmenu li.x .msub{display:block}
+.msub h6{margin:12px 0 6px;font:600 10px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.msub a{display:block;padding:7px 0;font-size:15px;text-decoration:none;color:var(--ink)}
+.mhero{height:230px;background:linear-gradient(180deg,#f5f1eb,#ebe4da);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:22px;color:#6d655b;text-align:center;padding:0 30px}
+.phone.menu-open .mhero{display:none}
+.mfoot{background:var(--cream);padding:8px 0 20px}
+.mfoot details{border-bottom:1px solid var(--line)}
+.mfoot summary{list-style:none;cursor:pointer;padding:14px 18px;font:600 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;display:flex;justify-content:space-between}
+.mfoot summary::-webkit-details-marker{display:none}
+.mfoot details ul{list-style:none;margin:0;padding:0 18px 12px}
+.mfoot details li{padding:6px 0;font-size:14px}
+.mfoot details li a{text-decoration:none;color:var(--ink2)}
+.mfoot .addr{display:block;font-size:12px;color:var(--mute)}
+.mfoot li.removed a{text-decoration:line-through;color:#a9a39b}
+.hint{text-align:center;font-size:12px;color:var(--mute);margin:14px 0 0;letter-spacing:.04em}
+.foot-note{margin-top:30px;text-align:center;font-size:12px;color:var(--mute)}
+/* ---------- additions for the November round ---------- */
+:root{--navw:500}
+nav.dnav>ul>li>a{font-weight:var(--navw)}
+.mmenu>ul>li>button,.mmenu>ul>li>a{font-weight:var(--navw)}
+.t-soon{background:#eceae6;color:#6f6a63}
+.supernav a{text-decoration:none;color:var(--ink2)}
+.logo img{display:block;margin:0 auto;width:268px;max-width:70%;height:auto}
+.logo .wm{display:none}
+.logo.noimg .wm{display:block}
+.phone .mwm img{display:block;margin:0 auto;width:150px;height:auto}
+.col h4 a{color:inherit;text-decoration:none}
+.col h4 a:hover{text-decoration:underline;text-underline-offset:3px}
+.col h4.strong{color:var(--ink);font-size:11.5px}
+.col .soon{font-size:14.5px;color:var(--mute);line-height:1.35}
+.msub h6 a{color:inherit;text-decoration:none}
+.msub .soon{display:block;padding:7px 0;font-size:15px;color:var(--mute)}
+.compare{max-width:1240px;margin:26px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.compare .box{background:#fff;border:1px solid var(--line);border-radius:6px;padding:16px 18px}
+.compare h3{margin:0 0 10px;font:600 11px/1.2 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.compare ol{margin:0;padding-left:20px;font-size:14px;line-height:1.7;color:var(--ink2)}
+.compare .box.on{border-color:var(--ink)}
+@media (max-width:760px){.compare{grid-template-columns:1fr}}
+</style>
+</head>
+<body class="hl">
+
+<div class="bar">
+  <h1>Winston Flowers<small>Top navigation · November 2026 review</small></h1>
+  <div class="ctrls">
+    <span><span class="ctl-label">View</span><span class="seg" id="segView"><button data-v="winston" aria-pressed="true">Winston Layout</button><button data-v="occasions" aria-pressed="false">With Occasions</button><button data-v="current" aria-pressed="false">Current</button></span></span>
+    <span><span class="ctl-label">Device</span><span class="seg" id="segDev"><button data-d="desktop" aria-pressed="true">Desktop</button><button data-d="mobile" aria-pressed="false">Mobile</button></span></span>
+    <span id="seasonCtl"><span class="ctl-label">Season</span><select id="season" aria-label="Preview season"></select></span>
+    <span><span class="ctl-label">Menu weight</span><select id="weight" aria-label="Menu font weight"><option value="300">Light</option><option value="400">Regular</option><option value="500" selected>Medium</option><option value="600">Semibold</option></select></span>
+    <label class="chk"><input type="checkbox" id="hl" checked> Highlight changes</label>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="intro">
+    <p id="introText"></p>
+    <div class="legend">
+      <span class="tag t-new">New</span><span class="tag t-moved">Combined / renamed</span><span class="tag t-rot">Rotates seasonally</span><span class="tag t-soon">Page to come</span>
+    </div>
+  </div>
+
+  <div class="stage" id="stage"></div>
+  <p class="hint" id="hint"></p>
+
+  <div class="compare" id="compare"></div>
+
+  <p class="foot-note">Mockup for review only. Links open the live winstonflowers.com pages. Menu type is shown in a close stand-in for the site font, so weights are a guide.</p>
+</div>
+
+<script>
+const BASE='https://www.winstonflowers.com';
+const LOGO='https://assets.eflorist.com/site/32084100/Logo/m7000608-logo.png';
+
+/* ---------- first-slot rotation ---------- */
+const SEASONS=[
+ {k:'autumn',   when:'Mid Sep to Oct',            label:'Autumn Collection',   u:'/autumn-collection/cat7850012'},
+ {k:'thanks',   when:'Nov 1 to Thanksgiving',     label:'Thanksgiving',        u:'/thanksgiving-centerpieces/cat7900016',
+   dd:[{t:'Thanksgiving',links:[['Thanksgiving Centerpieces','/thanksgiving-centerpieces/cat7900016'],['Autumn Collection','/autumn-collection/cat7850012']]}]},
+ {k:'holiday',  when:'Thanksgiving to Dec 24',    label:'Holiday',             u:'/holiday-flowers-gifts/cat8000033',
+   dd:[{t:'Holiday',links:[['Holiday Flowers & Gifts','/holiday-flowers-gifts/cat8000033'],['Holiday Centerpieces','/holiday-centerpieces/cat6940011'],['Holiday Decor Collection','/holiday-decor-collection/cat9480013'],['Holiday Wreaths','/holiday-wreaths/cat6950066']]},
+       {t:'Holiday Services',links:[['Holidays at Home','/holiday/holidays-at-home'],['Corporate Holiday','/holiday/corporate-holiday']]}]},
+ {k:'winter',   when:'Dec 26 to mid Jan',         label:'Winter Collection',   u:'/winter-collection/cat6980040'},
+ {k:'vday',     when:'Mid Jan to Feb 14',         label:"Valentine's Day",     u:'/valentines-day/cat6990092',
+   dd:[{t:"Valentine's Day",links:[["Valentine's Day",'/valentines-day/cat6990092'],['Gifts Under $200','/valentines-day-gifts-under-200/cat14250024'],['Rose Collection','/rose-collection/cat5100126']]}]},
+ {k:'spring',   when:'Feb 15 to mid Apr',         label:'Spring Collection',   u:'/spring-collection/cat13280021'},
+ {k:'mom',      when:"Mid Apr to Mother's Day",   label:"Mother's Day",        u:'/mothers-day-gifts/cat7390111',
+   dd:[{t:"Mother's Day",links:[["Mother's Day Gifts",'/mothers-day-gifts/cat7390111'],['Luxe Collection','/luxe-collection/cat5100101'],['Gourmet Gift Boxes','/gourmet-collection/cat7950006']]}]},
+ {k:'latespring',when:'Mid May to Jun',           label:'Late Spring Collection',u:'/late-spring-collection/cat6420101'},
+ {k:'summer',   when:'Jul',                      label:'Summer Collection',   u:'/summer-collection/cat6580055'},
+ {k:'latesummer',when:'Aug to mid Sep',           label:'Late Summer Collection',u:'/late-summer-collection/cat9080066'},
+];
+const TILES={
+ flowers:'https://assets.eflorist.com//site/32084100/Categories/Autumn%202026/09-Flowers-DropDownMenu-Tile.jpg',
+ gourmet:'https://assets.eflorist.com//site/32084100/Categories/2026%20Autumn%20Gourmet/2026-04-AutumnGourmet-DropDown.jpg',
+ plants:'https://assets.eflorist.com//site/32084100/Categories/Mothers%20Day%202026/Plants-Dropdown.jpg',
+ events:'https://assets.eflorist.com//site/32084100/Top%20Nav/Top-Nav-Weddings-Final.jpg',
+ home:'https://assets.eflorist.com//site/32084100/Top%20Nav/Top-Nav-Home-4-Final.jpg',
+ office:'https://assets.eflorist.com//site/32084100/Categories/Winter%202023/08-Corporate-DropDownMenu-Tile%20copy.jpg',
+ why:'https://assets.eflorist.com//site/32084100/Categories/Winter%202023/08-WhyWinston-DropDownMenu-Tile%20copy.jpg',
+ occ:'https://assets.eflorist.com//site/32084100/Homepage/03-HomePage-Color-Pink.jpg',
+ loc:'https://assets.eflorist.com//site/32084100/Locations/Boston-Design-Studio/m7190150-Boston_2.jpg'
+};
+const PDF_HOME='https://assets.eflorist.com/themes/custom-templates/3/32084100/32084100-default/pdf/Winston%20Flowers_Winston%20at%20Home_2026_Web.pdf';
+const PDF_OFFICE='https://assets.eflorist.com/themes/custom-templates/3/32084100/32084100-default/pdf/Winston%20Flowers_Corporate%20_%20Hotel%20Collection_2026_Web.pdf';
+
+/* ---------- navigation data ----------
+   s: n=new, m=combined/renamed, r=rotates. A link with no url is a page to come. */
+function seasonItem(season){return {label:season.label,u:season.u,s:'r',seasonal:true,cols:season.dd||null};}
+const tile=(k,cap,u)=>({img:TILES[k],cap,u});
+
+const FLOWERS_GIFTS={label:'Flowers and Gifts',u:'/all-flowers-gifts/cat6680049',s:'m',cols:[
+  {t:'',links:[['Flowers','/collections/view-all'],['Gourmet','/gourmet-collection/cat7950006'],['Plants','/interior-exterior-plants/cat5130080']]},
+  tile('flowers','Shop Flowers and Gifts','/all-flowers-gifts/cat6680049')
+]};
+const RETAIL={label:'Retail and Delivery',u:'/locations',s:'n',cols:[
+  {t:'',links:[['Retail Stores','/locations'],['Where We Deliver','/same-day-flower-delivery/cat15130023']]},
+  tile('loc','Visit Our Shops','/locations')
+]};
+const DESIGN={label:'Design Services',u:'/weddings-and-events',s:'m',cols:[
+  {t:'Events',hu:'/weddings-and-events',strong:true,links:[['Weddings','/weddings-and-events/weddings'],['Private Events','/weddings-and-events/private-events']]},
+  {t:'Office',hu:'/services/corporate-services',strong:true,links:[['Garden','/garden-design/office'],['Subscription',PDF_OFFICE],['Corporate Gifting','/services/client-employee-gifts']]},
+  {t:'Home',hu:'/services/residential-services',strong:true,links:[['Garden','/garden-design/residential'],['Subscription',PDF_HOME]]},
+  tile('events','Plan Your Event','/weddings-and-events')
+]};
+const ABOUT={label:'About Us',u:'/about-winston-flowers',s:'m',cols:[
+  {t:'',links:[['Our Story','/about-winston-flowers'],['FAQ',null]]},
+  tile('why','Our Story','/about-winston-flowers')
+]};
+const OCCASIONS={label:'Occasions',u:'/all-flowers-gifts/cat6680049',s:'n',cols:[
+  {t:'',links:[['Birthday','/birthday-flowers/cat15080013'],['Love & Romance','/love-romance/cat15080015'],['Congratulations','/congratulations-flowers/cat15130021'],['Thank You','/thank-you-flowers/cat15130020']]},
+  {t:'',links:[['Just Because','/just-because-flowers/cat15130022'],['Get Well','/get-well-flowers/cat15080014'],['Hospital Flower Delivery','/hospital-flower-delivery/cat15130024']],
+   sub:{t:'Sympathy',links:[['Sympathy for the Home','/sympathy-for-the-home/cat5100127'],['Sympathy for the Service','/sympathy-for-the-service/cat5100128']]}},
+  tile('occ','Shop Birthday Flowers','/birthday-flowers/cat15080013')
+]};
+
+function winstonNav(season){return [seasonItem(season),FLOWERS_GIFTS,RETAIL,DESIGN,ABOUT];}
+function occasionsNav(season){return [seasonItem(season),FLOWERS_GIFTS,OCCASIONS,RETAIL,DESIGN,ABOUT];}
+
+const CURRENT_NAV=[
+ {label:'Autumn Collection',u:'/autumn-collection/cat7850012',seasonal:true},
+ {label:'Flowers',u:'/collections/view-all',cols:[
+   {t:'',links:[['Autumn Collection','/autumn-collection/cat7850012'],['Luxe Collection','/luxe-collection/cat5100101'],['Rose Collection','/rose-collection/cat5100126']]},
+   {t:'',links:[['Charity in Bloom','/flower-arrangement/charity-in-bloom/prod6490472'],['Subscriptions','/subscriptions'],['Sympathy for Home','/sympathy-for-the-home/cat5100127'],['Sympathy for the Service','/sympathy-for-the-service/cat5100128'],['All Flowers & Gifts','/all-flowers-gifts/cat6680049']]},{img:TILES.flowers}]},
+ {label:'Gourmet',u:'/collections/view-all',cols:[{t:'',links:[['Gourmet Gift Boxes','/gourmet-collection/cat7950006'],['Special Occasion Gifts','/special-occasion-gifts/cat12630195'],['All Flowers & Gifts','/all-flowers-gifts/cat6680049']]},{img:TILES.gourmet}]},
+ {label:'Plants',u:'/collections/view-all',cols:[{t:'',links:[['Interior & Exterior Plants','/interior-exterior-plants/cat5130080'],['Statement Container Collection','/statement-containers/cat14660005'],['Garden Design for the Home','/garden-design/residential'],['Garden Design for the Office','/garden-design/office']]},{img:TILES.plants}]},
+ {label:'Events',u:'/weddings-and-events',cols:[{t:'',links:[['Custom Weddings','/weddings-and-events/weddings'],['Private Events','/weddings-and-events/private-events'],['Corporate & Nonprofit Events','/weddings-and-events/corporate-nonprofit']]},{img:TILES.events}]},
+ {label:'Home',u:'/services/residential-services',cols:[{t:'',links:[['Weekly & Monthly Subscriptions',PDF_HOME],['Garden Design','/garden-design/residential'],['Private Events','/weddings-and-events/private-events']]},{img:TILES.home}]},
+ {label:'Office',u:'/services/corporate-services',cols:[{t:'',links:[['Weekly & Monthly Subscriptions',PDF_OFFICE],['Client & Employee Gifting','/services/client-employee-gifts'],['Garden Design','/garden-design/office'],['Corporate Events','/weddings-and-events/corporate-nonprofit']]},{img:TILES.office}]},
+ {label:'Why Winston',u:'/about-winston-flowers',cols:[
+   {t:'',links:[['About Us','/about-winston-flowers'],['The Flower Story','/flower-story'],['The Gourmet Story','/gourmet-story'],['Floral & Plant Care','/care']]},
+   {t:'',links:[['Our People','/staff'],['Join Our Team','/careers'],['Donation Requests','/donations'],['Contact Us','/contact']]},{img:TILES.why}]},
+ {label:'Blog',u:'/blog'}
+];
+
+/* ---------- rendering ---------- */
+const state={view:'winston',dev:'desktop',season:'autumn'};
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const href=u=>u.startsWith('http')?u:BASE+u;
+const TAGS={n:['t-new','New'],m:['t-moved','Combined'],r:['t-rot','Rotates']};
+function tag(s,view){ if(!s||view==='current') return ''; const [c,l]=TAGS[s]; return ` <span class="tag ${c}">${l}</span>`; }
+function topTag(it,view){
+  if(view==='current') return '';
+  if(it.label==='About Us') return ' <span class="tag t-moved">Renamed</span>';
+  return tag(it.s,view);
+}
+const soonTag=' <span class="tag t-soon">Page to come</span>';
+function linkHTML(l){const [label,u]=l; return u?`<li><a href="${esc(href(u))}" target="_blank" rel="noopener">${esc(label)}</a></li>`:`<li><span class="soon">${esc(label)}</span>${soonTag}</li>`;}
+function headHTML(c){ if(!c.t) return ''; const inner=c.hu?`<a href="${esc(href(c.hu))}" target="_blank" rel="noopener">${esc(c.t)}</a>`:esc(c.t); return `<h4${c.strong?' class="strong"':''}>${inner}</h4>`; }
+function supernav(){return `<div class="supernav"><span>Same-day delivery throughout Boston, New York City and Greenwich</span><span class="r"><a href="tel:+18004574901">(800) 457-4901</a><span>Log In</span><span>Cart</span></span></div>
+  <div class="logo"><a href="${BASE}/" target="_blank" rel="noopener"><img src="${LOGO}" alt="Winston Flowers" onerror="this.parentNode.parentNode.classList.add('noimg');this.remove()"></a><div class="wm">Winston Flowers</div></div>`;}
+function desktop(nav,view){
+  const items=nav.map(it=>{
+    const dd = it.cols ? `<div class="dd"><div class="dd-inner">${it.cols.map(c=>c.img?`<div class="col imgtile">${c.u?`<a href="${esc(href(c.u))}" target="_blank" rel="noopener">`:''}<img src="${esc(c.img)}" alt="">${c.cap?`<span class="cap">${esc(c.cap)} &rsaquo;</span>`:''}${c.u?`</a>`:''}</div>`:`<div class="col">${headHTML(c)}<ul>${c.links.map(linkHTML).join('')}</ul>${c.sub?`<div class="subgrp"><span class="sublbl">${esc(c.sub.t)}</span><ul>${c.sub.links.map(linkHTML).join('')}</ul></div>`:''}</div>`).join('')}</div></div>`:'';
+    return `<li class="${it.seasonal?'seasonal':''}"><a href="${esc(href(it.u))}" target="_blank" rel="noopener" ${it.cols?'aria-haspopup="true"':''}>${esc(it.label)}${topTag(it,view)}</a>${dd}</li>`;}).join('');
+  const label={winston:'Winston layout',occasions:'Winston layout with Occasions',current:'Current navigation'}[view];
+  return `<div class="site">${supernav()}
+    <nav class="dnav" aria-label="Main"><ul>${items}</ul></nav>
+    <div class="hero"><div><div class="h">Hover or tap any menu item</div><div class="s">${label}</div></div></div>
+  </div>`;
+}
+function mobile(nav,view){
+  const mlink=l=>l[1]?`<a href="${esc(href(l[1]))}" target="_blank" rel="noopener">${esc(l[0])}</a>`:`<span class="soon">${esc(l[0])}${soonTag}</span>`;
+  const mhead=c=>c.t&&c.t.trim()?`<h6>${c.hu?`<a href="${esc(href(c.hu))}" target="_blank" rel="noopener">${esc(c.t)}</a>`:esc(c.t)}</h6>`:'';
+  const items=nav.map((it,i)=>{
+    const t=topTag(it,view);
+    if(!it.cols) return `<li class="${it.seasonal?'seasonal':''}"><a href="${esc(href(it.u))}" target="_blank" rel="noopener"><span>${esc(it.label)}${t}</span></a></li>`;
+    return `<li class="${it.seasonal?'seasonal':''}"><button type="button" data-acc="${i}"><span>${esc(it.label)}${t}</span><span class="chev">+</span></button><div class="msub">${it.cols.filter(c=>!c.img).map(c=>`${mhead(c)}${c.links.map(mlink).join('')}${c.sub?`<h6>${esc(c.sub.t)}</h6>`+c.sub.links.map(mlink).join(''):''}`).join('')}</div></li>`;}).join('');
+  return `<div class="phone menu-open" id="phone">
+    <div class="mbar"><button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button><div class="mwm"><img src="${LOGO}" alt="Winston Flowers" onerror="this.outerHTML='Winston'"></div><div class="mcart">Cart</div></div>
+    <div class="mmenu"><ul>${items}</ul></div>
+    <div class="mhero">Tap the menu icon</div>
+  </div>`;
+}
+function outline(nav){return nav.map(it=>`<li>${esc(it.label)}</li>`).join('');}
+function render(){
+  const season=SEASONS.find(s=>s.k===state.season);
+  const nav= state.view==='winston'?winstonNav(season):state.view==='occasions'?occasionsNav(season):CURRENT_NAV;
+  document.getElementById('stage').innerHTML = state.dev==='desktop'?desktop(nav,state.view):mobile(nav,state.view);
+  document.getElementById('seasonCtl').style.visibility = state.view==='current'?'hidden':'visible';
+  document.getElementById('introText').textContent = {
+    winston:'The navigation your team settled on, built out with the live pages behind each link. Hover or tap a menu to open it, use Season to see the first slot rotate, and try Menu weight to compare type weights.',
+    occasions:'The same layout with an Occasions menu added after Flowers and Gifts, linking the new occasion pages. Everything else matches the Winston layout.',
+    current:'The live navigation today, for comparison.'
+  }[state.view];
+  document.getElementById('hint').textContent = state.dev==='desktop'?'Tip: switch Device to Mobile to see the phone menu.':'The menu opens by default. Tap a section to expand it, and tap the menu icon to close it.';
+  document.getElementById('compare').innerHTML = state.view==='current'?'':
+    `<div class="box${state.view==='winston'?' on':''}"><h3>Winston layout</h3><ol>${outline(winstonNav(season))}</ol></div><div class="box${state.view==='occasions'?' on':''}"><h3>With Occasions</h3><ol>${outline(occasionsNav(season))}</ol></div>`;
+  bind();
+}
+function bind(){
+  document.querySelectorAll('nav.dnav>ul>li').forEach(li=>{
+    const a=li.querySelector(':scope>a'); if(!li.querySelector('.dd')) return;
+    a.addEventListener('click',e=>{ if(matchMedia('(hover: none)').matches && !li.classList.contains('open')){e.preventDefault();document.querySelectorAll('nav.dnav li.open').forEach(x=>x!==li&&x.classList.remove('open'));li.classList.add('open');}});
+  });
+  const b=document.getElementById('burger'); if(b) b.onclick=()=>document.getElementById('phone').classList.toggle('menu-open');
+  document.querySelectorAll('[data-acc]').forEach(btn=>btn.onclick=()=>btn.parentElement.classList.toggle('x'));
+}
+function syncSeg(){
+  document.querySelectorAll('#segView button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.v===state.view));
+  document.querySelectorAll('#segDev button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.d===state.dev));
+}
+const qs=new URLSearchParams(location.search);
+if(['winston','occasions','current'].includes(qs.get('view'))) state.view=qs.get('view');
+if(['desktop','mobile'].includes(qs.get('device'))) state.dev=qs.get('device');
+document.getElementById('season').innerHTML=SEASONS.map(s=>`<option value="${s.k}">${esc(s.label)} (${esc(s.when)})</option>`).join('');
+document.getElementById('season').onchange=e=>{state.season=e.target.value;render();};
+document.getElementById('weight').onchange=e=>document.documentElement.style.setProperty('--navw',e.target.value);
+document.querySelectorAll('#segView button').forEach(b=>b.onclick=()=>{state.view=b.dataset.v;syncSeg();render();});
+document.querySelectorAll('#segDev button').forEach(b=>b.onclick=()=>{state.dev=b.dataset.d;syncSeg();render();});
+document.getElementById('hl').onchange=e=>document.body.classList.toggle('hl',e.target.checked);
+document.addEventListener('click',e=>{ if(!e.target.closest('nav.dnav')) document.querySelectorAll('nav.dnav li.open').forEach(x=>x.classList.remove('open'));});
+syncSeg();
+render();
+</script>
+</body>
+</html>
