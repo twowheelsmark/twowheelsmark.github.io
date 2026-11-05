@@ -138,12 +138,13 @@ nav.dnav>ul>li>a{font-weight:var(--navw)}
 .col .soon{font-size:14.5px;color:var(--mute);line-height:1.35}
 .msub h6 a{color:inherit;text-decoration:none}
 .msub .soon{display:block;padding:7px 0;font-size:15px;color:var(--mute)}
-.compare{max-width:1240px;margin:26px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.compare{max-width:1240px;margin:26px auto 0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+.compare .cnt{margin:10px 0 0;font-size:12.5px;color:var(--mute)}
 .compare .box{background:#fff;border:1px solid var(--line);border-radius:6px;padding:16px 18px}
 .compare h3{margin:0 0 10px;font:600 11px/1.2 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
 .compare ol{margin:0;padding-left:20px;font-size:14px;line-height:1.7;color:var(--ink2)}
 .compare .box.on{border-color:var(--ink)}
-@media (max-width:760px){.compare{grid-template-columns:1fr}}
+@media (max-width:900px){.compare{grid-template-columns:1fr}}
 </style>
 </head>
 <body class="hl">
@@ -151,7 +152,7 @@ nav.dnav>ul>li>a{font-weight:var(--navw)}
 <div class="bar">
   <h1>Winston Flowers<small>Top navigation · November 2026 review</small></h1>
   <div class="ctrls">
-    <span><span class="ctl-label">View</span><span class="seg" id="segView"><button data-v="winston" aria-pressed="true">Winston Layout</button><button data-v="occasions" aria-pressed="false">With Occasions</button><button data-v="current" aria-pressed="false">Current</button></span></span>
+    <span><span class="ctl-label">View</span><span class="seg" id="segView"><button data-v="winston" aria-pressed="true">Winston Layout</button><button data-v="occasions" aria-pressed="false">With Occasions</button><button data-v="recommended" aria-pressed="false">Recommended</button><button data-v="current" aria-pressed="false">Current</button></span></span>
     <span><span class="ctl-label">Device</span><span class="seg" id="segDev"><button data-d="desktop" aria-pressed="true">Desktop</button><button data-d="mobile" aria-pressed="false">Mobile</button></span></span>
     <span id="seasonCtl"><span class="ctl-label">Season</span><select id="season" aria-label="Preview season"></select></span>
     <span><span class="ctl-label">Menu weight</span><select id="weight" aria-label="Menu font weight"><option value="300">Light</option><option value="400">Regular</option><option value="500" selected>Medium</option><option value="600">Semibold</option></select></span>
@@ -241,6 +242,24 @@ const OCCASIONS={label:'Occasions',u:'/all-flowers-gifts/cat6680049',s:'n',cols:
   tile('occ','Shop Birthday Flowers','/birthday-flowers/cat15080013')
 ]};
 
+/* Recommended: same top level as With Occasions, with every shop, delivery town and key collection linked */
+const FLOWERS_GIFTS_REC={label:'Flowers and Gifts',u:'/all-flowers-gifts/cat6680049',s:'m',cols:[
+  {t:'',links:[['Flowers','/collections/view-all'],['Gourmet','/gourmet-collection/cat7950006'],['Plants','/interior-exterior-plants/cat5130080']]},
+  {t:'',links:[['Luxe Collection','/luxe-collection/cat5100101','n'],['Rose Collection','/rose-collection/cat5100126','n'],['Subscriptions','/subscriptions','n'],['Shop All Flowers and Gifts','/all-flowers-gifts/cat6680049','n']]},
+  tile('flowers','Shop Flowers and Gifts','/all-flowers-gifts/cat6680049')
+]};
+const RETAIL_REC={label:'Retail and Delivery',u:'/locations',s:'n',cols:[
+  {t:'Retail Stores',hu:'/locations',strong:true,links:[['Boston (Back Bay)','/locations/back-bay'],['Chestnut Hill, MA','/locations/chestnut-hill'],['Wellesley, MA','/locations/wellesley'],['Greenwich, CT','/locations/greenwich'],['Boston Design Studio','/locations/boston-design-studio'],['New York City Design Studio','/locations/new-york-city-design-studio']]},
+  {t:'Same Day Delivery',hu:'/same-day-flower-delivery/cat15130023',strong:true,links:[['Belmont','/belmont-florist','n'],['Brookline','/brookline-florist','n'],['Cambridge','/cambridge-florist','n'],['Cohasset','/cohasset-florist','n'],['Concord','/concord-florist','n']]},
+  {t:'\u00a0',strong:true,links:[['Hingham','/hingham-florist','n'],['Needham','/needham-florist','n'],['Newton','/newton-florist','n'],['Weston','/weston-florist','n'],['Winchester','/winchester-florist','n']]},
+  tile('loc','Visit Our Shops','/locations')
+]};
+const ABOUT_REC={label:'About Us',u:'/about-winston-flowers',s:'m',cols:[
+  {t:'',links:[['Our Story','/about-winston-flowers'],['FAQ',null],['Blog','/blog','n'],['Contact Us','/contact','n']]},
+  tile('why','Our Story','/about-winston-flowers')
+]};
+function recommendedNav(season){return [seasonItem(season),FLOWERS_GIFTS_REC,OCCASIONS,RETAIL_REC,DESIGN,ABOUT_REC];}
+
 function winstonNav(season){return [seasonItem(season),FLOWERS_GIFTS,RETAIL,DESIGN,ABOUT];}
 function occasionsNav(season){return [seasonItem(season),FLOWERS_GIFTS,OCCASIONS,RETAIL,DESIGN,ABOUT];}
 
@@ -272,7 +291,8 @@ function topTag(it,view){
   return tag(it.s,view);
 }
 const soonTag=' <span class="tag t-soon">Page to come</span>';
-function linkHTML(l){const [label,u]=l; return u?`<li><a href="${esc(href(u))}" target="_blank" rel="noopener">${esc(label)}</a></li>`:`<li><span class="soon">${esc(label)}</span>${soonTag}</li>`;}
+const linkTag=l=>l[2]?' <span class="tag t-new">New</span>':'';
+function linkHTML(l){const [label,u]=l; return u?`<li><a href="${esc(href(u))}" target="_blank" rel="noopener">${esc(label)}</a>${linkTag(l)}</li>`:`<li><span class="soon">${esc(label)}</span>${soonTag}</li>`;}
 function headHTML(c){ if(!c.t) return ''; const inner=c.hu?`<a href="${esc(href(c.hu))}" target="_blank" rel="noopener">${esc(c.t)}</a>`:esc(c.t); return `<h4${c.strong?' class="strong"':''}>${inner}</h4>`; }
 function supernav(){return `<div class="supernav"><span>Same-day delivery throughout Boston, New York City and Greenwich</span><span class="r"><a href="tel:+18004574901">(800) 457-4901</a><span>Log In</span><span>Cart</span></span></div>
   <div class="logo"><div class="wm">Winston</div><div class="sub">Flowers</div></div>`;}
@@ -280,14 +300,14 @@ function desktop(nav,view){
   const items=nav.map(it=>{
     const dd = it.cols ? `<div class="dd"><div class="dd-inner">${it.cols.map(c=>c.img?`<div class="col imgtile">${c.u?`<a href="${esc(href(c.u))}" target="_blank" rel="noopener">`:''}<img src="${esc(c.img)}" alt="">${c.cap?`<span class="cap">${esc(c.cap)} &rsaquo;</span>`:''}${c.u?`</a>`:''}</div>`:`<div class="col">${headHTML(c)}<ul>${c.links.map(linkHTML).join('')}</ul>${c.sub?`<div class="subgrp"><span class="sublbl">${esc(c.sub.t)}</span><ul>${c.sub.links.map(linkHTML).join('')}</ul></div>`:''}</div>`).join('')}</div></div>`:'';
     return `<li class="${it.seasonal?'seasonal':''}"><a href="${esc(href(it.u))}" target="_blank" rel="noopener" ${it.cols?'aria-haspopup="true"':''}>${esc(it.label)}${topTag(it,view)}</a>${dd}</li>`;}).join('');
-  const label={winston:'Winston layout',occasions:'Winston layout with Occasions',current:'Current navigation'}[view];
+  const label={winston:'Winston layout',occasions:'Winston layout with Occasions',recommended:'Recommended',current:'Current navigation'}[view];
   return `<div class="site">${supernav()}
     <nav class="dnav" aria-label="Main"><ul>${items}</ul></nav>
     <div class="hero"><div><div class="h">Hover or tap any menu item</div><div class="s">${label}</div></div></div>
   </div>`;
 }
 function mobile(nav,view){
-  const mlink=l=>l[1]?`<a href="${esc(href(l[1]))}" target="_blank" rel="noopener">${esc(l[0])}</a>`:`<span class="soon">${esc(l[0])}${soonTag}</span>`;
+  const mlink=l=>l[1]?`<a href="${esc(href(l[1]))}" target="_blank" rel="noopener">${esc(l[0])}${linkTag(l)}</a>`:`<span class="soon">${esc(l[0])}${soonTag}</span>`;
   const mhead=c=>c.t&&c.t.trim()?`<h6>${c.hu?`<a href="${esc(href(c.hu))}" target="_blank" rel="noopener">${esc(c.t)}</a>`:esc(c.t)}</h6>`:'';
   const items=nav.map((it,i)=>{
     const t=topTag(it,view);
@@ -299,20 +319,22 @@ function mobile(nav,view){
     <div class="mhero">Tap the menu icon</div>
   </div>`;
 }
+function countLinks(nav){return nav.reduce((n,it)=>n+1+(it.cols||[]).reduce((m,c)=>m+(c.img?0:(c.hu?1:0)+c.links.filter(l=>l[1]).length+(c.sub?c.sub.links.length:0)),0),0);}
 function outline(nav){return nav.map(it=>`<li>${esc(it.label)}</li>`).join('');}
 function render(){
   const season=SEASONS.find(s=>s.k===state.season);
-  const nav= state.view==='winston'?winstonNav(season):state.view==='occasions'?occasionsNav(season):CURRENT_NAV;
+  const nav= state.view==='winston'?winstonNav(season):state.view==='occasions'?occasionsNav(season):state.view==='recommended'?recommendedNav(season):CURRENT_NAV;
   document.getElementById('stage').innerHTML = state.dev==='desktop'?desktop(nav,state.view):mobile(nav,state.view);
   document.getElementById('seasonCtl').style.visibility = state.view==='current'?'hidden':'visible';
   document.getElementById('introText').textContent = {
     winston:'The navigation your team settled on, built out with the live pages behind each link. Hover or tap a menu to open it, use Season to see the first slot rotate, and try Menu weight to compare type weights.',
     occasions:'The same layout with an Occasions menu added after Flowers and Gifts, linking the new occasion pages. Everything else matches the Winston layout.',
+    recommended:'Our recommendation: your layout and menu names, plus Occasions, each shop and delivery town under Retail and Delivery, and a few key collections under Flowers and Gifts. Links in the main menu tell Google which pages matter most, so this keeps the occasion and city pages we built visible to search while the top level stays clean.',
     current:'The live navigation today, for comparison.'
   }[state.view];
   document.getElementById('hint').textContent = state.dev==='desktop'?'Tip: switch Device to Mobile to see the phone menu.':'The menu opens by default. Tap a section to expand it, and tap the menu icon to close it.';
   document.getElementById('compare').innerHTML = state.view==='current'?'':
-    `<div class="box${state.view==='winston'?' on':''}"><h3>Winston layout</h3><ol>${outline(winstonNav(season))}</ol></div><div class="box${state.view==='occasions'?' on':''}"><h3>With Occasions</h3><ol>${outline(occasionsNav(season))}</ol></div>`;
+    `<div class="box${state.view==='winston'?' on':''}"><h3>Winston layout</h3><ol>${outline(winstonNav(season))}</ol></div><div class="box${state.view==='occasions'?' on':''}"><h3>With Occasions</h3><ol>${outline(occasionsNav(season))}</ol></div><div class="box${state.view==='recommended'?' on':''}"><h3>Recommended</h3><ol>${outline(recommendedNav(season))}</ol><p class="cnt">${countLinks(recommendedNav(season))} menu links, vs ${countLinks(winstonNav(season))} in the Winston layout</p></div>`;
   bind();
 }
 function bind(){
@@ -328,7 +350,7 @@ function syncSeg(){
   document.querySelectorAll('#segDev button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.d===state.dev));
 }
 const qs=new URLSearchParams(location.search);
-if(['winston','occasions','current'].includes(qs.get('view'))) state.view=qs.get('view');
+if(['winston','occasions','recommended','current'].includes(qs.get('view'))) state.view=qs.get('view');
 if(['desktop','mobile'].includes(qs.get('device'))) state.dev=qs.get('device');
 document.getElementById('season').innerHTML=SEASONS.map(s=>`<option value="${s.k}">${esc(s.label)} (${esc(s.when)})</option>`).join('');
 document.getElementById('season').onchange=e=>{state.season=e.target.value;render();};
