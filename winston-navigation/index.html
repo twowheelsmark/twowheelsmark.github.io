@@ -245,7 +245,7 @@ const OCCASIONS={label:'Occasions',u:'/all-flowers-gifts/cat6680049',s:'n',cols:
 /* Recommended: Winston layout plus Occasions, with every shop, delivery town and key collection linked */
 const FLOWERS_GIFTS_REC={label:'Flowers and Gifts',u:'/all-flowers-gifts/cat6680049',s:'m',cols:[
   {t:'',links:[['Flowers','/collections/view-all'],['Gourmet','/gourmet-collection/cat7950006'],['Plants','/interior-exterior-plants/cat5130080']]},
-  {t:'',links:[['Luxe Collection','/luxe-collection/cat5100101','n'],['Rose Collection','/rose-collection/cat5100126','n'],['Subscriptions','/subscriptions','n'],['Shop All Flowers and Gifts','/all-flowers-gifts/cat6680049','n']]},
+  {t:'',links:[['Rose Collection','/rose-collection/cat5100126','n'],['Subscriptions','/subscriptions','n']]},
   tile('flowers','Shop Flowers and Gifts','/all-flowers-gifts/cat6680049')
 ]};
 const RETAIL_REC={label:'Retail and Delivery',u:'/locations',s:'n',cols:[
@@ -327,7 +327,7 @@ function render(){
   document.getElementById('seasonCtl').style.visibility = state.view==='current'?'hidden':'visible';
   document.getElementById('introText').textContent = {
     winston:'The navigation your team settled on, built out with the live pages behind each link. Hover or tap a menu to open it, use Season to see the first slot rotate, and try Menu weight to compare type weights.',
-    recommended:'Our recommendation: your layout and menu names, plus Occasions, each shop and delivery town under Retail and Delivery, and a few key collections under Flowers and Gifts. Links in the main menu tell Google which pages matter most, so this keeps the occasion and city pages we built visible to search while the top level stays clean.',
+    recommended:'Our recommendation: your layout and menu names, plus Occasions, each shop and delivery town under Retail and Delivery, and Roses and Subscriptions under Flowers and Gifts. Links in the main menu tell Google which pages matter most, so this keeps the occasion and city pages we built visible to search while the top level stays clean.',
     current:'The live navigation today, for comparison.'
   }[state.view];
   document.getElementById('hint').textContent = state.dev==='desktop'?'Tip: switch Device to Mobile to see the phone menu.':'The menu opens by default. Tap a section to expand it, and tap the menu icon to close it.';
