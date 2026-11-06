@@ -49,18 +49,60 @@
   .topbar{background:var(--green);color:#f6e4e6;font-size:.82rem;text-align:center;padding:.5rem 1rem;font-weight:500;letter-spacing:.01em}
   .topbar strong{color:#fff}
 
-  /* ---------- Header ---------- */
-  header{position:sticky;top:0;z-index:60;background:rgba(255,254,251,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;padding-top:.55rem;padding-bottom:.55rem;gap:1rem}
-  .brand{display:block;line-height:0}
+  /* ---------- Header + full menu ---------- */
+  header{position:sticky;top:0;z-index:60;background:rgba(255,253,251,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding-top:.5rem;padding-bottom:.5rem;gap:1rem}
+  .brand{display:block;line-height:0;flex:none}
   .brand img{height:64px;width:auto}
-  .nav-links{display:flex;gap:1.6rem;font-size:.9rem;font-weight:500}
-  .nav-links a{color:var(--ink);transition:.15s}
-  .nav-links a:hover{color:var(--terracotta)}
-  .nav-right{display:flex;align-items:center;gap:1rem}
-  .phone{font-weight:700;color:var(--green);font-size:.95rem;white-space:nowrap}
-  .phone span{font-weight:400;color:var(--muted);font-size:.78rem;display:block;letter-spacing:.04em}
-  @media(max-width:920px){.nav-links{display:none}}
+  .menu ul{display:flex;align-items:center;gap:1.15rem;list-style:none}
+  .menu>ul>li{position:relative}
+  .menu>ul>li>a{display:flex;align-items:center;gap:.3rem;font-size:.88rem;font-weight:500;color:var(--ink);padding:1.3rem 0;white-space:nowrap;transition:.15s}
+  .menu>ul>li>a:hover,.menu>ul>li:focus-within>a{color:var(--green)}
+  .caret{width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);display:inline-block}
+  .dd{position:absolute;top:100%;left:-1.1rem;display:flex;gap:2.2rem;background:#fff;border:1px solid var(--line);border-top:3px solid var(--green);border-radius:0 0 12px 12px;box-shadow:var(--shadow-lg);padding:1.1rem 1.3rem 1.2rem;opacity:0;visibility:hidden;transform:translateY(6px);transition:.16s;z-index:70}
+  .has-dd:hover .dd,.has-dd:focus-within .dd{opacity:1;visibility:visible;transform:none}
+  .mega .dd{left:50%;transform:translate(-50%,6px)}
+  .mega:hover .dd,.mega:focus-within .dd{transform:translate(-50%,0)}
+  .k-short{display:none}
+  .dd h4{white-space:nowrap;font-family:var(--sans);font-size:.66rem;letter-spacing:.15em;text-transform:uppercase;color:var(--leaf);margin-bottom:.45rem}
+  .dd a{display:block;padding:.28rem 0;font-size:.88rem;color:var(--ink);white-space:nowrap}
+  .dd a:hover{color:var(--green)}
+  .nav-right{display:flex;align-items:center;gap:.7rem;flex:none}
+  .phone{font-weight:700;color:var(--green);font-size:.95rem;white-space:nowrap;line-height:1.25}
+  .phone span{font-weight:400;color:var(--muted);font-size:.74rem;display:block;letter-spacing:.03em}
+  .call-btn{display:none;align-items:center;gap:.35rem;border:1.5px solid var(--green);color:var(--green);border-radius:999px;font-weight:700;font-size:.82rem;padding:.5rem .75rem;white-space:nowrap}
+  .call-btn svg{width:15px;height:15px}
+  .shop-btn{display:none}
+  .burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:9px;margin-left:-9px;border:0;background:none;cursor:pointer;flex:none}
+  .burger span{display:block;height:2px;border-radius:2px;background:var(--green);transition:.2s}
+  .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  /* mobile / tablet menu panel */
+  .mnav{border-top:1px solid var(--line);background:#fff;max-height:calc(100vh - 110px);overflow-y:auto;padding:.3rem 22px 1.3rem}
+  .mnav[hidden]{display:none}
+  .mnav>a,.mnav summary{display:flex;justify-content:space-between;align-items:center;padding:.85rem 0;border-bottom:1px solid var(--line);font-weight:600;font-size:.98rem;color:var(--ink);cursor:pointer;list-style:none}
+  .mnav summary::-webkit-details-marker{display:none}
+  .mnav summary .caret{transition:.2s}
+  .mnav details[open] summary .caret{transform:rotate(225deg) translateY(-2px)}
+  .m-sub{padding:.35rem 0 .7rem .9rem;border-bottom:1px solid var(--line)}
+  .m-sub h4{font-family:var(--sans);font-size:.64rem;letter-spacing:.15em;text-transform:uppercase;color:var(--leaf);margin:.55rem 0 .15rem}
+  .m-sub a{display:block;padding:.45rem 0;font-size:.93rem;color:var(--ink)}
+  .m-call{display:flex;justify-content:center;margin-top:1rem;width:100%}
+  .m-hours{text-align:center;font-size:.78rem;color:var(--muted);margin-top:.5rem}
+  @media(max-width:1180px){
+    .menu{display:none}
+    .burger{display:flex}
+    .nav{gap:.6rem}
+    .brand{margin-right:auto}
+    .shop-btn{display:inline-flex}
+  }
+  @media(max-width:720px){
+    .phone{display:none}
+    .call-btn{display:inline-flex}
+    .nav-right{gap:.45rem}
+    .nav-right .shop-btn{padding:.55rem .85rem;font-size:.8rem}
+  }
 
   /* ---------- Hero: copy + live cutoff on the left, shoppable "front table" on the right ---------- */
   .hero{background:linear-gradient(110deg,#fbf5f3 0 50%,var(--leaf-tint) 100%);border-bottom:1px solid var(--line)}
@@ -90,24 +132,31 @@
   .trust-row .ti .ic{width:30px;height:30px;border-radius:50%;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex:none}
   .trust-row .ti svg{width:16px;height:16px;color:var(--leaf)}
 
-  /* shoppable seasonal front table */
-  .shelf{background:#fff;border-radius:18px;box-shadow:var(--shadow-lg);padding:1.05rem 1.1rem 1rem;position:relative;overflow:hidden}
-  .shelf::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:var(--accent,var(--green))}
-  .shelf-head{display:flex;align-items:flex-start;justify-content:space-between;gap:.8rem;margin-bottom:.8rem}
+  /* seasonal feature: one large image + the current offer */
+  .shelf{display:grid;grid-template-columns:46% 1fr;background:#fff;border-radius:18px;box-shadow:var(--shadow-lg);overflow:hidden;position:relative;min-height:330px}
+  .shelf::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:var(--accent,var(--green));z-index:2}
+  .promo-img{background:#fff;display:flex;align-items:center;justify-content:center;padding:1rem .6rem .6rem}
+  .promo-img img{width:100%;height:100%;max-height:330px;object-fit:contain}
+  .promo-body{display:flex;flex-direction:column;justify-content:center;gap:.55rem;padding:1.5rem 1.5rem 1.4rem}
+  .shelf-head{display:flex;flex-direction:column;gap:.15rem}
   .season-kicker{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--accent,var(--green))}
-  .shelf h2{font-size:1.55rem;color:var(--ink);margin-top:.15rem}
-  .season-deadline{flex:none;text-align:right;background:var(--sage);border-radius:10px;padding:.4rem .7rem;font-weight:700;color:var(--green);font-size:.86rem;line-height:1.15}
-  .season-deadline small{display:block;font-weight:500;color:var(--muted);font-size:.68rem;margin-top:2px}
-  .shelf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem}
-  .mini{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:.18s;cursor:pointer;background:#fff}
-  .mini:hover{box-shadow:var(--shadow);transform:translateY(-2px);border-color:var(--blush-deep)}
-  .mini .mi{aspect-ratio:1/1;background:#fff;position:relative}
-  .mini .mi img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:.35rem}
-  .mini .mb{padding:.45rem .6rem .6rem}
-  .mini .mn{font-family:var(--serif);font-weight:600;font-size:1.02rem;line-height:1.1;color:var(--ink)}
-  .mini .mp{font-weight:700;color:var(--green);font-size:.86rem;margin-top:.2rem}
-  .shelf-link{display:flex;justify-content:center;margin-top:.8rem;font-weight:700;font-size:.88rem;color:var(--green)}
-  .shelf-link:hover{text-decoration:underline}
+  .shelf h2{font-size:1.85rem;color:var(--ink);line-height:1.08}
+  .promo-body p{font-size:.9rem;color:#5a4f50;line-height:1.5}
+  .season-deadline{align-self:flex-start;background:#fff;border-radius:10px;padding:.45rem .75rem;font-weight:700;color:var(--green);font-size:.88rem;line-height:1.15;box-shadow:var(--shadow)}
+  .season-deadline small{display:block;font-weight:500;color:var(--muted);font-size:.7rem;margin-top:2px}
+  .promo-body .btn{align-self:flex-start;margin-top:.3rem;color:#fff;padding:.75rem 1.4rem;font-size:.92rem}
+  .promo-foot{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;margin-top:.2rem}
+  .promo-foot .btn{margin-top:0}
+  /* photo mode: full-bleed seasonal photo with the offer over it */
+  .shelf.has-photo{display:block;align-self:stretch;min-height:380px}
+  .shelf.has-photo .promo-img{position:absolute;inset:0;padding:0}
+  .shelf.has-photo .promo-img img{object-fit:cover;max-height:none;object-position:center 40%}
+  .shelf.has-photo .promo-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(28,8,11,.9) 0%,rgba(28,8,11,.6) 42%,rgba(28,8,11,0) 72%)}
+  .shelf.has-photo .promo-body{position:absolute;left:0;right:0;bottom:0;z-index:1;background:none!important;padding:1.4rem 1.6rem 1.5rem;gap:.5rem}
+  .shelf.has-photo .season-kicker{color:#ffcf9a}
+  .shelf.has-photo h2{color:#fff;font-size:2.1rem}
+  .shelf.has-photo .promo-body p{color:rgba(255,255,255,.9);max-width:30em}
+  .shelf.has-photo .season-deadline{background:rgba(255,255,255,.96);box-shadow:none}
 
   @media(max-width:900px){
     .hero-grid{grid-template-columns:1fr;gap:1rem;padding-top:1rem;padding-bottom:1.2rem}
@@ -123,16 +172,37 @@
     .timer .u small{font-size:.5rem}
     .trust-row{grid-template-columns:repeat(3,1fr);gap:.5rem;margin-top:.75rem}
     .trust-row .ti{flex-direction:column;text-align:center;font-size:.68rem;gap:.3rem}
-    .shelf{padding:.8rem .75rem .75rem;border-radius:14px}
-    .shelf h2{font-size:1.2rem}
-    .shelf-head{margin-bottom:.6rem;flex-direction:column;gap:.4rem}
-    .season-deadline{text-align:left;font-size:.74rem;padding:.3rem .55rem;display:flex;gap:.4rem;align-items:baseline;flex-wrap:wrap}
-    .season-deadline small{font-size:.66rem;margin-top:0}
-    .shelf-grid{gap:.45rem}
-    .mini .mb{padding:.35rem .4rem .45rem}
-    .mini .mn{font-size:.85rem}
-    .mini .mp{font-size:.76rem}
-    .shelf-link{margin-top:.6rem;font-size:.82rem}
+    .shelf{min-height:0;grid-template-columns:40% 1fr}
+    .shelf.has-photo{min-height:340px}
+    .shelf h2{font-size:1.4rem}
+    .promo-body{padding:1.1rem 1rem}
+  }
+
+  @media(max-width:720px){
+    .hero-grid{gap:.65rem;padding-top:.85rem;padding-bottom:.9rem}
+    .hero h1{font-size:1.7rem}
+    .hero p.lead{font-size:.86rem;margin-bottom:.65rem}
+    .cutoff{padding:.5rem .7rem}
+    .trust-row{margin-top:.6rem}
+    .trust-row .ti{font-size:.64rem;gap:.2rem}
+    .trust-row .ti .ic{width:24px;height:24px}
+    .trust-row .ti svg{width:13px;height:13px}
+    /* seasonal card becomes a one-line bar */
+    .shelf,.shelf.has-photo{display:flex;align-items:center;gap:.65rem;padding:.5rem .7rem .5rem .6rem;border-radius:12px;cursor:pointer;box-shadow:var(--shadow);border:1px solid var(--line);min-height:0}
+    .shelf::before{inset:0 auto 0 0;width:4px;height:auto}
+    .shelf .promo-img,.shelf.has-photo .promo-img{position:relative;inset:auto;flex:none;width:48px;height:48px;padding:0;border-radius:8px;overflow:hidden;margin-left:.2rem}
+    .shelf .promo-img img{object-fit:cover}
+    .shelf.has-photo .promo-img::after{display:none}
+    .promo-body,.shelf.has-photo .promo-body{position:static;flex:1;padding:0;gap:.1rem;background:none!important}
+    .shelf.has-photo .season-kicker{color:var(--accent,var(--green))}
+    .shelf.has-photo .season-deadline{background:none}
+    .promo-foot{margin:0}
+    .k-full{display:none}
+    .k-short{display:inline}
+    .shelf h2,.promo-body p,.promo-body .btn,.season-deadline .dl-big{display:none}
+    .season-deadline{background:none;padding:0;font-size:.74rem;box-shadow:none}
+    .season-deadline small{font-size:.74rem;color:var(--ink);font-weight:600}
+    .shelf::after{content:"Shop \2192";flex:none;font-weight:700;font-size:.8rem;color:#fff;background:var(--accent,var(--green));border-radius:999px;padding:.42rem .8rem}
   }
 
   /* ---------- Section scaffolding ---------- */
@@ -153,11 +223,13 @@
   @media(max-width:980px){.grid{grid-template-columns:repeat(3,1fr)}}
   @media(max-width:720px){
     .grid{grid-template-columns:repeat(2,1fr);gap:1rem}
-    #products{padding:1.6rem 0 2.8rem}
-    #products .sec-head{margin-bottom:.8rem}
-    #products .sec-head h2{font-size:1.75rem}
-    .filters{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;margin:0 -22px 1rem;padding:0 22px 4px;scrollbar-width:none}
-    .filters::-webkit-scrollbar{display:none}
+    #products{padding:1.1rem 0 2.8rem}
+    #products .sec-head{margin-bottom:.7rem}
+    #products .sec-head h2{font-size:1.55rem}
+    .filters{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;margin-bottom:1rem}
+    .chip{font-size:.74rem;padding:.48rem .3rem;text-align:center}
+    .ch-long{display:none}
+    #products .sec-head .eyebrow{display:none}
   }
   .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:.2s;display:flex;flex-direction:column}
   .card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
@@ -232,10 +304,8 @@
   @media(max-width:520px){
     .sticky-shop{right:14px;bottom:14px}
     .topbar{font-size:.74rem;padding:.42rem .7rem}
-    .phone{display:none}
     .season-kicker{font-size:.6rem;letter-spacing:.1em}
-    .nav-right .btn{padding:.6rem 1rem;font-size:.82rem}
-    .nav{padding-top:.6rem;padding-bottom:.6rem}
+    .nav{padding-top:.45rem;padding-bottom:.45rem}
     .brand img{height:44px}
     .tb-long{display:none}
   }
@@ -249,19 +319,113 @@
 <!-- Header -->
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#" aria-label="Wildflower Family of Florists home"><img src="logo.png" alt="Wildflower Family of Florists, Spring TX" width="563" height="273"></a>
-    <nav class="nav-links">
-      <a href="#products">Shop</a>
-      <a href="#why">Why Us</a>
-      <a href="#areas">Areas We Serve</a>
-      <a href="#faq">FAQ</a>
-      <a href="https://www.wildflowerflorist.com/sympathy-condolences/cat12030001">Sympathy</a>
+    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span></span></button>
+    <a class="brand" href="https://www.wildflowerflorist.com/" aria-label="Wildflower Family of Florists home"><img src="logo.png" alt="Wildflower Family of Florists, Spring TX" width="563" height="273"></a>
+    <nav class="menu" aria-label="Main">
+      <ul>
+        <li><a href="https://www.wildflowerflorist.com/best-sellers/cat2200002">Best Sellers</a></li>
+        <li class="has-dd mega"><a href="#products">Occasions, Flowers &amp; More <i class="caret"></i></a>
+          <div class="dd">
+            <div><h4>Occasions</h4>
+              <a href="https://www.wildflowerflorist.com/anniversary-romance/cat2210007">Anniversary &amp; Romance</a>
+              <a href="https://www.wildflowerflorist.com/birthday/cat2210008">Birthday</a>
+              <a href="https://www.wildflowerflorist.com/new-baby/cat2210012">New Baby</a>
+              <a href="https://www.wildflowerflorist.com/patriotic-flowers/cat14720007">Patriotic Flowers</a>
+              <a href="https://www.wildflowerflorist.com/hanukkah/cat3540003">Hanukkah</a>
+            </div>
+            <div><h4>Flowers &amp; More</h4>
+              <a href="https://www.wildflowerflorist.com/fall-flowers/cat2870011">Fall Flowers</a>
+              <a href="https://www.wildflowerflorist.com/best-sellers/cat2200002">Best Sellers</a>
+              <a href="https://www.wildflowerflorist.com/plants/cat3380019">Plants</a>
+              <a href="https://www.wildflowerflorist.com/roses/cat2200004">Roses</a>
+            </div>
+            <div><h4>Upcoming Occasions</h4>
+              <a href="https://www.wildflowerflorist.com/patriotic-flowers/cat14720007">Veteran's Day</a>
+              <a href="https://www.wildflowerflorist.com/thanksgiving/cat3410015">Thanksgiving</a>
+              <a href="https://www.wildflowerflorist.com/hanukkah/cat3540003">Hanukkah Begins</a>
+            </div>
+          </div>
+        </li>
+        <li class="has-dd"><a href="#areas">Local Delivery <i class="caret"></i></a>
+          <div class="dd" style="display:grid;grid-template-columns:auto auto;column-gap:2rem">
+            <a href="https://www.wildflowerflorist.com/flower-delivery-cypress-tx/cat12620165">Cypress TX</a>
+            <a href="https://www.wildflowerflorist.com/flower-delivery-houston-tx/cat12930070">Houston TX</a>
+            <a href="https://www.wildflowerflorist.com/flower-delivery-magnolia-tx/cat13280134">Magnolia TX</a>
+            <a href="https://www.wildflowerflorist.com/flower-delivery-jersey-village-tx/cat14560029">Jersey Village TX</a>
+            <a href="https://www.wildflowerflorist.com/flower-delivery-klein-tx/cat13070045">Klein TX</a>
+            <a href="https://www.wildflowerflorist.com/flower-delivery-spring-tx/cat14550013">Spring TX</a>
+            <a href="https://www.wildflowerflorist.com/flower-delivery-the-woodlands-tx/cat12620166">The Woodlands TX</a>
+            <a href="https://www.wildflowerflorist.com/flower-delivery-tomball-tx/cat13120065">Tomball TX</a>
+          </div>
+        </li>
+        <li><a href="https://www.wildflowerflorist.com/sympathy-condolences/cat12030001">Sympathy</a></li>
+        <li><a href="https://wildflowerflorist.weddingflorals.net/">Wedding</a></li>
+        <li><a href="https://www.wildflowerflorist.com/about-us">About Us</a></li>
+        <li class="has-dd"><a href="#faq">FAQ <i class="caret"></i></a>
+          <div class="dd">
+            <div>
+              <a href="https://www.wildflowerflorist.com/contact-us/">Contact Us</a>
+              <a href="https://www.wildflowerflorist.com/faq">Help</a>
+            </div>
+          </div>
+        </li>
+      </ul>
     </nav>
     <div class="nav-right">
-      <div class="phone">(281) 370-4285<span>Mon–Fri 8:30–5 · Sat 8:30–3</span></div>
-      <a href="#products" class="btn btn-primary">Shop Now</a>
+      <a class="phone" href="tel:2813704285">(281) 370-4285<span>Mon–Fri 8:30–5 · Sat 8:30–3</span></a>
+      <a class="call-btn" href="tel:2813704285" aria-label="Call (281) 370-4285"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg> Call</a>
+      <a href="#products" class="btn btn-primary shop-btn">Shop Now</a>
     </div>
   </div>
+  <!-- Mobile / tablet menu -->
+  <nav class="mnav" id="mnav" aria-label="Mobile" hidden>
+    <a href="https://www.wildflowerflorist.com/best-sellers/cat2200002">Best Sellers</a>
+    <details>
+      <summary>Occasions, Flowers &amp; More <i class="caret"></i></summary>
+      <div class="m-sub">
+        <h4>Upcoming Occasions</h4>
+        <a href="https://www.wildflowerflorist.com/patriotic-flowers/cat14720007">Veteran's Day</a>
+        <a href="https://www.wildflowerflorist.com/thanksgiving/cat3410015">Thanksgiving</a>
+        <a href="https://www.wildflowerflorist.com/hanukkah/cat3540003">Hanukkah Begins</a>
+        <h4>Occasions</h4>
+        <a href="https://www.wildflowerflorist.com/anniversary-romance/cat2210007">Anniversary &amp; Romance</a>
+        <a href="https://www.wildflowerflorist.com/birthday/cat2210008">Birthday</a>
+        <a href="https://www.wildflowerflorist.com/new-baby/cat2210012">New Baby</a>
+        <a href="https://www.wildflowerflorist.com/patriotic-flowers/cat14720007">Patriotic Flowers</a>
+        <a href="https://www.wildflowerflorist.com/hanukkah/cat3540003">Hanukkah</a>
+        <h4>Flowers &amp; More</h4>
+        <a href="https://www.wildflowerflorist.com/fall-flowers/cat2870011">Fall Flowers</a>
+        <a href="https://www.wildflowerflorist.com/best-sellers/cat2200002">Best Sellers</a>
+        <a href="https://www.wildflowerflorist.com/plants/cat3380019">Plants</a>
+        <a href="https://www.wildflowerflorist.com/roses/cat2200004">Roses</a>
+      </div>
+    </details>
+    <details>
+      <summary>Local Delivery <i class="caret"></i></summary>
+      <div class="m-sub">
+        <a href="https://www.wildflowerflorist.com/flower-delivery-cypress-tx/cat12620165">Cypress TX</a>
+        <a href="https://www.wildflowerflorist.com/flower-delivery-houston-tx/cat12930070">Houston TX</a>
+        <a href="https://www.wildflowerflorist.com/flower-delivery-magnolia-tx/cat13280134">Magnolia TX</a>
+        <a href="https://www.wildflowerflorist.com/flower-delivery-jersey-village-tx/cat14560029">Jersey Village TX</a>
+        <a href="https://www.wildflowerflorist.com/flower-delivery-klein-tx/cat13070045">Klein TX</a>
+        <a href="https://www.wildflowerflorist.com/flower-delivery-spring-tx/cat14550013">Spring TX</a>
+        <a href="https://www.wildflowerflorist.com/flower-delivery-the-woodlands-tx/cat12620166">The Woodlands TX</a>
+        <a href="https://www.wildflowerflorist.com/flower-delivery-tomball-tx/cat13120065">Tomball TX</a>
+      </div>
+    </details>
+    <a href="https://www.wildflowerflorist.com/sympathy-condolences/cat12030001">Sympathy</a>
+    <a href="https://wildflowerflorist.weddingflorals.net/">Wedding</a>
+    <a href="https://www.wildflowerflorist.com/about-us">About Us</a>
+    <details>
+      <summary>FAQ <i class="caret"></i></summary>
+      <div class="m-sub">
+        <a href="https://www.wildflowerflorist.com/contact-us/">Contact Us</a>
+        <a href="https://www.wildflowerflorist.com/faq">Help</a>
+      </div>
+    </details>
+    <a class="btn btn-primary m-call" href="tel:2813704285">📞 Call (281) 370-4285</a>
+    <p class="m-hours">Mon–Fri 8:30 AM–5 PM · Sat 8:30 AM–3 PM · Closed Sunday</p>
+  </nav>
 </header>
 
 <!-- Hero -->
@@ -293,17 +457,20 @@
       </div>
     </div>
 
-    <!-- Shoppable seasonal "front table": 3 curated picks, auto-set by date (see JS) -->
+    <!-- Seasonal feature: one image + current offer, auto-set by date (see JS). Collapses to a one-line bar on mobile. -->
     <div class="shelf" id="seasonBand">
-      <div class="shelf-head">
-        <div>
+      <div class="promo-img"><img id="seasonImg" alt="" loading="eager"></div>
+      <div class="promo-body" id="seasonBody">
+        <div class="shelf-head">
           <span class="season-kicker" id="seasonKicker">In Season Now</span>
           <h2 id="seasonTitle">Fall Collection</h2>
         </div>
-        <div class="season-deadline" id="seasonDeadline" hidden></div>
+        <p id="seasonSub"></p>
+        <div class="promo-foot">
+          <div class="season-deadline" id="seasonDeadline" hidden></div>
+          <a href="#products" class="btn btn-primary" id="seasonCta">Shop the Collection</a>
+        </div>
       </div>
-      <div class="shelf-grid" id="shelfGrid"></div>
-      <a href="#products" class="shelf-link" id="seasonCta">Shop the Collection &nbsp;→</a>
     </div>
   </div>
 </section>
@@ -319,7 +486,7 @@
       <span class="chip" id="seasonChip" data-filter="fall">🍂 Fall</span>
       <span class="chip" data-filter="best">Best Sellers</span>
       <span class="chip" data-filter="birthday">Birthday</span>
-      <span class="chip" data-filter="anniversary">Anniversary &amp; Love</span>
+      <span class="chip" data-filter="anniversary">Anniversary<span class="ch-long"> &amp; Love</span></span>
       <span class="chip" data-filter="sympathy">Sympathy</span>
       <span class="chip" data-filter="under100">Under $100</span>
     </div>
@@ -552,8 +719,8 @@ function gotoFilter(f){
      sub:"Roses and romance, delivered same-day across Spring. Our busiest day of the year, so order early.", cta:"Shop All Valentine's", picks:["Room Full of Roses, 3 Dozen","Crazy for You","Love You to the Moon"], grad:"linear-gradient(105deg,#f7dde1,#f2c6cd)", accent:"#b0455a"},
     {name:"Mother's Day", date:nthWeekday(y,5,0,2), lead:21, emoji:"🌷", filter:"best", img:P("75411600","sku10201761.jpg"), title:"Mother's Day Flowers",
      sub:"Make her day with a hand-designed bouquet, delivered right to her door in Spring.", cta:"Shop Mother's Day", grad:"linear-gradient(105deg,#f4e3ec,#eccfe0)", accent:"#a85c8a"},
-    {name:"Thanksgiving", date:nthWeekday(y,11,4,4), lead:21, emoji:"🦃", filter:"thanksgiving", chip:"🦃 Thanksgiving", img:P("75411600","sku13953355.jpg"), title:"Thanksgiving Centerpieces",
-     sub:"Fall centerpieces and harvest arrangements for your table, delivered before the holiday.", cta:"Shop All Thanksgiving", picks:["Thankful by Nature","Firelight Feast","Pumpkin Glow"], grad:"linear-gradient(105deg,#f4e6d2,#eecfae)", accent:"#a4551f"},
+    {name:"Thanksgiving", date:nthWeekday(y,11,4,4), lead:21, emoji:"🦃", filter:"thanksgiving", chip:"🦃 Thanksgiving", img:P("75411600","skusku15381621.jpg"), photo:"hero-thanksgiving.jpg", photoAlt:"Autumn table set with dahlias, candles and pumpkins", title:"Thanksgiving Flowers & Centerpieces",
+     sub:"Harvest bouquets and table centerpieces, hand-designed in Spring and delivered before the holiday.", cta:"Shop Thanksgiving", picks:["Thankful by Nature","Firelight Feast","Pumpkin Glow"], grad:"linear-gradient(105deg,#f4e6d2,#eecfae)", accent:"#a4551f"},
     {name:"Christmas", date:new Date(y,11,25), lead:24, emoji:"🎄", filter:"best", img:P("75411600","skusku9691171.jpg"), title:"Christmas & Holiday Flowers",
      sub:"Festive arrangements and gifts delivered across Spring all season long.", cta:"Shop Christmas", grad:"linear-gradient(105deg,#e3eee0,#d4e6d2)", accent:"#2f6b4a"}
   ];
@@ -561,7 +728,7 @@ function gotoFilter(f){
     const m=now.getMonth();
     if(m>=2&&m<=4) return {emoji:"🌸",filter:"best",img:P("75411600","sku1890025.jpg"),title:"Spring Collection",sub:"Fresh garden blooms to welcome the season, delivered same-day in Spring.",cta:"Shop Spring",grad:"linear-gradient(105deg,#eaf1e4,#f1e7d8)",accent:"#7b9a4a"};
     if(m>=5&&m<=7) return {emoji:"☀️",filter:"best",img:P("EF-7676","skusku12920221.jpg"),title:"Summer Collection",sub:"Bright, garden-fresh bouquets with bold seasonal color, delivered same-day across Spring.",cta:"Shop Summer Flowers",grad:"linear-gradient(105deg,#fdeccd,#f7dca9)",accent:"#d0892e"};
-    if(m>=8&&m<=10) return {emoji:"🍂",filter:"fall",chip:"🍂 Fall",img:P("75411600","sku10642214.jpg"),title:"Fall Collection",picks:["Pumpkin Daze","Sunfire Celebration","Shimmering Papaya"],sub:"Warm autumn tones, sunflowers and pumpkin designs, delivered same-day across Spring.",cta:"Shop Fall Flowers",grad:"linear-gradient(105deg,#f4e6d2,#eecfae)",accent:"#b5733a"};
+    if(m>=8&&m<=10) return {emoji:"🍂",filter:"fall",chip:"🍂 Fall",photo:"hero-thanksgiving.jpg",photoAlt:"Autumn table set with dahlias, candles and pumpkins",img:P("75411600","sku10642214.jpg"),title:"Fall Collection",picks:["Pumpkin Daze","Sunfire Celebration","Shimmering Papaya"],sub:"Warm autumn tones, sunflowers and pumpkin designs, delivered same-day across Spring.",cta:"Shop Fall Flowers",grad:"linear-gradient(105deg,#f4e6d2,#eecfae)",accent:"#b5733a"};
     return {emoji:"❄️",filter:"best",img:P("EF-7676","skusku11680331.jpg"),title:"Winter Collection",sub:"Cozy seasonal arrangements for the colder months, delivered same-day in Spring.",cta:"Shop Winter",grad:"linear-gradient(105deg,#e6eef0,#dbe7ea)",accent:"#4a7d8a"};
   };
   const now = window.DEMO_NOW ? new Date(window.DEMO_NOW) : new Date();
@@ -572,28 +739,27 @@ function gotoFilter(f){
   if(days<=next.lead){
     // Shop policy: order at least 3 days before major holidays
     const dl=new Date(next.date); dl.setDate(dl.getDate()-3);
-    const small = days>3 ? "Order by "+fmt(dl)+" for "+next.name : "Call (281) 370-4285 for holiday availability";
-    f={kicker:next.emoji+" "+next.name+" is "+days+" day"+(days===1?"":"s")+" away", title:next.title, sub:next.sub, cta:next.cta, picks:next.picks, grad:next.grad, accent:next.accent, img:next.img, filter:next.filter, chip:next.chip,
+    const small = days>3 ? "Order by "+fmt(dl)+'<span class="k-full"> for '+next.name+'</span>' : "Call (281) 370-4285 for holiday availability";
+    const dd=days+" day"+(days===1?"":"s");
+    f={kicker:next.emoji+" "+next.name+'<span class="k-full"> is '+dd+' away</span><span class="k-short"> in '+dd+'</span>', title:next.title, sub:next.sub, cta:next.cta, picks:next.picks, photo:next.photo, photoAlt:next.photoAlt, grad:next.grad, accent:next.accent, img:next.img, filter:next.filter, chip:next.chip,
        deadline:{big:(days===0?"Today!":days+" day"+(days===1?"":"s")+" left"), small:small}};
   } else {
     const s=seasonFeature(now);
-    f={kicker:s.emoji+" In Season Now", title:s.title, sub:s.sub, cta:s.cta, picks:s.picks, grad:s.grad, accent:s.accent, img:s.img, filter:s.filter, chip:s.chip, deadline:null};
+    f={kicker:s.emoji+" In Season Now", title:s.title, sub:s.sub, cta:s.cta, picks:s.picks, photo:s.photo, photoAlt:s.photoAlt, grad:s.grad, accent:s.accent, img:s.img, filter:s.filter, chip:s.chip, deadline:null};
   }
   const band=document.getElementById('seasonBand'); band.style.setProperty('--accent', f.accent);
-  document.getElementById('seasonKicker').textContent=f.kicker;
+  document.getElementById('seasonKicker').innerHTML=f.kicker;
   document.getElementById('seasonTitle').textContent=f.title;
-  let picks=(f.picks||[]).map(n=>products.find(p=>p.name===n)).filter(Boolean);
-  if(picks.length<3) picks=picks.concat(products.filter(p=>p.cats.includes(f.filter)&&!picks.includes(p))).slice(0,3);
-  document.getElementById('shelfGrid').innerHTML=picks.map(p=>`
-    <div class="mini" role="link" tabindex="0">
-      <div class="mi"><img src="${p.img}" alt="${p.name} flower arrangement" loading="eager"></div>
-      <div class="mb"><div class="mn">${p.name}</div><div class="mp">$${p.price}</div></div>
-    </div>`).join('');
-  document.querySelectorAll('#shelfGrid .mini').forEach(m=>m.onclick=()=>gotoFilter(f.filter));
-  const cta=document.getElementById('seasonCta'); cta.innerHTML=f.cta.replace('&','&amp;')+' &nbsp;→'; cta.style.color=f.accent;
+  document.getElementById('seasonSub').textContent=f.sub;
+  const si=document.getElementById('seasonImg');
+  if(f.photo){ band.classList.add('has-photo'); si.src=f.photo; si.alt=f.photoAlt||f.title; }
+  else { document.getElementById('seasonBody').style.background=f.grad; si.src=f.img; si.alt=f.title; }
+  // On mobile the card collapses to a one-line bar; tapping it jumps to the collection
+  band.addEventListener('click',e=>{ if(window.matchMedia('(max-width:720px)').matches){ e.preventDefault(); gotoFilter(f.filter); } });
+  const cta=document.getElementById('seasonCta'); cta.innerHTML=f.cta.replace('&','&amp;')+' &nbsp;→'; cta.style.background=f.accent; cta.style.borderColor=f.accent;
   cta.onclick=function(e){e.preventDefault(); gotoFilter(f.filter);};
   const d=document.getElementById('seasonDeadline');
-  if(f.deadline){d.hidden=false; d.innerHTML=f.deadline.big+'<small>'+f.deadline.small+'</small>';} else d.hidden=true;
+  if(f.deadline){d.hidden=false; d.innerHTML='<span class="dl-big">'+f.deadline.big+'</span><small>'+f.deadline.small+'</small>';} else d.hidden=true;
   // Seasonal chip: shown first only when the season has its own collection; otherwise the matching chip is pre-selected
   const sc=document.getElementById('seasonChip');
   if(f.chip){ sc.textContent=f.chip; sc.dataset.filter=f.filter; sc.hidden=false; } else { sc.hidden=true; }
@@ -661,6 +827,15 @@ const sticky=document.getElementById('stickyShop');
 window.addEventListener('scroll',()=>{
   sticky.classList.toggle('show', window.scrollY>900);
 });
+
+/* ---------- Mobile menu ---------- */
+(function(){
+  const b=document.getElementById('burger'), m=document.getElementById('mnav');
+  const set=open=>{ b.setAttribute('aria-expanded',open); b.setAttribute('aria-label',open?'Close menu':'Open menu'); m.hidden=!open; };
+  b.addEventListener('click',()=>set(m.hidden));
+  m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>set(false)));
+  window.addEventListener('resize',()=>{ if(window.innerWidth>1180) set(false); });
+})();
 
 /* ---------- Product filter chips ---------- */
 document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',function(){ setActive(this.dataset.filter); }));
