@@ -225,7 +225,7 @@
   .chip{font-size:.82rem;font-weight:600;padding:.45rem 1.05rem;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--muted);cursor:pointer;transition:.15s;white-space:nowrap;flex:none}
   .chip.active,.chip:hover{background:var(--green);color:#fff;border-color:var(--green)}
   .chip[hidden]{display:none}
-  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem 1.4rem}
   @media(max-width:980px){.grid{grid-template-columns:repeat(3,1fr)}}
   @media(max-width:720px){
     .grid{grid-template-columns:repeat(2,1fr);gap:1rem}
@@ -237,17 +237,18 @@
     .ch-long{display:none}
     #products .sec-head .eyebrow{display:none}
   }
-  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:.2s;display:flex;flex-direction:column}
-  .card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
-  .card .pic{aspect-ratio:4/5;background-size:cover;background-position:center;position:relative;overflow:hidden}
-  .card .pic .pimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .35s;background:#fff}
+  /* product tiles: image + centered name and price, whole tile links to the product (1-800-Flowers / UrbanStems pattern) */
+  .card{display:flex;flex-direction:column;text-align:center;color:inherit}
+  .card .pic{aspect-ratio:4/5;position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:var(--radius);transition:box-shadow .2s}
+  .card .pic .pimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .35s}
+  .card:hover .pic{box-shadow:var(--shadow)}
   .card:hover .pic .pimg{transform:scale(1.04)}
   .card .tag{position:absolute;top:.65rem;left:.65rem;background:rgba(255,255,255,.93);color:var(--terracotta);font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.28rem .6rem;border-radius:999px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
-  .card .body{padding:.85rem .9rem 1rem;display:flex;flex-direction:column;gap:.55rem;flex:1}
-  .card .pname{font-family:var(--serif);font-size:1.22rem;font-weight:600;color:var(--ink);line-height:1.1}
-  .card .price{font-weight:700;color:var(--green);font-size:1rem}
-  .card .add{margin-top:auto;font-size:.82rem;font-weight:600;text-align:center;border:1.5px solid var(--green);color:var(--green);border-radius:999px;padding:.5rem;transition:.15s;cursor:pointer}
-  .card:hover .add{background:var(--green);color:#fff}
+  .card .body{padding:.75rem .4rem 0;display:flex;flex-direction:column;align-items:center;gap:.25rem}
+  .card .pname{font-family:var(--serif);font-size:1.2rem;font-weight:600;color:var(--ink);line-height:1.15}
+  .card:hover .pname{color:var(--green)}
+  .card .price{font-weight:700;color:var(--green);font-size:.98rem}
+  @media(max-width:720px){.card .pname{font-size:1.05rem}.card .price{font-size:.9rem}.card .body{padding-top:.55rem}}
   .shopall{display:flex;flex-direction:column;align-items:center;gap:.7rem;margin-top:2.2rem}
 
   /* ---------- Reasons / Why us ---------- */
@@ -682,18 +683,18 @@ const products = [
   {name:"Colorful!", price:"69.99", tag:"Value", hue:"#e87fa6,#e08a3f", img:P("75411600","sku1440107.jpg"), cats:["best","birthday","under100"]}
 ];
 const grid = document.getElementById('prodgrid');
+const PURL={"Room Full of Roses, 3 Dozen": "/flower-arrangement/room-full-of-roses-3-dozen-roses/prod2050009", "Treasured Celebration Urn": "/funeral-arrangement/treasured-celebration-urn/prod1870028", "Enduring Strength Urn": "/funeral-arrangement/enduring-strength-urn/prod1870080", "Peaceful Pink Large Urn": "/flower-arrangement/peaceful-pink-large-urn/prod1980024", "Vivid Memories Basket Tribute": "/funeral-arrangement/vivid-memories-basket-tribute/prod1860035", "Inspired": "/flower-arrangement/inspired/prod2050008", "Love You to the Moon": "/love-you-to-the-moon/prod9810215", "Shimmering Papaya": "/flower-arrangement/shimmering-papaya/prod1890030", "Ballet of Blooms": "/flower-arrangement/ballet-of-blooms/prod14030518", "Mabeline": "/flower-arrangement/mabeline/prod10500931", "Thankful by Nature": "/flower-arrangement/thankful-by-nature/prod14271583", "Blue Beauty": "/flower-arrangement/blue-beauty/prod11990171", "Crazy for You": "/crazy-for-you/prod10180544", "Southern Hospitality": "/flower-arrangement/southern-hospitality/prod2030001", "Beauty in Blossom": "/flower-arrangement/beauty-in-blossom/prod2020009", "Ruby Crown": "/flower-arrangement/ruby-crown/prod9970605", "Pumpkin Glow": "/flower-arrangement/pumpkin-glow/prod3200037", "Medium Dish Garden": "/flower-arrangement/medium-dish-garden/prod1580023", "Butterfly Effect": "/flower-arrangement/butterfly-effect/prod1580044", "Birthday Hoopla": "/flower-arrangement/birthday-hoopla/prod10180559", "Designer's Choice, Bright & Bold": "/flower-arrangement/designers-choice-bright-bold/prod9270031", "Pumpkin Daze": "/pumpkin-daze/prod10941079", "Brighten Your Day": "/flower-arrangement/brighten-your-day/prod13240098", "Peace Lily, Medium": "/plant/simply-elegant-spathiphyllum-peace-lily-medium/p_ef_t105-2a", "Sunfire Celebration": "/flower-arrangement/sunfire-celebration/prod14271581", "Lemon Lift": "/flower-arrangement/lemon-lift/prod12410286", "Bee Inspired": "/bee-inspired/prod11240960", "Fall Designer's Choice": "/flower-arrangement/fall-designers-choice/prod15680221", "Firelight Feast": "/flower-arrangement/firelight-feast/prod14271585", "Amber Radiance Harvest Bouquet": "/flower-arrangement/amber-radiance-harvest-bouquet/prod15690862", "Petal & Plenty": "/flower-arrangement/petal-plenty/prod14271588", "Designer's Choice, Centerpiece": "/flower-arrangement/designers-choice-centerpiece/prod9830536", "Sunlit Beauty": "/flower-arrangement/sunlit-beauty/prod2310033", "Fall Deco Mood": "/fall-deco-mood/prod9700289", "Sugar Maple": "/flower-arrangement/sugar-maple/prod12410266", "Abundant Cornucopia": "/flower-arrangement/abundant-cornucopia/prod12410287", "Colorful!": "/flower-arrangement/colorful/prod1580027"};
 function cardHTML(p){return `
-  <div class="card">
-    <div class="pic" style="background-image:linear-gradient(135deg,${p.hue})">
+  <a class="card" href="https://www.wildflowerflorist.com${PURL[p.name]||'/'}">
+    <div class="pic">
       <img class="pimg" src="${p.img}" alt="${p.name} flower arrangement" loading="lazy" onerror="this.remove()">
       ${p.tag?`<span class="tag">${p.tag}</span>`:''}
     </div>
     <div class="body">
       <div class="pname">${p.name}</div>
       <div class="price">$${p.price}</div>
-      <div class="add">Add to Cart</div>
     </div>
-  </div>`;}
+  </a>`;}
 const SITE="https://www.wildflowerflorist.com/";
 const CAT_LABEL = {thanksgiving:"Thanksgiving Flowers", fall:"Fall Flowers", best:"Best Sellers", birthday:"Birthday Flowers", anniversary:"Anniversary & Love Flowers", sympathy:"Sympathy Flowers", under100:"Flowers Under $100"};
 const CAT_URL = {thanksgiving:"thanksgiving/cat3410015", fall:"fall-flowers/cat2870011", best:"best-sellers/cat2200002", birthday:"birthday/cat2210008", anniversary:"anniversary-romance/cat2210007", sympathy:"sympathy-condolences/cat12030001", under100:"under-100/cat14170026"};
