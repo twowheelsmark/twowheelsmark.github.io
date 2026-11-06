@@ -114,6 +114,7 @@
 
   /* same-day cutoff (scarcity) */
   .cutoff{display:flex;align-items:center;gap:1rem;background:#fff;border:1px solid var(--line);border-left:4px solid var(--green);border-radius:12px;padding:.8rem 1rem;box-shadow:var(--shadow);max-width:34rem}
+  .cutoff[hidden]{display:none}
   .cutoff .ctxt{flex:1;min-width:0}
   .cutoff .label{display:flex;align-items:center;gap:.45rem;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--green)}
   .cutoff .dot{width:8px;height:8px;border-radius:50%;background:#3fae5a;box-shadow:0 0 0 4px rgba(63,174,90,.18);flex:none;animation:pulse 1.6s infinite}
@@ -437,7 +438,7 @@
       <p class="lead">Hand-designed in our Louetta Road studio and delivered by our own local drivers to homes, offices, hospitals and churches across Spring, Klein and northwest Houston.</p>
 
       <!-- Same-day cutoff countdown (runs on Central Time) -->
-      <div class="cutoff" aria-live="polite">
+      <div class="cutoff" id="cutoffBox" aria-live="polite">
         <div class="ctxt">
           <span class="label"><span class="dot"></span> Same-Day Delivery</span>
           <span id="cutoff-line">Order in the next</span>
@@ -801,8 +802,11 @@ function updateClock(){
   const line=document.getElementById('cutoff-line');
   const sub=document.getElementById('cutoff-sub');
   const timer=document.getElementById('timer');
+  const box=document.getElementById('cutoffBox');
   const t=centralNow();
   const left=12*3600-t.secs;
+  // Only show the box while the same-day countdown is running; the top bar already states the cutoff
+  box.hidden = (t.day===0 || left<=0);
   const pad=n=>String(n).padStart(2,'0');
   if(t.day===0 || (t.day===6 && left<=0)){
     timer.hidden=true; line.textContent="Order now for Monday delivery";
