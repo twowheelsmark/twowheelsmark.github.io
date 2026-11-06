@@ -8,18 +8,21 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap');
   :root{
-    --green:#3f5340;
-    --green-soft:#6f8a6b;
-    --sage:#eef2ea;
-    --sage-2:#e2ebdd;
-    --blush:#f4e7e6;
+    --green:#7d1420;        /* primary: Wildflower burgundy (var name kept from template) */
+    --green-dark:#5e0d17;
+    --green-soft:#3f7f22;
+    --leaf:#2f7d12;         /* logo leaf green */
+    --sage:#f8f0ee;         /* pale blush-cream bg */
+    --sage-2:#f1e0dd;
+    --leaf-tint:#eef5e9;
+    --blush:#f6e8e6;
     --blush-deep:#caa39c;
-    --terracotta:#c47b63;
-    --ink:#2c322c;
-    --muted:#6a726a;
-    --line:#e3e6df;
+    --terracotta:#2f7d12;   /* accent = leaf green */
+    --ink:#2e2324;
+    --muted:#6f6566;
+    --line:#ecdfdd;
     --gold:#b8924a;
-    --white:#fffefb;
+    --white:#fffdfb;
     --radius:14px;
     --shadow:0 6px 24px rgba(48,60,46,.10);
     --shadow-lg:0 18px 50px rgba(48,60,46,.16);
@@ -36,22 +39,21 @@
   .eyebrow{font-family:var(--sans);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--terracotta)}
   .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--sans);font-weight:600;font-size:.95rem;padding:.85rem 1.7rem;border-radius:999px;border:1.5px solid transparent;cursor:pointer;transition:.18s;white-space:nowrap}
   .btn-primary{background:var(--green);color:#fff}
-  .btn-primary:hover{background:#33422f;transform:translateY(-1px)}
+  .btn-primary:hover{background:var(--green-dark);transform:translateY(-1px)}
   .btn-outline{background:transparent;border-color:var(--green);color:var(--green)}
   .btn-outline:hover{background:var(--green);color:#fff}
   .btn-light{background:#fff;color:var(--green)}
   .btn-light:hover{background:var(--sage)}
 
   /* ---------- Announcement / utility bar ---------- */
-  .topbar{background:var(--green);color:#eaf0e6;font-size:.82rem;text-align:center;padding:.5rem 1rem;font-weight:500;letter-spacing:.01em}
+  .topbar{background:var(--green);color:#f6e4e6;font-size:.82rem;text-align:center;padding:.5rem 1rem;font-weight:500;letter-spacing:.01em}
   .topbar strong{color:#fff}
 
   /* ---------- Header ---------- */
   header{position:sticky;top:0;z-index:60;background:rgba(255,254,251,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;padding-top:.85rem;padding-bottom:.85rem;gap:1rem}
-  .brand{display:flex;flex-direction:column;line-height:1}
-  .brand .name{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--green)}
-  .brand .sub{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding-top:.55rem;padding-bottom:.55rem;gap:1rem}
+  .brand{display:block;line-height:0}
+  .brand img{height:64px;width:auto}
   .nav-links{display:flex;gap:1.6rem;font-size:.9rem;font-weight:500}
   .nav-links a{color:var(--ink);transition:.15s}
   .nav-links a:hover{color:var(--terracotta)}
@@ -60,54 +62,77 @@
   .phone span{font-weight:400;color:var(--muted);font-size:.78rem;display:block;letter-spacing:.04em}
   @media(max-width:920px){.nav-links{display:none}}
 
-  /* ---------- Hero (compact, so the products sit higher) ---------- */
-  .hero{position:relative;background:linear-gradient(105deg,var(--sage) 0 52%,var(--blush) 100%);overflow:hidden}
-  .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:2.4rem;align-items:center;padding-top:1.7rem;padding-bottom:1.8rem}
-  .hero-copy .eyebrow{margin-bottom:.7rem;display:inline-block}
-  .hero h1{font-size:2.55rem;margin-bottom:.7rem}
-  .hero h1 em{font-style:italic;color:var(--terracotta)}
-  .hero p.lead{font-size:1rem;color:#4c544c;max-width:34em;margin-bottom:1.1rem}
-  .hero-cta{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
-  .trust-row{display:flex;gap:1.1rem;margin-top:1rem;flex-wrap:wrap}
-  .trust-row .ti{display:flex;align-items:center;gap:.4rem;font-size:.8rem;font-weight:600;color:var(--green)}
-  .trust-row .ti svg{width:18px;height:18px;flex:none}
+  /* ---------- Hero: copy + live cutoff on the left, shoppable "front table" on the right ---------- */
+  .hero{background:linear-gradient(110deg,#fbf5f3 0 50%,var(--leaf-tint) 100%);border-bottom:1px solid var(--line)}
+  .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.6rem;align-items:center;padding-top:1.9rem;padding-bottom:2rem}
+  .hero-copy .eyebrow{display:inline-block;margin-bottom:.6rem}
+  .hero h1{font-size:2.65rem;margin-bottom:.65rem}
+  .hero h1 em{font-style:italic;color:var(--leaf)}
+  .hero p.lead{font-size:1rem;color:#5a4f50;max-width:33em;margin-bottom:1.1rem}
 
-  /* Right side: same-day countdown + seasonal feature card (replaces the separate seasonal band) */
-  .hero-side{display:flex;flex-direction:column;gap:.85rem}
-  .cutoff{align-self:flex-start;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:.7rem 1rem;display:flex;align-items:center;gap:.75rem}
-  .cutoff .dot{width:10px;height:10px;border-radius:50%;background:#3fae5a;box-shadow:0 0 0 4px rgba(63,174,90,.18);flex:none;animation:pulse 1.6s infinite}
+  /* same-day cutoff (scarcity) */
+  .cutoff{display:flex;align-items:center;gap:1rem;background:#fff;border:1px solid var(--line);border-left:4px solid var(--green);border-radius:12px;padding:.8rem 1rem;box-shadow:var(--shadow);max-width:34rem}
+  .cutoff .ctxt{flex:1;min-width:0}
+  .cutoff .label{display:flex;align-items:center;gap:.45rem;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--green)}
+  .cutoff .dot{width:8px;height:8px;border-radius:50%;background:#3fae5a;box-shadow:0 0 0 4px rgba(63,174,90,.18);flex:none;animation:pulse 1.6s infinite}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-  .cutoff .ctxt{font-size:.78rem;line-height:1.3;color:var(--muted)}
-  .cutoff .ctxt b{display:block;color:var(--ink);font-size:.9rem}
-  .cutoff #clock{font-variant-numeric:tabular-nums;color:var(--terracotta);font-weight:700}
-  .feature{display:grid;grid-template-columns:160px 1fr;background:#fff;border-radius:18px;box-shadow:var(--shadow-lg);overflow:hidden}
-  .feature-img{background:#fff;display:flex;align-items:center;justify-content:center;padding:.5rem}
-  .feature-img img{width:100%;height:100%;object-fit:contain}
-  .feature-body{padding:1.1rem 1.25rem 1.2rem;display:flex;flex-direction:column;gap:.3rem}
-  .season-kicker{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:rgba(40,50,40,.62)}
-  .feature h2{font-size:1.6rem;color:#34402c}
-  .feature p{color:#4c544c;font-size:.88rem;line-height:1.5}
-  .feature-foot{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;margin-top:.45rem}
-  .season-deadline{background:#fff;border-radius:10px;padding:.4rem .75rem;box-shadow:var(--shadow);font-weight:700;color:var(--ink);font-size:.85rem;line-height:1.15}
-  .season-deadline small{display:block;font-weight:500;color:var(--muted);font-size:.7rem;margin-top:2px}
-  .feature .btn{color:#fff;padding:.65rem 1.25rem;font-size:.88rem}
+  .cutoff #cutoff-line{display:block;font-weight:700;color:var(--ink);font-size:.98rem;margin-top:.15rem}
+  .cutoff #cutoff-sub{display:block;font-size:.8rem;color:var(--muted);line-height:1.35}
+  .timer{display:flex;gap:.35rem;flex:none}
+  .timer[hidden]{display:none}
+  .timer .u{background:var(--green);color:#fff;border-radius:8px;min-width:50px;text-align:center;padding:.35rem .3rem .3rem;line-height:1}
+  .timer .u b{display:block;font-size:1.35rem;font-variant-numeric:tabular-nums;font-weight:700}
+  .timer .u small{display:block;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;opacity:.8;margin-top:3px}
 
-  @media(max-width:860px){
-    .hero-grid{grid-template-columns:1fr;padding-top:.9rem;padding-bottom:1rem;gap:.7rem}
-    .hero h1{font-size:1.8rem;margin-bottom:.7rem}
-    .hero p.lead,.trust-row{display:none}
-    .hero-cta .btn{padding:.7rem 1.2rem;font-size:.88rem}
-    .cutoff{align-self:stretch;padding:.55rem .8rem}
-    .cutoff .ctxt{font-size:.74rem}
-    .cutoff .ctxt b{font-size:.84rem}
-    .feature{grid-template-columns:82px 1fr;border-radius:14px}
-    .feature-img{padding:.3rem}
-    .feature-body{padding:.7rem .85rem .8rem;gap:.15rem}
-    .feature h2{font-size:1.2rem}
-    .feature p,.feature .season-deadline{display:none}
-    .feature-foot{margin-top:.3rem;gap:.55rem}
-    .season-deadline{padding:.3rem .6rem;font-size:.76rem}
-    .feature .btn{padding:.5rem .95rem;font-size:.8rem}
+  /* credibility indicators */
+  .trust-row{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:1.3rem;margin-top:1rem}
+  .trust-row .ti{display:flex;align-items:center;gap:.45rem;font-size:.82rem;font-weight:600;color:var(--ink);line-height:1.25}
+  .trust-row .ti .ic{width:30px;height:30px;border-radius:50%;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex:none}
+  .trust-row .ti svg{width:16px;height:16px;color:var(--leaf)}
+
+  /* shoppable seasonal front table */
+  .shelf{background:#fff;border-radius:18px;box-shadow:var(--shadow-lg);padding:1.05rem 1.1rem 1rem;position:relative;overflow:hidden}
+  .shelf::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:var(--accent,var(--green))}
+  .shelf-head{display:flex;align-items:flex-start;justify-content:space-between;gap:.8rem;margin-bottom:.8rem}
+  .season-kicker{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--accent,var(--green))}
+  .shelf h2{font-size:1.55rem;color:var(--ink);margin-top:.15rem}
+  .season-deadline{flex:none;text-align:right;background:var(--sage);border-radius:10px;padding:.4rem .7rem;font-weight:700;color:var(--green);font-size:.86rem;line-height:1.15}
+  .season-deadline small{display:block;font-weight:500;color:var(--muted);font-size:.68rem;margin-top:2px}
+  .shelf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem}
+  .mini{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:.18s;cursor:pointer;background:#fff}
+  .mini:hover{box-shadow:var(--shadow);transform:translateY(-2px);border-color:var(--blush-deep)}
+  .mini .mi{aspect-ratio:1/1;background:#fff;position:relative}
+  .mini .mi img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:.35rem}
+  .mini .mb{padding:.45rem .6rem .6rem}
+  .mini .mn{font-family:var(--serif);font-weight:600;font-size:1.02rem;line-height:1.1;color:var(--ink)}
+  .mini .mp{font-weight:700;color:var(--green);font-size:.86rem;margin-top:.2rem}
+  .shelf-link{display:flex;justify-content:center;margin-top:.8rem;font-weight:700;font-size:.88rem;color:var(--green)}
+  .shelf-link:hover{text-decoration:underline}
+
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:1rem;padding-top:1rem;padding-bottom:1.2rem}
+    .hero h1{font-size:1.85rem;margin-bottom:.45rem}
+    .hero p.lead{font-size:.9rem;margin-bottom:.8rem;line-height:1.5}
+    .hero-copy .eyebrow{font-size:.64rem;margin-bottom:.35rem}
+    .cutoff{padding:.6rem .75rem;gap:.6rem}
+    .cutoff .label{font-size:.6rem;letter-spacing:.1em}
+    .cutoff #cutoff-line{font-size:.86rem}
+    .cutoff #cutoff-sub{font-size:.72rem}
+    .timer .u{min-width:40px;padding:.3rem .2rem .25rem}
+    .timer .u b{font-size:1.05rem}
+    .timer .u small{font-size:.5rem}
+    .trust-row{grid-template-columns:repeat(3,1fr);gap:.5rem;margin-top:.75rem}
+    .trust-row .ti{flex-direction:column;text-align:center;font-size:.68rem;gap:.3rem}
+    .shelf{padding:.8rem .75rem .75rem;border-radius:14px}
+    .shelf h2{font-size:1.2rem}
+    .shelf-head{margin-bottom:.6rem;flex-direction:column;gap:.4rem}
+    .season-deadline{text-align:left;font-size:.74rem;padding:.3rem .55rem;display:flex;gap:.4rem;align-items:baseline;flex-wrap:wrap}
+    .season-deadline small{font-size:.66rem;margin-top:0}
+    .shelf-grid{gap:.45rem}
+    .mini .mb{padding:.35rem .4rem .45rem}
+    .mini .mn{font-size:.85rem}
+    .mini .mp{font-size:.76rem}
+    .shelf-link{margin-top:.6rem;font-size:.82rem}
   }
 
   /* ---------- Section scaffolding ---------- */
@@ -117,22 +142,21 @@
   .sec-head p{color:var(--muted)}
 
   /* ---------- Products (directly under the hero) ---------- */
-  #products{padding:1.6rem 0 3.6rem}
-  .prod-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1.2rem;margin-bottom:1.2rem;flex-wrap:wrap}
-  .prod-head h2{font-size:2.05rem;margin-top:.15rem}
-  .filters{display:flex;gap:.45rem;justify-content:flex-end;flex-wrap:wrap}
-  .chip{font-size:.8rem;font-weight:600;padding:.42rem .95rem;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--muted);cursor:pointer;transition:.15s;white-space:nowrap;flex:none}
+  #products{padding:2.4rem 0 3.6rem}
+  #products .sec-head{margin-bottom:1.3rem}
+  #products .sec-head h2{font-size:2.4rem;margin:.15rem 0 0}
+  .filters{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.6rem}
+  .chip{font-size:.82rem;font-weight:600;padding:.45rem 1.05rem;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--muted);cursor:pointer;transition:.15s;white-space:nowrap;flex:none}
   .chip.active,.chip:hover{background:var(--green);color:#fff;border-color:var(--green)}
   .chip[hidden]{display:none}
   .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
   @media(max-width:980px){.grid{grid-template-columns:repeat(3,1fr)}}
   @media(max-width:720px){
     .grid{grid-template-columns:repeat(2,1fr);gap:1rem}
-    #products{padding:1.4rem 0 2.8rem}
-    .prod-head{margin-bottom:.9rem;gap:.6rem}
-    .prod-head .eyebrow{display:none}
-    .prod-head h2{font-size:1.6rem}
-    .filters{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;margin:0 -22px;padding:0 22px 4px;scrollbar-width:none;width:calc(100% + 44px)}
+    #products{padding:1.6rem 0 2.8rem}
+    #products .sec-head{margin-bottom:.8rem}
+    #products .sec-head h2{font-size:1.75rem}
+    .filters{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;margin:0 -22px 1rem;padding:0 22px 4px;scrollbar-width:none}
     .filters::-webkit-scrollbar{display:none}
   }
   .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:.2s;display:flex;flex-direction:column}
@@ -185,21 +209,21 @@
   .faq-item.open .faq-a{max-height:280px}
 
   /* ---------- Final CTA band ---------- */
-  .cta-band{background:linear-gradient(105deg,var(--green),#33422f);color:#eef2ea;text-align:center;border-radius:0}
+  .cta-band{background:linear-gradient(105deg,var(--green),var(--green-dark));color:#f6e4e6;text-align:center;border-radius:0}
   .cta-band h2{color:#fff;font-size:2.5rem;margin-bottom:.6rem}
   .cta-band p{opacity:.9;max-width:34rem;margin:0 auto 1.6rem}
   .cta-band .btn-light{font-size:1.05rem;padding:1rem 2.4rem}
 
   /* ---------- Footer ---------- */
-  footer{background:#2c322c;color:#b9c2b6;font-size:.86rem;padding:3rem 0 2rem}
+  footer{background:#3a0b11;color:#e3cfd1;font-size:.86rem;padding:3rem 0 2rem}
   .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:1.6rem;margin-bottom:2rem}
   @media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr}}
   footer h4{color:#fff;font-family:var(--sans);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.9rem}
-  footer a{display:block;padding:.22rem 0;color:#b9c2b6;transition:.15s}
+  footer a{display:block;padding:.22rem 0;color:#e3cfd1;transition:.15s}
   footer a:hover{color:#fff}
-  .foot-brand .name{font-family:var(--serif);font-size:1.5rem;color:#fff}
+  .foot-brand img{height:64px;width:auto}
   .foot-brand p{margin-top:.6rem;line-height:1.6}
-  .foot-bottom{border-top:1px solid #424a41;padding-top:1.3rem;text-align:center;font-size:.78rem;color:#8b948a}
+  .foot-bottom{border-top:1px solid #5a2129;padding-top:1.3rem;text-align:center;font-size:.78rem;color:#b9999d}
 
   /* ---------- Sticky Shop Now ---------- */
   .sticky-shop{position:fixed;right:20px;bottom:22px;z-index:80;box-shadow:var(--shadow-lg);border-radius:999px;opacity:0;visibility:hidden;transform:translateY(14px);transition:.25s}
@@ -209,16 +233,11 @@
     .sticky-shop{right:14px;bottom:14px}
     .topbar{font-size:.74rem;padding:.42rem .7rem}
     .phone{display:none}
-    .hero-cta{flex-wrap:nowrap;gap:.5rem}
-    .hero-cta .btn{flex:1 1 auto;justify-content:center;padding:.68rem .8rem;font-size:.84rem}
-    .cta-call-long{display:none}
-    .season-kicker{font-size:.62rem;letter-spacing:.1em}
+    .season-kicker{font-size:.6rem;letter-spacing:.1em}
     .nav-right .btn{padding:.6rem 1rem;font-size:.82rem}
     .nav{padding-top:.6rem;padding-bottom:.6rem}
-    .brand .name{font-size:1.25rem}
-    .brand .sub{font-size:.55rem;letter-spacing:.16em}
+    .brand img{height:44px}
     .tb-long{display:none}
-    .hero-copy .eyebrow{margin-bottom:.4rem;font-size:.66rem}
   }
 </style>
 </head>
@@ -230,10 +249,7 @@
 <!-- Header -->
 <header>
   <div class="wrap nav">
-    <div class="brand">
-      <span class="name">Wildflower Florist</span>
-      <span class="sub">Spring, Texas<span class="tb-long"> · Family of Florists</span></span>
-    </div>
+    <a class="brand" href="#" aria-label="Wildflower Family of Florists home"><img src="logo.png" alt="Wildflower Family of Florists, Spring TX" width="563" height="273"></a>
     <nav class="nav-links">
       <a href="#products">Shop</a>
       <a href="#why">Why Us</a>
@@ -255,38 +271,39 @@
       <span class="eyebrow">Spring's Hometown Flower Shop</span>
       <h1>Fresh Flowers, <em>Hand-Delivered</em> Across Spring, TX</h1>
       <p class="lead">Hand-designed in our Louetta Road studio and delivered by our own local drivers to homes, offices, hospitals and churches across Spring, Klein and northwest Houston.</p>
-      <div class="hero-cta">
-        <a href="#products" class="btn btn-primary">Shop Same-Day Flowers</a>
-        <a href="tel:2813704285" class="btn btn-outline">📞 Call<span class="cta-call-long"> to Order</span></a>
+
+      <!-- Same-day cutoff countdown (runs on Central Time) -->
+      <div class="cutoff" aria-live="polite">
+        <div class="ctxt">
+          <span class="label"><span class="dot"></span> Same-Day Delivery</span>
+          <span id="cutoff-line">Order in the next</span>
+          <span id="cutoff-sub">Order by 12 noon, Mon to Sat, for delivery in Spring today.</span>
+        </div>
+        <div class="timer" id="timer">
+          <div class="u"><b id="tH">00</b><small>hrs</small></div>
+          <div class="u"><b id="tM">00</b><small>min</small></div>
+          <div class="u"><b id="tS">00</b><small>sec</small></div>
+        </div>
       </div>
+
       <div class="trust-row">
-        <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.5 6.5L21 9l-5 4 1.8 7L12 16l-5.8 4L8 13 3 9l6.5-.5z"/></svg> Serving Spring 30+ Years</div>
-        <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg> 100% Satisfaction Guarantee</div>
-        <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Local Shop on Louetta Rd</div>
+        <div class="ti"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span> Family-Owned,<br>30+ Years in Spring</div>
+        <div class="ti"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/></svg></span> 100% Satisfaction<br>Guarantee</div>
+        <div class="ti"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9z"/></svg></span> Hand-Designed,<br>Never Boxed</div>
       </div>
     </div>
-    <div class="hero-side">
-      <!-- Same-day cutoff countdown (runs on Central Time) -->
-      <div class="cutoff">
-        <span class="dot"></span>
-        <div class="ctxt">
-          <b id="cutoff-line">Order in <span id="clock">--</span></b>
-          <span id="cutoff-sub">for same-day delivery in Spring today</span>
-        </div>
-      </div>
-      <!-- Seasonal feature card: content auto-set by date (see JS) -->
-      <div class="feature" id="seasonBand">
-        <div class="feature-img"><img id="seasonImg" alt="" loading="eager"></div>
-        <div class="feature-body" id="seasonBody">
+
+    <!-- Shoppable seasonal "front table": 3 curated picks, auto-set by date (see JS) -->
+    <div class="shelf" id="seasonBand">
+      <div class="shelf-head">
+        <div>
           <span class="season-kicker" id="seasonKicker">In Season Now</span>
           <h2 id="seasonTitle">Fall Collection</h2>
-          <p id="seasonSub">Warm autumn tones and pumpkin designs, delivered same-day across Spring.</p>
-          <div class="feature-foot">
-            <div class="season-deadline" id="seasonDeadline" hidden></div>
-            <a href="#products" class="btn btn-primary" id="seasonCta">Shop the Collection</a>
-          </div>
         </div>
+        <div class="season-deadline" id="seasonDeadline" hidden></div>
       </div>
+      <div class="shelf-grid" id="shelfGrid"></div>
+      <a href="#products" class="shelf-link" id="seasonCta">Shop the Collection &nbsp;→</a>
     </div>
   </div>
 </section>
@@ -294,19 +311,17 @@
 <!-- Products -->
 <section id="products">
   <div class="wrap">
-    <div class="prod-head">
-      <div>
-        <span class="eyebrow">Made &amp; Delivered in Spring</span>
-        <h2>Our Most Popular Flowers</h2>
-      </div>
-      <div class="filters">
+    <div class="sec-head">
+      <span class="eyebrow">Made &amp; Delivered in Spring</span>
+      <h2>Our Most Popular Flowers</h2>
+    </div>
+    <div class="filters">
       <span class="chip" id="seasonChip" data-filter="fall">🍂 Fall</span>
       <span class="chip" data-filter="best">Best Sellers</span>
       <span class="chip" data-filter="birthday">Birthday</span>
       <span class="chip" data-filter="anniversary">Anniversary &amp; Love</span>
       <span class="chip" data-filter="sympathy">Sympathy</span>
       <span class="chip" data-filter="under100">Under $100</span>
-      </div>
     </div>
     <div class="grid" id="prodgrid"></div>
     <div class="shopall">
@@ -416,7 +431,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <span class="name">Wildflower Florist</span>
+        <img src="logo-white.png" alt="Wildflower Family of Florists" width="563" height="273">
         <p>Wildflower Family of Florists &amp; Flower Delivery<br>5115 Louetta Rd, Spring, TX 77379<br><a href="tel:2813704285" style="display:inline;color:#fff;font-weight:600">(281) 370-4285</a></p>
         <p style="margin-top:.6rem;font-size:.8rem">Mon–Fri 8:30 AM–5:00 PM · Sat 8:30 AM–3:00 PM · Closed Sunday</p>
       </div>
@@ -523,11 +538,11 @@ function gotoFilter(f){
   const fmt = d => d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
   const holidaysFor = y => [
     {name:"Valentine's Day", date:new Date(y,1,14), lead:18, emoji:"💘", filter:"anniversary", img:P("75411600","sku1920025.jpg"), title:"Valentine's Day Flowers",
-     sub:"Roses and romance, delivered same-day across Spring. Our busiest day of the year, so order early.", cta:"Shop Valentine's", grad:"linear-gradient(105deg,#f7dde1,#f2c6cd)", accent:"#b0455a"},
+     sub:"Roses and romance, delivered same-day across Spring. Our busiest day of the year, so order early.", cta:"Shop All Valentine's", picks:["Room Full of Roses, 3 Dozen","Crazy for You","Love You to the Moon"], grad:"linear-gradient(105deg,#f7dde1,#f2c6cd)", accent:"#b0455a"},
     {name:"Mother's Day", date:nthWeekday(y,5,0,2), lead:21, emoji:"🌷", filter:"best", img:P("75411600","sku10201761.jpg"), title:"Mother's Day Flowers",
      sub:"Make her day with a hand-designed bouquet, delivered right to her door in Spring.", cta:"Shop Mother's Day", grad:"linear-gradient(105deg,#f4e3ec,#eccfe0)", accent:"#a85c8a"},
     {name:"Thanksgiving", date:nthWeekday(y,11,4,4), lead:21, emoji:"🦃", filter:"fall", chip:"🦃 Thanksgiving & Fall", img:P("75411600","sku13953355.jpg"), title:"Thanksgiving Centerpieces",
-     sub:"Fall centerpieces and harvest arrangements for your table, delivered before the holiday.", cta:"Shop Thanksgiving", grad:"linear-gradient(105deg,#f4e6d2,#eecfae)", accent:"#b5733a"},
+     sub:"Fall centerpieces and harvest arrangements for your table, delivered before the holiday.", cta:"Shop All Thanksgiving & Fall", picks:["Thankful by Nature","Pumpkin Glow","Pumpkin Daze"], grad:"linear-gradient(105deg,#f4e6d2,#eecfae)", accent:"#a4551f"},
     {name:"Christmas", date:new Date(y,11,25), lead:24, emoji:"🎄", filter:"best", img:P("75411600","skusku9691171.jpg"), title:"Christmas & Holiday Flowers",
      sub:"Festive arrangements and gifts delivered across Spring all season long.", cta:"Shop Christmas", grad:"linear-gradient(105deg,#e3eee0,#d4e6d2)", accent:"#2f6b4a"}
   ];
@@ -535,7 +550,7 @@ function gotoFilter(f){
     const m=now.getMonth();
     if(m>=2&&m<=4) return {emoji:"🌸",filter:"best",img:P("75411600","sku1890025.jpg"),title:"Spring Collection",sub:"Fresh garden blooms to welcome the season, delivered same-day in Spring.",cta:"Shop Spring",grad:"linear-gradient(105deg,#eaf1e4,#f1e7d8)",accent:"#7b9a4a"};
     if(m>=5&&m<=7) return {emoji:"☀️",filter:"best",img:P("EF-7676","skusku12920221.jpg"),title:"Summer Collection",sub:"Bright, garden-fresh bouquets with bold seasonal color, delivered same-day across Spring.",cta:"Shop Summer Flowers",grad:"linear-gradient(105deg,#fdeccd,#f7dca9)",accent:"#d0892e"};
-    if(m>=8&&m<=10) return {emoji:"🍂",filter:"fall",chip:"🍂 Fall",img:P("75411600","sku10642214.jpg"),title:"Fall Collection",sub:"Warm autumn tones, sunflowers and pumpkin designs, delivered same-day across Spring.",cta:"Shop Fall Flowers",grad:"linear-gradient(105deg,#f4e6d2,#eecfae)",accent:"#b5733a"};
+    if(m>=8&&m<=10) return {emoji:"🍂",filter:"fall",chip:"🍂 Fall",img:P("75411600","sku10642214.jpg"),title:"Fall Collection",picks:["Pumpkin Daze","Sunfire Celebration","Shimmering Papaya"],sub:"Warm autumn tones, sunflowers and pumpkin designs, delivered same-day across Spring.",cta:"Shop Fall Flowers",grad:"linear-gradient(105deg,#f4e6d2,#eecfae)",accent:"#b5733a"};
     return {emoji:"❄️",filter:"best",img:P("EF-7676","skusku11680331.jpg"),title:"Winter Collection",sub:"Cozy seasonal arrangements for the colder months, delivered same-day in Spring.",cta:"Shop Winter",grad:"linear-gradient(105deg,#e6eef0,#dbe7ea)",accent:"#4a7d8a"};
   };
   const now = window.DEMO_NOW ? new Date(window.DEMO_NOW) : new Date();
@@ -547,18 +562,24 @@ function gotoFilter(f){
     // Shop policy: order at least 3 days before major holidays
     const dl=new Date(next.date); dl.setDate(dl.getDate()-3);
     const small = days>3 ? "Order by "+fmt(dl)+" for "+next.name : "Call (281) 370-4285 for holiday availability";
-    f={kicker:next.emoji+" "+next.name+" is "+days+" day"+(days===1?"":"s")+" away", title:next.title, sub:next.sub, cta:next.cta, grad:next.grad, accent:next.accent, img:next.img, filter:next.filter, chip:next.chip,
+    f={kicker:next.emoji+" "+next.name+" is "+days+" day"+(days===1?"":"s")+" away", title:next.title, sub:next.sub, cta:next.cta, picks:next.picks, grad:next.grad, accent:next.accent, img:next.img, filter:next.filter, chip:next.chip,
        deadline:{big:(days===0?"Today!":days+" day"+(days===1?"":"s")+" left"), small:small}};
   } else {
     const s=seasonFeature(now);
-    f={kicker:s.emoji+" In Season Now", title:s.title, sub:s.sub, cta:s.cta, grad:s.grad, accent:s.accent, img:s.img, filter:s.filter, chip:s.chip, deadline:null};
+    f={kicker:s.emoji+" In Season Now", title:s.title, sub:s.sub, cta:s.cta, picks:s.picks, grad:s.grad, accent:s.accent, img:s.img, filter:s.filter, chip:s.chip, deadline:null};
   }
-  document.getElementById('seasonBody').style.background=f.grad;
-  const si=document.getElementById('seasonImg'); si.src=f.img; si.alt=f.title;
+  const band=document.getElementById('seasonBand'); band.style.setProperty('--accent', f.accent);
   document.getElementById('seasonKicker').textContent=f.kicker;
   document.getElementById('seasonTitle').textContent=f.title;
-  document.getElementById('seasonSub').textContent=f.sub;
-  const cta=document.getElementById('seasonCta'); cta.textContent=f.cta; cta.style.background=f.accent; cta.style.borderColor=f.accent;
+  let picks=(f.picks||[]).map(n=>products.find(p=>p.name===n)).filter(Boolean);
+  if(picks.length<3) picks=picks.concat(products.filter(p=>p.cats.includes(f.filter)&&!picks.includes(p))).slice(0,3);
+  document.getElementById('shelfGrid').innerHTML=picks.map(p=>`
+    <div class="mini" role="link" tabindex="0">
+      <div class="mi"><img src="${p.img}" alt="${p.name} flower arrangement" loading="eager"></div>
+      <div class="mb"><div class="mn">${p.name}</div><div class="mp">$${p.price}</div></div>
+    </div>`).join('');
+  document.querySelectorAll('#shelfGrid .mini').forEach(m=>m.onclick=()=>gotoFilter(f.filter));
+  const cta=document.getElementById('seasonCta'); cta.innerHTML=f.cta.replace('&','&amp;')+' &nbsp;→'; cta.style.color=f.accent;
   cta.onclick=function(e){e.preventDefault(); gotoFilter(f.filter);};
   const d=document.getElementById('seasonDeadline');
   if(f.deadline){d.hidden=false; d.innerHTML=f.deadline.big+'<small>'+f.deadline.small+'</small>';} else d.hidden=true;
@@ -602,17 +623,24 @@ function centralNow(){
 function updateClock(){
   const line=document.getElementById('cutoff-line');
   const sub=document.getElementById('cutoff-sub');
+  const timer=document.getElementById('timer');
   const t=centralNow();
   const left=12*3600-t.secs;
+  const pad=n=>String(n).padStart(2,'0');
   if(t.day===0 || (t.day===6 && left<=0)){
-    line.textContent="Order now, delivers Monday"; sub.textContent="Same-day cutoff is 12 noon, Mon to Sat"; return;
+    timer.hidden=true; line.textContent="Order now for Monday delivery";
+    sub.textContent="Same-day cutoff is 12 noon, Mon to Sat. We don't deliver on Sundays."; return;
   }
   if(left>0){
-    const h=Math.floor(left/3600), m=Math.floor((left%3600)/60), s=left%60;
-    line.innerHTML='Order in <span id="clock">'+(h>0?`${h}h ${m}m ${s}s`:`${m}m ${s}s`)+'</span>';
-    sub.textContent="for same-day delivery in Spring today";
+    timer.hidden=false;
+    document.getElementById('tH').textContent=pad(Math.floor(left/3600));
+    document.getElementById('tM').textContent=pad(Math.floor((left%3600)/60));
+    document.getElementById('tS').textContent=pad(left%60);
+    line.textContent="Order in the next";
+    sub.textContent="Order by 12 noon, Mon to Sat, for delivery in Spring today.";
   }else{
-    line.textContent="Order now for next-day delivery"; sub.textContent="Same-day cutoff is 12 noon, Mon to Sat";
+    timer.hidden=true; line.textContent="Order now for next-day delivery";
+    sub.textContent="Same-day cutoff is 12 noon, Mon to Sat. Orders now deliver next business day.";
   }
 }
 setInterval(updateClock,1000); updateClock();
