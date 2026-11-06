@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spring TX Florist | Same-Day Flower Delivery in Spring, Texas | Wildflower Florist</title>
+<meta name="description" content="Wildflower Florist is Spring, Texas's hometown flower shop on Louetta Road. Hand-designed bouquets with same-day delivery across Spring, Klein and northwest Houston when you order by 12 noon.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap');
+  :root{
+    --green:#3f5340;
+    --green-soft:#6f8a6b;
+    --sage:#eef2ea;
+    --sage-2:#e2ebdd;
+    --blush:#f4e7e6;
+    --blush-deep:#caa39c;
+    --terracotta:#c47b63;
+    --ink:#2c322c;
+    --muted:#6a726a;
+    --line:#e3e6df;
+    --gold:#b8924a;
+    --white:#fffefb;
+    --radius:14px;
+    --shadow:0 6px 24px rgba(48,60,46,.10);
+    --shadow-lg:0 18px 50px rgba(48,60,46,.16);
+    --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+    --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:80px}
+  body{font-family:var(--sans);color:var(--ink);background:var(--white);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;color:var(--green)}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+  .eyebrow{font-family:var(--sans);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--terracotta)}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--sans);font-weight:600;font-size:.95rem;padding:.85rem 1.7rem;border-radius:999px;border:1.5px solid transparent;cursor:pointer;transition:.18s;white-space:nowrap}
+  .btn-primary{background:var(--green);color:#fff}
+  .btn-primary:hover{background:#33422f;transform:translateY(-1px)}
+  .btn-outline{background:transparent;border-color:var(--green);color:var(--green)}
+  .btn-outline:hover{background:var(--green);color:#fff}
+  .btn-light{background:#fff;color:var(--green)}
+  .btn-light:hover{background:var(--sage)}
+
+  /* ---------- Announcement / utility bar ---------- */
+  .topbar{background:var(--green);color:#eaf0e6;font-size:.82rem;text-align:center;padding:.5rem 1rem;font-weight:500;letter-spacing:.01em}
+  .topbar strong{color:#fff}
+
+  /* ---------- Header ---------- */
+  header{position:sticky;top:0;z-index:60;background:rgba(255,254,251,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding-top:.85rem;padding-bottom:.85rem;gap:1rem}
+  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand .name{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--green)}
+  .brand .sub{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+  .nav-links{display:flex;gap:1.6rem;font-size:.9rem;font-weight:500}
+  .nav-links a{color:var(--ink);transition:.15s}
+  .nav-links a:hover{color:var(--terracotta)}
+  .nav-right{display:flex;align-items:center;gap:1rem}
+  .phone{font-weight:700;color:var(--green);font-size:.95rem;white-space:nowrap}
+  .phone span{font-weight:400;color:var(--muted);font-size:.78rem;display:block;letter-spacing:.04em}
+  @media(max-width:920px){.nav-links{display:none}}
+
+  /* ---------- Hero (compact, so the products sit higher) ---------- */
+  .hero{position:relative;background:linear-gradient(105deg,var(--sage) 0 52%,var(--blush) 100%);overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:2.4rem;align-items:center;padding-top:1.7rem;padding-bottom:1.8rem}
+  .hero-copy .eyebrow{margin-bottom:.7rem;display:inline-block}
+  .hero h1{font-size:2.55rem;margin-bottom:.7rem}
+  .hero h1 em{font-style:italic;color:var(--terracotta)}
+  .hero p.lead{font-size:1rem;color:#4c544c;max-width:34em;margin-bottom:1.1rem}
+  .hero-cta{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
+  .trust-row{display:flex;gap:1.1rem;margin-top:1rem;flex-wrap:wrap}
+  .trust-row .ti{display:flex;align-items:center;gap:.4rem;font-size:.8rem;font-weight:600;color:var(--green)}
+  .trust-row .ti svg{width:18px;height:18px;flex:none}
+
+  /* Right side: same-day countdown + seasonal feature card (replaces the separate seasonal band) */
+  .hero-side{display:flex;flex-direction:column;gap:.85rem}
+  .cutoff{align-self:flex-start;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:.7rem 1rem;display:flex;align-items:center;gap:.75rem}
+  .cutoff .dot{width:10px;height:10px;border-radius:50%;background:#3fae5a;box-shadow:0 0 0 4px rgba(63,174,90,.18);flex:none;animation:pulse 1.6s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  .cutoff .ctxt{font-size:.78rem;line-height:1.3;color:var(--muted)}
+  .cutoff .ctxt b{display:block;color:var(--ink);font-size:.9rem}
+  .cutoff #clock{font-variant-numeric:tabular-nums;color:var(--terracotta);font-weight:700}
+  .feature{display:grid;grid-template-columns:160px 1fr;background:#fff;border-radius:18px;box-shadow:var(--shadow-lg);overflow:hidden}
+  .feature-img{background:#fff;display:flex;align-items:center;justify-content:center;padding:.5rem}
+  .feature-img img{width:100%;height:100%;object-fit:contain}
+  .feature-body{padding:1.1rem 1.25rem 1.2rem;display:flex;flex-direction:column;gap:.3rem}
+  .season-kicker{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:rgba(40,50,40,.62)}
+  .feature h2{font-size:1.6rem;color:#34402c}
+  .feature p{color:#4c544c;font-size:.88rem;line-height:1.5}
+  .feature-foot{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;margin-top:.45rem}
+  .season-deadline{background:#fff;border-radius:10px;padding:.4rem .75rem;box-shadow:var(--shadow);font-weight:700;color:var(--ink);font-size:.85rem;line-height:1.15}
+  .season-deadline small{display:block;font-weight:500;color:var(--muted);font-size:.7rem;margin-top:2px}
+  .feature .btn{color:#fff;padding:.65rem 1.25rem;font-size:.88rem}
+
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr;padding-top:.9rem;padding-bottom:1rem;gap:.7rem}
+    .hero h1{font-size:1.8rem;margin-bottom:.7rem}
+    .hero p.lead,.trust-row{display:none}
+    .hero-cta .btn{padding:.7rem 1.2rem;font-size:.88rem}
+    .cutoff{align-self:stretch;padding:.55rem .8rem}
+    .cutoff .ctxt{font-size:.74rem}
+    .cutoff .ctxt b{font-size:.84rem}
+    .feature{grid-template-columns:82px 1fr;border-radius:14px}
+    .feature-img{padding:.3rem}
+    .feature-body{padding:.7rem .85rem .8rem;gap:.15rem}
+    .feature h2{font-size:1.2rem}
+    .feature p,.feature .season-deadline{display:none}
+    .feature-foot{margin-top:.3rem;gap:.55rem}
+    .season-deadline{padding:.3rem .6rem;font-size:.76rem}
+    .feature .btn{padding:.5rem .95rem;font-size:.8rem}
+  }
+
+  /* ---------- Section scaffolding ---------- */
+  section{padding:4rem 0}
+  .sec-head{text-align:center;max-width:40rem;margin:0 auto 2.4rem}
+  .sec-head h2{font-size:2.4rem;margin-bottom:.5rem}
+  .sec-head p{color:var(--muted)}
+
+  /* ---------- Products (directly under the hero) ---------- */
+  #products{padding:1.6rem 0 3.6rem}
+  .prod-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1.2rem;margin-bottom:1.2rem;flex-wrap:wrap}
+  .prod-head h2{font-size:2.05rem;margin-top:.15rem}
+  .filters{display:flex;gap:.45rem;justify-content:flex-end;flex-wrap:wrap}
+  .chip{font-size:.8rem;font-weight:600;padding:.42rem .95rem;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--muted);cursor:pointer;transition:.15s;white-space:nowrap;flex:none}
+  .chip.active,.chip:hover{background:var(--green);color:#fff;border-color:var(--green)}
+  .chip[hidden]{display:none}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+  @media(max-width:980px){.grid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:720px){
+    .grid{grid-template-columns:repeat(2,1fr);gap:1rem}
+    #products{padding:1.4rem 0 2.8rem}
+    .prod-head{margin-bottom:.9rem;gap:.6rem}
+    .prod-head .eyebrow{display:none}
+    .prod-head h2{font-size:1.6rem}
+    .filters{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;margin:0 -22px;padding:0 22px 4px;scrollbar-width:none;width:calc(100% + 44px)}
+    .filters::-webkit-scrollbar{display:none}
+  }
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:.2s;display:flex;flex-direction:column}
+  .card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+  .card .pic{aspect-ratio:4/5;background-size:cover;background-position:center;position:relative;overflow:hidden}
+  .card .pic .pimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .35s;background:#fff}
+  .card:hover .pic .pimg{transform:scale(1.04)}
+  .card .tag{position:absolute;top:.65rem;left:.65rem;background:rgba(255,255,255,.93);color:var(--terracotta);font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.28rem .6rem;border-radius:999px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+  .card .body{padding:.85rem .9rem 1rem;display:flex;flex-direction:column;gap:.55rem;flex:1}
+  .card .pname{font-family:var(--serif);font-size:1.22rem;font-weight:600;color:var(--ink);line-height:1.1}
+  .card .price{font-weight:700;color:var(--green);font-size:1rem}
+  .card .add{margin-top:auto;font-size:.82rem;font-weight:600;text-align:center;border:1.5px solid var(--green);color:var(--green);border-radius:999px;padding:.5rem;transition:.15s;cursor:pointer}
+  .card:hover .add{background:var(--green);color:#fff}
+  .shopall{display:flex;flex-direction:column;align-items:center;gap:.7rem;margin-top:2.2rem}
+
+  /* ---------- Reasons / Why us ---------- */
+  .why{background:var(--sage)}
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem}
+  @media(max-width:860px){.why-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:480px){.why-grid{grid-template-columns:1fr}}
+  .why-card{background:#fff;border-radius:var(--radius);padding:1.6rem 1.3rem;text-align:center;border:1px solid var(--line)}
+  .why-card .ic{width:46px;height:46px;margin:0 auto .9rem;border-radius:50%;background:var(--sage-2);display:flex;align-items:center;justify-content:center}
+  .why-card .ic svg{width:24px;height:24px;color:var(--green)}
+  .why-card h3{font-size:1.32rem;margin-bottom:.35rem}
+  .why-card p{font-size:.88rem;color:var(--muted);line-height:1.5}
+
+  /* ---------- Areas we serve ---------- */
+  .areas-grid{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:1.3rem;margin-bottom:1.6rem}
+  @media(max-width:860px){.areas-grid{grid-template-columns:1fr}}
+  .area-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1.5rem 1.4rem}
+  .area-card h3{font-size:1.25rem;display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem}
+  .area-card h3 svg{width:20px;height:20px;color:var(--terracotta)}
+  .area-card .note{font-size:.82rem;color:var(--muted);margin-bottom:.9rem}
+  .pills{display:flex;flex-wrap:wrap;gap:.4rem}
+  .pill{font-size:.78rem;background:var(--sage);color:var(--green);font-weight:500;padding:.32rem .7rem;border-radius:999px}
+  .area-list{list-style:none;font-size:.88rem;color:var(--ink)}
+  .area-list li{padding:.4rem 0;border-bottom:1px dashed var(--line);display:flex;align-items:center;gap:.5rem}
+  .area-list li:last-child{border-bottom:0}
+  .area-list li svg{width:15px;height:15px;color:var(--green-soft);flex:none}
+
+  /* ---------- FAQ ---------- */
+  .faq{background:var(--sage)}
+  .faq-wrap{max-width:760px;margin:0 auto}
+  .faq-item{background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:.75rem;overflow:hidden}
+  .faq-q{width:100%;text-align:left;background:none;border:0;cursor:pointer;font-family:var(--sans);font-size:1.02rem;font-weight:600;color:var(--green);padding:1.15rem 1.3rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+  .faq-q .pm{font-size:1.4rem;color:var(--terracotta);transition:.2s;flex:none;line-height:1}
+  .faq-item.open .faq-q .pm{transform:rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .28s ease;color:var(--muted);font-size:.92rem}
+  .faq-a div{padding:0 1.3rem 1.2rem}
+  .faq-item.open .faq-a{max-height:280px}
+
+  /* ---------- Final CTA band ---------- */
+  .cta-band{background:linear-gradient(105deg,var(--green),#33422f);color:#eef2ea;text-align:center;border-radius:0}
+  .cta-band h2{color:#fff;font-size:2.5rem;margin-bottom:.6rem}
+  .cta-band p{opacity:.9;max-width:34rem;margin:0 auto 1.6rem}
+  .cta-band .btn-light{font-size:1.05rem;padding:1rem 2.4rem}
+
+  /* ---------- Footer ---------- */
+  footer{background:#2c322c;color:#b9c2b6;font-size:.86rem;padding:3rem 0 2rem}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:1.6rem;margin-bottom:2rem}
+  @media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr}}
+  footer h4{color:#fff;font-family:var(--sans);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.9rem}
+  footer a{display:block;padding:.22rem 0;color:#b9c2b6;transition:.15s}
+  footer a:hover{color:#fff}
+  .foot-brand .name{font-family:var(--serif);font-size:1.5rem;color:#fff}
+  .foot-brand p{margin-top:.6rem;line-height:1.6}
+  .foot-bottom{border-top:1px solid #424a41;padding-top:1.3rem;text-align:center;font-size:.78rem;color:#8b948a}
+
+  /* ---------- Sticky Shop Now ---------- */
+  .sticky-shop{position:fixed;right:20px;bottom:22px;z-index:80;box-shadow:var(--shadow-lg);border-radius:999px;opacity:0;visibility:hidden;transform:translateY(14px);transition:.25s}
+  .sticky-shop.show{opacity:1;visibility:visible;transform:none}
+  .sticky-shop .btn{font-size:1rem;padding:.95rem 1.7rem}
+  @media(max-width:520px){
+    .sticky-shop{right:14px;bottom:14px}
+    .topbar{font-size:.74rem;padding:.42rem .7rem}
+    .phone{display:none}
+    .hero-cta{flex-wrap:nowrap;gap:.5rem}
+    .hero-cta .btn{flex:1 1 auto;justify-content:center;padding:.68rem .8rem;font-size:.84rem}
+    .cta-call-long{display:none}
+    .season-kicker{font-size:.62rem;letter-spacing:.1em}
+    .nav-right .btn{padding:.6rem 1rem;font-size:.82rem}
+    .nav{padding-top:.6rem;padding-bottom:.6rem}
+    .brand .name{font-size:1.25rem}
+    .brand .sub{font-size:.55rem;letter-spacing:.16em}
+    .tb-long{display:none}
+    .hero-copy .eyebrow{margin-bottom:.4rem;font-size:.66rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- Utility bar -->
+<div class="topbar">🚚 <strong>Same-day delivery</strong> in Spring, TX<span class="tb-long"> &amp; northwest Houston</span>, order by <strong>12:00 noon</strong><span class="tb-long"> &nbsp;·&nbsp; Call <strong>(281) 370-4285</strong></span></div>
+
+<!-- Header -->
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <span class="name">Wildflower Florist</span>
+      <span class="sub">Spring, Texas<span class="tb-long"> · Family of Florists</span></span>
+    </div>
+    <nav class="nav-links">
+      <a href="#products">Shop</a>
+      <a href="#why">Why Us</a>
+      <a href="#areas">Areas We Serve</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://www.wildflowerflorist.com/sympathy-condolences/cat12030001">Sympathy</a>
+    </nav>
+    <div class="nav-right">
+      <div class="phone">(281) 370-4285<span>Mon–Fri 8:30–5 · Sat 8:30–3</span></div>
+      <a href="#products" class="btn btn-primary">Shop Now</a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero" style="padding:0">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Spring's Hometown Flower Shop</span>
+      <h1>Fresh Flowers, <em>Hand-Delivered</em> Across Spring, TX</h1>
+      <p class="lead">Hand-designed in our Louetta Road studio and delivered by our own local drivers to homes, offices, hospitals and churches across Spring, Klein and northwest Houston.</p>
+      <div class="hero-cta">
+        <a href="#products" class="btn btn-primary">Shop Same-Day Flowers</a>
+        <a href="tel:2813704285" class="btn btn-outline">📞 Call<span class="cta-call-long"> to Order</span></a>
+      </div>
+      <div class="trust-row">
+        <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.5 6.5L21 9l-5 4 1.8 7L12 16l-5.8 4L8 13 3 9l6.5-.5z"/></svg> Serving Spring 30+ Years</div>
+        <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg> 100% Satisfaction Guarantee</div>
+        <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Local Shop on Louetta Rd</div>
+      </div>
+    </div>
+    <div class="hero-side">
+      <!-- Same-day cutoff countdown (runs on Central Time) -->
+      <div class="cutoff">
+        <span class="dot"></span>
+        <div class="ctxt">
+          <b id="cutoff-line">Order in <span id="clock">--</span></b>
+          <span id="cutoff-sub">for same-day delivery in Spring today</span>
+        </div>
+      </div>
+      <!-- Seasonal feature card: content auto-set by date (see JS) -->
+      <div class="feature" id="seasonBand">
+        <div class="feature-img"><img id="seasonImg" alt="" loading="eager"></div>
+        <div class="feature-body" id="seasonBody">
+          <span class="season-kicker" id="seasonKicker">In Season Now</span>
+          <h2 id="seasonTitle">Fall Collection</h2>
+          <p id="seasonSub">Warm autumn tones and pumpkin designs, delivered same-day across Spring.</p>
+          <div class="feature-foot">
+            <div class="season-deadline" id="seasonDeadline" hidden></div>
+            <a href="#products" class="btn btn-primary" id="seasonCta">Shop the Collection</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Products -->
+<section id="products">
+  <div class="wrap">
+    <div class="prod-head">
+      <div>
+        <span class="eyebrow">Made &amp; Delivered in Spring</span>
+        <h2>Our Most Popular Flowers</h2>
+      </div>
+      <div class="filters">
+      <span class="chip" id="seasonChip" data-filter="fall">🍂 Fall</span>
+      <span class="chip" data-filter="best">Best Sellers</span>
+      <span class="chip" data-filter="birthday">Birthday</span>
+      <span class="chip" data-filter="anniversary">Anniversary &amp; Love</span>
+      <span class="chip" data-filter="sympathy">Sympathy</span>
+      <span class="chip" data-filter="under100">Under $100</span>
+      </div>
+    </div>
+    <div class="grid" id="prodgrid"></div>
+    <div class="shopall">
+      <a href="https://www.wildflowerflorist.com/fall-flowers/cat2870011" class="btn btn-primary" id="catCta">Shop All Fall Flowers &nbsp;→</a>
+      <a href="https://www.wildflowerflorist.com/everyday-flowers/cat12080117" class="btn btn-outline">See All Flowers &nbsp;→</a>
+    </div>
+  </div>
+</section>
+
+<!-- Why us -->
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The Wildflower Difference</span>
+      <h2>Why Spring Sends With Us</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h18M5 7l1 13h12l1-13M9 7V5a3 3 0 0 1 6 0v2"/></svg></div>
+        <h3>A Real Local Shop</h3>
+        <p>We're a family of florists rooted in Spring for over 30 years, not an online order-gatherer. Your flowers are designed and delivered by our own team.</p>
+      </div>
+      <div class="why-card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Same-Day Delivery</h3>
+        <p>Order by 12 noon Monday through Saturday and our drivers will deliver fresh flowers across Spring the same day.</p>
+      </div>
+      <div class="why-card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9z"/></svg></div>
+        <h3>Hand-Designed in Spring</h3>
+        <p>Every arrangement is crafted by hand in our Louetta Road studio with fresh, quality blooms. Never mass-produced, never shipped in a box.</p>
+      </div>
+      <div class="why-card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/></svg></div>
+        <h3>100% Guaranteed</h3>
+        <p>Our commitment is 100% satisfaction on every floral and gift order. If you're not completely happy, we'll make it right.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Areas we serve -->
+<section id="areas">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">We Know Northwest Houston</span>
+      <h2>Areas We Serve</h2>
+      <p>Our local drivers know Spring's neighborhoods, schools, hospitals and churches, so your flowers arrive fresh and to the right door.</p>
+    </div>
+    <div class="areas-grid">
+      <div class="area-card">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Towns We Deliver To</h3>
+        <p class="note">Local delivery is $12.95 to $15.95 per address.</p>
+        <div class="pills">
+          <span class="pill">Spring</span><span class="pill">Klein</span><span class="pill">The Woodlands</span>
+          <span class="pill">Cypress</span><span class="pill">Tomball</span><span class="pill">Magnolia</span>
+          <span class="pill">Houston</span><span class="pill">Conroe</span><span class="pill">Aldine</span>
+          <span class="pill">Kingwood</span><span class="pill">Jersey Village</span><span class="pill">Oak Ridge</span>
+          <span class="pill">Shenandoah</span><span class="pill">Rayford</span><span class="pill">Katy</span>
+        </div>
+      </div>
+      <div class="area-card">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg> Spring Neighborhoods</h3>
+        <p class="note">Delivered daily by drivers who know the area.</p>
+        <ul class="area-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Gleannloch Farms &amp; Champions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Auburn Lakes &amp; Cypresswood</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Memorial Northwest &amp; Klein Oak</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Old Town Spring</li>
+        </ul>
+      </div>
+      <div class="area-card">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Hospitals, Schools &amp; Services</h3>
+        <p class="note">Bedside cheer, school celebrations and sympathy tributes.</p>
+        <ul class="area-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Houston Methodist The Woodlands</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Klein ISD campuses</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Area churches &amp; funeral homes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Good to Know</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-wrap" id="faqwrap"></div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Send Flowers in Spring Today</h2>
+    <p>Order by 12 noon for same-day delivery across Spring, Texas. Hand-designed, hand-delivered, and 100% guaranteed.</p>
+    <a href="#products" class="btn btn-light">⬆ Shop Now</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="name">Wildflower Florist</span>
+        <p>Wildflower Family of Florists &amp; Flower Delivery<br>5115 Louetta Rd, Spring, TX 77379<br><a href="tel:2813704285" style="display:inline;color:#fff;font-weight:600">(281) 370-4285</a></p>
+        <p style="margin-top:.6rem;font-size:.8rem">Mon–Fri 8:30 AM–5:00 PM · Sat 8:30 AM–3:00 PM · Closed Sunday</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <a href="https://www.wildflowerflorist.com/best-sellers/cat2200002">Best Sellers</a>
+        <a href="https://www.wildflowerflorist.com/birthday/cat2210008">Birthday</a>
+        <a href="https://www.wildflowerflorist.com/sympathy-condolences/cat12030001">Sympathy</a>
+        <a href="https://www.wildflowerflorist.com/roses/cat2200004">Roses</a>
+        <a href="https://www.wildflowerflorist.com/plants/cat3380019">Plants</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="https://www.wildflowerflorist.com/about-us">About Us</a>
+        <a href="#areas">Where We Deliver</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://www.wildflowerflorist.com/about-us">Delivery Policy</a>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="tel:2813704285">Call Us</a>
+        <a href="https://www.wildflowerflorist.com/contact-us/">Contact</a>
+        <a href="https://www.wildflowerflorist.com/about-us">Substitutions</a>
+        <a href="https://www.wildflowerflorist.com/about-us">Satisfaction Guarantee</a>
+      </div>
+    </div>
+    <div class="foot-bottom">Serving Spring, Klein &amp; northwest Houston for over 30 years · © 2026 Wildflower Family of Florists &amp; Flower Delivery</div>
+  </div>
+</footer>
+
+<!-- Sticky Shop Now (jumps back up to products) -->
+<a href="#products" class="sticky-shop" id="stickyShop"><span class="btn btn-primary">🛒 Shop Now</span></a>
+
+<script>
+/* ---------- Product data (live names + prices from wildflowerflorist.com) ---------- */
+const A="https://assets.eflorist.com/site/";
+const P=(site,file)=>A+site+"/assets/products/PHR_/"+file;
+const products = [
+  {name:"Room Full of Roses, 3 Dozen", price:"399.99", tag:"Premium", hue:"#d97f8f,#b05566", img:P("75411600","sku1920025.jpg"), cats:["anniversary"]},
+  {name:"Treasured Celebration Urn", price:"357.99", tag:"", hue:"#e3c069,#c79a3f", img:P("75411600","sku1740055.jpg"), cats:["sympathy"]},
+  {name:"Enduring Strength Urn", price:"347.99", tag:"", hue:"#d98a86,#a85c63", img:P("75411600","sku1740151.jpg"), cats:["sympathy"]},
+  {name:"Peaceful Pink Large Urn", price:"287.99", tag:"", hue:"#f0b8c4,#d98aa0", img:P("75411600","sku1850065.jpg"), cats:["sympathy"]},
+  {name:"Vivid Memories Basket Tribute", price:"287.99", tag:"", hue:"#f0c869,#d0a02e", img:P("75411600","sku1730084.jpg"), cats:["sympathy"]},
+  {name:"Inspired", price:"259.99", tag:"", hue:"#e6c2d4,#c499b4", img:P("75411600","sku1920022.jpg"), cats:["anniversary"]},
+  {name:"Love You to the Moon", price:"209.99", tag:"Premium", hue:"#cf94b4,#9a5b8a", img:P("75411600","sku9520444.jpg"), cats:["best","anniversary"]},
+  {name:"Shimmering Papaya", price:"184.99", tag:"", hue:"#f0a878,#d98a55", img:P("75411600","sku1760089.jpg"), cats:["fall","best"]},
+  {name:"Ballet of Blooms", price:"179.99", tag:"", hue:"#f0b07e,#c47b9a", img:P("75411691","skusku13701146.jpg"), cats:["best","anniversary"]},
+  {name:"Mabeline", price:"159.99", tag:"", hue:"#f0b8c4,#caa39c", img:P("75411600","sku10201761.jpg"), cats:["best","anniversary"]},
+  {name:"Thankful by Nature", price:"149.95", tag:"Thanksgiving", hue:"#e0a86b,#c47b63", img:P("75411600","sku13953355.jpg"), cats:["fall"]},
+  {name:"Blue Beauty", price:"149.99", tag:"", hue:"#8fb0c9,#5d7f9a", img:P("EF-7676","skusku11680331.jpg"), cats:["best","sympathy"]},
+  {name:"Crazy for You", price:"149.99", tag:"", hue:"#d97f8f,#b05566", img:P("75411600","sku9891107.jpg"), cats:["anniversary"]},
+  {name:"Southern Hospitality", price:"149.99", tag:"", hue:"#8fb0c9,#a9c79a", img:P("75411600","sku1900001.jpg"), cats:["birthday","sympathy"]},
+  {name:"Beauty in Blossom", price:"139.99", tag:"", hue:"#f0b07e,#a9c79a", img:P("75411600","sku1890025.jpg"), cats:["best","anniversary"]},
+  {name:"Ruby Crown", price:"129.99", tag:"", hue:"#d98a86,#a85c63", img:P("75411600","skusku9691171.jpg"), cats:["anniversary"]},
+  {name:"Pumpkin Glow", price:"124.99", tag:"Thanksgiving", hue:"#e0a86b,#c47b63", img:P("75411600","sku3020043.jpg"), cats:["fall"]},
+  {name:"Medium Dish Garden", price:"119.99", tag:"", hue:"#a9c79a,#7ba36b", img:P("75411600","sku1440095.jpg"), cats:["sympathy"]},
+  {name:"Butterfly Effect", price:"119.99", tag:"", hue:"#f0c869,#d0a02e", img:P("75411600","sku1440158.jpg"), cats:["birthday"]},
+  {name:"Birthday Hoopla", price:"119.99", tag:"", hue:"#ef9ec0,#c46a93", img:P("75411600","sku9891148.jpg"), cats:["birthday"]},
+  {name:"Designer's Choice, Bright & Bold", price:"109.99", tag:"Florist's Pick", hue:"#c4a6cf,#9a7bb0", img:P("75411600","skusku9010055.jpg"), cats:["best","birthday"]},
+  {name:"Pumpkin Daze", price:"99.99", tag:"Seasonal", hue:"#f0b15e,#e08a3f", img:P("75411600","sku10642214.jpg"), cats:["fall","under100"]},
+  {name:"Brighten Your Day", price:"99.99", tag:"", hue:"#f0c869,#e08a3f", img:P("EF-7676","skusku12920221.jpg"), cats:["fall","best","birthday","under100"]},
+  {name:"Peace Lily, Medium", price:"99.99", tag:"", hue:"#a9c79a,#7ba36b", img:"https://assets.eflorist.com/assets/products/PHR_/T105-2A.jpg", cats:["sympathy","under100"]},
+  {name:"Sunfire Celebration", price:"89.95", tag:"Seasonal", hue:"#f0b15e,#c47b63", img:P("75411600","sku13953351.jpg"), cats:["fall","under100"]},
+  {name:"Lemon Lift", price:"89.99", tag:"", hue:"#e3c069,#c79a3f", img:P("75411691","skusku12100627.jpg"), cats:["fall","birthday","under100"]},
+  {name:"Bee Inspired", price:"89.99", tag:"", hue:"#d97f8f,#b05566", img:P("75411600","sku10942063.jpg"), cats:["birthday","under100"]},
+  {name:"Fall Designer's Choice", price:"79.95", tag:"Florist's Pick", hue:"#f0a878,#c47b63", img:P("75411600","skusku15370329.jpg"), cats:["fall","under100"]},
+  {name:"Colorful!", price:"69.99", tag:"Value", hue:"#e87fa6,#e08a3f", img:P("75411600","sku1440107.jpg"), cats:["best","birthday","under100"]}
+];
+const grid = document.getElementById('prodgrid');
+function cardHTML(p){return `
+  <div class="card">
+    <div class="pic" style="background-image:linear-gradient(135deg,${p.hue})">
+      <img class="pimg" src="${p.img}" alt="${p.name} flower arrangement" loading="lazy" onerror="this.remove()">
+      ${p.tag?`<span class="tag">${p.tag}</span>`:''}
+    </div>
+    <div class="body">
+      <div class="pname">${p.name}</div>
+      <div class="price">$${p.price}</div>
+      <div class="add">Add to Cart</div>
+    </div>
+  </div>`;}
+const SITE="https://www.wildflowerflorist.com/";
+const CAT_LABEL = {fall:"Fall Flowers", best:"Best Sellers", birthday:"Birthday Flowers", anniversary:"Anniversary & Love Flowers", sympathy:"Sympathy Flowers", under100:"Flowers Under $100"};
+const CAT_URL = {fall:"fall-flowers/cat2870011", best:"best-sellers/cat2200002", birthday:"birthday/cat2210008", anniversary:"anniversary-romance/cat2210007", sympathy:"sympathy-condolences/cat12030001", under100:"under-100/cat14170026"};
+function renderProducts(filter){
+  const list = products.filter(p => p.cats.includes(filter)).slice(0,8);
+  grid.innerHTML = list.map(cardHTML).join('');
+  const cta=document.getElementById('catCta');
+  if(cta){ cta.innerHTML="Shop All "+(CAT_LABEL[filter]||"Flowers").replace('&','&amp;')+" &nbsp;→"; cta.href=SITE+(CAT_URL[filter]||"everyday-flowers/cat12080117"); }
+}
+function setActive(f){
+  document.querySelectorAll('.chip').forEach(x=>x.classList.toggle('active', x.dataset.filter===f && !x.hidden));
+  renderProducts(f);
+}
+function gotoFilter(f){
+  setActive(f);
+  const ps=document.getElementById('products'); if(ps) ps.scrollIntoView({behavior:'smooth'});
+}
+
+/* ---------- Seasonal feature card (auto-switches by date) ---------- */
+(function(){
+  const SOD = d => new Date(d.getFullYear(),d.getMonth(),d.getDate());
+  const nthWeekday=(y,month,wd,n)=>{const d=new Date(y,month-1,1);let c=0;while(true){if(d.getDay()===wd){c++;if(c===n)return new Date(d);}d.setDate(d.getDate()+1);}};
+  const fmt = d => d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
+  const holidaysFor = y => [
+    {name:"Valentine's Day", date:new Date(y,1,14), lead:18, emoji:"💘", filter:"anniversary", img:P("75411600","sku1920025.jpg"), title:"Valentine's Day Flowers",
+     sub:"Roses and romance, delivered same-day across Spring. Our busiest day of the year, so order early.", cta:"Shop Valentine's", grad:"linear-gradient(105deg,#f7dde1,#f2c6cd)", accent:"#b0455a"},
+    {name:"Mother's Day", date:nthWeekday(y,5,0,2), lead:21, emoji:"🌷", filter:"best", img:P("75411600","sku10201761.jpg"), title:"Mother's Day Flowers",
+     sub:"Make her day with a hand-designed bouquet, delivered right to her door in Spring.", cta:"Shop Mother's Day", grad:"linear-gradient(105deg,#f4e3ec,#eccfe0)", accent:"#a85c8a"},
+    {name:"Thanksgiving", date:nthWeekday(y,11,4,4), lead:21, emoji:"🦃", filter:"fall", chip:"🦃 Thanksgiving & Fall", img:P("75411600","sku13953355.jpg"), title:"Thanksgiving Centerpieces",
+     sub:"Fall centerpieces and harvest arrangements for your table, delivered before the holiday.", cta:"Shop Thanksgiving", grad:"linear-gradient(105deg,#f4e6d2,#eecfae)", accent:"#b5733a"},
+    {name:"Christmas", date:new Date(y,11,25), lead:24, emoji:"🎄", filter:"best", img:P("75411600","skusku9691171.jpg"), title:"Christmas & Holiday Flowers",
+     sub:"Festive arrangements and gifts delivered across Spring all season long.", cta:"Shop Christmas", grad:"linear-gradient(105deg,#e3eee0,#d4e6d2)", accent:"#2f6b4a"}
+  ];
+  const seasonFeature = now => {
+    const m=now.getMonth();
+    if(m>=2&&m<=4) return {emoji:"🌸",filter:"best",img:P("75411600","sku1890025.jpg"),title:"Spring Collection",sub:"Fresh garden blooms to welcome the season, delivered same-day in Spring.",cta:"Shop Spring",grad:"linear-gradient(105deg,#eaf1e4,#f1e7d8)",accent:"#7b9a4a"};
+    if(m>=5&&m<=7) return {emoji:"☀️",filter:"best",img:P("EF-7676","skusku12920221.jpg"),title:"Summer Collection",sub:"Bright, garden-fresh bouquets with bold seasonal color, delivered same-day across Spring.",cta:"Shop Summer Flowers",grad:"linear-gradient(105deg,#fdeccd,#f7dca9)",accent:"#d0892e"};
+    if(m>=8&&m<=10) return {emoji:"🍂",filter:"fall",chip:"🍂 Fall",img:P("75411600","sku10642214.jpg"),title:"Fall Collection",sub:"Warm autumn tones, sunflowers and pumpkin designs, delivered same-day across Spring.",cta:"Shop Fall Flowers",grad:"linear-gradient(105deg,#f4e6d2,#eecfae)",accent:"#b5733a"};
+    return {emoji:"❄️",filter:"best",img:P("EF-7676","skusku11680331.jpg"),title:"Winter Collection",sub:"Cozy seasonal arrangements for the colder months, delivered same-day in Spring.",cta:"Shop Winter",grad:"linear-gradient(105deg,#e6eef0,#dbe7ea)",accent:"#4a7d8a"};
+  };
+  const now = window.DEMO_NOW ? new Date(window.DEMO_NOW) : new Date();
+  const all=[...holidaysFor(now.getFullYear()),...holidaysFor(now.getFullYear()+1)];
+  const next=all.filter(h=>SOD(h.date)>=SOD(now)).sort((a,b)=>a.date-b.date)[0];
+  const days=Math.round((SOD(next.date)-SOD(now))/86400000);
+  let f;
+  if(days<=next.lead){
+    // Shop policy: order at least 3 days before major holidays
+    const dl=new Date(next.date); dl.setDate(dl.getDate()-3);
+    const small = days>3 ? "Order by "+fmt(dl)+" for "+next.name : "Call (281) 370-4285 for holiday availability";
+    f={kicker:next.emoji+" "+next.name+" is "+days+" day"+(days===1?"":"s")+" away", title:next.title, sub:next.sub, cta:next.cta, grad:next.grad, accent:next.accent, img:next.img, filter:next.filter, chip:next.chip,
+       deadline:{big:(days===0?"Today!":days+" day"+(days===1?"":"s")+" left"), small:small}};
+  } else {
+    const s=seasonFeature(now);
+    f={kicker:s.emoji+" In Season Now", title:s.title, sub:s.sub, cta:s.cta, grad:s.grad, accent:s.accent, img:s.img, filter:s.filter, chip:s.chip, deadline:null};
+  }
+  document.getElementById('seasonBody').style.background=f.grad;
+  const si=document.getElementById('seasonImg'); si.src=f.img; si.alt=f.title;
+  document.getElementById('seasonKicker').textContent=f.kicker;
+  document.getElementById('seasonTitle').textContent=f.title;
+  document.getElementById('seasonSub').textContent=f.sub;
+  const cta=document.getElementById('seasonCta'); cta.textContent=f.cta; cta.style.background=f.accent; cta.style.borderColor=f.accent;
+  cta.onclick=function(e){e.preventDefault(); gotoFilter(f.filter);};
+  const d=document.getElementById('seasonDeadline');
+  if(f.deadline){d.hidden=false; d.innerHTML=f.deadline.big+'<small>'+f.deadline.small+'</small>';} else d.hidden=true;
+  // Seasonal chip: shown first only when the season has its own collection; otherwise the matching chip is pre-selected
+  const sc=document.getElementById('seasonChip');
+  if(f.chip){ sc.textContent=f.chip; sc.dataset.filter=f.filter; sc.hidden=false; } else { sc.hidden=true; }
+  setActive(f.filter);
+})();
+
+/* ---------- FAQ accordion ---------- */
+const faqs = [
+  {q:"Do you offer same-day flower delivery in Spring, TX?",
+   a:"Yes. Order by 12:00 noon Monday through Saturday and our local drivers will deliver fresh flowers the same day across Spring and the surrounding communities. Orders after noon deliver the next business day. We don't deliver on Sundays."},
+  {q:"Which areas and neighborhoods do you deliver to?",
+   a:"We deliver across Spring, including Klein, Gleannloch Farms, Auburn Lakes, Champions, Memorial Northwest, Cypresswood and Old Town Spring, plus The Woodlands, Cypress, Tomball, Magnolia, Conroe, Kingwood and greater northwest Houston. We also deliver to area hospitals, churches, schools, funeral homes and Klein ISD campuses."},
+  {q:"How much does local delivery cost?",
+   a:"A local delivery fee of $12.95 to $15.95 is added per address. Deliveries outside our local area are $18.95. You'll see the exact total at checkout before you pay."},
+  {q:"Where is your flower shop located?",
+   a:"Our main shop is at 5115 Louetta Rd, Spring, TX 77379, close to Klein, Gleannloch Farms, Champions and Old Town Spring. Stop in during business hours or order online for delivery or pickup."},
+  {q:"How early should I order for holidays?",
+   a:"For major holidays like Thanksgiving, Christmas, Valentine's Day and Mother's Day, please order at least 3 days ahead to help assure on-time delivery. Our shop is closed on New Year's Day, Thanksgiving Day and Christmas Day."},
+  {q:"Can I request specific flowers, colors, or a custom arrangement?",
+   a:"Absolutely. Add your favorite blooms or colors in the order notes, or call (281) 370-4285 to speak with a designer. If a specific flower or container isn't available, we'll create a beautiful arrangement with the freshest blooms on hand that matches the style and value you chose."}
+];
+const fw = document.getElementById('faqwrap');
+fw.innerHTML = faqs.map((f,i)=>`
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(${i})">${f.q}<span class="pm">+</span></button>
+    <div class="faq-a"><div>${f.a}</div></div>
+  </div>`).join('');
+function toggleFaq(i){
+  document.querySelectorAll('.faq-item')[i].classList.toggle('open');
+}
+
+/* ---------- Same-day cutoff countdown (12:00 PM Central, Mon to Sat) ---------- */
+function centralNow(){
+  const parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',weekday:'short',hour:'numeric',minute:'numeric',second:'numeric',hour12:false}).formatToParts(new Date());
+  const g=t=>(parts.find(p=>p.type===t)||{}).value;
+  return {day:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(g('weekday')), secs:(parseInt(g('hour'),10)%24)*3600+parseInt(g('minute'),10)*60+parseInt(g('second'),10)};
+}
+function updateClock(){
+  const line=document.getElementById('cutoff-line');
+  const sub=document.getElementById('cutoff-sub');
+  const t=centralNow();
+  const left=12*3600-t.secs;
+  if(t.day===0 || (t.day===6 && left<=0)){
+    line.textContent="Order now, delivers Monday"; sub.textContent="Same-day cutoff is 12 noon, Mon to Sat"; return;
+  }
+  if(left>0){
+    const h=Math.floor(left/3600), m=Math.floor((left%3600)/60), s=left%60;
+    line.innerHTML='Order in <span id="clock">'+(h>0?`${h}h ${m}m ${s}s`:`${m}m ${s}s`)+'</span>';
+    sub.textContent="for same-day delivery in Spring today";
+  }else{
+    line.textContent="Order now for next-day delivery"; sub.textContent="Same-day cutoff is 12 noon, Mon to Sat";
+  }
+}
+setInterval(updateClock,1000); updateClock();
+
+/* ---------- Sticky Shop Now visibility ---------- */
+const sticky=document.getElementById('stickyShop');
+window.addEventListener('scroll',()=>{
+  sticky.classList.toggle('show', window.scrollY>900);
+});
+
+/* ---------- Product filter chips ---------- */
+document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',function(){ setActive(this.dataset.filter); }));
+</script>
+</body>
+</html>
