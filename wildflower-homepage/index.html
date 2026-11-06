@@ -325,7 +325,7 @@
     </div>
     <div class="grid" id="prodgrid"></div>
     <div class="shopall">
-      <a href="https://www.wildflowerflorist.com/fall-flowers/cat2870011" class="btn btn-primary" id="catCta">Shop All Fall Flowers &nbsp;→</a>
+      <a href="https://www.wildflowerflorist.com/thanksgiving/cat3410015" class="btn btn-primary" id="catCta">Shop All Thanksgiving Flowers &nbsp;→</a>
       <a href="https://www.wildflowerflorist.com/everyday-flowers/cat12080117" class="btn btn-outline">See All Flowers &nbsp;→</a>
     </div>
   </div>
@@ -480,24 +480,32 @@ const products = [
   {name:"Shimmering Papaya", price:"184.99", tag:"", hue:"#f0a878,#d98a55", img:P("75411600","sku1760089.jpg"), cats:["fall","best"]},
   {name:"Ballet of Blooms", price:"179.99", tag:"", hue:"#f0b07e,#c47b9a", img:P("75411691","skusku13701146.jpg"), cats:["best","anniversary"]},
   {name:"Mabeline", price:"159.99", tag:"", hue:"#f0b8c4,#caa39c", img:P("75411600","sku10201761.jpg"), cats:["best","anniversary"]},
-  {name:"Thankful by Nature", price:"149.95", tag:"Thanksgiving", hue:"#e0a86b,#c47b63", img:P("75411600","sku13953355.jpg"), cats:["fall"]},
+  {name:"Thankful by Nature", price:"149.95", tag:"Thanksgiving", hue:"#e0a86b,#c47b63", img:P("75411600","sku13953355.jpg"), cats:["fall","thanksgiving"]},
   {name:"Blue Beauty", price:"149.99", tag:"", hue:"#8fb0c9,#5d7f9a", img:P("EF-7676","skusku11680331.jpg"), cats:["best","sympathy"]},
   {name:"Crazy for You", price:"149.99", tag:"", hue:"#d97f8f,#b05566", img:P("75411600","sku9891107.jpg"), cats:["anniversary"]},
   {name:"Southern Hospitality", price:"149.99", tag:"", hue:"#8fb0c9,#a9c79a", img:P("75411600","sku1900001.jpg"), cats:["birthday","sympathy"]},
   {name:"Beauty in Blossom", price:"139.99", tag:"", hue:"#f0b07e,#a9c79a", img:P("75411600","sku1890025.jpg"), cats:["best","anniversary"]},
   {name:"Ruby Crown", price:"129.99", tag:"", hue:"#d98a86,#a85c63", img:P("75411600","skusku9691171.jpg"), cats:["anniversary"]},
-  {name:"Pumpkin Glow", price:"124.99", tag:"Thanksgiving", hue:"#e0a86b,#c47b63", img:P("75411600","sku3020043.jpg"), cats:["fall"]},
+  {name:"Pumpkin Glow", price:"124.99", tag:"Thanksgiving", hue:"#e0a86b,#c47b63", img:P("75411600","sku3020043.jpg"), cats:["fall","thanksgiving"]},
   {name:"Medium Dish Garden", price:"119.99", tag:"", hue:"#a9c79a,#7ba36b", img:P("75411600","sku1440095.jpg"), cats:["sympathy"]},
   {name:"Butterfly Effect", price:"119.99", tag:"", hue:"#f0c869,#d0a02e", img:P("75411600","sku1440158.jpg"), cats:["birthday"]},
   {name:"Birthday Hoopla", price:"119.99", tag:"", hue:"#ef9ec0,#c46a93", img:P("75411600","sku9891148.jpg"), cats:["birthday"]},
   {name:"Designer's Choice, Bright & Bold", price:"109.99", tag:"Florist's Pick", hue:"#c4a6cf,#9a7bb0", img:P("75411600","skusku9010055.jpg"), cats:["best","birthday"]},
-  {name:"Pumpkin Daze", price:"99.99", tag:"Seasonal", hue:"#f0b15e,#e08a3f", img:P("75411600","sku10642214.jpg"), cats:["fall","under100"]},
+  {name:"Pumpkin Daze", price:"99.99", tag:"Seasonal", hue:"#f0b15e,#e08a3f", img:P("75411600","sku10642214.jpg"), cats:["fall","thanksgiving","under100"]},
   {name:"Brighten Your Day", price:"99.99", tag:"", hue:"#f0c869,#e08a3f", img:P("EF-7676","skusku12920221.jpg"), cats:["fall","best","birthday","under100"]},
   {name:"Peace Lily, Medium", price:"99.99", tag:"", hue:"#a9c79a,#7ba36b", img:"https://assets.eflorist.com/assets/products/PHR_/T105-2A.jpg", cats:["sympathy","under100"]},
   {name:"Sunfire Celebration", price:"89.95", tag:"Seasonal", hue:"#f0b15e,#c47b63", img:P("75411600","sku13953351.jpg"), cats:["fall","under100"]},
   {name:"Lemon Lift", price:"89.99", tag:"", hue:"#e3c069,#c79a3f", img:P("75411691","skusku12100627.jpg"), cats:["fall","birthday","under100"]},
   {name:"Bee Inspired", price:"89.99", tag:"", hue:"#d97f8f,#b05566", img:P("75411600","sku10942063.jpg"), cats:["birthday","under100"]},
-  {name:"Fall Designer's Choice", price:"79.95", tag:"Florist's Pick", hue:"#f0a878,#c47b63", img:P("75411600","skusku15370329.jpg"), cats:["fall","under100"]},
+  {name:"Fall Designer's Choice", price:"79.95", tag:"Florist's Pick", hue:"#f0a878,#c47b63", img:P("75411600","skusku15370329.jpg"), cats:["fall","thanksgiving","under100"]},
+  {name:"Firelight Feast", price:"159.95", tag:"Thanksgiving", hue:"#e0a86b,#c47b63", img:P("75411600","sku13953361.jpg"), cats:["thanksgiving"]},
+  {name:"Amber Radiance Harvest Bouquet", price:"129.99", tag:"", hue:"#f0a878,#c47b63", img:P("75411600","skusku15381621.jpg"), cats:["thanksgiving","fall"]},
+  {name:"Petal & Plenty", price:"119.95", tag:"", hue:"#f0b15e,#c47b63", img:P("75411600","sku13953370.jpg"), cats:["thanksgiving"]},
+  {name:"Designer's Choice, Centerpiece", price:"109.99", tag:"Florist's Pick", hue:"#f0c869,#d0a02e", img:P("75411600","skusku9541041.jpg"), cats:["thanksgiving"]},
+  {name:"Sunlit Beauty", price:"109.99", tag:"", hue:"#f0c869,#d98a86", img:P("75411600","sku2170083.jpg"), cats:["thanksgiving"]},
+  {name:"Fall Deco Mood", price:"99.99", tag:"", hue:"#d98a86,#a85c63", img:P("75411600","sku9420486.jpg"), cats:["thanksgiving","under100"]},
+  {name:"Sugar Maple", price:"99.99", tag:"", hue:"#f0b07e,#d98a55", img:P("75411691","skusku12100567.jpg"), cats:["thanksgiving","fall"]},
+  {name:"Abundant Cornucopia", price:"89.99", tag:"", hue:"#f0b15e,#e08a3f", img:P("75411691","skusku12100630.jpg"), cats:["thanksgiving","under100"]},
   {name:"Colorful!", price:"69.99", tag:"Value", hue:"#e87fa6,#e08a3f", img:P("75411600","sku1440107.jpg"), cats:["best","birthday","under100"]}
 ];
 const grid = document.getElementById('prodgrid');
@@ -514,10 +522,13 @@ function cardHTML(p){return `
     </div>
   </div>`;}
 const SITE="https://www.wildflowerflorist.com/";
-const CAT_LABEL = {fall:"Fall Flowers", best:"Best Sellers", birthday:"Birthday Flowers", anniversary:"Anniversary & Love Flowers", sympathy:"Sympathy Flowers", under100:"Flowers Under $100"};
-const CAT_URL = {fall:"fall-flowers/cat2870011", best:"best-sellers/cat2200002", birthday:"birthday/cat2210008", anniversary:"anniversary-romance/cat2210007", sympathy:"sympathy-condolences/cat12030001", under100:"under-100/cat14170026"};
+const CAT_LABEL = {thanksgiving:"Thanksgiving Flowers", fall:"Fall Flowers", best:"Best Sellers", birthday:"Birthday Flowers", anniversary:"Anniversary & Love Flowers", sympathy:"Sympathy Flowers", under100:"Flowers Under $100"};
+const CAT_URL = {thanksgiving:"thanksgiving/cat3410015", fall:"fall-flowers/cat2870011", best:"best-sellers/cat2200002", birthday:"birthday/cat2210008", anniversary:"anniversary-romance/cat2210007", sympathy:"sympathy-condolences/cat12030001", under100:"under-100/cat14170026"};
+// Collections shown in the same order as the live category page
+const ORDER = {thanksgiving:["Amber Radiance Harvest Bouquet","Abundant Cornucopia","Fall Deco Mood","Pumpkin Glow","Fall Designer's Choice","Pumpkin Daze","Designer's Choice, Centerpiece","Thankful by Nature"]};
 function renderProducts(filter){
-  const list = products.filter(p => p.cats.includes(filter)).slice(0,8);
+  const list = ORDER[filter] ? ORDER[filter].map(n=>products.find(p=>p.name===n)).filter(Boolean)
+                             : products.filter(p => p.cats.includes(filter)).slice(0,8);
   grid.innerHTML = list.map(cardHTML).join('');
   const cta=document.getElementById('catCta');
   if(cta){ cta.innerHTML="Shop All "+(CAT_LABEL[filter]||"Flowers").replace('&','&amp;')+" &nbsp;→"; cta.href=SITE+(CAT_URL[filter]||"everyday-flowers/cat12080117"); }
@@ -541,8 +552,8 @@ function gotoFilter(f){
      sub:"Roses and romance, delivered same-day across Spring. Our busiest day of the year, so order early.", cta:"Shop All Valentine's", picks:["Room Full of Roses, 3 Dozen","Crazy for You","Love You to the Moon"], grad:"linear-gradient(105deg,#f7dde1,#f2c6cd)", accent:"#b0455a"},
     {name:"Mother's Day", date:nthWeekday(y,5,0,2), lead:21, emoji:"🌷", filter:"best", img:P("75411600","sku10201761.jpg"), title:"Mother's Day Flowers",
      sub:"Make her day with a hand-designed bouquet, delivered right to her door in Spring.", cta:"Shop Mother's Day", grad:"linear-gradient(105deg,#f4e3ec,#eccfe0)", accent:"#a85c8a"},
-    {name:"Thanksgiving", date:nthWeekday(y,11,4,4), lead:21, emoji:"🦃", filter:"fall", chip:"🦃 Thanksgiving & Fall", img:P("75411600","sku13953355.jpg"), title:"Thanksgiving Centerpieces",
-     sub:"Fall centerpieces and harvest arrangements for your table, delivered before the holiday.", cta:"Shop All Thanksgiving & Fall", picks:["Thankful by Nature","Pumpkin Glow","Pumpkin Daze"], grad:"linear-gradient(105deg,#f4e6d2,#eecfae)", accent:"#a4551f"},
+    {name:"Thanksgiving", date:nthWeekday(y,11,4,4), lead:21, emoji:"🦃", filter:"thanksgiving", chip:"🦃 Thanksgiving", img:P("75411600","sku13953355.jpg"), title:"Thanksgiving Centerpieces",
+     sub:"Fall centerpieces and harvest arrangements for your table, delivered before the holiday.", cta:"Shop All Thanksgiving", picks:["Thankful by Nature","Firelight Feast","Pumpkin Glow"], grad:"linear-gradient(105deg,#f4e6d2,#eecfae)", accent:"#a4551f"},
     {name:"Christmas", date:new Date(y,11,25), lead:24, emoji:"🎄", filter:"best", img:P("75411600","skusku9691171.jpg"), title:"Christmas & Holiday Flowers",
      sub:"Festive arrangements and gifts delivered across Spring all season long.", cta:"Shop Christmas", grad:"linear-gradient(105deg,#e3eee0,#d4e6d2)", accent:"#2f6b4a"}
   ];
