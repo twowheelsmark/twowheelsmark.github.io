@@ -1343,7 +1343,7 @@ The flowers were absolutely beautiful, and I truly appreciated the care and atte
 </div>
 <div class="aab-faq">
     <h3>Frequently Asked Questions</h3>
-    <details>
+    <details id="same-day-delivery">
         <summary>Do you offer same-day flower delivery in Kansas City, MO?</summary>
         <p>Yes. All A'Bloom offers same-day flower delivery across Kansas City, Missouri. Order by 1 PM Monday through Friday, or by 11 AM on Saturday, for delivery the same day. The countdown at the top of this page shows how much time is left to order for delivery today, or call (816) 554-0069.</p>
     </details>
@@ -1374,6 +1374,7 @@ The flowers were absolutely beautiful, and I truly appreciated the care and atte
     <p><a class="aab-btn" href="https://www.allabloomflorist.com/">Shop Flowers</a> <a class="aab-btn aab-btn-alt" href="tel:18165540069">Call (816) 554-0069</a></p>
 </div>
 </div>
+<script>(function(){function go(){var d=document.getElementById("same-day-delivery");if(!d)return;var l=document.querySelectorAll("a[href='#city-description']");for(var i=0;i<l.length;i++){l[i].setAttribute("href","#same-day-delivery");l[i].addEventListener("click",function(e){e.preventDefault();d.open=true;d.scrollIntoView({behavior:"smooth",block:"start"});if(history.replaceState)history.replaceState(null,"",location.pathname+location.search+"#same-day-delivery");});}if(location.hash==="#same-day-delivery")d.open=true;}if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",go);}else{go();}})();</script>
 				<hr style='margin-bottom:25px; margin-top:50px'>
 		
 		
