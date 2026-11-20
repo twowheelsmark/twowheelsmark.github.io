@@ -164,7 +164,19 @@
   .promo-foot{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;margin-top:.2rem}
   .promo-foot .btn{margin-top:0}
 
+  /* photo mode: full-bleed seasonal photo with the offer over it */
+  .shelf.has-photo{display:block;align-self:stretch;min-height:400px}
+  .shelf.has-photo .promo-img{position:absolute;inset:0;padding:0}
+  .shelf.has-photo .promo-img img{object-fit:cover;max-height:none;object-position:center 30%}
+  .shelf.has-photo .promo-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(24,18,10,.9) 0%,rgba(24,18,10,.55) 42%,rgba(24,18,10,0) 70%)}
+  .shelf.has-photo .promo-body{position:absolute;left:0;right:0;bottom:0;z-index:1;background:none!important;padding:1.4rem 1.6rem 1.5rem;gap:.5rem}
+  .shelf.has-photo .season-kicker{color:#ffcf9a}
+  .shelf.has-photo h2{color:#fff;font-size:1.9rem}
+  .shelf.has-photo .promo-body p{color:rgba(255,255,255,.92);max-width:30em}
+  .shelf.has-photo .season-deadline{background:rgba(255,255,255,.96);box-shadow:none}
+
   @media(max-width:900px){
+    .shelf.has-photo{min-height:340px}
     .hero-grid{grid-template-columns:1fr;gap:1rem;padding-top:1rem;padding-bottom:1.2rem}
     .hero h1{font-size:1.75rem;margin-bottom:.45rem}
     .hero p.lead{font-size:.9rem;margin-bottom:.8rem;line-height:1.5}
@@ -197,11 +209,14 @@
     .trust-row .ti .ic{width:24px;height:24px}
     .trust-row .ti svg{width:13px;height:13px}
     /* seasonal card becomes a one-line bar */
-    .shelf{display:flex;align-items:center;gap:.65rem;padding:.5rem .7rem .5rem .6rem;border-radius:12px;cursor:pointer;box-shadow:var(--shadow);border:1px solid var(--line);min-height:0}
+    .shelf,.shelf.has-photo{display:flex;align-items:center;gap:.65rem;padding:.5rem .7rem .5rem .6rem;border-radius:12px;cursor:pointer;box-shadow:var(--shadow);border:1px solid var(--line);min-height:0}
     .shelf::before{inset:0 auto 0 0;width:4px;height:auto}
-    .shelf .promo-img{position:relative;flex:none;width:48px;height:48px;padding:0;border-radius:8px;overflow:hidden;margin-left:.2rem}
+    .shelf.has-photo .promo-img::after{display:none}
+    .shelf.has-photo .season-kicker{color:var(--accent,var(--green))}
+    .shelf.has-photo .season-deadline{background:none}
+    .shelf .promo-img,.shelf.has-photo .promo-img{position:relative;inset:auto;flex:none;width:48px;height:48px;padding:0;border-radius:8px;overflow:hidden;margin-left:.2rem}
     .shelf .promo-img img{object-fit:cover}
-    .promo-body{position:static;flex:1;padding:0;gap:.1rem;background:none!important}
+    .promo-body,.shelf.has-photo .promo-body{position:static;flex:1;padding:0;gap:.1rem;background:none!important}
     .promo-foot{margin:0}
     .k-full{display:none}
     .k-short{display:inline}
@@ -611,7 +626,7 @@
     </div>
     <div class="why-grid">
       <div class="why-card">
-        <div class="ph"><img src="why-drivers.webp" alt="Flowerama flower shop in Reynoldsburg, Ohio" loading="lazy" style="object-position:center 60%"></div>
+        <div class="ph"><img src="why-drivers.webp" alt="Flowerama flower shop in Whitehall, Ohio" loading="lazy" style="object-position:center 55%"></div>
         <div class="txt">
         <h3>Our Own Drivers, Door to Door</h3>
         <p>Your gift never leaves our hands until it's delivered. No shared delivery pool, and our driver calls you from the driveway to confirm it arrived.</p>
@@ -632,10 +647,10 @@
         </div>
       </div>
       <div class="why-card">
-        <div class="ph"><img src="why-voted.webp" alt="Columbus Dispatch CBUS Top Picks award for Flowerama" loading="lazy" style="object-position:8% center"></div>
+        <div class="ph"><img src="why-voted.webp" alt="Flowerama's original Reynoldsburg shop, open since 1990" loading="lazy" style="object-position:center 60%"></div>
         <div class="txt">
         <h3>Voted Columbus's #1 Florist</h3>
-        <p>Columbus keeps voting us its favorite florist, including the Columbus Dispatch CBUS Top Picks. A local shop since 1990.</p>
+        <p>Columbus keeps voting us its favorite florist, including the Columbus Dispatch CBUS Top Picks. Our first shop opened in Reynoldsburg in 1990.</p>
         </div>
       </div>
     </div>
@@ -810,7 +825,7 @@ const IMG=n=>{for(const k in COL){const p=COL[k].find(x=>x.n===n); if(p) return 
      sub:"Roses and romance, hand-designed in our Columbus shops and delivered by our own drivers. Our busiest day of the year, so order early.", cta:"Shop Valentine's", accent:"#c12026", grad:"linear-gradient(105deg,#fbe6e6,#f5d0d1)"},
     {name:"Mother's Day", date:nthWeekday(y,5,0,2), lead:21, emoji:"🌷", filter:"best", img:IMG("Hello Beautiful"), title:"Mother's Day Flowers",
      sub:"Make her day with a hand-designed bouquet, delivered to her door anywhere in Greater Columbus.", cta:"Shop Mother's Day", accent:"#a8456f", grad:"linear-gradient(105deg,#f7e6ee,#efd2e0)"},
-    {name:"Thanksgiving", date:nthWeekday(y,11,4,4), lead:21, emoji:"🦃", filter:"fall", chip:"🦃 Thanksgiving", label:"Thanksgiving Flowers", img:SITE+"/media/general/fallblush-1-934x1024.webp", title:"Thanksgiving Flowers & Centerpieces",
+    {name:"Thanksgiving", date:nthWeekday(y,11,4,4), lead:21, emoji:"🦃", filter:"fall", chip:"🦃 Thanksgiving", label:"Thanksgiving Flowers", photo:"hero-fall.webp", photoAlt:"Fall Blush bouquet of orange lilies, roses and alstroemeria on a dining table", img:SITE+"/media/general/fallblush-1-934x1024.webp", title:"Thanksgiving Flowers & Centerpieces",
      sub:"Sunflowers, pumpkins and warm fall tones, arranged by our designers and delivered across Columbus before the holiday.", cta:"Shop Thanksgiving", accent:"#b5541c", grad:"linear-gradient(105deg,#f7ecdc,#efd8ba)"},
     {name:"Christmas", date:new Date(y,11,25), lead:24, emoji:"🎄", filter:"best", img:IMG("Fiery Fascination"), title:"Christmas & Holiday Flowers",
      sub:"Festive arrangements and gifts delivered across Columbus all season long.", cta:"Shop Holiday Flowers", accent:"#255d2e", grad:"linear-gradient(105deg,#e6efe3,#d5e5d1)"}
@@ -819,7 +834,7 @@ const IMG=n=>{for(const k in COL){const p=COL[k].find(x=>x.n===n); if(p) return 
     const m=now.getMonth();
     if(m>=2&&m<=4) return {emoji:"🌸",filter:"best",img:IMG("Hello Beautiful"),title:"Spring Flowers",sub:"Fresh garden blooms to welcome the season, delivered same-day across Columbus.",cta:"Shop Bestsellers",accent:"#4f8a3a",grad:"linear-gradient(105deg,#eef3e4,#f4f1e8)"};
     if(m>=5&&m<=7) return {emoji:"☀️",filter:"best",img:IMG("Lookin Like A Rockstar"),title:"Summer Flowers",sub:"Bright, garden-fresh bouquets with bold seasonal color, delivered same-day across Columbus.",cta:"Shop Bestsellers",accent:"#d0892e",grad:"linear-gradient(105deg,#fdeccd,#f7dca9)"};
-    if(m>=8&&m<=10) return {emoji:"🍂",filter:"fall",chip:"🍂 Fall",img:SITE+"/media/general/fallblush-1-934x1024.webp",title:"Fall Splendor Collection",sub:"Sunflowers, pumpkins and warm fall tones, arranged by our designers this morning and delivered same-day.",cta:"Shop Fall Splendor",accent:"#b5541c",grad:"linear-gradient(105deg,#f7ecdc,#efd8ba)"};
+    if(m>=8&&m<=10) return {emoji:"🍂",filter:"fall",chip:"🍂 Fall",photo:"hero-fall.webp",photoAlt:"Fall Blush bouquet of orange lilies, roses and alstroemeria on a dining table",img:SITE+"/media/general/fallblush-1-934x1024.webp",title:"Fall Splendor Collection",sub:"Sunflowers, pumpkins and warm fall tones, arranged by our designers this morning and delivered same-day.",cta:"Shop Fall Splendor",accent:"#b5541c",grad:"linear-gradient(105deg,#f7ecdc,#efd8ba)"};
     return {emoji:"❄️",filter:"best",img:IMG("Sapphire Skies"),title:"Winter Flowers",sub:"Cozy seasonal arrangements for the colder months, delivered same-day across Columbus.",cta:"Shop Bestsellers",accent:"#3e6f86",grad:"linear-gradient(105deg,#e6eef0,#dbe7ea)"};
   };
   const now=window.DEMO_NOW?new Date(window.DEMO_NOW):new Date();
@@ -829,19 +844,20 @@ const IMG=n=>{for(const k in COL){const p=COL[k].find(x=>x.n===n); if(p) return 
   let f;
   if(days<=next.lead){
     const dd=days+" day"+(days===1?"":"s");
-    f={kicker:next.emoji+" "+next.name+'<span class="k-full"> is '+dd+' away</span><span class="k-short"> in '+dd+'</span>', title:next.title, sub:next.sub, cta:next.cta, accent:next.accent, grad:next.grad, img:next.img, filter:next.filter, chip:next.chip, label:next.label,
+    f={kicker:next.emoji+" "+next.name+'<span class="k-full"> is '+dd+' away</span><span class="k-short"> in '+dd+'</span>', title:next.title, sub:next.sub, cta:next.cta, accent:next.accent, grad:next.grad, img:next.img, filter:next.filter, chip:next.chip, label:next.label, photo:next.photo, photoAlt:next.photoAlt,
        deadline:{big:(days===0?"Today!":dd+" left"), small:(days===0?"Call (614) 256-6646 for availability":'Order early<span class="k-full">, holiday delivery fills up</span>')}};
   } else {
     const s=seasonFeature(now);
-    f={kicker:s.emoji+" In Season Now", title:s.title, sub:s.sub, cta:s.cta, accent:s.accent, grad:s.grad, img:s.img, filter:s.filter, chip:s.chip, deadline:null};
+    f={kicker:s.emoji+" In Season Now", title:s.title, sub:s.sub, cta:s.cta, accent:s.accent, grad:s.grad, img:s.img, filter:s.filter, chip:s.chip, photo:s.photo, photoAlt:s.photoAlt, deadline:null};
   }
   if(f.label) labelOverride[f.filter]=f.label;
   const band=document.getElementById('seasonBand'); band.style.setProperty('--accent', f.accent);
   document.getElementById('seasonKicker').innerHTML=f.kicker;
   document.getElementById('seasonTitle').textContent=f.title;
   document.getElementById('seasonSub').textContent=f.sub;
-  document.getElementById('seasonBody').style.background=f.grad;
-  const si=document.getElementById('seasonImg'); si.src=f.img; si.alt=f.title;
+  const si=document.getElementById('seasonImg');
+  if(f.photo){ band.classList.add('has-photo'); si.src=f.photo; si.alt=f.photoAlt||f.title; }
+  else { document.getElementById('seasonBody').style.background=f.grad; si.src=f.img; si.alt=f.title; }
   band.addEventListener('click',e=>{ if(window.matchMedia('(max-width:720px)').matches){ e.preventDefault(); gotoFilter(f.filter); } });
   const cta=document.getElementById('seasonCta'); cta.innerHTML=f.cta.replace('&','&amp;')+' &nbsp;→'; cta.style.background=f.accent; cta.style.borderColor=f.accent;
   cta.onclick=function(e){e.preventDefault(); gotoFilter(f.filter);};
