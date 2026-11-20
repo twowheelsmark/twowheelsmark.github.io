@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Columbus Florist &amp; Same-Day Flower Delivery | Flowerama</title>
+<meta name="description" content="Flowerama is Columbus's #1 florist with three local shops on Morse Road, in Reynoldsburg and in Whitehall. Hand-designed flowers with same-day delivery by our own drivers, 7 days a week.">
+<meta name="robots" content="noindex, nofollow">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&display=swap');
+  :root{
+    --green:#255d2e;        /* primary: Flowerama green */
+    --green-dark:#1a4522;
+    --green-soft:#4f8a3a;
+    --leaf:#95b73e;         /* Flowerama leaf green */
+    --red:#c12026;          /* Flowerama red: buttons, eyebrows, prices */
+    --red-dark:#9e161c;
+    --cream:#f4f1e8;        /* Flowerama cream bg */
+    --cream-2:#ebe6d6;
+    --leaf-tint:#eef3e4;
+    --ink:#25282a;
+    --muted:#62676a;
+    --line:#e6e1d4;
+    --white:#fffefb;
+    --radius:14px;
+    --shadow:0 6px 24px rgba(37,60,40,.10);
+    --shadow-lg:0 18px 50px rgba(37,60,40,.16);
+    --sans:"Open Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:80px}
+  body{font-family:var(--sans);color:var(--ink);background:var(--white);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:var(--sans);font-weight:800;line-height:1.15;color:var(--green);letter-spacing:-.01em}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+  .eyebrow{font-family:var(--sans);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--red)}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--sans);font-weight:700;font-size:.92rem;padding:.85rem 1.7rem;border-radius:999px;border:1.5px solid transparent;cursor:pointer;transition:.18s;white-space:nowrap;letter-spacing:.01em}
+  .btn-primary{background:var(--red);color:#fff}
+  .btn-primary:hover{background:var(--red-dark);transform:translateY(-1px)}
+  .btn-green{background:var(--green);color:#fff}
+  .btn-green:hover{background:var(--green-dark);transform:translateY(-1px)}
+  .btn-outline{background:transparent;border-color:var(--green);color:var(--green)}
+  .btn-outline:hover{background:var(--green);color:#fff}
+  .btn-light{background:#fff;color:var(--green)}
+  .btn-light:hover{background:var(--cream)}
+
+  /* ---------- Announcement / utility bar ---------- */
+  .topbar{background:var(--green);color:#dfe9dc;font-size:.82rem;text-align:center;padding:.5rem 1rem;font-weight:500;letter-spacing:.01em}
+  .topbar strong{color:#fff}
+
+  /* ---------- Header + full menu ---------- */
+  header{position:-webkit-sticky;position:sticky;top:0;top:env(safe-area-inset-top,0px);z-index:60;background:#fff;border-bottom:1px solid var(--line);-webkit-transform:translateZ(0);transform:translateZ(0)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding-top:.5rem;padding-bottom:.5rem;gap:1rem}
+  .brand{display:block;line-height:0;flex:none}
+  .brand img{height:30px;width:auto}
+  .menu ul{display:flex;align-items:center;gap:1.05rem;list-style:none}
+  .menu>ul>li{position:relative}
+  .menu>ul>li>a{display:flex;align-items:center;gap:.3rem;font-size:.86rem;font-weight:600;color:var(--ink);padding:1.3rem 0;white-space:nowrap;transition:.15s}
+  .menu>ul>li>a:hover,.menu>ul>li:focus-within>a{color:var(--green)}
+  .caret{width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);display:inline-block}
+  .dd{position:absolute;top:100%;left:-1.1rem;display:flex;gap:2.2rem;background:#fff;border:1px solid var(--line);border-top:3px solid var(--green);border-radius:0 0 12px 12px;box-shadow:var(--shadow-lg);padding:1.1rem 1.3rem 1.2rem;opacity:0;visibility:hidden;transform:translateY(6px);transition:.16s;z-index:70}
+  .has-dd:hover .dd,.has-dd:focus-within .dd{opacity:1;visibility:visible;transform:none}
+  .mega .dd{left:50%;transform:translate(-50%,6px)}
+  .mega:hover .dd,.mega:focus-within .dd{transform:translate(-50%,0)}
+  .dd.right{left:auto;right:-1.1rem}
+  .k-short{display:none}
+  .dd h4{white-space:nowrap;font-family:var(--sans);font-size:.66rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:.45rem}
+  .dd a{display:block;padding:.28rem 0;font-size:.88rem;color:var(--ink);white-space:nowrap}
+  .dd a:hover{color:var(--green)}
+  .dd a.all{color:var(--green);font-weight:700}
+  .nav-right{display:flex;align-items:center;gap:.6rem;flex:none}
+  .phone{font-weight:700;color:var(--green);font-size:.95rem;white-space:nowrap;line-height:1.25;margin-right:.2rem}
+  .phone span{font-weight:400;color:var(--muted);font-size:.72rem;display:block;letter-spacing:.02em}
+  .icon-btn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:0;background:none;color:var(--green);cursor:pointer;flex:none;transition:.15s}
+  .icon-btn:hover{background:var(--cream)}
+  .icon-btn svg{width:21px;height:21px}
+  .call-btn{display:none;align-items:center;gap:.35rem;border:1.5px solid var(--green);color:var(--green);border-radius:999px;font-weight:700;font-size:.82rem;padding:.5rem .75rem;white-space:nowrap}
+  .call-btn svg{width:15px;height:15px}
+  .shop-btn{display:none}
+  .burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:9px;margin-left:-9px;border:0;background:none;cursor:pointer;flex:none}
+  .burger span{display:block;height:2px;border-radius:2px;background:var(--green);transition:.2s}
+  .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  /* search row */
+  .searchbar{border-top:1px solid var(--line);background:#fff;padding:.7rem 0}
+  .searchbar[hidden]{display:none}
+  .sform{display:flex;gap:.5rem;max-width:640px;margin:0 auto}
+  .sform input{flex:1;min-width:0;font:inherit;font-size:.95rem;padding:.7rem 1rem;border:1.5px solid var(--line);border-radius:999px;outline:none}
+  .sform input:focus{border-color:var(--green)}
+  .sform button{padding:.7rem 1.3rem}
+  /* mobile / tablet menu panel */
+  .mnav{border-top:1px solid var(--line);background:#fff;max-height:calc(100vh - 110px);overflow-y:auto;padding:.8rem 22px 1.3rem}
+  .mnav[hidden]{display:none}
+  .mnav .sform{margin-bottom:.4rem}
+  .mnav>a:not(.m-call),.mnav summary{display:flex;justify-content:space-between;align-items:center;padding:.85rem 0;border-bottom:1px solid var(--line);font-weight:600;font-size:.98rem;color:var(--ink);cursor:pointer;list-style:none}
+  .mnav summary::-webkit-details-marker{display:none}
+  .mnav summary .caret{transition:.2s}
+  .mnav details[open] summary .caret{transform:rotate(225deg) translateY(-2px)}
+  .m-sub{padding:.35rem 0 .7rem .9rem;border-bottom:1px solid var(--line)}
+  .m-sub h4{font-family:var(--sans);font-size:.64rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin:.55rem 0 .15rem}
+  .m-sub a{display:block;padding:.45rem 0;font-size:.93rem;color:var(--ink)}
+  .mnav .m-call{display:flex;justify-content:center;align-items:center;margin-top:1rem;width:100%;color:#fff;border-bottom:0;padding:.95rem 1rem;font-size:1rem}
+  .mnav .m-call:hover{color:#fff}
+  .m-hours{text-align:center;font-size:.78rem;color:var(--muted);margin-top:.5rem}
+  @media(max-width:1180px){
+    .menu{display:none}
+    .burger{display:flex}
+    .nav{gap:.5rem}
+    .brand{margin-right:auto}
+    .shop-btn{display:inline-flex}
+    .search-toggle{display:none}
+  }
+  @media(max-width:720px){
+    .phone{display:none}
+    .call-btn{display:inline-flex}
+    .nav-right{gap:.35rem}
+    .nav-right .shop-btn{padding:.55rem .85rem;font-size:.8rem}
+  }
+
+  /* ---------- Hero: copy + live cutoff on the left, seasonal feature on the right ---------- */
+  .hero{background:linear-gradient(110deg,var(--cream) 0 50%,var(--leaf-tint) 100%);border-bottom:1px solid var(--line)}
+  .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.6rem;align-items:center;padding-top:1.9rem;padding-bottom:2rem}
+  .hero-copy .eyebrow{display:inline-block;margin-bottom:.6rem}
+  .hero h1{font-size:2.45rem;margin-bottom:.7rem}
+  .hero h1 em{font-style:italic;color:var(--red)}
+  .hero p.lead{font-size:1rem;color:#4e5457;max-width:33em;margin-bottom:1.1rem}
+
+  /* same-day cutoff (scarcity) */
+  .cutoff{display:flex;align-items:center;gap:1rem;background:#fff;border:1px solid var(--line);border-left:4px solid var(--green);border-radius:12px;padding:.8rem 1rem;box-shadow:var(--shadow);max-width:34rem}
+  .cutoff[hidden]{display:none}
+  .cutoff .ctxt{flex:1;min-width:0}
+  .cutoff .label{display:flex;align-items:center;gap:.45rem;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--green)}
+  .cutoff .dot{width:8px;height:8px;border-radius:50%;background:#3fae5a;box-shadow:0 0 0 4px rgba(63,174,90,.18);flex:none;animation:pulse 1.6s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  .cutoff #cutoff-line{display:block;font-weight:700;color:var(--ink);font-size:.98rem;margin-top:.15rem}
+  .cutoff #cutoff-sub{display:block;font-size:.8rem;color:var(--muted);line-height:1.35}
+  .timer{display:flex;gap:.35rem;flex:none}
+  .timer[hidden]{display:none}
+  .timer .u{background:var(--green);color:#fff;border-radius:8px;min-width:50px;text-align:center;padding:.35rem .3rem .3rem;line-height:1}
+  .timer .u b{display:block;font-size:1.35rem;font-variant-numeric:tabular-nums;font-weight:700}
+  .timer .u small{display:block;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;opacity:.8;margin-top:3px}
+
+  /* credibility indicators */
+  .trust-row{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:1.3rem;margin-top:1rem}
+  .trust-row .ti{display:flex;align-items:center;gap:.45rem;font-size:.82rem;font-weight:600;color:var(--ink);line-height:1.25}
+  .trust-row .ti .ic{width:30px;height:30px;border-radius:50%;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex:none}
+  .trust-row .ti svg{width:16px;height:16px;color:var(--green)}
+
+  /* seasonal feature: one large image + the current offer */
+  .shelf{display:grid;grid-template-columns:46% 1fr;background:#fff;border-radius:18px;box-shadow:var(--shadow-lg);overflow:hidden;position:relative;min-height:330px}
+  .shelf::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:var(--accent,var(--green));z-index:2}
+  .promo-img{background:#fff;display:flex;align-items:center;justify-content:center;padding:1rem .6rem .6rem}
+  .promo-img img{width:100%;height:100%;max-height:330px;object-fit:contain}
+  .promo-body{display:flex;flex-direction:column;justify-content:center;gap:.55rem;padding:1.5rem 1.5rem 1.4rem}
+  .shelf-head{display:flex;flex-direction:column;gap:.15rem}
+  .season-kicker{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--accent,var(--green))}
+  .shelf h2{font-size:1.65rem;color:var(--ink);line-height:1.12}
+  .promo-body p{font-size:.9rem;color:#4e5457;line-height:1.5}
+  .season-deadline{align-self:flex-start;background:#fff;border-radius:10px;padding:.45rem .75rem;font-weight:700;color:var(--green);font-size:.88rem;line-height:1.15;box-shadow:var(--shadow)}
+  .season-deadline small{display:block;font-weight:500;color:var(--muted);font-size:.7rem;margin-top:2px}
+  .promo-body .btn{align-self:flex-start;margin-top:.3rem;color:#fff;padding:.75rem 1.4rem;font-size:.9rem}
+  .promo-foot{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;margin-top:.2rem}
+  .promo-foot .btn{margin-top:0}
+
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:1rem;padding-top:1rem;padding-bottom:1.2rem}
+    .hero h1{font-size:1.75rem;margin-bottom:.45rem}
+    .hero p.lead{font-size:.9rem;margin-bottom:.8rem;line-height:1.5}
+    .hero-copy .eyebrow{font-size:.64rem;margin-bottom:.35rem}
+    .cutoff{padding:.6rem .75rem;gap:.6rem}
+    .cutoff .label{font-size:.6rem;letter-spacing:.1em}
+    .cutoff #cutoff-line{font-size:.86rem}
+    .cutoff #cutoff-sub{font-size:.72rem}
+    .timer .u{min-width:40px;padding:.3rem .2rem .25rem}
+    .timer .u b{font-size:1.05rem}
+    .timer .u small{font-size:.5rem}
+    .trust-row{grid-template-columns:repeat(3,1fr);gap:.5rem;margin-top:.75rem}
+    .trust-row .ti{flex-direction:column;text-align:center;font-size:.68rem;gap:.3rem}
+    .shelf{min-height:0;grid-template-columns:40% 1fr}
+    .shelf h2{font-size:1.3rem}
+    .promo-body{padding:1.1rem 1rem}
+  }
+
+  @media(max-width:720px){
+    .hero-grid{gap:.65rem;padding-top:.85rem;padding-bottom:.9rem}
+    .hero-copy{text-align:center}
+    .hero p.lead{margin-left:auto;margin-right:auto}
+    .cutoff{text-align:left;margin-left:auto;margin-right:auto}
+    .trust-row{justify-items:center}
+    .hero h1{font-size:1.55rem}
+    .hero p.lead{font-size:.86rem;margin-bottom:.65rem}
+    .cutoff{padding:.5rem .7rem}
+    .trust-row{margin-top:.6rem}
+    .trust-row .ti{font-size:.64rem;gap:.2rem}
+    .trust-row .ti .ic{width:24px;height:24px}
+    .trust-row .ti svg{width:13px;height:13px}
+    /* seasonal card becomes a one-line bar */
+    .shelf{display:flex;align-items:center;gap:.65rem;padding:.5rem .7rem .5rem .6rem;border-radius:12px;cursor:pointer;box-shadow:var(--shadow);border:1px solid var(--line);min-height:0}
+    .shelf::before{inset:0 auto 0 0;width:4px;height:auto}
+    .shelf .promo-img{position:relative;flex:none;width:48px;height:48px;padding:0;border-radius:8px;overflow:hidden;margin-left:.2rem}
+    .shelf .promo-img img{object-fit:cover}
+    .promo-body{position:static;flex:1;padding:0;gap:.1rem;background:none!important}
+    .promo-foot{margin:0}
+    .k-full{display:none}
+    .k-short{display:inline}
+    .shelf h2,.promo-body p,.promo-body .btn,.season-deadline .dl-big{display:none}
+    .season-deadline{background:none;padding:0;font-size:.74rem;box-shadow:none}
+    .season-deadline small{font-size:.74rem;color:var(--ink);font-weight:600}
+    .shelf::after{content:"Shop \2192";flex:none;font-weight:700;font-size:.8rem;color:#fff;background:var(--accent,var(--green));border-radius:999px;padding:.42rem .8rem}
+  }
+
+  /* ---------- Section scaffolding ---------- */
+  section{padding:4rem 0}
+  .sec-head{text-align:center;max-width:40rem;margin:0 auto 2.4rem}
+  .sec-head h2{font-size:2.1rem;margin:.25rem 0 .5rem}
+  .sec-head p{color:var(--muted)}
+
+  /* ---------- Products (directly under the hero) ---------- */
+  #products{padding:2.4rem 0 3.6rem}
+  #products .sec-head{margin-bottom:1.3rem}
+  #products .sec-head h2{margin:.2rem 0 0}
+  .filters{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.6rem}
+  .chip{font-size:.82rem;font-weight:600;padding:.45rem 1.05rem;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--muted);cursor:pointer;transition:.15s;white-space:nowrap;flex:none}
+  .chip.active,.chip:hover{background:var(--green);color:#fff;border-color:var(--green)}
+  .chip[hidden]{display:none}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem 1.4rem}
+  @media(max-width:980px){.grid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:720px){
+    .grid{grid-template-columns:repeat(2,1fr);gap:1rem}
+    #products{padding:1.1rem 0 2.8rem}
+    #products .sec-head{margin-bottom:.7rem}
+    #products .sec-head h2{font-size:1.45rem}
+    .filters{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;margin-bottom:1rem}
+    .chip{font-size:.74rem;padding:.48rem .3rem;text-align:center}
+    .ch-long{display:none}
+    #products .sec-head .eyebrow{display:none}
+  }
+  /* product tiles: image + centered name and price, whole tile links to the product */
+  .card{display:flex;flex-direction:column;text-align:center;color:inherit}
+  .card .pic{aspect-ratio:4/5;position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:var(--radius);transition:box-shadow .2s}
+  .card .pic .pimg{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:.9rem;transition:transform .35s}
+  .card:hover .pic{box-shadow:var(--shadow)}
+  .card:hover .pic .pimg{transform:scale(1.04)}
+  .card .tag{position:absolute;top:.65rem;left:.65rem;background:rgba(255,255,255,.95);color:var(--red);font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.28rem .6rem;border-radius:999px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+  .card .body{padding:.75rem .4rem 0;display:flex;flex-direction:column;align-items:center;gap:.2rem}
+  .card .pname{font-size:1rem;font-weight:700;color:var(--ink);line-height:1.25}
+  .card:hover .pname{color:var(--green)}
+  .card .price{font-weight:700;color:var(--red);font-size:.95rem}
+  .card .price small{font-weight:600;color:var(--muted);font-size:.78rem;margin-right:.2rem}
+  @media(max-width:720px){.card .pname{font-size:.9rem}.card .price{font-size:.88rem}.card .body{padding-top:.55rem}.card .pic .pimg{padding:.5rem}}
+  .shopall{display:flex;flex-direction:column;align-items:center;gap:.7rem;margin-top:2.2rem}
+
+  /* ---------- Reasons / Why us ---------- */
+  .why{background:var(--cream)}
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem}
+  @media(max-width:860px){.why-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:480px){.why-grid{grid-template-columns:1fr}}
+  .why-card{background:#fff;border-radius:var(--radius);padding:1.6rem 1.3rem;text-align:center;border:1px solid var(--line)}
+  .why-card .ic{width:46px;height:46px;margin:0 auto .9rem;border-radius:50%;background:var(--leaf-tint);display:flex;align-items:center;justify-content:center}
+  .why-card .ic svg{width:24px;height:24px;color:var(--green)}
+  .why-card h3{font-size:1.1rem;margin-bottom:.4rem}
+  .why-card p{font-size:.88rem;color:var(--muted);line-height:1.55}
+
+  /* ---------- Areas we serve ---------- */
+  .areas-grid{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:1.3rem;margin-bottom:1.6rem}
+  @media(max-width:860px){.areas-grid{grid-template-columns:1fr}}
+  .area-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1.5rem 1.4rem}
+  .area-card h3{font-size:1.1rem;display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem}
+  .area-card h3 svg{width:20px;height:20px;color:var(--red)}
+  .area-card .note{font-size:.82rem;color:var(--muted);margin-bottom:.9rem}
+  .pills{display:flex;flex-wrap:wrap;gap:.4rem}
+  .pill{font-size:.78rem;background:var(--cream);color:var(--green);font-weight:600;padding:.32rem .7rem;border-radius:999px;transition:.15s}
+  a.pill:hover{background:var(--green);color:#fff}
+  .area-list{list-style:none;font-size:.88rem;color:var(--ink)}
+  .area-list li{padding:.4rem 0;border-bottom:1px dashed var(--line);display:flex;align-items:center;gap:.5rem}
+  .area-list li:last-child{border-bottom:0}
+  .area-list li svg{width:15px;height:15px;color:var(--green-soft);flex:none}
+  .area-list a:hover{color:var(--green)}
+  .areas-more{text-align:center}
+
+  /* ---------- FAQ ---------- */
+  .faq{background:var(--cream)}
+  .faq-wrap{max-width:760px;margin:0 auto}
+  .faq-item{background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:.75rem;overflow:hidden}
+  .faq-q{width:100%;text-align:left;background:none;border:0;cursor:pointer;font-family:var(--sans);font-size:1rem;font-weight:700;color:var(--green);padding:1.15rem 1.3rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+  .faq-q .pm{font-size:1.4rem;color:var(--red);transition:.2s;flex:none;line-height:1}
+  .faq-item.open .faq-q .pm{transform:rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .28s ease;color:var(--muted);font-size:.92rem}
+  .faq-a div{padding:0 1.3rem 1.2rem}
+  .faq-item.open .faq-a{max-height:320px}
+  .faq-more{text-align:center;margin-top:1.4rem;font-size:.9rem;color:var(--muted)}
+  .faq-more a{color:var(--green);font-weight:700}
+
+  /* ---------- Final CTA band ---------- */
+  .cta-band{background:linear-gradient(105deg,var(--green),var(--green-dark));color:#dfe9dc;text-align:center;border-radius:0}
+  .cta-band h2{color:#fff;font-size:2.3rem;margin-bottom:.6rem}
+  .cta-band p{opacity:.92;max-width:36rem;margin:0 auto 1.6rem}
+  .cta-band .btns{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+  .cta-band .btn{font-size:1rem;padding:1rem 2.2rem}
+  .cta-band .btn-ghost{border-color:rgba(255,255,255,.6);color:#fff}
+  .cta-band .btn-ghost:hover{background:rgba(255,255,255,.12)}
+
+  /* ---------- Footer ---------- */
+  footer{background:#163a1c;color:#cfdccd;font-size:.86rem;padding:3rem 0 2rem}
+  .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.1fr;gap:1.8rem;margin-bottom:2rem}
+  @media(max-width:860px){.foot-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:480px){.foot-grid{grid-template-columns:1fr}}
+  footer h4{color:#fff;font-family:var(--sans);font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.9rem}
+  footer a{display:block;padding:.22rem 0;color:#cfdccd;transition:.15s}
+  footer a:hover{color:#fff}
+  .foot-brand img{height:30px;width:auto}
+  .foot-brand p{margin-top:.9rem;line-height:1.6}
+  .foot-brand .big{display:inline;color:#fff;font-weight:700;font-size:1.05rem}
+  .shop-loc{margin-bottom:.85rem;line-height:1.5}
+  .shop-loc b{color:#fff;font-weight:600;display:block}
+  .shop-loc a{display:inline;padding:0}
+  .foot-bottom{border-top:1px solid #2c5533;padding-top:1.3rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;font-size:.78rem;color:#9fb59d}
+  .foot-bottom nav{display:flex;gap:1.1rem;flex-wrap:wrap}
+  .foot-bottom nav a{display:inline;padding:0;color:#b8cab6}
+  @media(max-width:720px){.foot-bottom{flex-direction:column;text-align:center}.foot-bottom nav{justify-content:center}}
+
+  /* ---------- Sticky Shop Now ---------- */
+  .sticky-shop{position:fixed;right:20px;bottom:22px;z-index:80;box-shadow:var(--shadow-lg);border-radius:999px;opacity:0;visibility:hidden;transform:translateY(14px);transition:.25s}
+  .sticky-shop.show{opacity:1;visibility:visible;transform:none}
+  .sticky-shop .btn{font-size:1rem;padding:.95rem 1.7rem}
+  @media(max-width:520px){
+    .sticky-shop{right:14px;bottom:14px}
+    .topbar{font-size:.74rem;padding:.42rem .7rem}
+    .season-kicker{font-size:.6rem;letter-spacing:.1em}
+    .nav{padding-top:.45rem;padding-bottom:.45rem}
+    .brand img{height:22px}
+    .tb-long{display:none}
+    .nav-right .shop-btn{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- Utility bar -->
+<div class="topbar">🚚 <strong>Same-day delivery</strong> across Columbus<span class="tb-long">, order by <strong>2 PM</strong> Mon–Fri, <strong>12 PM</strong> Sat, <strong>10 AM</strong> Sun</span> &nbsp;·&nbsp; Call <strong>(614) 256-6646</strong></div>
+
+<!-- Header -->
+<header>
+  <div class="wrap nav">
+    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span></span></button>
+    <a class="brand" href="https://woocommerce-1618081-6788462.cloudwaysapps.com/" aria-label="Flowerama Columbus home"><img src="logo.png" alt="Flowerama Columbus" width="1024" height="147"></a>
+    <nav class="menu" aria-label="Main">
+      <ul>
+        <li><a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/bestsellers/">Bestsellers</a></li>
+        <li class="has-dd mega"><a href="#products">Occasions, Flowers &amp; More <i class="caret"></i></a>
+          <div class="dd">
+            <div><h4>Occasions</h4>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/birthday/">Birthday</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/love-and-romance/">Love &amp; Romance</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/get-well/">Get Well</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/new-born/">New Baby</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/just-for-mom/">Just for Mom</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/for-him/">For Him</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/graduation/">Graduation</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/ohio-state/">Ohio State</a>
+            </div>
+            <div><h4>Flowers &amp; Plants</h4>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/bestsellers/">Bestsellers</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/roses/">Roses</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/sunflowers/">Sunflowers</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/plant-collection/">Plant Collection</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/indoor-flowering-plants/">Indoor Flowering Plants</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/green-plants/">Green Plants</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/corsages-and-boutonnieres/">Corsages &amp; Boutonnieres</a>
+            </div>
+            <div><h4>Gifts</h4>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/special-touches/">Special Touches</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/balloons/">Balloons</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/plush/">Plush</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/cheryls-cookies/">Cheryl’s Cookies</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/sweets-and-food/">Sweets &amp; Food</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/candles/">Candles</a>
+            </div>
+            <div><h4>Upcoming Occasions</h4>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/fall-splendor/">Thanksgiving</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/fall-splendor/">Fall Splendor Collection</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/sunflowers/">Sunflowers</a>
+            </div>
+          </div>
+        </li>
+        <li class="has-dd"><a href="#areas">Local Delivery <i class="caret"></i></a>
+          <div class="dd" style="display:grid;grid-template-columns:auto auto;column-gap:2rem">
+            <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/columbus-oh-florists/">Columbus</a>
+            <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/bexley-oh-florists/">Bexley</a>
+            <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/dublin-oh-florists/">Dublin</a>
+            <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/gahanna-oh-florists/">Gahanna</a>
+            <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/grove-city-oh-florists/">Grove City</a>
+            <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/hilliard-oh-florists/">Hilliard</a>
+            <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/new-albany-oh-florists/">New Albany</a>
+            <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/reynoldsburg-oh-florists/">Reynoldsburg</a>
+            <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/upper-arlington-oh-florists/">Upper Arlington</a>
+            <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/westerville-oh-florists/">Westerville</a>
+            <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/whitehall-oh-florists/">Whitehall</a>
+            <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/worthington-oh-florists/">Worthington</a>
+            <a class="all" href="https://woocommerce-1618081-6788462.cloudwaysapps.com/delivery-areas/" style="grid-column:1/-1;margin-top:.3rem">All delivery areas →</a>
+          </div>
+        </li>
+        <li class="has-dd"><a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/sympathy/">Sympathy <i class="caret"></i></a>
+          <div class="dd">
+            <div>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/sympathy/">Sympathy Collection</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/sympathy-flowers-for-service/">Flowers for the Service</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/sympathy-flowers-for-home/">Flowers for the Home</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/sympathy-floral-standing-sprays/">Standing Sprays</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/sympathy-floral-standing-wreaths/">Standing Wreaths</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/sympathy-casket-sprays/">Casket Sprays</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/sympathy-planters/">Sympathy Planters</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/sympathy-keepsakes/">Keepsakes</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="https://www.botanicawedding.com">Wedding &amp; Events</a></li>
+        <li class="has-dd"><a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/about/about-us/">About <i class="caret"></i></a>
+          <div class="dd right">
+            <div>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/about/about-us/">About Us</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/about/voted-best-florist-in-columbus/">Voted Best Florist in Columbus</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/locations/">Our Three Shops</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/same-day-flower-delivery/">Same-Day Delivery</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/about/rewards/">Flower Power Rewards</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/about/coupons/">Coupons &amp; Deals</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/about/faqs/">FAQ</a>
+              <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/about/contact-us/">Contact Us</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <a class="phone" href="tel:6142566646">(614) 256-6646<span>Open 7 days a week</span></a>
+      <a class="call-btn" href="tel:6142566646" aria-label="Call (614) 256-6646"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg> Call</a>
+      <button class="icon-btn search-toggle" id="searchToggle" type="button" aria-label="Search" aria-expanded="false" aria-controls="searchbar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>
+      <a class="icon-btn" href="https://woocommerce-1618081-6788462.cloudwaysapps.com/cart/" aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h9.3a1 1 0 0 0 1-.8L20.5 8H6.2"/><circle cx="9.5" cy="20" r="1.3"/><circle cx="17.5" cy="20" r="1.3"/></svg></a>
+      <a href="#products" class="btn btn-primary shop-btn">Shop Now</a>
+    </div>
+  </div>
+  <!-- Desktop search row -->
+  <div class="searchbar" id="searchbar" hidden>
+    <div class="wrap">
+      <form class="sform" action="https://woocommerce-1618081-6788462.cloudwaysapps.com/" method="get" role="search">
+        <input type="search" name="s" placeholder="Search flowers, plants and gifts" aria-label="Search products">
+        <input type="hidden" name="post_type" value="product">
+        <button class="btn btn-green" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  <!-- Mobile / tablet menu -->
+  <nav class="mnav" id="mnav" aria-label="Mobile" hidden>
+    <form class="sform" action="https://woocommerce-1618081-6788462.cloudwaysapps.com/" method="get" role="search">
+      <input type="search" name="s" placeholder="Search flowers, plants and gifts" aria-label="Search products">
+      <input type="hidden" name="post_type" value="product">
+      <button class="btn btn-green" type="submit">Go</button>
+    </form>
+    <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/bestsellers/">Bestsellers</a>
+    <details>
+      <summary>Occasions, Flowers &amp; More <i class="caret"></i></summary>
+      <div class="m-sub">
+        <h4>Upcoming Occasions</h4>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/fall-splendor/">Thanksgiving</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/fall-splendor/">Fall Splendor Collection</a>
+        <h4>Occasions</h4>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/birthday/">Birthday</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/love-and-romance/">Love &amp; Romance</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/get-well/">Get Well</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/new-born/">New Baby</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/just-for-mom/">Just for Mom</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/for-him/">For Him</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/graduation/">Graduation</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/ohio-state/">Ohio State</a>
+        <h4>Flowers &amp; Plants</h4>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/roses/">Roses</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/sunflowers/">Sunflowers</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/plant-collection/">Plants</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/corsages-and-boutonnieres/">Corsages &amp; Boutonnieres</a>
+        <h4>Gifts</h4>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/special-touches/">Special Touches</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/balloons/">Balloons</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/cheryls-cookies/">Cheryl’s Cookies</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/sweets-and-food/">Sweets &amp; Food</a>
+      </div>
+    </details>
+    <details>
+      <summary>Local Delivery <i class="caret"></i></summary>
+      <div class="m-sub">
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/columbus-oh-florists/">Columbus</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/dublin-oh-florists/">Dublin</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/gahanna-oh-florists/">Gahanna</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/hilliard-oh-florists/">Hilliard</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/reynoldsburg-oh-florists/">Reynoldsburg</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/upper-arlington-oh-florists/">Upper Arlington</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/westerville-oh-florists/">Westerville</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/whitehall-oh-florists/">Whitehall</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/worthington-oh-florists/">Worthington</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/delivery-areas/">All delivery areas →</a>
+      </div>
+    </details>
+    <details>
+      <summary>Sympathy <i class="caret"></i></summary>
+      <div class="m-sub">
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/sympathy/">Sympathy Collection</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/sympathy-flowers-for-service/">Flowers for the Service</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/sympathy-flowers-for-home/">Flowers for the Home</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/sympathy-floral-standing-sprays/">Standing Sprays</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/sympathy-casket-sprays/">Casket Sprays</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/sympathy-planters/">Sympathy Planters</a>
+      </div>
+    </details>
+    <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/same-day-flower-delivery/">Same-Day Delivery</a>
+    <a href="https://www.botanicawedding.com">Wedding &amp; Events</a>
+    <details>
+      <summary>About <i class="caret"></i></summary>
+      <div class="m-sub">
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/about/about-us/">About Us</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/locations/">Our Three Shops</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/about/rewards/">Flower Power Rewards</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/about/faqs/">FAQ</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/about/contact-us/">Contact Us</a>
+      </div>
+    </details>
+    <a class="btn btn-primary m-call" href="tel:6142566646">📞 Call (614) 256-6646</a>
+    <p class="m-hours">Open 7 days · Mon–Sat 8 AM–7 PM · Sun 9 AM–5 PM</p>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero" style="padding:0">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Columbus's Hometown Florist Since 1990</span>
+      <h1>#1 Florist in Columbus for <em>Same-Day</em> Flower Delivery</h1>
+      <p class="lead">Hand-designed in our Morse Road, Reynoldsburg and Whitehall shops and delivered by our own drivers to homes, offices, hospitals and funeral homes across Greater Columbus, 7 days a week.</p>
+
+      <!-- Same-day cutoff countdown (runs on Eastern Time: 2 PM Mon-Fri, 12 PM Sat, 10 AM Sun) -->
+      <div class="cutoff" id="cutoffBox" aria-live="polite">
+        <div class="ctxt">
+          <span class="label"><span class="dot"></span> Same-Day Delivery</span>
+          <span id="cutoff-line">Order in the next</span>
+          <span id="cutoff-sub">for delivery in Columbus today.</span>
+        </div>
+        <div class="timer" id="timer">
+          <div class="u"><b id="tH">00</b><small>hrs</small></div>
+          <div class="u"><b id="tM">00</b><small>min</small></div>
+          <div class="u"><b id="tS">00</b><small>sec</small></div>
+        </div>
+      </div>
+
+      <div class="trust-row">
+        <div class="ti"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg></span> Voted #1 Florist<br>in Columbus</div>
+        <div class="ti"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6h13v10H1zM14 10h4l3 3v3h-7z"/><circle cx="5.5" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/></svg></span> Our Own Drivers,<br>Never Wired Out</div>
+        <div class="ti"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span> 3 Local Shops,<br>Open 7 Days</div>
+      </div>
+    </div>
+
+    <!-- Seasonal feature: one image + current offer, auto-set by date (see JS). Collapses to a one-line bar on mobile. -->
+    <div class="shelf" id="seasonBand">
+      <div class="promo-img"><img id="seasonImg" alt="" loading="eager"></div>
+      <div class="promo-body" id="seasonBody">
+        <div class="shelf-head">
+          <span class="season-kicker" id="seasonKicker">In Season Now</span>
+          <h2 id="seasonTitle">Fall Splendor Collection</h2>
+        </div>
+        <p id="seasonSub"></p>
+        <div class="promo-foot">
+          <div class="season-deadline" id="seasonDeadline" hidden></div>
+          <a href="#products" class="btn btn-primary" id="seasonCta">Shop the Collection</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Products -->
+<section id="products">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Designed &amp; Delivered in Columbus</span>
+      <h2>Our Most Popular Flowers</h2>
+    </div>
+    <div class="filters">
+      <span class="chip" id="seasonChip" data-filter="fall">🍂 Fall</span>
+      <span class="chip" data-filter="best">Bestsellers</span>
+      <span class="chip" data-filter="birthday">Birthday</span>
+      <span class="chip" data-filter="love">Love<span class="ch-long"> &amp; Romance</span></span>
+      <span class="chip" data-filter="sympathy">Sympathy</span>
+      <span class="chip" data-filter="getwell">Get Well</span>
+    </div>
+    <div class="grid" id="prodgrid"></div>
+    <div class="shopall">
+      <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/fall-splendor/" class="btn btn-primary" id="catCta">Shop All Fall Splendor &nbsp;→</a>
+      <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/shop/" class="btn btn-outline">Shop Everything &nbsp;→</a>
+    </div>
+  </div>
+</section>
+
+<!-- Why us -->
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The Flowerama Difference</span>
+      <h2>Why Columbus Sends With Us</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 6h13v10H1zM14 10h4l3 3v3h-7z"/><circle cx="5.5" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/></svg></div>
+        <h3>Our Own Drivers, Door to Door</h3>
+        <p>Your gift never leaves our hands until it's delivered. No shared delivery pool, and our driver calls you from the driveway to confirm it arrived.</p>
+      </div>
+      <div class="why-card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Same-Day, 7 Days a Week</h3>
+        <p>Order by 2 PM Monday to Friday, 12 PM Saturday or 10 AM Sunday for same-day delivery, including Sunday delivery to funeral homes.</p>
+      </div>
+      <div class="why-card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9z"/></svg></div>
+        <h3>Hand-Designed in Columbus</h3>
+        <p>Every arrangement is built by hand in one of our three shops by designers, many of whom have been with us for more than a decade.</p>
+      </div>
+      <div class="why-card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg></div>
+        <h3>Voted Columbus's #1 Florist</h3>
+        <p>Columbus keeps voting us its favorite florist, including the Columbus Dispatch CBUS Top Picks. A local shop since 1990.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Areas we serve -->
+<section id="areas">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">We Know Central Ohio</span>
+      <h2>Areas We Serve</h2>
+      <p>Our own drivers deliver across Franklin County and Greater Columbus, so your flowers arrive fresh and to the right door. We never ship or forward orders to another florist.</p>
+    </div>
+    <div class="areas-grid">
+      <div class="area-card">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Towns We Deliver To</h3>
+        <p class="note">Your delivery fee is shown at checkout before you pay.</p>
+        <div class="pills">
+          <a class="pill" href="https://woocommerce-1618081-6788462.cloudwaysapps.com/columbus-oh-florists/">Columbus</a><a class="pill" href="https://woocommerce-1618081-6788462.cloudwaysapps.com/dublin-oh-florists/">Dublin</a><a class="pill" href="https://woocommerce-1618081-6788462.cloudwaysapps.com/westerville-oh-florists/">Westerville</a>
+          <a class="pill" href="https://woocommerce-1618081-6788462.cloudwaysapps.com/upper-arlington-oh-florists/">Upper Arlington</a><a class="pill" href="https://woocommerce-1618081-6788462.cloudwaysapps.com/hilliard-oh-florists/">Hilliard</a><a class="pill" href="https://woocommerce-1618081-6788462.cloudwaysapps.com/worthington-oh-florists/">Worthington</a>
+          <a class="pill" href="https://woocommerce-1618081-6788462.cloudwaysapps.com/gahanna-oh-florists/">Gahanna</a><a class="pill" href="https://woocommerce-1618081-6788462.cloudwaysapps.com/new-albany-oh-florists/">New Albany</a><a class="pill" href="https://woocommerce-1618081-6788462.cloudwaysapps.com/reynoldsburg-oh-florists/">Reynoldsburg</a>
+          <a class="pill" href="https://woocommerce-1618081-6788462.cloudwaysapps.com/whitehall-oh-florists/">Whitehall</a><a class="pill" href="https://woocommerce-1618081-6788462.cloudwaysapps.com/bexley-oh-florists/">Bexley</a><a class="pill" href="https://woocommerce-1618081-6788462.cloudwaysapps.com/grove-city-oh-florists/">Grove City</a>
+          <a class="pill" href="https://woocommerce-1618081-6788462.cloudwaysapps.com/pickerington-oh-florists/">Pickerington</a><a class="pill" href="https://woocommerce-1618081-6788462.cloudwaysapps.com/powell-oh-florists/">Powell</a><a class="pill" href="https://woocommerce-1618081-6788462.cloudwaysapps.com/lewis-center-oh-florists/">Lewis Center</a>
+          <a class="pill" href="https://woocommerce-1618081-6788462.cloudwaysapps.com/canal-winchester-oh-florists/">Canal Winchester</a><a class="pill" href="https://woocommerce-1618081-6788462.cloudwaysapps.com/groveport-oh-florists/">Groveport</a><a class="pill" href="https://woocommerce-1618081-6788462.cloudwaysapps.com/pataskala-oh-florists/">Pataskala</a>
+        </div>
+      </div>
+      <div class="area-card">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg> Columbus Neighborhoods</h3>
+        <p class="note">Delivered daily by drivers who know the city.</p>
+        <ul class="area-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/downtown-columbus-oh-florists/">Downtown Columbus</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/short-north-columbus-oh-florists/">Short North</a> &amp; <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/german-village-columbus-oh-florists/">German Village</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/clintonville-oh-florists/">Clintonville</a> &amp; <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/osu-campus-oh-florists/">OSU Campus</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/easton-oh-florists/">Easton</a> &amp; <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/grandview-heights-oh-florists/">Grandview Heights</a></li>
+        </ul>
+      </div>
+      <div class="area-card">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Hospitals, Funeral Homes &amp; Offices</h3>
+        <p class="note">Bedside cheer, office celebrations and sympathy tributes.</p>
+        <ul class="area-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Columbus-area hospitals &amp; care centers</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Every funeral home in our area, Sundays too</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Offices &amp; businesses, delivered by 5 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="areas-more"><a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/delivery-areas/" class="btn btn-outline">See All Delivery Areas &nbsp;→</a></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Good to Know</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-wrap" id="faqwrap"></div>
+    <p class="faq-more">More answers on our <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/about/faqs/">FAQ page</a>, or call <a href="tel:6142566646">(614) 256-6646</a>.</p>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Send Flowers in Columbus Today</h2>
+    <p>Order by 2 PM Monday to Friday, 12 PM Saturday or 10 AM Sunday for same-day delivery across Columbus, or pick up free at any of our three shops.</p>
+    <div class="btns">
+      <a href="#products" class="btn btn-light">⬆ Shop Now</a>
+      <a href="tel:6142566646" class="btn btn-ghost">Call (614) 256-6646</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="logo-white.png" alt="Flowerama Columbus" width="1024" height="147">
+        <p>Columbus florists since 1990. Designed in our shops and delivered by our own drivers, never handed to an online middleman.</p>
+        <p><a class="big" href="tel:6142566646">(614) 256-6646</a><br><span style="font-size:.8rem">Mon–Sat 8 AM–7 PM · Sun 9 AM–5 PM</span></p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/bestsellers/">Bestsellers</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/birthday/">Birthday</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/sympathy/">Sympathy</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/love-and-romance/">Love &amp; Romance</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/get-well/">Get Well</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/roses/">Roses</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/plant-collection/">Plants</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/special-touches/">Gifts &amp; Special Touches</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/flowers/ohio-state/">Ohio State</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/about/about-us/">About Us</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/about/voted-best-florist-in-columbus/">Voted Best Florist</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/same-day-flower-delivery/">Same-Day Delivery</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/delivery-areas/">Where We Deliver</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/about/rewards/">Flower Power Rewards</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/about/coupons/">Coupons &amp; Deals</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/about/faqs/">FAQ</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/about/contact-us/">Contact Us</a>
+      </div>
+      <div>
+        <h4>Our Three Shops</h4>
+        <div class="shop-loc"><b>Flowerama Columbus</b>1600 Morse Road<br>Columbus, OH 43229<br><a href="tel:6145470808">(614) 547-0808</a></div>
+        <div class="shop-loc"><b>Flowerama Reynoldsburg</b>6311 East Main Street<br>Reynoldsburg, OH 43068<br><a href="tel:6145752070">(614) 575-2070</a></div>
+        <div class="shop-loc"><b>Flowerama Whitehall</b>4785 East Broad Street<br>Whitehall, OH 43213<br><a href="tel:6147591517">(614) 759-1517</a></div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Flowerama Columbus · Serving Greater Columbus since 1990</span>
+      <nav aria-label="Legal and social">
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/about/privacy-policy/">Privacy</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/about/return-refund-policy/">Returns &amp; Refunds</a>
+        <a href="https://woocommerce-1618081-6788462.cloudwaysapps.com/about/terms-and-conditions/">Terms</a>
+        <a href="https://www.instagram.com/floweramacolumbus/">Instagram</a>
+        <a href="https://www.facebook.com/FloweramaColumbus">Facebook</a>
+        <a href="https://www.pinterest.com/FloweramaCols/">Pinterest</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky Shop Now (jumps back up to products) -->
+<a href="#products" class="sticky-shop" id="stickyShop"><span class="btn btn-primary">🛒 Shop Now</span></a>
+
+<script>
+/* ---------- Product data (live names, prices and images from the Flowerama store) ---------- */
+const SITE="https://woocommerce-1618081-6788462.cloudwaysapps.com";
+const COL={"fall":[{"n":"Fall Blush","p":"119.99","f":true,"u":"/product/fall-blush/","i":"/media/product/Fall-Blush-600x658.webp","t":"Best Seller"},{"n":"Columbus Pretty Pumpkin","p":"69.99","f":true,"u":"/product/columbus-pretty-pumpkin/","i":"/media/product/Columbus-Pretty-Pumpkin-600x600.webp","t":""},{"n":"Pumpkin Harvest","p":"109.99","f":true,"u":"/product/pumpkin-harvest/","i":"/media/product/Pumpkin-Harvest-600x779.webp","t":""},{"n":"Colors of Fall Bouquet","p":"69.99","f":true,"u":"/product/colors-of-fall-bouquet/","i":"/media/product/Colors-of-Fall-Bouquet.webp","t":""},{"n":"White Pumpkin","p":"89.99","f":false,"u":"/product/white-pumpkin/","i":"/media/product/White-Pumpkin-600x612.webp","t":""},{"n":"Spiced Peach Perfection","p":"109.99","f":true,"u":"/product/spiced-peach-perfection/","i":"/media/product/Spiced-Peach-Perfection-scaled-1-600x899-1.webp","t":""},{"n":"Terra Blooms Bouquet","p":"84.99","f":true,"u":"/product/terra-blooms-bouquet/","i":"/media/product/Terra-Blooms-Bouquet.webp","t":""},{"n":"Modern Copper Centerpiece","p":"89.99","f":true,"u":"/product/modern-copper-centerpiece/","i":"/media/product/Modern-Copper-Centerpiece-600x591.webp","t":""}],"best":[{"n":"Fall Blush","p":"119.99","f":true,"u":"/product/fall-blush/","i":"/media/product/Fall-Blush-600x658.webp","t":"Best Seller"},{"n":"Columbus Pretty Pumpkin","p":"69.99","f":true,"u":"/product/columbus-pretty-pumpkin/","i":"/media/product/Columbus-Pretty-Pumpkin-600x600.webp","t":""},{"n":"Fiery Fascination","p":"69.99","f":true,"u":"/product/fiery-fascination/","i":"/media/product/Fiery-Fascination-600x622.webp","t":""},{"n":"Sapphire Skies","p":"74.99","f":true,"u":"/product/sapphire-skies/","i":"/media/product/Sapphire-Skies.webp","t":""},{"n":"Lookin Like A Rockstar","p":"109.99","f":true,"u":"/product/lookin-like-a-rockstar/","i":"/media/product/Lookin-Like-A-Rockstar-600x690.webp","t":""},{"n":"Hello Autumn","p":"69.99","f":true,"u":"/product/hello-autumn/","i":"/media/product/Hello-Autumn-600x690.webp","t":""},{"n":"Hello Beautiful","p":"64.99","f":true,"u":"/product/hello-beautiful/","i":"/media/product/Hello-Beautiful-600x600.webp","t":""},{"n":"Somethin' Pumpkin","p":"69.99","f":true,"u":"/product/somethin-pumpkin/","i":"/media/product/Somethin-Pumpkin-600x600.webp","t":""}],"birthday":[{"n":"Sweet Sweet Sunshine","p":"84.99","f":true,"u":"/product/sweet-sweet-sunshine/?occasion=birthday","i":"/media/product/Sweet-Sweet-Sunshine-600x694.webp","t":""},{"n":"Color Splash","p":"94.99","f":true,"u":"/product/color-splash/?occasion=birthday","i":"/media/product/Color-Splash-600x720.webp","t":""},{"n":"Celebration","p":"69.99","f":true,"u":"/product/celebration/?occasion=birthday","i":"/media/product/Celebration-600x720.webp","t":""},{"n":"Fresh Flower Birthday Cake","p":"74.99","f":false,"u":"/product/fresh-flower-birthday-cake/?occasion=birthday","i":"/media/product/Fresh-Flower-Birthday-Cake-600x577.webp","t":""},{"n":"Pelotonia Petals","p":"89.99","f":true,"u":"/product/pelotonia-petals/?occasion=birthday","i":"/media/product/Pelotonia-Petals-600x750.webp","t":""},{"n":"Birthday Gardens","p":"99.99","f":false,"u":"/product/birthday-gardens/?occasion=birthday","i":"/media/product/Birthday-Gardens.webp","t":""},{"n":"Lookin Like A Rockstar","p":"109.99","f":true,"u":"/product/lookin-like-a-rockstar/?occasion=birthday","i":"/media/product/Lookin-Like-A-Rockstar-600x690.webp","t":""},{"n":"Pink Polka Dot Birthday Package","p":"79.99","f":false,"u":"/product/pink-polka-dot-birthday-package/?occasion=birthday","i":"/media/product/Pink-Polka-Dot-Birthday-Package-600x600.webp","t":""}],"love":[{"n":"Traditional Dozen Roses Arranged","p":"79.99","f":true,"u":"/product/traditional-dozen-roses-arranged/?occasion=romance","i":"/media/product/Traditional-Dozen-Roses-Arranged-1-600x713-1.webp","t":""},{"n":"Rosy Day Bouquet","p":"69.99","f":true,"u":"/product/rosy-day-bouquet/?occasion=romance","i":"/media/product/Rosy-Day-Bouquet-600x604.webp","t":""},{"n":"Two Dozen Roses Arranged in a Vase","p":"119.99","f":true,"u":"/product/two-dozen-roses-arranged-in-a-vase/?occasion=romance","i":"/media/product/Two-Dozen-Roses-Arranged-in-a-Vase-600x649.webp","t":""},{"n":"Sun Kissed Blooms","p":"69.99","f":true,"u":"/product/sun-kissed-blooms/?occasion=romance","i":"/media/product/Sun-Kissed-Blooms-600x600.webp","t":""},{"n":"Colors of Fall Bouquet","p":"69.99","f":true,"u":"/product/colors-of-fall-bouquet/?occasion=romance","i":"/media/product/Colors-of-Fall-Bouquet.webp","t":""},{"n":"I Heart You","p":"69.99","f":true,"u":"/product/i-heart-you/?occasion=romance","i":"/media/product/I-Heart-You-600x600.webp","t":""},{"n":"Love Island","p":"174.99","f":true,"u":"/product/love-island/?occasion=romance","i":"/media/product/Love-Island-scaled-1-600x706-1.webp","t":""},{"n":"Endless Romance Package","p":"184.99","f":true,"u":"/product/endless-romance-package/?occasion=romance","i":"/media/general/endless-romance-traditional-1-600x600.webp","t":""}],"sympathy":[{"n":"Peace Lily in Modern Container","p":"59.99","f":false,"u":"/product/peace-lily-in-modern-container/","i":"/media/product/Peace-Lily-in-Modern-Container-600x600.webp","t":""},{"n":"Sapphire Skies","p":"74.99","f":true,"u":"/product/sapphire-skies/","i":"/media/product/Sapphire-Skies.webp","t":""},{"n":"Large Blooming Garden Basket","p":"99.99","f":false,"u":"/product/large-blooming-garden-basket/","i":"/media/general/largebloominggarden-600x645.webp","t":""},{"n":"Large Peace Lily","p":"69.99","f":true,"u":"/product/large-peace-lily/","i":"/media/general/161834lx-600x657.webp","t":""},{"n":"Peaceful White Lilies Basket","p":"109.99","f":true,"u":"/product/peaceful-white-lilies-basket/","i":"/media/product/Peaceful-White-Lilies-Basket.webp","t":""},{"n":"Stay Grounded","p":"94.99","f":true,"u":"/product/stay-grounded/","i":"/media/product/Stay-Grounded-600x536.webp","t":""},{"n":"Sea to Shining Sea","p":"79.99","f":false,"u":"/product/sea-to-shining-sea/","i":"/media/product/Sea-to-Shining-Sea-600x690.webp","t":""},{"n":"Divine Peace Bouquet","p":"89.99","f":true,"u":"/product/divine-peace-bouquet/","i":"/media/product/Divine-Peace-Bouquet.webp","t":""}],"getwell":[{"n":"Pink Polka Dot","p":"49.99","f":true,"u":"/product/pink-polka-dot/?occasion=get-well","i":"/media/product/Pink-Polka-Dot-600x638.webp","t":""},{"n":"Traditional Dozen Roses Arranged","p":"79.99","f":true,"u":"/product/traditional-dozen-roses-arranged/?occasion=get-well","i":"/media/product/Traditional-Dozen-Roses-Arranged-1-600x713-1.webp","t":""},{"n":"Peace Lily in Modern Container","p":"59.99","f":false,"u":"/product/peace-lily-in-modern-container/?occasion=get-well","i":"/media/product/Peace-Lily-in-Modern-Container-600x600.webp","t":""},{"n":"Rosy Day Bouquet","p":"69.99","f":true,"u":"/product/rosy-day-bouquet/?occasion=get-well","i":"/media/product/Rosy-Day-Bouquet-600x604.webp","t":""},{"n":"Sun Kissed Blooms","p":"69.99","f":true,"u":"/product/sun-kissed-blooms/?occasion=get-well","i":"/media/product/Sun-Kissed-Blooms-600x600.webp","t":""},{"n":"Lustrous Lavender Bouquet","p":"74.99","f":true,"u":"/product/lustrous-lavender-bouquet/?occasion=get-well","i":"/media/product/Lustrous-Lavender-Bouquet-600x657.webp","t":""},{"n":"Delightful Sunshine","p":"69.99","f":true,"u":"/product/delightful-sunshine/?occasion=get-well","i":"/media/product/Delightful-Sunshine.webp","t":""},{"n":"Large Blooming Garden Basket","p":"99.99","f":false,"u":"/product/large-blooming-garden-basket/?occasion=get-well","i":"/media/general/largebloominggarden-600x645.webp","t":""}]};
+const grid=document.getElementById('prodgrid');
+function cardHTML(p){return `
+  <a class="card" href="${SITE}${p.u}">
+    <div class="pic">
+      <img class="pimg" src="${SITE}${p.i}" alt="${p.n.replace(/"/g,'&quot;')} from Flowerama Columbus" loading="lazy" onerror="this.remove()">
+      ${p.t?`<span class="tag">${p.t}</span>`:''}
+    </div>
+    <div class="body">
+      <div class="pname">${p.n}</div>
+      <div class="price">${p.f?'<small>From</small>':''}$${p.p}</div>
+    </div>
+  </a>`;}
+const CAT_LABEL={fall:"Fall Splendor", best:"Bestsellers", birthday:"Birthday Flowers", love:"Love & Romance", sympathy:"Sympathy Flowers", getwell:"Get Well Flowers"};
+const CAT_URL={fall:"/flowers/fall-splendor/", best:"/flowers/bestsellers/", birthday:"/flowers/birthday/", love:"/flowers/love-and-romance/", sympathy:"/flowers/sympathy/", getwell:"/flowers/get-well/"};
+let labelOverride={};
+function renderProducts(filter){
+  grid.innerHTML=(COL[filter]||[]).slice(0,8).map(cardHTML).join('');
+  const cta=document.getElementById('catCta');
+  if(cta){ cta.innerHTML="Shop All "+(labelOverride[filter]||CAT_LABEL[filter]||"Flowers").replace('&','&amp;')+" &nbsp;→"; cta.href=SITE+(CAT_URL[filter]||"/shop/"); }
+}
+function setActive(f){
+  document.querySelectorAll('.chip').forEach(x=>x.classList.toggle('active', x.dataset.filter===f && !x.hidden));
+  renderProducts(f);
+}
+function gotoFilter(f){
+  setActive(f);
+  const ps=document.getElementById('products'); if(ps) ps.scrollIntoView({behavior:'smooth'});
+}
+const IMG=n=>{for(const k in COL){const p=COL[k].find(x=>x.n===n); if(p) return SITE+p.i;} return "";};
+
+/* ---------- Seasonal feature card (auto-switches by date) ---------- */
+(function(){
+  const SOD=d=>new Date(d.getFullYear(),d.getMonth(),d.getDate());
+  const nthWeekday=(y,month,wd,n)=>{const d=new Date(y,month-1,1);let c=0;while(true){if(d.getDay()===wd){c++;if(c===n)return new Date(d);}d.setDate(d.getDate()+1);}};
+  const holidaysFor=y=>[
+    {name:"Valentine's Day", date:new Date(y,1,14), lead:18, emoji:"💘", filter:"love", img:IMG("Two Dozen Roses Arranged in a Vase"), title:"Valentine's Day Flowers",
+     sub:"Roses and romance, hand-designed in our Columbus shops and delivered by our own drivers. Our busiest day of the year, so order early.", cta:"Shop Valentine's", accent:"#c12026", grad:"linear-gradient(105deg,#fbe6e6,#f5d0d1)"},
+    {name:"Mother's Day", date:nthWeekday(y,5,0,2), lead:21, emoji:"🌷", filter:"best", img:IMG("Hello Beautiful"), title:"Mother's Day Flowers",
+     sub:"Make her day with a hand-designed bouquet, delivered to her door anywhere in Greater Columbus.", cta:"Shop Mother's Day", accent:"#a8456f", grad:"linear-gradient(105deg,#f7e6ee,#efd2e0)"},
+    {name:"Thanksgiving", date:nthWeekday(y,11,4,4), lead:21, emoji:"🦃", filter:"fall", chip:"🦃 Thanksgiving", label:"Thanksgiving Flowers", img:SITE+"/media/general/fallblush-1-934x1024.webp", title:"Thanksgiving Flowers & Centerpieces",
+     sub:"Sunflowers, pumpkins and warm fall tones, arranged by our designers and delivered across Columbus before the holiday.", cta:"Shop Thanksgiving", accent:"#b5541c", grad:"linear-gradient(105deg,#f7ecdc,#efd8ba)"},
+    {name:"Christmas", date:new Date(y,11,25), lead:24, emoji:"🎄", filter:"best", img:IMG("Fiery Fascination"), title:"Christmas & Holiday Flowers",
+     sub:"Festive arrangements and gifts delivered across Columbus all season long.", cta:"Shop Holiday Flowers", accent:"#255d2e", grad:"linear-gradient(105deg,#e6efe3,#d5e5d1)"}
+  ];
+  const seasonFeature=now=>{
+    const m=now.getMonth();
+    if(m>=2&&m<=4) return {emoji:"🌸",filter:"best",img:IMG("Hello Beautiful"),title:"Spring Flowers",sub:"Fresh garden blooms to welcome the season, delivered same-day across Columbus.",cta:"Shop Bestsellers",accent:"#4f8a3a",grad:"linear-gradient(105deg,#eef3e4,#f4f1e8)"};
+    if(m>=5&&m<=7) return {emoji:"☀️",filter:"best",img:IMG("Lookin Like A Rockstar"),title:"Summer Flowers",sub:"Bright, garden-fresh bouquets with bold seasonal color, delivered same-day across Columbus.",cta:"Shop Bestsellers",accent:"#d0892e",grad:"linear-gradient(105deg,#fdeccd,#f7dca9)"};
+    if(m>=8&&m<=10) return {emoji:"🍂",filter:"fall",chip:"🍂 Fall",img:SITE+"/media/general/fallblush-1-934x1024.webp",title:"Fall Splendor Collection",sub:"Sunflowers, pumpkins and warm fall tones, arranged by our designers this morning and delivered same-day.",cta:"Shop Fall Splendor",accent:"#b5541c",grad:"linear-gradient(105deg,#f7ecdc,#efd8ba)"};
+    return {emoji:"❄️",filter:"best",img:IMG("Sapphire Skies"),title:"Winter Flowers",sub:"Cozy seasonal arrangements for the colder months, delivered same-day across Columbus.",cta:"Shop Bestsellers",accent:"#3e6f86",grad:"linear-gradient(105deg,#e6eef0,#dbe7ea)"};
+  };
+  const now=window.DEMO_NOW?new Date(window.DEMO_NOW):new Date();
+  const all=[...holidaysFor(now.getFullYear()),...holidaysFor(now.getFullYear()+1)];
+  const next=all.filter(h=>SOD(h.date)>=SOD(now)).sort((a,b)=>a.date-b.date)[0];
+  const days=Math.round((SOD(next.date)-SOD(now))/86400000);
+  let f;
+  if(days<=next.lead){
+    const dd=days+" day"+(days===1?"":"s");
+    f={kicker:next.emoji+" "+next.name+'<span class="k-full"> is '+dd+' away</span><span class="k-short"> in '+dd+'</span>', title:next.title, sub:next.sub, cta:next.cta, accent:next.accent, grad:next.grad, img:next.img, filter:next.filter, chip:next.chip, label:next.label,
+       deadline:{big:(days===0?"Today!":dd+" left"), small:(days===0?"Call (614) 256-6646 for availability":'Order early<span class="k-full">, holiday delivery fills up</span>')}};
+  } else {
+    const s=seasonFeature(now);
+    f={kicker:s.emoji+" In Season Now", title:s.title, sub:s.sub, cta:s.cta, accent:s.accent, grad:s.grad, img:s.img, filter:s.filter, chip:s.chip, deadline:null};
+  }
+  if(f.label) labelOverride[f.filter]=f.label;
+  const band=document.getElementById('seasonBand'); band.style.setProperty('--accent', f.accent);
+  document.getElementById('seasonKicker').innerHTML=f.kicker;
+  document.getElementById('seasonTitle').textContent=f.title;
+  document.getElementById('seasonSub').textContent=f.sub;
+  document.getElementById('seasonBody').style.background=f.grad;
+  const si=document.getElementById('seasonImg'); si.src=f.img; si.alt=f.title;
+  band.addEventListener('click',e=>{ if(window.matchMedia('(max-width:720px)').matches){ e.preventDefault(); gotoFilter(f.filter); } });
+  const cta=document.getElementById('seasonCta'); cta.innerHTML=f.cta.replace('&','&amp;')+' &nbsp;→'; cta.style.background=f.accent; cta.style.borderColor=f.accent;
+  cta.onclick=function(e){e.preventDefault(); gotoFilter(f.filter);};
+  const d=document.getElementById('seasonDeadline');
+  if(f.deadline){d.hidden=false; d.innerHTML='<span class="dl-big">'+f.deadline.big+'</span><small>'+f.deadline.small+'</small>';} else d.hidden=true;
+  const sc=document.getElementById('seasonChip');
+  if(f.chip){ sc.textContent=f.chip; sc.dataset.filter=f.filter; sc.hidden=false; } else { sc.hidden=true; }
+  setActive(f.filter);
+})();
+
+/* ---------- FAQ accordion ---------- */
+const faqs=[
+  {q:"Do you offer same-day flower delivery in Columbus?",
+   a:"Yes, 7 days a week. Order online or by phone by 2 PM Monday to Friday, 12 PM Saturday or 10 AM Sunday and our own drivers deliver the same day across Columbus. During the busiest holidays we may close same-day delivery early once our drivers are fully booked."},
+  {q:"Which areas do you deliver to?",
+   a:"We deliver to all of Franklin County and the Columbus metro, including Dublin, Westerville, Upper Arlington, Hilliard, Worthington, Gahanna, New Albany, Reynoldsburg, Whitehall, Bexley and Grove City, plus parts of Delaware, Plain City, Johnstown, Lewis Center and Pataskala. We deliver only with our own drivers and never ship or forward orders."},
+  {q:"How much does local delivery cost?",
+   a:"The delivery fee for the recipient's address is shown at checkout before you pay. Sales tax is added where applicable."},
+  {q:"Where are your flower shops?",
+   a:"We have three Columbus shops: 1600 Morse Road in Columbus, 6311 East Main Street in Reynoldsburg and 4785 East Broad Street in Whitehall. We're open Monday to Saturday 8 AM to 7 PM and Sunday 9 AM to 5 PM. Order by 5 PM for free same-day pickup at any shop."},
+  {q:"What happens if no one is home?",
+   a:"Our drivers make the best call for each delivery based on weather and location. They may leave the flowers at the door or porch, with a neighbor, or at a front desk. If there's no safe option, they bring the arrangement back to the shop and we arrange redelivery. Either way, we leave a door tag saying what we did."},
+  {q:"How do I check the status of my order?",
+   a:"Call the shop filling your order or our main line at (614) 256-6646. If you ordered online, please allow about an hour for processing. You'll also get our in-driveway confirmation call and an email once the delivery is complete."}
+];
+const fw=document.getElementById('faqwrap');
+fw.innerHTML=faqs.map((f,i)=>`
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(${i})">${f.q}<span class="pm">+</span></button>
+    <div class="faq-a"><div>${f.a}</div></div>
+  </div>`).join('');
+function toggleFaq(i){ document.querySelectorAll('.faq-item')[i].classList.toggle('open'); }
+
+/* ---------- Same-day cutoff countdown (Eastern Time: 2 PM Mon-Fri, 12 PM Sat, 10 AM Sun) ---------- */
+const CUTOFF=[10,14,14,14,14,14,12]; // hour by weekday, Sun..Sat
+const CUTLBL=["10 AM","2 PM","2 PM","2 PM","2 PM","2 PM","12 PM"];
+function easternNow(){
+  const parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',hour:'numeric',minute:'numeric',second:'numeric',hour12:false}).formatToParts(new Date());
+  const g=t=>(parts.find(p=>p.type===t)||{}).value;
+  return {day:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(g('weekday')), secs:(parseInt(g('hour'),10)%24)*3600+parseInt(g('minute'),10)*60+parseInt(g('second'),10)};
+}
+function updateClock(){
+  const t=easternNow();
+  const left=CUTOFF[t.day]*3600-t.secs;
+  const box=document.getElementById('cutoffBox');
+  // Only show the box while the same-day countdown is running; the top bar already states the cutoffs
+  box.hidden=(left<=0);
+  if(left<=0) return;
+  const pad=n=>String(n).padStart(2,'0');
+  document.getElementById('tH').textContent=pad(Math.floor(left/3600));
+  document.getElementById('tM').textContent=pad(Math.floor((left%3600)/60));
+  document.getElementById('tS').textContent=pad(left%60);
+  document.getElementById('cutoff-line').textContent="Order in the next";
+  document.getElementById('cutoff-sub').textContent="Order by "+CUTLBL[t.day]+" for delivery in Columbus today.";
+}
+setInterval(updateClock,1000); updateClock();
+
+/* ---------- Sticky Shop Now visibility ---------- */
+const sticky=document.getElementById('stickyShop');
+window.addEventListener('scroll',()=>{ sticky.classList.toggle('show', window.scrollY>900); });
+
+/* ---------- Search toggle (desktop) ---------- */
+(function(){
+  const t=document.getElementById('searchToggle'), s=document.getElementById('searchbar');
+  t.addEventListener('click',()=>{ const open=s.hidden; s.hidden=!open; t.setAttribute('aria-expanded',open); if(open) s.querySelector('input').focus(); });
+})();
+
+/* ---------- Mobile menu ---------- */
+(function(){
+  const b=document.getElementById('burger'), m=document.getElementById('mnav');
+  const set=open=>{ b.setAttribute('aria-expanded',open); b.setAttribute('aria-label',open?'Close menu':'Open menu'); m.hidden=!open; };
+  b.addEventListener('click',()=>set(m.hidden));
+  m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>set(false)));
+  window.addEventListener('resize',()=>{ if(window.innerWidth>1180) set(false); });
+})();
+
+/* ---------- Product filter chips ---------- */
+document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',function(){ setActive(this.dataset.filter); }));
+</script>
+</body>
+</html>
