@@ -257,11 +257,14 @@
   .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem}
   @media(max-width:860px){.why-grid{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:480px){.why-grid{grid-template-columns:1fr}}
-  .why-card{background:#fff;border-radius:var(--radius);padding:1.6rem 1.3rem;text-align:center;border:1px solid var(--line)}
-  .why-card .ic{width:46px;height:46px;margin:0 auto .9rem;border-radius:50%;background:var(--leaf-tint);display:flex;align-items:center;justify-content:center}
-  .why-card .ic svg{width:24px;height:24px;color:var(--green)}
+  .why-card{background:#fff;border-radius:var(--radius);text-align:center;border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column}
+  .why-card .ph{aspect-ratio:3/2;overflow:hidden;background:var(--cream-2)}
+  .why-card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+  .why-card:hover .ph img{transform:scale(1.04)}
+  .why-card .txt{padding:1.25rem 1.3rem 1.5rem}
   .why-card h3{font-size:1.1rem;margin-bottom:.4rem}
   .why-card p{font-size:.88rem;color:var(--muted);line-height:1.55}
+  @media(max-width:480px){.why-card .ph{aspect-ratio:16/9}}
 
   /* ---------- Areas we serve ---------- */
   .areas-grid{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:1.3rem;margin-bottom:1.6rem}
@@ -608,24 +611,32 @@
     </div>
     <div class="why-grid">
       <div class="why-card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 6h13v10H1zM14 10h4l3 3v3h-7z"/><circle cx="5.5" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/></svg></div>
+        <div class="ph"><img src="why-drivers.webp" alt="Flowerama flower shop in Reynoldsburg, Ohio" loading="lazy" style="object-position:center 60%"></div>
+        <div class="txt">
         <h3>Our Own Drivers, Door to Door</h3>
         <p>Your gift never leaves our hands until it's delivered. No shared delivery pool, and our driver calls you from the driveway to confirm it arrived.</p>
+        </div>
       </div>
       <div class="why-card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <div class="ph"><img src="why-sameday.webp" alt="Flowerama flower shop on Morse Road in Columbus" loading="lazy" style="object-position:center 65%"></div>
+        <div class="txt">
         <h3>Same-Day, 7 Days a Week</h3>
         <p>Order by 2 PM Monday to Friday, 12 PM Saturday or 10 AM Sunday for same-day delivery, including Sunday delivery to funeral homes.</p>
+        </div>
       </div>
       <div class="why-card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9z"/></svg></div>
+        <div class="ph"><img src="why-designers.webp" alt="A Flowerama designer arranging flowers by hand in a Columbus shop" loading="lazy" style="object-position:center 55%"></div>
+        <div class="txt">
         <h3>Hand-Designed in Columbus</h3>
         <p>Every arrangement is built by hand in one of our three shops by designers, many of whom have been with us for more than a decade.</p>
+        </div>
       </div>
       <div class="why-card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg></div>
+        <div class="ph"><img src="why-voted.webp" alt="Columbus Dispatch CBUS Top Picks award for Flowerama" loading="lazy" style="object-position:8% center"></div>
+        <div class="txt">
         <h3>Voted Columbus's #1 Florist</h3>
         <p>Columbus keeps voting us its favorite florist, including the Columbus Dispatch CBUS Top Picks. A local shop since 1990.</p>
+        </div>
       </div>
     </div>
   </div>
