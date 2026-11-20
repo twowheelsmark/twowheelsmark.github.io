@@ -164,6 +164,9 @@
   .promo-foot{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;margin-top:.2rem}
   .promo-foot .btn{margin-top:0}
 
+  /* photo panel: lifestyle photo fills the image side of the card */
+  .shelf.photo-panel .promo-img{position:relative;padding:0;overflow:hidden}
+  .shelf.photo-panel .promo-img img{position:absolute;inset:0;width:100%;height:100%;max-height:none;object-fit:cover;object-position:center 35%}
   /* photo mode: full-bleed seasonal photo with the offer over it */
   .shelf.has-photo{display:block;align-self:stretch;min-height:400px}
   .shelf.has-photo .promo-img{position:absolute;inset:0;padding:0}
@@ -626,7 +629,7 @@
     </div>
     <div class="why-grid">
       <div class="why-card">
-        <div class="ph"><img src="why-drivers.webp" alt="Flowerama flower shop in Whitehall, Ohio" loading="lazy" style="object-position:center 55%"></div>
+        <div class="ph"><img src="why-drivers.webp" alt="Flowerama Columbus delivery van" loading="lazy" style="object-position:center 50%"></div>
         <div class="txt">
         <h3>Our Own Drivers, Door to Door</h3>
         <p>Your gift never leaves our hands until it's delivered. No shared delivery pool, and our driver calls you from the driveway to confirm it arrived.</p>
@@ -647,10 +650,10 @@
         </div>
       </div>
       <div class="why-card">
-        <div class="ph"><img src="why-voted.webp" alt="Flowerama's original Reynoldsburg shop, open since 1990" loading="lazy" style="object-position:center 60%"></div>
+        <div class="ph"><img src="why-voted.webp" alt="Columbus Dispatch CBUS Top Picks award sign at the Flowerama celebration" loading="lazy" style="object-position:center 55%"></div>
         <div class="txt">
         <h3>Voted Columbus's #1 Florist</h3>
-        <p>Columbus keeps voting us its favorite florist, including the Columbus Dispatch CBUS Top Picks. Our first shop opened in Reynoldsburg in 1990.</p>
+        <p>Columbus keeps voting us its favorite florist, including the Columbus Dispatch CBUS Top Picks. A local shop since 1990.</p>
         </div>
       </div>
     </div>
@@ -856,8 +859,9 @@ const IMG=n=>{for(const k in COL){const p=COL[k].find(x=>x.n===n); if(p) return 
   document.getElementById('seasonTitle').textContent=f.title;
   document.getElementById('seasonSub').textContent=f.sub;
   const si=document.getElementById('seasonImg');
-  if(f.photo){ band.classList.add('has-photo'); si.src=f.photo; si.alt=f.photoAlt||f.title; }
-  else { document.getElementById('seasonBody').style.background=f.grad; si.src=f.img; si.alt=f.title; }
+  document.getElementById('seasonBody').style.background=f.grad;
+  if(f.photo){ band.classList.add('photo-panel'); si.src=f.photo; si.alt=f.photoAlt||f.title; }
+  else { si.src=f.img; si.alt=f.title; }
   band.addEventListener('click',e=>{ if(window.matchMedia('(max-width:720px)').matches){ e.preventDefault(); gotoFilter(f.filter); } });
   const cta=document.getElementById('seasonCta'); cta.innerHTML=f.cta.replace('&','&amp;')+' &nbsp;→'; cta.style.background=f.accent; cta.style.borderColor=f.accent;
   cta.onclick=function(e){e.preventDefault(); gotoFilter(f.filter);};
