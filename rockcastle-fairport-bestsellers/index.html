@@ -64,7 +64,7 @@
 .rcf-fav .product-row{display:flex;flex-wrap:wrap}
 .rcf-fav .img-container{position:relative}
 .rcf-fav .img-container img{width:100%;height:auto}
-.rcf-fav .rcf-fav-badge{position:absolute;top:8px;left:8px;z-index:5;background:#6A0098;color:#fff;font-size:12px;line-height:1.2;font-weight:bold;padding:5px 9px;border-radius:3px;letter-spacing:.02em;max-width:calc(100% - 16px);text-align:left}
+.rcf-fav .rcf-fav-badge{position:absolute!important;top:8px;left:8px!important;right:auto!important;width:auto!important;display:inline-block!important;z-index:5;background:#6A0098;color:#fff;font-size:12px;line-height:1.2;font-weight:bold;padding:5px 9px;border-radius:3px;letter-spacing:.02em;max-width:calc(100% - 16px);text-align:left}
 @media (max-width:767px){.rcf-fav .rcf-fav-h{font-size:22px}.rcf-fav .rcf-fav-sub{font-size:15px}.rcf-fav .rcf-fav-badge{font-size:10.5px;padding:4px 7px;top:6px;left:6px}}
 </style>
 </head>
@@ -2214,7 +2214,7 @@ body.twm-off .twm-badge{display:none!important}
 <p class="twm-src">Sources: Rockcastle order records for deliveries to ZIP 14450, Nov 23, 2025 to Nov 22, 2026; Top Products report for Oct 24 to Nov 22, 2026 and Nov 14 to 23, 2026; Thanksgiving 2025 figures from every third delivery Nov 18 to 28, 2025 (149 orders).</p>
 </div>
 </aside>
-<script type="application/json" id="twm-config">{"items": [{"n": 1, "sel": {"css": ".rcf-fav .rcf-fav-h"}}], "swaps": [], "renameV2": false}</script>
+<script type="application/json" id="twm-config">{"items": [{"n": 1, "sel": {"css": ".rcf-fav"}}], "swaps": [], "renameV2": false}</script>
 <script>
 (function(){
   var d=document, b=d.body, cfg=JSON.parse(d.getElementById('twm-config').textContent);
