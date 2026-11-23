@@ -44,9 +44,10 @@ a{color:inherit}
 .top .btn-ghost.btn-sm{padding:7px 16px}
 
 /* Hero */
-.hero{position:relative;background:var(--snow) url("hero.jpg") right center/cover no-repeat;overflow:hidden}
-.hero .wrap{min-height:520px;display:flex;align-items:center}
-.hero-copy{max-width:520px;padding:56px 0}
+.hero{position:relative;background:radial-gradient(1200px 500px at 85% 40%,#ffe3d6 0,rgba(255,227,214,0) 60%),linear-gradient(180deg,#fffaf7,#fff1ea);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;min-height:540px}
+.hero-copy{max-width:540px;padding:56px 0}
+.hero-img{width:100%;height:auto;border-radius:28px;box-shadow:0 30px 60px rgba(240,82,35,.25);transform:rotate(2deg)}
 .pill{display:inline-block;background:var(--orange-lt);color:var(--orange);font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:18px}
 .hero h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 16px;font-weight:800;letter-spacing:-.02em}
 .hero h1 .big{color:var(--orange)}
@@ -136,6 +137,7 @@ footer a:hover{color:var(--white)}
 .mbar{display:none}
 
 @media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr 1fr;gap:28px}
   .steps{grid-template-columns:1fr}
   .timeline{grid-template-columns:1fr 1fr;row-gap:32px}
   .timeline:before{display:none}
@@ -147,9 +149,8 @@ footer a:hover{color:var(--white)}
 }
 @media (max-width:640px){
   .top nav .btn-ghost{display:none}
-  .hero{background:var(--snow)}
-  .hero .wrap{min-height:0;flex-direction:column;padding:0}
-  .hero-img{display:block;width:100%;aspect-ratio:900/560;object-fit:cover;object-position:center 30%}
+  .hero .wrap{min-height:0;display:flex;flex-direction:column-reverse;gap:0;padding:0}
+  .hero-img{width:100%;aspect-ratio:16/11;object-fit:cover;object-position:center 35%;border-radius:0;box-shadow:none;transform:none}
   .hero-copy{padding:28px 22px 36px}
   .hero .ctas .btn{flex:1}
   .math{padding:22px 0}
@@ -170,7 +171,6 @@ footer a:hover{color:var(--white)}
   .mbar .btn{flex:1}
   body{padding-bottom:76px}
 }
-@media (min-width:641px){.hero-img{display:none}}
 </style>
 </head>
 <body>
@@ -187,18 +187,18 @@ footer a:hover{color:var(--white)}
 
 <main>
   <div class="hero">
-    <img class="hero-img" src="hero-mobile.jpg" alt="Guest holding a BIBIBOP gift card and two $5 Bonus Cards">
     <div class="wrap">
       <div class="hero-copy">
-        <span class="pill">Holiday Gift Card Bonus</span>
+        <span class="pill">Give the gift of good energy</span>
         <h1>Buy a $25 gift card, get a <span class="big">$5 Bonus Card</span> for you.</h1>
-        <p class="lead">Give the gift of <span class="accent">WELL B&bull;ING</span> this season, and get $5 toward your own bowls in the new year.</p>
+        <p class="lead">The easy, thoughtful gift for everyone on your list, plus $5 toward your own bowls in the new year.</p>
         <div class="ctas">
           <a class="btn btn-primary" href="https://bibibop.com/locations/">Find My BIBIBOP</a>
           <a class="btn btn-ghost" href="#how">How It Works</a>
         </div>
         <p class="note">In-store only. Now through Dec 31, 2026, while supplies last.</p>
       </div>
+      <img class="hero-img" src="hero-cards.jpg" alt="BIBIBOP gift cards and $5 Bonus Cards" width="960" height="942">
     </div>
   </div>
 
@@ -265,7 +265,7 @@ footer a:hover{color:var(--white)}
 
   <section>
     <div class="wrap why">
-      <img src="gift-card.jpg" alt="BIBIBOP Asian Grill gift card" width="720" height="460">
+      <img src="take-care-card.jpg" alt="BIBIBOP Take Care Always gift card" width="723" height="513">
       <div>
         <p class="eyebrow">The Easy Gift</p>
         <h2>A gift that fits every list</h2>
