@@ -58,14 +58,52 @@
 
 	<!-- SCHEMA -->
 	<style id="rcf-fav-style">
-.rcf-fav{text-align:center}
-.rcf-fav .rcf-fav-h{font-size:28px;margin:10px 0 6px}
-.rcf-fav .rcf-fav-sub{font-size:17px;margin:0 auto 18px;max-width:640px}
-.rcf-fav .product-row{display:flex;flex-wrap:wrap}
-.rcf-fav .img-container{position:relative}
-.rcf-fav .img-container img{width:100%;height:auto}
+/* shared band + card layout (Dublin-style uniform grid) */
+.rcf-band{background:#ebeae2;padding:22px 15px 10px;margin:10px 0 0}
+.rcf-fav{text-align:center;max-width:1240px!important;width:auto!important}
+.rcf-fav .rcf-fav-h{font-size:28px;margin:0 0 6px;color:#333}
+.rcf-fav .rcf-fav-sub{font-size:17px;margin:0 auto 18px;max-width:640px;color:#555}
+.rcf-fav .product-row{display:flex!important;flex-wrap:wrap;justify-content:center;margin:0 -9px}
+.rcf-fav .product-row::before,.rcf-fav .product-row::after{display:none!important;content:none!important}
+.products-list{background:#ebeae2!important;padding:4px 15px 18px!important}
+.products-list .container-fluid{max-width:1240px;margin:0 auto;float:none;display:flex!important;flex-wrap:wrap!important;justify-content:center!important;padding:0 6px!important;box-sizing:border-box}
+.products-list .container-fluid > div[style*="clear"]{display:none!important}
+.products-list .container-fluid .product-row{display:contents!important}
+.products-list .container-fluid .product-row::before,.products-list .container-fluid .product-row::after{display:none!important;content:none!important}
+.products-list .container-fluid .product-row > div:has(.product-row){display:contents!important}
+.products-list .product-row > div:not(:has(.product-row)),.rcf-fav .product-row > div{flex:0 0 25%!important;max-width:25%!important;width:25%!important;padding:0 9px!important;margin:0 0 18px!important;float:none!important;display:flex!important;box-sizing:border-box}
+.products-list .img-container,.rcf-fav .img-container{flex:1 1 auto;background:#fff;padding-bottom:14px;position:relative;width:100%!important;display:flex!important;flex-direction:column!important;margin:0!important;border-radius:4px;overflow:hidden}
+.products-list .img-container > a,.rcf-fav .img-container > a{display:flex!important;flex-direction:column;flex:0 0 auto}
+.products-list .img-container img.gallery,.rcf-fav .img-container img.gallery{aspect-ratio:1/1;object-fit:contain;background:#fff;width:100%!important;height:auto!important;max-width:100%!important;padding:0!important;margin:0!important;border:0!important}
+.products-list .price-banner,.rcf-fav .price-banner{text-align:center;position:static!important;background:#fff!important;padding:12px 8px 0!important;margin:0!important;height:auto!important;color:#555!important;font-size:15px!important;font-weight:400!important}
+.products-list .price-banner .row,.rcf-fav .price-banner .row{margin:0!important}
+.products-list .price-banner sup,.rcf-fav .price-banner sup{color:#555!important;font-size:75%!important;font-weight:400!important}
+.products-list .product-title,.rcf-fav .product-title{padding-bottom:2px;font-weight:bold!important;color:#333!important;font-size:16px!important;line-height:1.3!important;height:auto!important;min-height:0!important;overflow:visible!important;white-space:normal!important}
+.products-list .buy-now-overlay,.rcf-fav .buy-now-overlay{position:static!important;opacity:1!important;width:auto!important;height:auto!important;display:flex!important;justify-content:center!important;padding-top:10px!important;margin-top:auto!important;left:auto!important;top:auto!important;bottom:auto!important;transform:none!important;background:none!important}
+.products-list .btn-buynow,.rcf-fav .btn-buynow{position:static!important;left:auto!important;top:auto!important;float:none!important;display:inline-block!important;background:#5c9408!important;border-color:#5c9408!important;color:#fff!important;font-weight:bold!important;font-size:13px!important;letter-spacing:.5px!important;border-radius:3px!important;padding:8px 22px!important;text-decoration:none!important}
+.products-list .btn-buynow:hover,.rcf-fav .btn-buynow:hover{background:#4a7806!important;border-color:#4a7806!important}
+/* occasion headings in place of the banner images */
+.products-list .container-fluid > .row:not(.product-row){flex:0 0 100%!important;max-width:100%!important;margin:0!important}
+.products-list .container-fluid > .row:not(.product-row) > .col-md-12{padding:14px 9px 12px!important}
+.products-list .container-fluid > .row:not(.product-row) .col-md-12 > a > img{display:none!important}
+.rcf-grp{text-align:center}
+.rcf-grp h2{font-size:28px;margin:18px 0 4px;color:#333}
+.rcf-grp h3{font-size:22px;margin:6px 0 2px;color:#333}
+.rcf-grp a{font-size:15px;color:#5c9408;font-weight:bold;text-decoration:underline}
 .rcf-fav .rcf-fav-badge{position:absolute!important;top:8px;left:8px!important;right:auto!important;width:auto!important;display:inline-block!important;z-index:5;background:#6A0098;color:#fff;font-size:12px;line-height:1.2;font-weight:bold;padding:5px 9px;border-radius:3px;letter-spacing:.02em;max-width:calc(100% - 16px);text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;pointer-events:none}
-@media (max-width:767px){.rcf-fav .rcf-fav-h{font-size:22px}.rcf-fav .rcf-fav-sub{font-size:15px}.rcf-fav .rcf-fav-badge{font-size:10.5px;padding:4px 7px;top:6px;left:6px!important}}
+@media (max-width:991px){.products-list .product-row > div:not(:has(.product-row)),.rcf-fav .product-row > div{flex:0 0 33.333%!important;max-width:33.333%!important;width:33.333%!important}}
+@media (max-width:767px){
+.rcf-band{padding:16px 6px 4px}
+.rcf-fav{padding-left:0!important;padding-right:0!important}
+.rcf-fav .product-row{margin:0!important}
+.products-list{padding:4px 6px 12px!important}
+.products-list .container-fluid{padding:0!important}
+.rcf-fav .product-row{margin:0 -5px}
+.products-list .product-row > div:not(:has(.product-row)),.rcf-fav .product-row > div{flex:0 0 50%!important;max-width:50%!important;width:50%!important;padding:0 5px!important;margin:0 0 10px!important}
+.products-list .product-title,.rcf-fav .product-title{font-size:14px!important}
+.products-list .btn-buynow,.rcf-fav .btn-buynow{padding:7px 16px!important}
+.rcf-fav .rcf-fav-h,.rcf-grp h2{font-size:22px}.rcf-fav .rcf-fav-sub{font-size:15px}.rcf-grp h3{font-size:19px}
+.rcf-fav .rcf-fav-badge{font-size:10.5px;padding:4px 7px;top:6px;left:6px!important}}
 </style>
 </head>
 
@@ -750,7 +788,7 @@
         	<p>Fairport, from the lift bridge to the neighborhoods around the canal, gets arrangements designed by hand at our Rochester shop. Rockcastle Florist has been family owned since 1951, and orders placed by 2:00 PM qualify for same day flower delivery in Fairport, NY.</p>    	</div>
 	</div>
     		
-<div class="container rcf-fav" style="margin-top:10px; margin-bottom:30px;">
+<div class="rcf-band rcf-fav-band"><div class="container rcf-fav">
 <h2 class="rcf-fav-h">Fairport&rsquo;s Favorite Flowers</h2>
 <p class="rcf-fav-sub">The arrangements Fairport customers are sending most right now.</p>
 <div class="row product-row">
@@ -759,7 +797,7 @@
 <span class="rcf-fav-badge">Top seller this month</span>
 <a href="/products/harvest-radiance-bouquet-/" style="position:relative;">
 <img height="600" width="600" class="img-responsive gallery light-border-bottom" src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0844-3.jpg" alt="Harvest Radiance Bouquet" style="background:#FFF; margin-bottom:0px; padding:0px;">
-<div class="price-banner"><div class="row"><div class="col-xs-12"><div class="product-title">Harvest Radiance Bouquet</div></div><div class="col-xs-12" style="text-align:center;"><sup>$</sup>89<sup>.99</sup></div></div></div>
+<div class="price-banner"><div class="row"><div class="col-xs-12"><div class="product-title">Harvest Radiance Bouquet</div></div><div class="col-xs-12" style="text-align:center;"><sup>$</sup>89<sup>.99</sup> - <sup>$</sup>112<sup>.98</sup></div></div></div>
 </a>
 <div class="buy-now-overlay"><a href="/products/harvest-radiance-bouquet-/" class="btn btn-buynow">BUY NOW</a></div>
 </div>
@@ -768,7 +806,7 @@
 <span class="rcf-fav-badge">Thanksgiving favorite</span>
 <a href="/products/turkey-time-delight-centerpiece/" style="position:relative;">
 <img height="600" width="600" class="img-responsive gallery light-border-bottom" src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0108-Edit.jpg" alt="Turkey Time Delight Centerpiece" style="background:#FFF; margin-bottom:0px; padding:0px;">
-<div class="price-banner"><div class="row"><div class="col-xs-12"><div class="product-title">Turkey Time Delight Centerpiece</div></div><div class="col-xs-12" style="text-align:center;"><sup>$</sup>74<sup>.99</sup></div></div></div>
+<div class="price-banner"><div class="row"><div class="col-xs-12"><div class="product-title">Turkey Time Delight Centerpiece</div></div><div class="col-xs-12" style="text-align:center;"><sup>$</sup>74<sup>.99</sup> - <sup>$</sup>98<sup>.99</sup></div></div></div>
 </a>
 <div class="buy-now-overlay"><a href="/products/turkey-time-delight-centerpiece/" class="btn btn-buynow">BUY NOW</a></div>
 </div>
@@ -777,7 +815,7 @@
 <span class="rcf-fav-badge">Fairport favorite</span>
 <a href="/products/happy-birthday-bouquet/" style="position:relative;">
 <img height="600" width="600" class="img-responsive gallery light-border-bottom" src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0111-1.jpg" alt="Happy Birthday Bouquet" style="background:#FFF; margin-bottom:0px; padding:0px;">
-<div class="price-banner"><div class="row"><div class="col-xs-12"><div class="product-title">Happy Birthday Bouquet</div></div><div class="col-xs-12" style="text-align:center;"><sup>$</sup>89<sup>.99</sup></div></div></div>
+<div class="price-banner"><div class="row"><div class="col-xs-12"><div class="product-title">Happy Birthday Bouquet</div></div><div class="col-xs-12" style="text-align:center;"><sup>$</sup>89<sup>.99</sup> - <sup>$</sup>169<sup>.99</sup></div></div></div>
 </a>
 <div class="buy-now-overlay"><a href="/products/happy-birthday-bouquet/" class="btn btn-buynow">BUY NOW</a></div>
 </div>
@@ -795,7 +833,7 @@
 <span class="rcf-fav-badge">Fairport fall favorite</span>
 <a href="/products/autumn-breeze-bouquet/" style="position:relative;">
 <img height="600" width="600" class="img-responsive gallery light-border-bottom" src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0294-Edit.jpg" alt="Autumn Breeze Bouquet" style="background:#FFF; margin-bottom:0px; padding:0px;">
-<div class="price-banner"><div class="row"><div class="col-xs-12"><div class="product-title">Autumn Breeze Bouquet</div></div><div class="col-xs-12" style="text-align:center;"><sup>$</sup>106<sup>.99</sup></div></div></div>
+<div class="price-banner"><div class="row"><div class="col-xs-12"><div class="product-title">Autumn Breeze Bouquet</div></div><div class="col-xs-12" style="text-align:center;"><sup>$</sup>106<sup>.99</sup> - <sup>$</sup>129<sup>.98</sup></div></div></div>
 </a>
 <div class="buy-now-overlay"><a href="/products/autumn-breeze-bouquet/" class="btn btn-buynow">BUY NOW</a></div>
 </div>
@@ -828,14 +866,14 @@
 </div>
 </div>
 </div>
-</div>
+</div></div>
 <!--THIS IS A CITY PAGE WITH A HOME CATEGORY-->
         <div class="products-list">
             <div class='container-fluid'>
                 <div style="height:1px; clear:both;"></div><!------------------------------------------------------------------------------------------------>
 <!----------------------------------------START PRODUCTS---------------------------------------------->
 <!------------------------------------------------------------------------------------------------>
-<div class="row product-row">
+<div class="row"><div class="col-md-12 rcf-grp"><h2>Shop Fairport Flowers by Occasion</h2><h3>Thanksgiving Flowers</h3><a href="/flowers/thanksgiving/">Shop all Thanksgiving flowers</a></div></div><div class="row product-row">
 <!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 6)------------------------------------------------>
             			<div class="col-md-6 col-sm-12 col-xs-12 product-larger-bottom-margin" style="padding-right:5px; padding-left:5px;">
 				<div class="img-container">
@@ -872,7 +910,7 @@
                         						<div class="price-banner " >
 						<div class="row ">
 								<div class="col-xs-12">
-									<div class='product-title'>&middot;&nbsp;Pumpkin Spice Rose Bouquet&nbsp;&middot;</div>
+									<div class='product-title'>Pumpkin Spice Rose Bouquet</div>
 								</div>
 								<div class="col-xs-12" style='text-align:center;'>
 									<sup>$</sup>109<sup>.99</sup> - <sup>$</sup>274<sup>.99</sup> 								</div>
@@ -972,10 +1010,7 @@
 </div>
 <!--HOME TRUE-->		<!------------------------------------------HEADER------------------------------------------>
 		<div class="row" >
-									<div class="col-md-12" style='padding:0 35px 20px;'>
-																																 <a  target="_blank"  href='https://www.rockcastleflorist.com/flowers/birthday/'><img class='img-responsive ' src='/assets/inc/timthumb.php?w=2000&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/birthday3.jpg'  alt='Birthday Celebrations'></a>
-																													</div>
-								</div>
+									<div class="col-md-12 rcf-grp"><h3>Birthday Flowers</h3><a href="/flowers/birthday/">Shop all birthday flowers</a></div></div>
 	<div class='row product-row'>
 
 <!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 4)------------------------------------------------>
@@ -1060,10 +1095,7 @@
 </div>
 <!--HOME TRUE-->		<!------------------------------------------HEADER------------------------------------------>
 		<div class="row" >
-									<div class="col-md-12" style='padding:0 35px 20px;'>
-																																 <a  target="_blank"  href='https://www.rockcastleflorist.com/flowers/roses/'><img class='img-responsive ' src='/assets/inc/timthumb.php?w=2000&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/rose-collection2-2.jpg'  alt='Signature Rose Collection'></a>
-																													</div>
-								</div>
+									<div class="col-md-12 rcf-grp"><h3>Roses</h3><a href="/flowers/roses/">Shop all roses</a></div></div>
 	<div class='row product-row'>
 <!----------------------------------------NESTED COLUMN---------------------------------------------->
 <!------------------------------------------------------------------------------------------------>
@@ -1080,7 +1112,7 @@
                         						<div class="price-banner " >
 						<div class="row ">
 								<div class="col-xs-12">
-									<div class='product-title'>&middot;&nbsp;Golden Love Dozen Roses&nbsp;&middot;</div>
+									<div class='product-title'>Golden Love Dozen Roses</div>
 								</div>
 								<div class="col-xs-12" style='text-align:center;'>
 									<sup>$</sup>114<sup>.99</sup> 								</div>
@@ -1134,7 +1166,7 @@
                         						<div class="price-banner " >
 						<div class="row ">
 								<div class="col-xs-12">
-									<div class='product-title'>&middot;&nbsp;Modern Love Red Rose Bouquet&nbsp;&middot;</div>
+									<div class='product-title'>Modern Love Red Rose Bouquet</div>
 								</div>
 								<div class="col-xs-12" style='text-align:center;'>
 									<sup>$</sup>104<sup>.99</sup> - <sup>$</sup>275<sup>.99</sup> 								</div>
@@ -1160,7 +1192,7 @@
                         						<div class="price-banner " >
 						<div class="row ">
 								<div class="col-xs-12">
-									<div class='product-title'>&middot;&nbsp;Modern Love Triple Dozen Red Rose Bouquet&nbsp;&middot;</div>
+									<div class='product-title'>Modern Love Triple Dozen Red Rose Bouquet</div>
 								</div>
 								<div class="col-xs-12" style='text-align:center;'>
 									<sup>$</sup>275<sup>.99</sup> 								</div>
@@ -1190,7 +1222,7 @@
                         						<div class="price-banner big-banner" >
 						<div class="row ">
 								<div class="col-xs-12">
-									<div class='product-title'>&middot;&nbsp;Double Dozen Rose Bouquet and Cab Franc Pairing&nbsp;&middot;</div>
+									<div class='product-title'>Double Dozen Rose Bouquet and Cab Franc Pairing</div>
 								</div>
 								<div class="col-xs-12" style='text-align:center;'>
 									<sup>$</sup>143<sup>.99</sup> - <sup>$</sup>219<sup>.99</sup> 								</div>
@@ -1210,10 +1242,7 @@
 </div>
 <!--HOME TRUE-->		<!------------------------------------------HEADER------------------------------------------>
 		<div class="row" >
-									<div class="col-md-12" style='padding:0 35px 20px;'>
-																																 <a  target="_blank"  href='https://www.rockcastleflorist.com/flowers/get-well-wellness-gifts/'><img class='img-responsive ' src='/assets/inc/timthumb.php?w=2000&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/getwell2.jpg'  alt='Get Well'></a>
-																													</div>
-								</div>
+									<div class="col-md-12 rcf-grp"><h3>Get Well Flowers</h3><a href="/flowers/get-well-wellness-gifts/">Shop all get well flowers</a></div></div>
 	<div class='row product-row'>
 
 <!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 4)------------------------------------------------>
@@ -1298,11 +1327,7 @@
 </div>
 <!--HOME TRUE-->		<!------------------------------------------HEADER------------------------------------------>
 		<div class="row" >
-									<div class="col-md-12" style='padding:0 35px 20px;'>
-																																 <a  target="_blank"  href='https://www.rockcastleflorist.com/flowers/sympathy-collections/'><img class='img-responsive ' src='/assets/inc/timthumb.php?w=2000&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/sympathy2.jpg'  alt='Comfort and Sympathy '></a>
-																															<div style='text-align:center;'><h2 style="text-align: center;"></h2>
-<p></p></div>
-																			</div>
+									<div class="col-md-12 rcf-grp"><h3>Sympathy Flowers</h3><a href="/flowers/sympathy-collections/">Shop all sympathy flowers</a></div></div>
 								</div>
 	<div class='row product-row'>
 
@@ -1438,10 +1463,7 @@
 </div>
 <!--HOME TRUE-->		<!------------------------------------------HEADER------------------------------------------>
 		<div class="row" >
-									<div class="col-md-12" style='padding:0 35px 20px;'>
-																																 <a  target="_blank"  href='https://www.rockcastleflorist.com/flowers/gifts-and-goodies/'><img class='img-responsive ' src='/assets/inc/timthumb.php?w=2000&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/advantage.jpg'  alt='We Deliver NYS Wine, Beer and Treats'></a>
-																													</div>
-								</div>
+									<div class="col-md-12 rcf-grp"><h3>Gifts, Wine and Treats</h3><a href="/flowers/gifts-and-goodies/">Shop all gifts</a></div></div>
 	<div class='row product-row'>
 
 <!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 4)------------------------------------------------>
@@ -2183,38 +2205,41 @@ body.twm-off .twm-badge{display:none!important}
 .twm-bar-n{font:11.5px/1.3 system-ui,-apple-system,Arial,sans-serif;color:#8a8a84;margin:1px 0 4px 120px}
 .twm-src{font:12px/1.5 system-ui,-apple-system,Arial,sans-serif;color:#777;margin-top:18px}
 </style><div aria-label="Preview controls" id="twm-bar" role="region">
-<span class="twm-bar-label">Fairport page preview: best sellers row</span>
+<span class="twm-bar-label">Fairport page preview: 2 changes</span>
 <button id="twm-open" type="button">View changes</button>
 <button id="twm-toggle" type="button">Hide highlights</button>
 </div>
 <aside aria-hidden="true" aria-label="Changes on this page" id="twm-drawer">
 <div class="twm-dh"><div>
 <div class="twm-kicker">Two Wheels Marketing &middot; November 2026</div>
-<h2>Fairport Page: Best Sellers Row</h2>
-<p>This is your Fairport page with a recommended best sellers row, picked from your own order data. Nothing on your live site changes until you approve.</p>
+<h2>Fairport Page: Best Sellers and Product Grid</h2>
+<p>This is your Fairport page with a best sellers row picked from your own order data, and a cleaner product grid. Nothing on your live site changes until you approve.</p>
 </div><button aria-label="Close" id="twm-close" type="button">&times;</button></div>
 <div class="twm-list">
-<p class="twm-intro-note">Only the new row near the top is added. Everything else on the page stays as it is today.</p>
+<p class="twm-intro-note">The new best sellers row and the restyled product grid are the only changes. The products, prices, menu and text on the page stay as they are today.</p>
 <div class="twm-group">On the page</div><details class="twm-item" data-n="1"><summary><span class="twm-num">1</span><span class="twm-st">New Fairport best sellers row<small>Above the product grid</small></span></summary><div class="twm-body"><span class="twm-lbl">Before</span><div class="twm-before">The grid is a hand-picked mix of 24 products. The first five are four Thanksgiving centerpieces and a fall bouquet, and the order stays the same until someone changes it.</div>
 <span class="twm-lbl">After</span><div class="twm-after">A row of eight best sellers picked from your own orders: what Fairport customers send most, plus what is selling best across the shop right now. Each has a short label like &ldquo;Fairport favorite&rdquo; or &ldquo;Top seller this month&rdquo;.</div>
 <span class="twm-lbl">Why</span><p>Shoppers who land on a town page from Google have not picked an occasion yet. Showing proven sellers first helps them choose quickly, and labels like &ldquo;Fairport favorite&rdquo; tell them neighbors trust these arrangements.</p>
-<span class="twm-lbl">How</span><div class="twm-how">The rest of the page, including the grid below, stays as it is today. On the live page the grid would skip any product already shown in this row.</div><button class="twm-go" data-go="1" type="button">Show on page</button></div></details>
-<div class="twm-group">The data behind it</div><details class="twm-item" data-n="2"><summary><span class="twm-num">2</span><span class="twm-st">Why these eight<small>The numbers behind each pick</small></span></summary><div class="twm-body"><table class="twm-tbl"><thead><tr><th>Product</th><th>All orders, last 30 days</th><th>Fairport, 12 months</th><th>Fairport, 90 days</th></tr></thead><tbody><tr><td>Harvest Radiance Bouquet</td><td>72</td><td>3</td><td>3</td></tr><tr><td>Turkey Time Delight Centerpiece</td><td>23</td><td>0</td><td>0</td></tr><tr><td>Happy Birthday Bouquet</td><td>17</td><td>19</td><td>3</td></tr><tr><td>Peace Lily Verdant Planter</td><td>15</td><td>19</td><td>5</td></tr><tr><td>Autumn Breeze Bouquet</td><td>18</td><td>7</td><td>7</td></tr><tr><td>Thinking of You Bouquet</td><td>30</td><td>8</td><td>3</td></tr><tr><td>Harvest Bliss Centerpiece</td><td>13</td><td>0</td><td>0</td></tr><tr><td>Sunbaked Blush Basket Bouquet</td><td>40</td><td>4</td><td>4</td></tr></tbody></table>
+<span class="twm-lbl">How</span><div class="twm-how">Set by hand in the Fairport category to start, refreshed monthly. A best seller can also appear again in its occasion group below, the same way a store shows a product on an endcap and in its aisle.</div><button class="twm-go" data-go="1" type="button">Show on page</button></div></details><details class="twm-item" data-n="2"><summary><span class="twm-num">2</span><span class="twm-st">Product grid restyled<small>The products below the best sellers</small></span></summary><div class="twm-body"><span class="twm-lbl">Before</span><div class="twm-before">Mixed card sizes (one oversized card, then rows of four and three), Buy Now buttons that only show on hover, and five large banner images between groups that push products far down the page on phones.</div>
+<span class="twm-lbl">After</span><div class="twm-after">Every product in the same clean card: square photo, name, price and an always-visible Buy Now button, four across on computers and two on phones. The banner images become short occasion headings (Thanksgiving, Birthday, Roses, Get Well, Sympathy, Gifts), each with a link to shop the full category.</div>
+<span class="twm-lbl">Why</span><p>Shoppers compare by photo and price, so equal cards make that faster, and a visible button tells phone shoppers where to tap. Headings instead of tall banners mean far less scrolling on phones, while every occasion link stays on the page.</p>
+<span class="twm-lbl">How</span><div class="twm-how">Your products, prices and groups stay exactly as they are. This is a style block on the page, plus setting each group&rsquo;s heading in the CMS in place of its banner image. It is the same layout already running on another m2 florist site, so we know the platform supports it.</div><button class="twm-go" data-go="2" type="button">Show on page</button></div></details>
+<div class="twm-group">The data behind the best sellers</div><details class="twm-item" data-n="3"><summary><span class="twm-num">3</span><span class="twm-st">Why these eight<small>The numbers behind each pick</small></span></summary><div class="twm-body"><table class="twm-tbl"><thead><tr><th>Product</th><th>All orders, last 30 days</th><th>Fairport, 12 months</th><th>Fairport, 90 days</th></tr></thead><tbody><tr><td>Harvest Radiance Bouquet</td><td>72</td><td>3</td><td>3</td></tr><tr><td>Turkey Time Delight Centerpiece</td><td>23</td><td>0</td><td>0</td></tr><tr><td>Happy Birthday Bouquet</td><td>17</td><td>19</td><td>3</td></tr><tr><td>Peace Lily Verdant Planter</td><td>15</td><td>19</td><td>5</td></tr><tr><td>Autumn Breeze Bouquet</td><td>18</td><td>7</td><td>7</td></tr><tr><td>Thinking of You Bouquet</td><td>30</td><td>8</td><td>3</td></tr><tr><td>Harvest Bliss Centerpiece</td><td>13</td><td>0</td><td>0</td></tr><tr><td>Sunbaked Blush Basket Bouquet</td><td>40</td><td>4</td><td>4</td></tr></tbody></table>
 <ul><li><strong>Harvest Radiance Bouquet</strong>: Your number one seller across all deliveries in the last 30 days.</li><li><strong>Turkey Time Delight Centerpiece</strong>: Number one Thanksgiving item this week (13 orders since Nov 14). Comes off the morning of Nov 27.</li><li><strong>Happy Birthday Bouquet</strong>: Tied for most ordered in Fairport this year, and your top seller store-wide over 12 months.</li><li><strong>Peace Lily Verdant Planter</strong>: Tied for most ordered in Fairport this year. Covers sympathy, which is about 1 in 5 Fairport orders.</li><li><strong>Autumn Breeze Bouquet</strong>: Fairport&#x27;s most ordered arrangement in the last 90 days.</li><li><strong>Thinking of You Bouquet</strong>: A top 5 seller store-wide this month and over the full year.</li><li><strong>Harvest Bliss Centerpiece</strong>: Number two Thanksgiving item this week, and already booked for a Fairport delivery. Comes off Nov 27.</li><li><strong>Sunbaked Blush Basket Bouquet</strong>: Number two seller across all deliveries in the last 30 days.</li></ul>
-<span class="twm-lbl">How they are ranked</span><p>Half the weight goes to sales across the whole shop in the last 30 days, and half to Fairport&rsquo;s own orders (12 months and the last 90 days). Only products on the site today can be picked. At least one sympathy and one birthday pick are always included, since each is about 1 in 5 Fairport orders.</p></div></details><details class="twm-item" data-n="3"><summary><span class="twm-num">3</span><span class="twm-st">Thanksgiving: best sellers or holiday picks?<small>How many holiday products to show, and when</small></span></summary><div class="twm-body"><p>Last year, Thanksgiving centerpieces and bouquets were a small share of orders until the final two days, then disappeared the day after.</p>
+<span class="twm-lbl">How they are ranked</span><p>Half the weight goes to sales across the whole shop in the last 30 days, and half to Fairport&rsquo;s own orders (12 months and the last 90 days). Only products on the site today can be picked. At least one sympathy and one birthday pick are always included, since each is about 1 in 5 Fairport orders.</p></div></details><details class="twm-item" data-n="4"><summary><span class="twm-num">4</span><span class="twm-st">Thanksgiving: best sellers or holiday picks?<small>How many holiday products to show, and when</small></span></summary><div class="twm-body"><p>Last year, Thanksgiving centerpieces and bouquets were a small share of orders until the final two days, then disappeared the day after.</p>
 <span class="twm-lbl">Share of deliveries with a Thanksgiving item, 2025</span><div class="twm-bar-row"><span class="twm-bar-l">Nov 18 to 24</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:8%"></span></span><span class="twm-bar-v">8%</span></div><div class="twm-bar-n">6 of 75 deliveries</div><div class="twm-bar-row"><span class="twm-bar-l">Nov 25</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:27%"></span></span><span class="twm-bar-v">27%</span></div><div class="twm-bar-n">6 of 22 deliveries</div><div class="twm-bar-row"><span class="twm-bar-l">Nov 26</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:46%"></span></span><span class="twm-bar-v">46%</span></div><div class="twm-bar-n">18 of 39 deliveries</div><div class="twm-bar-row"><span class="twm-bar-l">Nov 28</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:1%"></span></span><span class="twm-bar-v">0%</span></div><div class="twm-bar-n">0 of 13 deliveries</div>
 <p style="margin-top:12px">By order date, about 1 in 5 orders placed in the final week included a Thanksgiving item, and half of those were placed within two days of delivery. In Fairport, 3 of 16 deliveries in Thanksgiving week 2025 were Thanksgiving items. This year, 4 of the 11 Fairport orders booked for Nov 14 to 30 are Thanksgiving centerpieces.</p>
 <span class="twm-lbl">Recommendation</span><div class="twm-after">Keep holiday items to two of the eight spots, starting about 10 days before the holiday and ending after the last delivery day. Fill the rest with best sellers. Birthdays, sympathy and get well orders keep coming all week, and most Thanksgiving buyers will also see the holiday category in the menu.</div>
 <span class="twm-lbl">On Nov 27</span><p>The two Thanksgiving picks come off and the next best sellers move up:</p>
 <table class="twm-tbl"><thead><tr><th>Product</th><th>All orders, last 30 days</th><th>Fairport, 12 months</th><th>Fairport, 90 days</th></tr></thead><tbody><tr><td>Tropical Twilight Bouquet</td><td>20</td><td>3</td><td>3</td></tr><tr><td>Ever Near Succulent Garden</td><td>10</td><td>7</td><td>3</td></tr></tbody></table>
-<p>The same two-spot rule then applies to Christmas, Valentine&rsquo;s Day and Mother&rsquo;s Day.</p></div></details><details class="twm-item" data-n="4"><summary><span class="twm-num">4</span><span class="twm-st">Why not just a 12-month best seller list<small>Seasonal products come and go</small></span></summary><div class="twm-body"><p>Many of your best sellers are seasonal designs that rotate off the site. Of the 103 products that sold most over the last year, 34 are no longer available, and the 12-month list is led by spring designs like Morning Mimosa and Beachy Breeze.</p>
-<p>Fairport alone is also too spread out to rank on its own: its 574 deliveries over the last 12 months were spread across 245 different products, and the most ordered had 19. Blending in the whole shop&rsquo;s recent sales keeps the row current and reliable.</p></div></details><details class="twm-item" data-n="5"><summary><span class="twm-num">5</span><span class="twm-st">What Fairport customers send<small>Occasions on 574 Fairport deliveries, last 12 months</small></span></summary><div class="twm-body"><div class="twm-bar-row"><span class="twm-bar-l">No occasion given</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:26%"></span></span><span class="twm-bar-v">26%</span></div><div class="twm-bar-row"><span class="twm-bar-l">Sympathy</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:22%"></span></span><span class="twm-bar-v">22%</span></div><div class="twm-bar-row"><span class="twm-bar-l">Birthday</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:22%"></span></span><span class="twm-bar-v">22%</span></div><div class="twm-bar-row"><span class="twm-bar-l">Holiday</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:17%"></span></span><span class="twm-bar-v">17%</span></div><div class="twm-bar-row"><span class="twm-bar-l">Get well</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:8%"></span></span><span class="twm-bar-v">8%</span></div><div class="twm-bar-row"><span class="twm-bar-l">Anniversary</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:3%"></span></span><span class="twm-bar-v">3%</span></div><div class="twm-bar-row"><span class="twm-bar-l">New baby</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:2%"></span></span><span class="twm-bar-v">2%</span></div>
-<p style="margin-top:12px">Fairport is your third busiest town after Rochester and Canandaigua. About 3 in 4 deliveries go to homes, with businesses and funeral homes next. That steady mix of birthday and sympathy orders is why the row always keeps one of each.</p></div></details><details class="twm-item" data-n="6"><summary><span class="twm-num">6</span><span class="twm-st">Keeping it current<small>Monthly refresh, then other town pages</small></span></summary><div class="twm-body"><p>We refresh the eight picks once a month from your order history and the Top Products report, and switch holiday picks on and off on the dates above. Fairport would be the first page, then the other town pages. Smaller towns with only a handful of orders would use the shop-wide best sellers with the same holiday rule.</p>
+<p>The same two-spot rule then applies to Christmas, Valentine&rsquo;s Day and Mother&rsquo;s Day.</p></div></details><details class="twm-item" data-n="5"><summary><span class="twm-num">5</span><span class="twm-st">Why not just a 12-month best seller list<small>Seasonal products come and go</small></span></summary><div class="twm-body"><p>Many of your best sellers are seasonal designs that rotate off the site. Of the 103 products that sold most over the last year, 34 are no longer available, and the 12-month list is led by spring designs like Morning Mimosa and Beachy Breeze.</p>
+<p>Fairport alone is also too spread out to rank on its own: its 574 deliveries over the last 12 months were spread across 245 different products, and the most ordered had 19. Blending in the whole shop&rsquo;s recent sales keeps the row current and reliable.</p></div></details><details class="twm-item" data-n="6"><summary><span class="twm-num">6</span><span class="twm-st">What Fairport customers send<small>Occasions on 574 Fairport deliveries, last 12 months</small></span></summary><div class="twm-body"><div class="twm-bar-row"><span class="twm-bar-l">No occasion given</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:26%"></span></span><span class="twm-bar-v">26%</span></div><div class="twm-bar-row"><span class="twm-bar-l">Sympathy</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:22%"></span></span><span class="twm-bar-v">22%</span></div><div class="twm-bar-row"><span class="twm-bar-l">Birthday</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:22%"></span></span><span class="twm-bar-v">22%</span></div><div class="twm-bar-row"><span class="twm-bar-l">Holiday</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:17%"></span></span><span class="twm-bar-v">17%</span></div><div class="twm-bar-row"><span class="twm-bar-l">Get well</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:8%"></span></span><span class="twm-bar-v">8%</span></div><div class="twm-bar-row"><span class="twm-bar-l">Anniversary</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:3%"></span></span><span class="twm-bar-v">3%</span></div><div class="twm-bar-row"><span class="twm-bar-l">New baby</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:2%"></span></span><span class="twm-bar-v">2%</span></div>
+<p style="margin-top:12px">Fairport is your third busiest town after Rochester and Canandaigua. About 3 in 4 deliveries go to homes, with businesses and funeral homes next. That steady mix of birthday and sympathy orders is why the row always keeps one of each.</p></div></details><details class="twm-item" data-n="7"><summary><span class="twm-num">7</span><span class="twm-st">Keeping it current<small>Monthly refresh, then other town pages</small></span></summary><div class="twm-body"><p>We refresh the eight picks once a month from your order history and the Top Products report, and switch holiday picks on and off on the dates above. Fairport would be the first page, then the other town pages. Smaller towns with only a handful of orders would use the shop-wide best sellers with the same holiday rule.</p>
 <span class="twm-lbl">How</span><div class="twm-how">The first version can be set by hand in the Fairport category. If it works well, we can ask m2 about filling the row automatically from orders by ZIP code.</div></div></details>
 <p class="twm-src">Sources: Rockcastle order records for deliveries to ZIP 14450, Nov 23, 2025 to Nov 22, 2026; Top Products report for Oct 24 to Nov 22, 2026 and Nov 14 to 23, 2026; Thanksgiving 2025 figures from every third delivery Nov 18 to 28, 2025 (149 orders).</p>
 </div>
 </aside>
-<script type="application/json" id="twm-config">{"items": [{"n": 1, "sel": {"css": ".rcf-fav"}}], "swaps": [], "renameV2": false}</script>
+<script type="application/json" id="twm-config">{"items": [{"n": 1, "sel": {"css": ".rcf-fav-band"}}, {"n": 2, "sel": {"css": ".products-list"}}], "swaps": [], "renameV2": false}</script>
 <script>
 (function(){
   var d=document, b=d.body, cfg=JSON.parse(d.getElementById('twm-config').textContent);
