@@ -57,53 +57,51 @@
 <meta name="google-site-verification" content="UUnNNQEvCOAFGyIELkKqIjDFjF_zOqeX9T3dXRdy9n0" />
 
 	<!-- SCHEMA -->
-	<style id="rcf-fav-style">
-/* shared band + card layout (Dublin-style uniform grid) */
-.rcf-band{background:#ebeae2;padding:22px 15px 10px;margin:10px 0 0}
-.rcf-fav{text-align:center;max-width:1240px!important;width:auto!important}
-.rcf-fav .rcf-fav-h{font-size:28px;margin:0 0 6px;color:#333}
-.rcf-fav .rcf-fav-sub{font-size:17px;margin:0 auto 18px;max-width:640px;color:#555}
-.rcf-fav .product-row{display:flex!important;flex-wrap:wrap;justify-content:center;margin:0 -9px}
-.rcf-fav .product-row::before,.rcf-fav .product-row::after{display:none!important;content:none!important}
-.products-list{background:#ebeae2!important;padding:4px 15px 18px!important}
-.products-list .container-fluid{max-width:1240px;margin:0 auto;float:none;display:flex!important;flex-wrap:wrap!important;justify-content:center!important;padding:0 6px!important;box-sizing:border-box}
+	<style id="rcf-grid-style">
+.products-list{background:#ebeae2!important;padding:26px 15px 14px!important}
+.products-list .container-fluid{max-width:1240px;margin:0 auto;float:none;display:flex!important;flex-wrap:wrap!important;padding:0 6px!important;box-sizing:border-box}
 .products-list .container-fluid > div[style*="clear"]{display:none!important}
+.products-list .container-fluid > .row:not(.product-row){flex:0 0 100%!important;max-width:100%!important;margin:0!important}
+.products-list .container-fluid > .row:not(.product-row) .col-md-12 > a > img{display:none!important}
 .products-list .container-fluid .product-row{display:contents!important}
 .products-list .container-fluid .product-row::before,.products-list .container-fluid .product-row::after{display:none!important;content:none!important}
-.products-list .container-fluid .product-row > div:has(.product-row){display:contents!important}
-.products-list .product-row > div:not(:has(.product-row)),.rcf-fav .product-row > div{flex:0 0 25%!important;max-width:25%!important;width:25%!important;padding:0 9px!important;margin:0 0 18px!important;float:none!important;display:flex!important;box-sizing:border-box}
-.products-list .img-container,.rcf-fav .img-container{flex:1 1 auto;background:#fff;padding-bottom:14px;position:relative;width:100%!important;display:flex!important;flex-direction:column!important;margin:0!important;border-radius:4px;overflow:hidden}
-.products-list .img-container > a,.rcf-fav .img-container > a{display:flex!important;flex-direction:column;flex:0 0 auto}
-.products-list .img-container img.gallery,.rcf-fav .img-container img.gallery{aspect-ratio:1/1;object-fit:contain;background:#fff;width:100%!important;height:auto!important;max-width:100%!important;padding:0!important;margin:0!important;border:0!important}
-.products-list .price-banner,.rcf-fav .price-banner{text-align:center;position:static!important;background:#fff!important;padding:12px 8px 0!important;margin:0!important;height:auto!important;color:#555!important;font-size:15px!important;font-weight:400!important}
-.products-list .price-banner .row,.rcf-fav .price-banner .row{margin:0!important}
-.products-list .price-banner sup,.rcf-fav .price-banner sup{color:#555!important;font-size:75%!important;font-weight:400!important}
-.products-list .product-title,.rcf-fav .product-title{padding-bottom:2px;font-weight:bold!important;color:#333!important;font-size:16px!important;line-height:1.3!important;height:auto!important;min-height:0!important;overflow:visible!important;white-space:normal!important}
-.products-list .buy-now-overlay,.rcf-fav .buy-now-overlay{position:static!important;opacity:1!important;width:auto!important;height:auto!important;display:flex!important;justify-content:center!important;padding-top:10px!important;margin-top:auto!important;left:auto!important;top:auto!important;bottom:auto!important;transform:none!important;background:none!important}
-.products-list .btn-buynow,.rcf-fav .btn-buynow{position:static!important;left:auto!important;top:auto!important;float:none!important;display:inline-block!important;background:#5c9408!important;border-color:#5c9408!important;color:#fff!important;font-weight:bold!important;font-size:13px!important;letter-spacing:.5px!important;border-radius:3px!important;padding:8px 22px!important;text-decoration:none!important}
-.products-list .btn-buynow:hover,.rcf-fav .btn-buynow:hover{background:#4a7806!important;border-color:#4a7806!important}
-/* occasion headings in place of the banner images */
-.products-list .container-fluid > .row:not(.product-row){flex:0 0 100%!important;max-width:100%!important;margin:0!important}
-.products-list .container-fluid > .row:not(.product-row) > .col-md-12{padding:14px 9px 12px!important}
-.products-list .container-fluid > .row:not(.product-row) .col-md-12 > a > img{display:none!important}
-.rcf-grp{text-align:center}
-.rcf-grp h2{font-size:28px;margin:18px 0 4px;color:#333}
-.rcf-grp h3{font-size:22px;margin:6px 0 2px;color:#333}
-.rcf-grp a{font-size:15px;color:#5c9408;font-weight:bold;text-decoration:underline}
-.rcf-fav .rcf-fav-badge{position:absolute!important;top:8px;left:8px!important;right:auto!important;width:auto!important;display:inline-block!important;z-index:5;background:#6A0098;color:#fff;font-size:12px;line-height:1.2;font-weight:bold;padding:5px 9px;border-radius:3px;letter-spacing:.02em;max-width:calc(100% - 16px);text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;pointer-events:none}
-@media (max-width:991px){.products-list .product-row > div:not(:has(.product-row)),.rcf-fav .product-row > div{flex:0 0 33.333%!important;max-width:33.333%!important;width:33.333%!important}}
+.products-list .product-row > div{flex:0 0 25%!important;max-width:25%!important;width:25%!important;padding:0 9px!important;margin:0 0 18px!important;float:none!important;display:flex!important;box-sizing:border-box}
+.products-list .img-container{flex:1 1 auto;background:#fff;padding-bottom:14px;position:relative;width:100%!important;display:flex!important;flex-direction:column!important;margin:0!important;border-radius:4px;overflow:hidden}
+.products-list .img-container > a{display:flex!important;flex-direction:column;flex:0 0 auto;position:relative}
+.products-list .img-container img.gallery{aspect-ratio:1/1;object-fit:contain;background:#fff;width:100%!important;height:auto!important;max-width:100%!important;padding:0!important;margin:0!important;border:0!important}
+.products-list .price-banner{text-align:center;position:static!important;background:#fff!important;padding:12px 8px 0!important;margin:0!important;height:auto!important;color:#555!important;font-size:15px!important;font-weight:400!important}
+.products-list .price-banner .row{margin:0!important}
+.products-list .price-banner .col-xs-12{padding:0!important;float:none!important}
+.products-list .price-banner sup{color:#555!important;font-size:75%!important;font-weight:400!important}
+.products-list .product-title{padding-bottom:2px;font-weight:bold!important;color:#333!important;font-size:16px!important;line-height:1.3!important;height:auto!important;min-height:0!important;overflow:visible!important;white-space:normal!important}
+.products-list .buy-now-overlay{position:static!important;opacity:1!important;width:auto!important;height:auto!important;display:flex!important;justify-content:center!important;padding-top:12px!important;margin-top:auto!important;left:auto!important;top:auto!important;bottom:auto!important;transform:none!important;background:none!important}
+.products-list .btn-buynow{position:static!important;left:auto!important;top:auto!important;float:none!important;display:inline-block!important;background:#5c9408!important;border-color:#5c9408!important;color:#fff!important;font-weight:bold!important;font-size:13px!important;letter-spacing:.5px!important;border-radius:3px!important;padding:8px 22px!important;text-decoration:none!important}
+.products-list .btn-buynow:hover{background:#4a7806!important;border-color:#4a7806!important}
+.products-list .local-triangle,.products-list .local-only{display:none!important}
+.products-list .img-container > a::before{position:absolute;top:8px;left:8px;z-index:5;background:#6A0098;color:#fff;font-size:12px;line-height:1.2;font-weight:bold;padding:5px 9px;border-radius:3px;letter-spacing:.02em;white-space:nowrap;max-width:calc(100% - 16px);overflow:hidden;text-overflow:ellipsis;pointer-events:none}
+.rcf-head{text-align:center;padding:0 9px 16px!important}
+.rcf-head h2{font-size:28px;margin:0 0 6px;color:#333}
+.rcf-head p{font-size:17px;margin:0;color:#555}
+.rcf-more{text-align:center;padding:4px 9px 6px!important}
+.rcf-more p{font-size:16px;margin:0;color:#555;line-height:1.9}
+.rcf-more a{color:#5c9408;font-weight:bold;text-decoration:underline;white-space:nowrap}
+.rcf-more .rcf-dot{color:#aaa;margin:0 2px}
+@media (max-width:991px){.products-list .product-row > div{flex:0 0 33.333%!important;max-width:33.333%!important;width:33.333%!important}}
 @media (max-width:767px){
-.rcf-band{padding:16px 6px 4px}
-.rcf-fav{padding-left:0!important;padding-right:0!important}
-.rcf-fav .product-row{margin:0!important}
-.products-list{padding:4px 6px 12px!important}
+.products-list{padding:18px 6px 10px!important}
 .products-list .container-fluid{padding:0!important}
-.rcf-fav .product-row{margin:0 -5px}
-.products-list .product-row > div:not(:has(.product-row)),.rcf-fav .product-row > div{flex:0 0 50%!important;max-width:50%!important;width:50%!important;padding:0 5px!important;margin:0 0 10px!important}
-.products-list .product-title,.rcf-fav .product-title{font-size:14px!important}
-.products-list .btn-buynow,.rcf-fav .btn-buynow{padding:7px 16px!important}
-.rcf-fav .rcf-fav-h,.rcf-grp h2{font-size:22px}.rcf-fav .rcf-fav-sub{font-size:15px}.rcf-grp h3{font-size:19px}
-.rcf-fav .rcf-fav-badge{font-size:10.5px;padding:4px 7px;top:6px;left:6px!important}}
+.products-list .product-row > div{flex:0 0 50%!important;max-width:50%!important;width:50%!important;padding:0 5px!important;margin:0 0 10px!important}
+.products-list .product-title{font-size:14px!important}
+.products-list .price-banner{font-size:14px!important}
+.products-list .btn-buynow{padding:7px 16px!important}
+.products-list .img-container > a::before{font-size:10.5px;padding:4px 7px;top:6px;left:6px}
+.rcf-head h2{font-size:22px}.rcf-head p{font-size:15px}.rcf-more p{font-size:15px}}
+.products-list .img-container > a[href*="/harvest-radiance-bouquet-/"]::before{content:"Top seller this month"}
+.products-list .img-container > a[href*="/turkey-time-delight-centerpiece/"]::before{content:"Thanksgiving favorite"}
+.products-list .img-container > a[href*="/happy-birthday-bouquet/"]::before{content:"Fairport favorite"}
+.products-list .img-container > a[href*="/peace-lily-verdant-planter/"]::before{content:"Fairport favorite"}
+.products-list .img-container > a[href*="/autumn-breeze-bouquet/"]::before{content:"Fairport fall favorite"}
+.products-list .img-container > a[href*="/thinking-of-you-bouquet/"]::before{content:"Best seller all year"}
 </style>
 </head>
 
@@ -787,766 +785,177 @@
     	<div class='city-top-content'>
         	<p>Fairport, from the lift bridge to the neighborhoods around the canal, gets arrangements designed by hand at our Rochester shop. Rockcastle Florist has been family owned since 1951, and orders placed by 2:00 PM qualify for same day flower delivery in Fairport, NY.</p>    	</div>
 	</div>
-    		
-<div class="rcf-band rcf-fav-band"><div class="container rcf-fav">
-<h2 class="rcf-fav-h">Fairport&rsquo;s Favorite Flowers</h2>
-<p class="rcf-fav-sub">The arrangements Fairport customers are sending most right now.</p>
-<div class="row product-row">
-<div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin rcf-fav-card" style="padding-right:5px; padding-left:5px;">
-<div class="img-container">
-<span class="rcf-fav-badge">Top seller this month</span>
-<a href="/products/harvest-radiance-bouquet-/" style="position:relative;">
-<img height="600" width="600" class="img-responsive gallery light-border-bottom" src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0844-3.jpg" alt="Harvest Radiance Bouquet" style="background:#FFF; margin-bottom:0px; padding:0px;">
-<div class="price-banner"><div class="row"><div class="col-xs-12"><div class="product-title">Harvest Radiance Bouquet</div></div><div class="col-xs-12" style="text-align:center;"><sup>$</sup>89<sup>.99</sup> - <sup>$</sup>112<sup>.98</sup></div></div></div>
-</a>
-<div class="buy-now-overlay"><a href="/products/harvest-radiance-bouquet-/" class="btn btn-buynow">BUY NOW</a></div>
-</div>
-</div><div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin rcf-fav-card" style="padding-right:5px; padding-left:5px;">
-<div class="img-container">
-<span class="rcf-fav-badge">Thanksgiving favorite</span>
-<a href="/products/turkey-time-delight-centerpiece/" style="position:relative;">
-<img height="600" width="600" class="img-responsive gallery light-border-bottom" src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0108-Edit.jpg" alt="Turkey Time Delight Centerpiece" style="background:#FFF; margin-bottom:0px; padding:0px;">
-<div class="price-banner"><div class="row"><div class="col-xs-12"><div class="product-title">Turkey Time Delight Centerpiece</div></div><div class="col-xs-12" style="text-align:center;"><sup>$</sup>74<sup>.99</sup> - <sup>$</sup>98<sup>.99</sup></div></div></div>
-</a>
-<div class="buy-now-overlay"><a href="/products/turkey-time-delight-centerpiece/" class="btn btn-buynow">BUY NOW</a></div>
-</div>
-</div><div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin rcf-fav-card" style="padding-right:5px; padding-left:5px;">
-<div class="img-container">
-<span class="rcf-fav-badge">Fairport favorite</span>
-<a href="/products/happy-birthday-bouquet/" style="position:relative;">
-<img height="600" width="600" class="img-responsive gallery light-border-bottom" src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0111-1.jpg" alt="Happy Birthday Bouquet" style="background:#FFF; margin-bottom:0px; padding:0px;">
-<div class="price-banner"><div class="row"><div class="col-xs-12"><div class="product-title">Happy Birthday Bouquet</div></div><div class="col-xs-12" style="text-align:center;"><sup>$</sup>89<sup>.99</sup> - <sup>$</sup>169<sup>.99</sup></div></div></div>
-</a>
-<div class="buy-now-overlay"><a href="/products/happy-birthday-bouquet/" class="btn btn-buynow">BUY NOW</a></div>
-</div>
-</div><div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin rcf-fav-card" style="padding-right:5px; padding-left:5px;">
-<div class="img-container">
-<span class="rcf-fav-badge">Fairport favorite</span>
-<a href="/products/peace-lily-verdant-planter/" style="position:relative;">
-<img height="600" width="600" class="img-responsive gallery light-border-bottom" src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0663h.jpg" alt="Peace Lily Verdant Planter" style="background:#FFF; margin-bottom:0px; padding:0px;">
-<div class="price-banner"><div class="row"><div class="col-xs-12"><div class="product-title">Peace Lily Verdant Planter</div></div><div class="col-xs-12" style="text-align:center;"><sup>$</sup>69<sup>.99</sup></div></div></div>
-</a>
-<div class="buy-now-overlay"><a href="/products/peace-lily-verdant-planter/" class="btn btn-buynow">BUY NOW</a></div>
-</div>
-</div><div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin rcf-fav-card" style="padding-right:5px; padding-left:5px;">
-<div class="img-container">
-<span class="rcf-fav-badge">Fairport fall favorite</span>
-<a href="/products/autumn-breeze-bouquet/" style="position:relative;">
-<img height="600" width="600" class="img-responsive gallery light-border-bottom" src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0294-Edit.jpg" alt="Autumn Breeze Bouquet" style="background:#FFF; margin-bottom:0px; padding:0px;">
-<div class="price-banner"><div class="row"><div class="col-xs-12"><div class="product-title">Autumn Breeze Bouquet</div></div><div class="col-xs-12" style="text-align:center;"><sup>$</sup>106<sup>.99</sup> - <sup>$</sup>129<sup>.98</sup></div></div></div>
-</a>
-<div class="buy-now-overlay"><a href="/products/autumn-breeze-bouquet/" class="btn btn-buynow">BUY NOW</a></div>
-</div>
-</div><div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin rcf-fav-card" style="padding-right:5px; padding-left:5px;">
-<div class="img-container">
-<span class="rcf-fav-badge">Best seller all year</span>
-<a href="/products/thinking-of-you-bouquet/" style="position:relative;">
-<img height="600" width="600" class="img-responsive gallery light-border-bottom" src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0390toy.jpg" alt="Thinking of You Bouquet" style="background:#FFF; margin-bottom:0px; padding:0px;">
-<div class="price-banner"><div class="row"><div class="col-xs-12"><div class="product-title">Thinking of You Bouquet</div></div><div class="col-xs-12" style="text-align:center;"><sup>$</sup>84<sup>.99</sup></div></div></div>
-</a>
-<div class="buy-now-overlay"><a href="/products/thinking-of-you-bouquet/" class="btn btn-buynow">BUY NOW</a></div>
-</div>
-</div><div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin rcf-fav-card" style="padding-right:5px; padding-left:5px;">
-<div class="img-container">
-<span class="rcf-fav-badge">Thanksgiving favorite</span>
-<a href="/products/harvest-bliss-centerpiece/" style="position:relative;">
-<img height="600" width="600" class="img-responsive gallery light-border-bottom" src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0538-Edit.jpg" alt="Harvest Bliss Centerpiece" style="background:#FFF; margin-bottom:0px; padding:0px;">
-<div class="price-banner"><div class="row"><div class="col-xs-12"><div class="product-title">Harvest Bliss Centerpiece</div></div><div class="col-xs-12" style="text-align:center;"><sup>$</sup>94<sup>.99</sup></div></div></div>
-</a>
-<div class="buy-now-overlay"><a href="/products/harvest-bliss-centerpiece/" class="btn btn-buynow">BUY NOW</a></div>
-</div>
-</div><div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin rcf-fav-card" style="padding-right:5px; padding-left:5px;">
-<div class="img-container">
-<span class="rcf-fav-badge">Top seller this month</span>
-<a href="/products/sunbaked-blush-basket-bouquet/" style="position:relative;">
-<img height="600" width="600" class="img-responsive gallery light-border-bottom" src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0844.jpg" alt="Sunbaked Blush Basket Bouquet" style="background:#FFF; margin-bottom:0px; padding:0px;">
-<div class="price-banner"><div class="row"><div class="col-xs-12"><div class="product-title">Sunbaked Blush Basket Bouquet</div></div><div class="col-xs-12" style="text-align:center;"><sup>$</sup>84<sup>.99</sup></div></div></div>
-</a>
-<div class="buy-now-overlay"><a href="/products/sunbaked-blush-basket-bouquet/" class="btn btn-buynow">BUY NOW</a></div>
-</div>
-</div>
-</div>
-</div></div>
-<!--THIS IS A CITY PAGE WITH A HOME CATEGORY-->
+    		<!--THIS IS A CITY PAGE WITH A HOME CATEGORY-->
         <div class="products-list">
-            <div class='container-fluid'>
-                <div style="height:1px; clear:both;"></div><!------------------------------------------------------------------------------------------------>
-<!----------------------------------------START PRODUCTS---------------------------------------------->
-<!------------------------------------------------------------------------------------------------>
-<div class="row"><div class="col-md-12 rcf-grp"><h2>Shop Fairport Flowers by Occasion</h2><h3>Thanksgiving Flowers</h3><a href="/flowers/thanksgiving/">Shop all Thanksgiving flowers</a></div></div><div class="row product-row">
-<!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 6)------------------------------------------------>
-            			<div class="col-md-6 col-sm-12 col-xs-12 product-larger-bottom-margin" style="padding-right:5px; padding-left:5px;">
-				<div class="img-container">
-
-									<a  href="/flowers/fairport-ny-florists/fireside-harvest-centerpiece/" style="position:relative;">
-                        						<img height=600 width=600 class=" img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0584.jpg" alt="Fireside Harvest Centerpiece" style="background: #FFF; margin-bottom: 0px; padding:0px;">
-
-                        						<div class="price-banner big-banner" >
-						<div class="row ">
-								<div class="col-xs-12">
-									<div class='product-title'>Fireside Harvest Centerpiece</div>
-								</div>
-								<div class="col-xs-12" style='text-align:center;'>
-									<sup>$</sup>99<sup>.99</sup> - <sup>$</sup>124<sup>.98</sup> 								</div>
-						</div>
-						</div>
-					</a>
-					                        <div class="buy-now-overlay"><a href="/flowers/fairport-ny-florists/fireside-harvest-centerpiece/" class='btn btn-buynow'>BUY NOW</a></div>
-                    													<div class="local-triangle" style="margin-right:5px;"></div>
-					<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
-				
-				
-			</div>
-
-			</div>
-	
-<!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 3)------------------------------------------------>
-            			<div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:5px; padding-left:5px;">
-				<div class="img-container">
-
-									<a  href="/flowers/fairport-ny-florists/pumpkin-spice-rose-bouquet/" style="position:relative;">
-                        						<img height=600 width=600 class=" img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0446-1-1.jpg" alt="Pumpkin Spice Rose Bouquet" style="background: #FFF; margin-bottom: 0px; padding:0px;">
-
-                        						<div class="price-banner " >
-						<div class="row ">
-								<div class="col-xs-12">
-									<div class='product-title'>Pumpkin Spice Rose Bouquet</div>
-								</div>
-								<div class="col-xs-12" style='text-align:center;'>
-									<sup>$</sup>109<sup>.99</sup> - <sup>$</sup>274<sup>.99</sup> 								</div>
-						</div>
-						</div>
-					</a>
-					                        <div class="buy-now-overlay"><a href="/flowers/fairport-ny-florists/pumpkin-spice-rose-bouquet/" class='btn btn-buynow'>BUY NOW</a></div>
-                    													<div class="local-triangle" style="margin-right:5px;"></div>
-					<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
-				
-				
-			</div>
-
-			</div>
-	
-<!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 3)------------------------------------------------>
-            			<div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:5px; padding-left:5px;">
-				<div class="img-container">
-
-									<a  href="/flowers/fairport-ny-florists/turkey-time-delight-centerpiece/" style="position:relative;">
-                        						<img height=600 width=600 class=" img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?zc=2&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0108-Edit.jpg" alt="Turkey Time Delight Centerpiece" style="background: #FFF; margin-bottom: 0px; padding:0px;">
-
-                        						<div class="price-banner " >
-						<div class="row ">
-								<div class="col-xs-12">
-									<div class='product-title'>Turkey Time Delight Centerpiece</div>
-								</div>
-								<div class="col-xs-12" style='text-align:center;'>
-									<sup>$</sup>74<sup>.99</sup> - <sup>$</sup>98<sup>.99</sup> 								</div>
-						</div>
-						</div>
-					</a>
-					                        <div class="buy-now-overlay"><a href="/flowers/fairport-ny-florists/turkey-time-delight-centerpiece/" class='btn btn-buynow'>BUY NOW</a></div>
-                    													<div class="local-triangle" style="margin-right:5px;"></div>
-					<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
-				
-				
-			</div>
-
-			</div>
-	<!----------check-landscape------->
-<!-----------------------------------------------regular product------------------------------------------------>
-
-<!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 3)------------------------------------------------>
-            			<div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:5px; padding-left:5px;">
-				<div class="img-container">
-
-									<a  href="/flowers/fairport-ny-florists/golden-charm-cornucopia-/" style="position:relative;">
-                        						<img height=600 width=600 class=" img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0019-2.jpg" alt="Golden Charm Cornucopia " style="background: #FFF; margin-bottom: 0px; padding:0px;">
-
-                        						<div class="price-banner " >
-						<div class="row ">
-								<div class="col-xs-12">
-									<div class='product-title'>Golden Charm Cornucopia </div>
-								</div>
-								<div class="col-xs-12" style='text-align:center;'>
-									<sup>$</sup>74<sup>.99</sup> - <sup>$</sup>97<sup>.98</sup> 								</div>
-						</div>
-						</div>
-					</a>
-					                        <div class="buy-now-overlay"><a href="/flowers/fairport-ny-florists/golden-charm-cornucopia-/" class='btn btn-buynow'>BUY NOW</a></div>
-                    													<div class="local-triangle" style="margin-right:5px;"></div>
-					<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
-				
-				
-			</div>
-
-			</div>
-	
-<!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 3)------------------------------------------------>
-            			<div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:5px; padding-left:5px;">
-				<div class="img-container">
-
-									<a  href="/flowers/fairport-ny-florists/copper-sunset-centerpiece/" style="position:relative;">
-                        						<img height=600 width=600 class=" img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0594-1.jpg" alt="Copper Sunset Centerpiece" style="background: #FFF; margin-bottom: 0px; padding:0px;">
-
-                        						<div class="price-banner " >
-						<div class="row ">
-								<div class="col-xs-12">
-									<div class='product-title'>Copper Sunset Centerpiece</div>
-								</div>
-								<div class="col-xs-12" style='text-align:center;'>
-									<sup>$</sup>109<sup>.99</sup> 								</div>
-						</div>
-						</div>
-					</a>
-					                        <div class="buy-now-overlay"><a href="/flowers/fairport-ny-florists/copper-sunset-centerpiece/" class='btn btn-buynow'>BUY NOW</a></div>
-                    													<div class="local-triangle" style="margin-right:5px;"></div>
-					<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
-				
-				
-			</div>
-
-			</div>
-	<!------------------------------------------------------------------------------------------------>
-<!----------------------------------------END OF ROW---------------------------------------------->
+<div class='container-fluid'>
+<div class="row"><div class="col-md-12 rcf-head"><h2>Fairport&rsquo;s Favorite Flowers</h2><p>The arrangements Fairport customers are sending most right now.</p></div></div>
+<div class='row product-row'>
+<div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:5px; padding-left:5px;">
+<div class="img-container">
+<a href="/products/harvest-radiance-bouquet-/" style="position:relative;">
+<img height=600 width=600 class=" img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0844-3.jpg" alt="Harvest Radiance Bouquet" style="background: #FFF; margin-bottom: 0px; padding:0px;">
+<div class="price-banner"><div class="row"><div class="col-xs-12"><div class='product-title'>Harvest Radiance Bouquet</div></div><div class="col-xs-12" style='text-align:center;'><sup>$</sup>89<sup>.99</sup> - <sup>$</sup>112<sup>.98</sup></div></div></div>
+</a>
+<div class="buy-now-overlay"><a href="/products/harvest-radiance-bouquet-/" class='btn btn-buynow'>BUY NOW</a></div>
+<div class="local-triangle" style="margin-right:5px;"></div>
+<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
 </div>
-<!--HOME TRUE-->		<!------------------------------------------HEADER------------------------------------------>
-		<div class="row" >
-									<div class="col-md-12 rcf-grp"><h3>Birthday Flowers</h3><a href="/flowers/birthday/">Shop all birthday flowers</a></div></div>
-	<div class='row product-row'>
-
-<!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 4)------------------------------------------------>
-            			<div class="col-md-4 col-sm-4 col-xs-6 product-larger-bottom-margin" style="padding-right:5px; padding-left:5px;">
-				<div class="img-container">
-
-									<a  href="/flowers/fairport-ny-florists/happy-birthday-bouquet/" style="position:relative;">
-                        						<img height=600 width=600 class="img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0111-1.jpg" alt="Happy Birthday Bouquet" style="background: #FFF; margin-bottom: 0px; padding:0px;">
-
-                        						<div class="price-banner " >
-						<div class="row ">
-								<div class="col-xs-12">
-									<div class='product-title'>Happy Birthday Bouquet</div>
-								</div>
-								<div class="col-xs-12" style='text-align:center;'>
-									<sup>$</sup>89<sup>.99</sup> - <sup>$</sup>169<sup>.99</sup> 								</div>
-						</div>
-						</div>
-					</a>
-					                        <div class="buy-now-overlay"><a href="/flowers/fairport-ny-florists/happy-birthday-bouquet/" class='btn btn-buynow'>BUY NOW</a></div>
-                    													<div class="local-triangle" style="margin-right:5px;"></div>
-					<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
-				
-				
-			</div>
-
-			</div>
-	
-<!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 4)------------------------------------------------>
-            			<div class="col-md-4 col-sm-4 col-xs-6 product-larger-bottom-margin" style="padding-right:5px; padding-left:5px;">
-				<div class="img-container">
-
-									<a  href="/flowers/fairport-ny-florists/happy-birthday-bouquet-wow/" style="position:relative;">
-                        						<img height=600 width=600 class="img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0142.jpg" alt="Happy Birthday Bouquet WOW" style="background: #FFF; margin-bottom: 0px; padding:0px;">
-
-                        						<div class="price-banner " >
-						<div class="row ">
-								<div class="col-xs-12">
-									<div class='product-title'>Happy Birthday Bouquet WOW</div>
-								</div>
-								<div class="col-xs-12" style='text-align:center;'>
-									<sup>$</sup>169<sup>.99</sup> - <sup>$</sup>206<sup>.98</sup> 								</div>
-						</div>
-						</div>
-					</a>
-					                        <div class="buy-now-overlay"><a href="/flowers/fairport-ny-florists/happy-birthday-bouquet-wow/" class='btn btn-buynow'>BUY NOW</a></div>
-                    													<div class="local-triangle" style="margin-right:5px;"></div>
-					<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
-				
-				
-			</div>
-
-			</div>
-	
-<!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 4)------------------------------------------------>
-            			<div class="col-md-4 col-sm-4 col-xs-12 product-larger-bottom-margin" style="padding-right:5px; padding-left:5px;">
-				<div class="img-container">
-
-									<a  href="/flowers/fairport-ny-florists/happy-birthday-bouquet-and-cake-bundle/" style="position:relative;">
-                        						<img height=600 width=600 class="img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0684-Edit-Edit-6-3.jpg" alt="Happy Birthday Bouquet And Cake Bundle" style="background: #FFF; margin-bottom: 0px; padding:0px;">
-
-                        						<div class="price-banner " >
-						<div class="row ">
-								<div class="col-xs-12">
-									<div class='product-title'>Happy Birthday Bouquet And Cake Bundle</div>
-								</div>
-								<div class="col-xs-12" style='text-align:center;'>
-									<sup>$</sup>119<sup>.99</sup> 								</div>
-						</div>
-						</div>
-					</a>
-					                        <div class="buy-now-overlay"><a href="/flowers/fairport-ny-florists/happy-birthday-bouquet-and-cake-bundle/" class='btn btn-buynow'>BUY NOW</a></div>
-                    													<div class="local-triangle" style="margin-right:5px;"></div>
-					<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
-				
-				
-			</div>
-
-			</div>
-	<!------------------------------------------------------------------------------------------------>
-<!----------------------------------------END OF ROW---------------------------------------------->
+</div><div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:5px; padding-left:5px;">
+<div class="img-container">
+<a href="/products/turkey-time-delight-centerpiece/" style="position:relative;">
+<img height=600 width=600 class=" img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0108-Edit.jpg" alt="Turkey Time Delight Centerpiece" style="background: #FFF; margin-bottom: 0px; padding:0px;">
+<div class="price-banner"><div class="row"><div class="col-xs-12"><div class='product-title'>Turkey Time Delight Centerpiece</div></div><div class="col-xs-12" style='text-align:center;'><sup>$</sup>74<sup>.99</sup> - <sup>$</sup>98<sup>.99</sup></div></div></div>
+</a>
+<div class="buy-now-overlay"><a href="/products/turkey-time-delight-centerpiece/" class='btn btn-buynow'>BUY NOW</a></div>
+<div class="local-triangle" style="margin-right:5px;"></div>
+<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
 </div>
-<!--HOME TRUE-->		<!------------------------------------------HEADER------------------------------------------>
-		<div class="row" >
-									<div class="col-md-12 rcf-grp"><h3>Roses</h3><a href="/flowers/roses/">Shop all roses</a></div></div>
-	<div class='row product-row'>
-<!----------------------------------------NESTED COLUMN---------------------------------------------->
-<!------------------------------------------------------------------------------------------------>
-<div class='col-md-6' style='padding:0px; margin:0px;'>
-<div class='row product-row' style='margin:0 10px 0 10px;'>
-
-<!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 6)------------------------------------------------>
-            			<div class="col-md-6 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:5px; padding-left:0px;">
-				<div class="img-container">
-
-									<a  href="/flowers/fairport-ny-florists/golden-love-dozen-roses/" style="position:relative;">
-                        						<img height=600 width=600 class="img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0311.jpg" alt="Golden Love Dozen Roses" style="background: #FFF; margin-bottom: 0px; padding:0px;">
-
-                        						<div class="price-banner " >
-						<div class="row ">
-								<div class="col-xs-12">
-									<div class='product-title'>Golden Love Dozen Roses</div>
-								</div>
-								<div class="col-xs-12" style='text-align:center;'>
-									<sup>$</sup>114<sup>.99</sup> 								</div>
-						</div>
-						</div>
-					</a>
-					                        <div class="buy-now-overlay"><a href="/flowers/fairport-ny-florists/golden-love-dozen-roses/" class='btn btn-buynow'>BUY NOW</a></div>
-                    													<div class="local-triangle" style="margin-right:5px;"></div>
-					<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
-				
-				
-			</div>
-
-			</div>
-	
-<!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 6)------------------------------------------------>
-            			<div class="col-md-6 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:0px; padding-left:5px;">
-				<div class="img-container">
-
-									<a  href="/flowers/fairport-ny-florists/park-avenue-18-stem-rose-bouquet/" style="position:relative;">
-                        						<img height=600 width=600 class="img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/18-roses.jpg" alt="Park Avenue 18 Stem Rose Bouquet" style="background: #FFF; margin-bottom: 0px; padding:0px;">
-
-                        						<div class="price-banner " >
-						<div class="row ">
-								<div class="col-xs-12">
-									<div class='product-title'>Park Avenue 18 Stem Rose Bouquet</div>
-								</div>
-								<div class="col-xs-12" style='text-align:center;'>
-									<sup>$</sup>139<sup>.99</sup> - <sup>$</sup>175<sup>.99</sup> 								</div>
-						</div>
-						</div>
-					</a>
-					                        <div class="buy-now-overlay"><a href="/flowers/fairport-ny-florists/park-avenue-18-stem-rose-bouquet/" class='btn btn-buynow'>BUY NOW</a></div>
-                    													<div class="local-triangle" style="margin-right:5px;"></div>
-					<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
-				
-				
-			</div>
-
-			</div>
-	<!----------check-landscape------->
-<!-----------------------------------------------regular product------------------------------------------------>
-
-<!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 6)------------------------------------------------>
-            			<div class="col-md-6 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:5px; padding-left:0px;">
-				<div class="img-container">
-
-									<a  href="/flowers/fairport-ny-florists/modern-love-red-rose-bouquet/" style="position:relative;">
-                        						<img height=600 width=600 class="img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/newmodernlove.jpg" alt="Modern Love Red Rose Bouquet" style="background: #FFF; margin-bottom: 0px; padding:0px;">
-
-                        						<div class="price-banner " >
-						<div class="row ">
-								<div class="col-xs-12">
-									<div class='product-title'>Modern Love Red Rose Bouquet</div>
-								</div>
-								<div class="col-xs-12" style='text-align:center;'>
-									<sup>$</sup>104<sup>.99</sup> - <sup>$</sup>275<sup>.99</sup> 								</div>
-						</div>
-						</div>
-					</a>
-					                        <div class="buy-now-overlay"><a href="/flowers/fairport-ny-florists/modern-love-red-rose-bouquet/" class='btn btn-buynow'>BUY NOW</a></div>
-                    													<div class="local-triangle" style="margin-right:5px;"></div>
-					<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
-				
-				
-			</div>
-
-			</div>
-	
-<!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 6)------------------------------------------------>
-            			<div class="col-md-6 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:0px; padding-left:5px;">
-				<div class="img-container">
-
-									<a  href="/flowers/fairport-ny-florists/modern-love-triple-dozen-red-rose-bouquet/" style="position:relative;">
-                        						<img height=600 width=600 class="img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0360-3.jpg" alt="Modern Love Triple Dozen Red Rose Bouquet" style="background: #FFF; margin-bottom: 0px; padding:0px;">
-
-                        						<div class="price-banner " >
-						<div class="row ">
-								<div class="col-xs-12">
-									<div class='product-title'>Modern Love Triple Dozen Red Rose Bouquet</div>
-								</div>
-								<div class="col-xs-12" style='text-align:center;'>
-									<sup>$</sup>275<sup>.99</sup> 								</div>
-						</div>
-						</div>
-					</a>
-					                        <div class="buy-now-overlay"><a href="/flowers/fairport-ny-florists/modern-love-triple-dozen-red-rose-bouquet/" class='btn btn-buynow'>BUY NOW</a></div>
-                    													<div class="local-triangle" style="margin-right:5px;"></div>
-					<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
-				
-				
-			</div>
-
-			</div>
-	<!---------------------------------------------------------------------------------------------------->
-<!----------------------------------------END NESTED COL---------------------------------------------->
+</div><div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:5px; padding-left:5px;">
+<div class="img-container">
+<a href="/products/happy-birthday-bouquet/" style="position:relative;">
+<img height=600 width=600 class=" img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0111-1.jpg" alt="Happy Birthday Bouquet" style="background: #FFF; margin-bottom: 0px; padding:0px;">
+<div class="price-banner"><div class="row"><div class="col-xs-12"><div class='product-title'>Happy Birthday Bouquet</div></div><div class="col-xs-12" style='text-align:center;'><sup>$</sup>89<sup>.99</sup> - <sup>$</sup>169<sup>.99</sup></div></div></div>
+</a>
+<div class="buy-now-overlay"><a href="/products/happy-birthday-bouquet/" class='btn btn-buynow'>BUY NOW</a></div>
+<div class="local-triangle" style="margin-right:5px;"></div>
+<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
+</div>
+</div><div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:5px; padding-left:5px;">
+<div class="img-container">
+<a href="/products/peace-lily-verdant-planter/" style="position:relative;">
+<img height=600 width=600 class=" img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0663h.jpg" alt="Peace Lily Verdant Planter" style="background: #FFF; margin-bottom: 0px; padding:0px;">
+<div class="price-banner"><div class="row"><div class="col-xs-12"><div class='product-title'>Peace Lily Verdant Planter</div></div><div class="col-xs-12" style='text-align:center;'><sup>$</sup>69<sup>.99</sup></div></div></div>
+</a>
+<div class="buy-now-overlay"><a href="/products/peace-lily-verdant-planter/" class='btn btn-buynow'>BUY NOW</a></div>
+<div class="local-triangle" style="margin-right:5px;"></div>
+<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
+</div>
+</div><div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:5px; padding-left:5px;">
+<div class="img-container">
+<a href="/products/autumn-breeze-bouquet/" style="position:relative;">
+<img height=600 width=600 class=" img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0294-Edit.jpg" alt="Autumn Breeze Bouquet" style="background: #FFF; margin-bottom: 0px; padding:0px;">
+<div class="price-banner"><div class="row"><div class="col-xs-12"><div class='product-title'>Autumn Breeze Bouquet</div></div><div class="col-xs-12" style='text-align:center;'><sup>$</sup>106<sup>.99</sup> - <sup>$</sup>129<sup>.98</sup></div></div></div>
+</a>
+<div class="buy-now-overlay"><a href="/products/autumn-breeze-bouquet/" class='btn btn-buynow'>BUY NOW</a></div>
+<div class="local-triangle" style="margin-right:5px;"></div>
+<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
+</div>
+</div><div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:5px; padding-left:5px;">
+<div class="img-container">
+<a href="/products/thinking-of-you-bouquet/" style="position:relative;">
+<img height=600 width=600 class=" img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0390toy.jpg" alt="Thinking of You Bouquet" style="background: #FFF; margin-bottom: 0px; padding:0px;">
+<div class="price-banner"><div class="row"><div class="col-xs-12"><div class='product-title'>Thinking of You Bouquet</div></div><div class="col-xs-12" style='text-align:center;'><sup>$</sup>84<sup>.99</sup></div></div></div>
+</a>
+<div class="buy-now-overlay"><a href="/products/thinking-of-you-bouquet/" class='btn btn-buynow'>BUY NOW</a></div>
+<div class="local-triangle" style="margin-right:5px;"></div>
+<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
+</div>
+</div><div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:5px; padding-left:5px;">
+<div class="img-container">
+<a href="/products/sunbaked-blush-basket-bouquet/" style="position:relative;">
+<img height=600 width=600 class=" img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0844.jpg" alt="Sunbaked Blush Basket Bouquet" style="background: #FFF; margin-bottom: 0px; padding:0px;">
+<div class="price-banner"><div class="row"><div class="col-xs-12"><div class='product-title'>Sunbaked Blush Basket Bouquet</div></div><div class="col-xs-12" style='text-align:center;'><sup>$</sup>84<sup>.99</sup></div></div></div>
+</a>
+<div class="buy-now-overlay"><a href="/products/sunbaked-blush-basket-bouquet/" class='btn btn-buynow'>BUY NOW</a></div>
+<div class="local-triangle" style="margin-right:5px;"></div>
+<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
+</div>
+</div><div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:5px; padding-left:5px;">
+<div class="img-container">
+<a href="/products/harvest-bliss-centerpiece/" style="position:relative;">
+<img height=600 width=600 class=" img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0538-Edit.jpg" alt="Harvest Bliss Centerpiece" style="background: #FFF; margin-bottom: 0px; padding:0px;">
+<div class="price-banner"><div class="row"><div class="col-xs-12"><div class='product-title'>Harvest Bliss Centerpiece</div></div><div class="col-xs-12" style='text-align:center;'><sup>$</sup>94<sup>.99</sup></div></div></div>
+</a>
+<div class="buy-now-overlay"><a href="/products/harvest-bliss-centerpiece/" class='btn btn-buynow'>BUY NOW</a></div>
+<div class="local-triangle" style="margin-right:5px;"></div>
+<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
+</div>
+</div><div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:5px; padding-left:5px;">
+<div class="img-container">
+<a href="/products/pumpkin-spice-rose-bouquet/" style="position:relative;">
+<img height=600 width=600 class=" img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0446-1-1.jpg" alt="Pumpkin Spice Rose Bouquet" style="background: #FFF; margin-bottom: 0px; padding:0px;">
+<div class="price-banner"><div class="row"><div class="col-xs-12"><div class='product-title'>Pumpkin Spice Rose Bouquet</div></div><div class="col-xs-12" style='text-align:center;'><sup>$</sup>109<sup>.99</sup> - <sup>$</sup>274<sup>.99</sup></div></div></div>
+</a>
+<div class="buy-now-overlay"><a href="/products/pumpkin-spice-rose-bouquet/" class='btn btn-buynow'>BUY NOW</a></div>
+<div class="local-triangle" style="margin-right:5px;"></div>
+<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
+</div>
+</div><div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:5px; padding-left:5px;">
+<div class="img-container">
+<a href="/products/tropical-twilight-bouquet/" style="position:relative;">
+<img height=600 width=600 class=" img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/Copilot-20261004-125505.png" alt="Tropical Twilight Bouquet" style="background: #FFF; margin-bottom: 0px; padding:0px;">
+<div class="price-banner"><div class="row"><div class="col-xs-12"><div class='product-title'>Tropical Twilight Bouquet</div></div><div class="col-xs-12" style='text-align:center;'><sup>$</sup>104<sup>.99</sup></div></div></div>
+</a>
+<div class="buy-now-overlay"><a href="/products/tropical-twilight-bouquet/" class='btn btn-buynow'>BUY NOW</a></div>
+<div class="local-triangle" style="margin-right:5px;"></div>
+<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
+</div>
+</div><div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:5px; padding-left:5px;">
+<div class="img-container">
+<a href="/products/peaceful-white-lilies-basket/" style="position:relative;">
+<img height=600 width=600 class=" img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/T228-1A.jpg" alt="Peaceful White Lilies Basket" style="background: #FFF; margin-bottom: 0px; padding:0px;">
+<div class="price-banner"><div class="row"><div class="col-xs-12"><div class='product-title'>Peaceful White Lilies Basket</div></div><div class="col-xs-12" style='text-align:center;'><sup>$</sup>125 - <sup>$</sup>175</div></div></div>
+</a>
+<div class="buy-now-overlay"><a href="/products/peaceful-white-lilies-basket/" class='btn btn-buynow'>BUY NOW</a></div>
+<div class="local-triangle" style="margin-right:5px;"></div>
+<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
+</div>
+</div><div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:5px; padding-left:5px;">
+<div class="img-container">
+<a href="/products/fireside-harvest-centerpiece/" style="position:relative;">
+<img height=600 width=600 class=" img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0584.jpg" alt="Fireside Harvest Centerpiece" style="background: #FFF; margin-bottom: 0px; padding:0px;">
+<div class="price-banner"><div class="row"><div class="col-xs-12"><div class='product-title'>Fireside Harvest Centerpiece</div></div><div class="col-xs-12" style='text-align:center;'><sup>$</sup>99<sup>.99</sup> - <sup>$</sup>124<sup>.98</sup></div></div></div>
+</a>
+<div class="buy-now-overlay"><a href="/products/fireside-harvest-centerpiece/" class='btn btn-buynow'>BUY NOW</a></div>
+<div class="local-triangle" style="margin-right:5px;"></div>
+<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
+</div>
+</div><div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:5px; padding-left:5px;">
+<div class="img-container">
+<a href="/products/highland-park-sunset-bouquet/" style="position:relative;">
+<img height=600 width=600 class=" img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0823-2.jpg" alt="Highland Park Sunset Bouquet" style="background: #FFF; margin-bottom: 0px; padding:0px;">
+<div class="price-banner"><div class="row"><div class="col-xs-12"><div class='product-title'>Highland Park Sunset Bouquet</div></div><div class="col-xs-12" style='text-align:center;'><sup>$</sup>99<sup>.99</sup> - <sup>$</sup>117<sup>.99</sup></div></div></div>
+</a>
+<div class="buy-now-overlay"><a href="/products/highland-park-sunset-bouquet/" class='btn btn-buynow'>BUY NOW</a></div>
+<div class="local-triangle" style="margin-right:5px;"></div>
+<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
+</div>
+</div><div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:5px; padding-left:5px;">
+<div class="img-container">
+<a href="/products/feel-better-bouquet/" style="position:relative;">
+<img height=600 width=600 class=" img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0112fb-1.jpg" alt="Feel Better Bouquet" style="background: #FFF; margin-bottom: 0px; padding:0px;">
+<div class="price-banner"><div class="row"><div class="col-xs-12"><div class='product-title'>Feel Better Bouquet</div></div><div class="col-xs-12" style='text-align:center;'><sup>$</sup>84<sup>.99</sup> - <sup>$</sup>109<sup>.98</sup></div></div></div>
+</a>
+<div class="buy-now-overlay"><a href="/products/feel-better-bouquet/" class='btn btn-buynow'>BUY NOW</a></div>
+<div class="local-triangle" style="margin-right:5px;"></div>
+<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
+</div>
+</div><div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:5px; padding-left:5px;">
+<div class="img-container">
+<a href="/products/ever-near-succulent-garden-/" style="position:relative;">
+<img height=600 width=600 class=" img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0419.jpg" alt="Ever Near Succulent Garden" style="background: #FFF; margin-bottom: 0px; padding:0px;">
+<div class="price-banner"><div class="row"><div class="col-xs-12"><div class='product-title'>Ever Near Succulent Garden</div></div><div class="col-xs-12" style='text-align:center;'><sup>$</sup>99<sup>.99</sup></div></div></div>
+</a>
+<div class="buy-now-overlay"><a href="/products/ever-near-succulent-garden-/" class='btn btn-buynow'>BUY NOW</a></div>
+<div class="local-triangle" style="margin-right:5px;"></div>
+<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
+</div>
+</div><div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:5px; padding-left:5px;">
+<div class="img-container">
+<a href="/products/verdant-charm-planter/" style="position:relative;">
+<img height=600 width=600 class=" img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/new.jpeg.jpg" alt="Verdant Charm Planter" style="background: #FFF; margin-bottom: 0px; padding:0px;">
+<div class="price-banner"><div class="row"><div class="col-xs-12"><div class='product-title'>Verdant Charm Planter</div></div><div class="col-xs-12" style='text-align:center;'><sup>$</sup>69<sup>.99</sup></div></div></div>
+</a>
+<div class="buy-now-overlay"><a href="/products/verdant-charm-planter/" class='btn btn-buynow'>BUY NOW</a></div>
+<div class="local-triangle" style="margin-right:5px;"></div>
+<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
 </div>
 </div>
-
-<!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 6)------------------------------------------------>
-            			<div class="col-md-6 col-sm-12 col-xs-12 product-larger-bottom-margin" style="padding-right:5px; padding-left:5px;">
-				<div class="img-container">
-
-									<a  href="/flowers/fairport-ny-florists/double-dozen-rose-bouquet-and-cab-franc-pairing/" style="position:relative;">
-                        						<img height=600 width=600 class="img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0012-Edit2-1.jpg" alt="Double Dozen Rose Bouquet and Cab Franc Pairing" style="background: #FFF; margin-bottom: 0px; padding:0px;">
-
-                        						<div class="price-banner big-banner" >
-						<div class="row ">
-								<div class="col-xs-12">
-									<div class='product-title'>Double Dozen Rose Bouquet and Cab Franc Pairing</div>
-								</div>
-								<div class="col-xs-12" style='text-align:center;'>
-									<sup>$</sup>143<sup>.99</sup> - <sup>$</sup>219<sup>.99</sup> 								</div>
-						</div>
-						</div>
-					</a>
-					                        <div class="buy-now-overlay"><a href="/flowers/fairport-ny-florists/double-dozen-rose-bouquet-and-cab-franc-pairing/" class='btn btn-buynow'>BUY NOW</a></div>
-                    													<div class="local-triangle" style="margin-right:5px;"></div>
-					<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
-				
-				
-			</div>
-
-			</div>
-	<!------------------------------------------------------------------------------------------------>
-<!----------------------------------------END OF ROW---------------------------------------------->
 </div>
-<!--HOME TRUE-->		<!------------------------------------------HEADER------------------------------------------>
-		<div class="row" >
-									<div class="col-md-12 rcf-grp"><h3>Get Well Flowers</h3><a href="/flowers/get-well-wellness-gifts/">Shop all get well flowers</a></div></div>
-	<div class='row product-row'>
-
-<!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 4)------------------------------------------------>
-            			<div class="col-md-4 col-sm-4 col-xs-6 product-larger-bottom-margin" style="padding-right:5px; padding-left:5px;">
-				<div class="img-container">
-
-									<a  href="/flowers/fairport-ny-florists/tropical-twilight-bouquet/" style="position:relative;">
-                        						<img height=600 width=600 class="img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/Copilot-20261004-125505.png" alt="Tropical Twilight Bouquet" style="background: #FFF; margin-bottom: 0px; padding:0px;">
-
-                        						<div class="price-banner " >
-						<div class="row ">
-								<div class="col-xs-12">
-									<div class='product-title'>Tropical Twilight Bouquet</div>
-								</div>
-								<div class="col-xs-12" style='text-align:center;'>
-									<sup>$</sup>104<sup>.99</sup> 								</div>
-						</div>
-						</div>
-					</a>
-					                        <div class="buy-now-overlay"><a href="/flowers/fairport-ny-florists/tropical-twilight-bouquet/" class='btn btn-buynow'>BUY NOW</a></div>
-                    													<div class="local-triangle" style="margin-right:5px;"></div>
-					<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
-				
-				
-			</div>
-
-			</div>
-	
-<!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 4)------------------------------------------------>
-            			<div class="col-md-4 col-sm-4 col-xs-6 product-larger-bottom-margin" style="padding-right:5px; padding-left:5px;">
-				<div class="img-container">
-
-									<a  href="/flowers/fairport-ny-florists/feel-better-bouquet/" style="position:relative;">
-                        						<img height=600 width=600 class="img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0112fb-1.jpg" alt="Feel Better Bouquet" style="background: #FFF; margin-bottom: 0px; padding:0px;">
-
-                        						<div class="price-banner " >
-						<div class="row ">
-								<div class="col-xs-12">
-									<div class='product-title'>Feel Better Bouquet</div>
-								</div>
-								<div class="col-xs-12" style='text-align:center;'>
-									<sup>$</sup>84<sup>.99</sup> - <sup>$</sup>109<sup>.98</sup> 								</div>
-						</div>
-						</div>
-					</a>
-					                        <div class="buy-now-overlay"><a href="/flowers/fairport-ny-florists/feel-better-bouquet/" class='btn btn-buynow'>BUY NOW</a></div>
-                    													<div class="local-triangle" style="margin-right:5px;"></div>
-					<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
-				
-				
-			</div>
-
-			</div>
-	
-<!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 4)------------------------------------------------>
-            			<div class="col-md-4 col-sm-4 col-xs-12 product-larger-bottom-margin" style="padding-right:5px; padding-left:5px;">
-				<div class="img-container">
-
-									<a  href="/flowers/fairport-ny-florists/amethyst-dreams-bouquet/" style="position:relative;">
-                        						<img height=600 width=600 class="img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0230-2.jpg" alt="Amethyst Dreams Bouquet" style="background: #FFF; margin-bottom: 0px; padding:0px;">
-
-                        						<div class="price-banner " >
-						<div class="row ">
-								<div class="col-xs-12">
-									<div class='product-title'>Amethyst Dreams Bouquet</div>
-								</div>
-								<div class="col-xs-12" style='text-align:center;'>
-									<sup>$</sup>84<sup>.99</sup> - <sup>$</sup>109<sup>.98</sup> 								</div>
-						</div>
-						</div>
-					</a>
-					                        <div class="buy-now-overlay"><a href="/flowers/fairport-ny-florists/amethyst-dreams-bouquet/" class='btn btn-buynow'>BUY NOW</a></div>
-                    													<div class="local-triangle" style="margin-right:5px;"></div>
-					<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
-				
-				
-			</div>
-
-			</div>
-	<!------------------------------------------------------------------------------------------------>
-<!----------------------------------------END OF ROW---------------------------------------------->
+<div class="row"><div class="col-md-12 rcf-more"><p>Shopping for something specific? <a href="/flowers/birthday/">Birthday</a> <span class="rcf-dot">&middot;</span> <a href="/flowers/sympathy-collections/">Sympathy</a> <span class="rcf-dot">&middot;</span> <a href="/flowers/get-well-wellness-gifts/">Get Well</a> <span class="rcf-dot">&middot;</span> <a href="/flowers/roses/">Roses</a> <span class="rcf-dot">&middot;</span> <a href="/flowers/thanksgiving/">Thanksgiving</a> <span class="rcf-dot">&middot;</span> <a href="/flowers/gifts-and-goodies/">Gifts</a></p></div></div>
 </div>
-<!--HOME TRUE-->		<!------------------------------------------HEADER------------------------------------------>
-		<div class="row" >
-									<div class="col-md-12 rcf-grp"><h3>Sympathy Flowers</h3><a href="/flowers/sympathy-collections/">Shop all sympathy flowers</a></div></div>
-								</div>
-	<div class='row product-row'>
-
-<!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 6)------------------------------------------------>
-            			<div class="col-md-6 col-sm-12 col-xs-12 product-larger-bottom-margin" style="padding-right:5px; padding-left:5px;">
-				<div class="img-container">
-
-									<a  href="/flowers/fairport-ny-florists/sentiments-of-serenity-spray/" style="position:relative;">
-                        						<img height=600 width=600 class="img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?zc=2&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/T262-1A.jpg" alt="Sentiments of Serenity Spray" style="background: #FFF; margin-bottom: 0px; padding:0px;">
-
-                        						<div class="price-banner big-banner" >
-						<div class="row ">
-								<div class="col-xs-12">
-									<div class='product-title'>Sentiments of Serenity Spray</div>
-								</div>
-								<div class="col-xs-12" style='text-align:center;'>
-									<sup>$</sup>225 - <sup>$</sup>285 								</div>
-						</div>
-						</div>
-					</a>
-					                        <div class="buy-now-overlay"><a href="/flowers/fairport-ny-florists/sentiments-of-serenity-spray/" class='btn btn-buynow'>BUY NOW</a></div>
-                    								
-				
-			</div>
-
-			</div>
-	
-<!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 3)------------------------------------------------>
-            			<div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:5px; padding-left:5px;">
-				<div class="img-container">
-
-									<a  href="/flowers/fairport-ny-florists/peaceful-white-lilies-basket/" style="position:relative;">
-                        						<img height=600 width=600 class="img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?zc=2&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/T228-1A.jpg" alt="Peaceful White Lilies Basket" style="background: #FFF; margin-bottom: 0px; padding:0px;">
-
-                        						<div class="price-banner " >
-						<div class="row ">
-								<div class="col-xs-12">
-									<div class='product-title'>Peaceful White Lilies Basket</div>
-								</div>
-								<div class="col-xs-12" style='text-align:center;'>
-									<sup>$</sup>125 - <sup>$</sup>175 								</div>
-						</div>
-						</div>
-					</a>
-					                        <div class="buy-now-overlay"><a href="/flowers/fairport-ny-florists/peaceful-white-lilies-basket/" class='btn btn-buynow'>BUY NOW</a></div>
-                    								
-				
-			</div>
-
-			</div>
-	
-<!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 3)------------------------------------------------>
-            			<div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:5px; padding-left:5px;">
-				<div class="img-container">
-
-									<a  href="/flowers/fairport-ny-florists/ever-near-succulent-garden-/" style="position:relative;">
-                        						<img height=600 width=600 class="img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0419.jpg" alt="Ever Near Succulent Garden " style="background: #FFF; margin-bottom: 0px; padding:0px;">
-
-                        						<div class="price-banner " >
-						<div class="row ">
-								<div class="col-xs-12">
-									<div class='product-title'>Ever Near Succulent Garden </div>
-								</div>
-								<div class="col-xs-12" style='text-align:center;'>
-									<sup>$</sup>99<sup>.99</sup> 								</div>
-						</div>
-						</div>
-					</a>
-					                        <div class="buy-now-overlay"><a href="/flowers/fairport-ny-florists/ever-near-succulent-garden-/" class='btn btn-buynow'>BUY NOW</a></div>
-                    													<div class="local-triangle" style="margin-right:5px;"></div>
-					<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
-				
-				
-			</div>
-
-			</div>
-	<!----------check-landscape------->
-<!-----------------------------------------------regular product------------------------------------------------>
-
-<!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 3)------------------------------------------------>
-            			<div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:5px; padding-left:5px;">
-				<div class="img-container">
-
-									<a  href="/flowers/fairport-ny-florists/eternal-peace-bouquet/" style="position:relative;">
-                        						<img height=600 width=600 class="img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0502-2dit-1.jpg" alt="Eternal Peace Bouquet" style="background: #FFF; margin-bottom: 0px; padding:0px;">
-
-                        						<div class="price-banner " >
-						<div class="row ">
-								<div class="col-xs-12">
-									<div class='product-title'>Eternal Peace Bouquet</div>
-								</div>
-								<div class="col-xs-12" style='text-align:center;'>
-									<sup>$</sup>99<sup>.99</sup> - <sup>$</sup>129<sup>.99</sup> 								</div>
-						</div>
-						</div>
-					</a>
-					                        <div class="buy-now-overlay"><a href="/flowers/fairport-ny-florists/eternal-peace-bouquet/" class='btn btn-buynow'>BUY NOW</a></div>
-                    													<div class="local-triangle" style="margin-right:5px;"></div>
-					<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
-				
-				
-			</div>
-
-			</div>
-	
-<!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 3)------------------------------------------------>
-            			<div class="col-md-3 col-sm-6 col-xs-6 product-smaller-bottom-margin" style="padding-right:5px; padding-left:5px;">
-				<div class="img-container">
-
-									<a  href="/flowers/fairport-ny-florists/elegance-in-white-bouquet-wow/" style="position:relative;">
-                        						<img height=600 width=600 class="img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?zc=2&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0012-Edit-Edit.jpg" alt="Elegance in White Bouquet WOW" style="background: #FFF; margin-bottom: 0px; padding:0px;">
-
-                        						<div class="price-banner " >
-						<div class="row ">
-								<div class="col-xs-12">
-									<div class='product-title'>Elegance in White Bouquet WOW</div>
-								</div>
-								<div class="col-xs-12" style='text-align:center;'>
-									<sup>$</sup>199<sup>.99</sup> - <sup>$</sup>259<sup>.99</sup> 								</div>
-						</div>
-						</div>
-					</a>
-					                        <div class="buy-now-overlay"><a href="/flowers/fairport-ny-florists/elegance-in-white-bouquet-wow/" class='btn btn-buynow'>BUY NOW</a></div>
-                    													<div class="local-triangle" style="margin-right:5px;"></div>
-					<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
-				
-				
-			</div>
-
-			</div>
-	<!------------------------------------------------------------------------------------------------>
-<!----------------------------------------END OF ROW---------------------------------------------->
 </div>
-<!--HOME TRUE-->		<!------------------------------------------HEADER------------------------------------------>
-		<div class="row" >
-									<div class="col-md-12 rcf-grp"><h3>Gifts, Wine and Treats</h3><a href="/flowers/gifts-and-goodies/">Shop all gifts</a></div></div>
-	<div class='row product-row'>
-
-<!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 4)------------------------------------------------>
-            			<div class="col-md-4 col-sm-4 col-xs-6 product-larger-bottom-margin" style="padding-right:5px; padding-left:5px;">
-				<div class="img-container">
-
-									<a  href="/flowers/fairport-ny-florists/dillicious-gift-box-/" style="position:relative;">
-                        						<img height=600 width=600 class="img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0412.jpg" alt="DILLicious Gift Box " style="background: #FFF; margin-bottom: 0px; padding:0px;">
-
-                        						<div class="price-banner " >
-						<div class="row ">
-								<div class="col-xs-12">
-									<div class='product-title'>DILLicious Gift Box </div>
-								</div>
-								<div class="col-xs-12" style='text-align:center;'>
-									<sup>$</sup>79<sup>.99</sup> 								</div>
-						</div>
-						</div>
-					</a>
-					                        <div class="buy-now-overlay"><a href="/flowers/fairport-ny-florists/dillicious-gift-box-/" class='btn btn-buynow'>BUY NOW</a></div>
-                    													<div class="local-triangle" style="margin-right:5px;"></div>
-					<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
-				
-				
-			</div>
-
-			</div>
-	
-<!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 4)------------------------------------------------>
-            			<div class="col-md-4 col-sm-4 col-xs-6 product-larger-bottom-margin" style="padding-right:5px; padding-left:5px;">
-				<div class="img-container">
-
-									<a  href="/flowers/fairport-ny-florists/thomas-kinkade-sleighride-bouquet-/" style="position:relative;">
-                        						<img height=600 width=600 class="img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-05472-1.jpg" alt="Thomas Kinkade Sleighride Bouquet " style="background: #FFF; margin-bottom: 0px; padding:0px;">
-
-                        						<div class="price-banner " >
-						<div class="row ">
-								<div class="col-xs-12">
-									<div class='product-title'>Thomas Kinkade Sleighride Bouquet </div>
-								</div>
-								<div class="col-xs-12" style='text-align:center;'>
-									<sup>$</sup>99<sup>.99</sup> - <sup>$</sup>129<sup>.99</sup> 								</div>
-						</div>
-						</div>
-					</a>
-					                        <div class="buy-now-overlay"><a href="/flowers/fairport-ny-florists/thomas-kinkade-sleighride-bouquet-/" class='btn btn-buynow'>BUY NOW</a></div>
-                    													<div class="local-triangle" style="margin-right:5px;"></div>
-					<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
-				
-				
-			</div>
-
-			</div>
-	
-<!-----------------------------------------------NEW PRODUCT OUTPUT (COL SIZE 4)------------------------------------------------>
-            			<div class="col-md-4 col-sm-4 col-xs-12 product-larger-bottom-margin" style="padding-right:5px; padding-left:5px;">
-				<div class="img-container">
-
-									<a  href="/flowers/fairport-ny-florists/keuka-vineyard-picnic-collection/" style="position:relative;">
-                        						<img height=600 width=600 class="img-responsive gallery light-border-bottom " src="/assets/inc/timthumb.php?&w=600&h=600&src=https://396b854bb9102d09cf89-2004175134c617889fad094c39a4fc4c.ssl.cf2.rackcdn.com/DSC-0432-1-3.jpg" alt="Keuka Vineyard Picnic Collection" style="background: #FFF; margin-bottom: 0px; padding:0px;">
-
-                        						<div class="price-banner " >
-						<div class="row ">
-								<div class="col-xs-12">
-									<div class='product-title'>Keuka Vineyard Picnic Collection</div>
-								</div>
-								<div class="col-xs-12" style='text-align:center;'>
-									<sup>$</sup>89<sup>.99</sup> 								</div>
-						</div>
-						</div>
-					</a>
-					                        <div class="buy-now-overlay"><a href="/flowers/fairport-ny-florists/keuka-vineyard-picnic-collection/" class='btn btn-buynow'>BUY NOW</a></div>
-                    													<div class="local-triangle" style="margin-right:5px;"></div>
-					<div class="local-only"><a href="#"><img src="/assets/img/local-only-map.png" border="0" style="position:absolute; right:10px;"></a></div>
-				
-				
-			</div>
-
-			</div>
-	</div><div style="clear:both;"></div>            </div>
-        </div>
-        	
-	<div class="container" style="margin-top:20px; margin-bottom:20px;">
+<div class="container" style="margin-top:20px; margin-bottom:20px;">
 		<a name='city-description'></a>
 		
 					<div class='city-description' style='text-align:center;'>
@@ -2193,10 +1602,11 @@ body.twm-off .twm-badge{display:none!important}
 .boxzilla-container,.boxzilla-overlay,.boxzilla{display:none!important}
 [role="dialog"][aria-label$="Form"][class*="kl-private"],div:has(> [role="dialog"][aria-label$="Form"][class*="kl-private"]){display:none!important}
 </style><style id="twm-extra">
-.twm-tbl{width:100%;border-collapse:collapse;font:13px/1.35 system-ui,-apple-system,Arial,sans-serif;margin:4px 0 8px;background:#fff}
-.twm-tbl th{font-weight:600;text-align:right;color:#555;padding:6px 5px;border-bottom:1px solid var(--twm-line);vertical-align:bottom}
+.twm-tbl{width:100%;border-collapse:collapse;font:12.5px/1.35 system-ui,-apple-system,Arial,sans-serif;margin:4px 0 8px;background:#fff}
+.twm-tbl th{font-weight:600;text-align:right;color:#555;padding:6px 4px;border-bottom:1px solid var(--twm-line);vertical-align:bottom}
 .twm-tbl th:first-child,.twm-tbl td:first-child{text-align:left}
-.twm-tbl td{padding:6px 5px;border-bottom:1px solid #f0ede6;text-align:right;color:#333}
+.twm-tbl td{padding:5px 4px;border-bottom:1px solid #f0ede6;text-align:right;color:#333}
+.twm-tbl td.tg{color:#8a5a00}
 .twm-bar-row{display:flex;align-items:center;gap:8px;font:13px/1.3 system-ui,-apple-system,Arial,sans-serif;margin-top:6px}
 .twm-bar-l{flex:0 0 112px;color:#444}
 .twm-bar-t{flex:1;height:12px;background:#eceae4;border-radius:2px;overflow:hidden}
@@ -2205,41 +1615,38 @@ body.twm-off .twm-badge{display:none!important}
 .twm-bar-n{font:11.5px/1.3 system-ui,-apple-system,Arial,sans-serif;color:#8a8a84;margin:1px 0 4px 120px}
 .twm-src{font:12px/1.5 system-ui,-apple-system,Arial,sans-serif;color:#777;margin-top:18px}
 </style><div aria-label="Preview controls" id="twm-bar" role="region">
-<span class="twm-bar-label">Fairport page preview: 2 changes</span>
+<span class="twm-bar-label">Fairport page preview: 16 best sellers</span>
 <button id="twm-open" type="button">View changes</button>
 <button id="twm-toggle" type="button">Hide highlights</button>
 </div>
 <aside aria-hidden="true" aria-label="Changes on this page" id="twm-drawer">
 <div class="twm-dh"><div>
 <div class="twm-kicker">Two Wheels Marketing &middot; November 2026</div>
-<h2>Fairport Page: Best Sellers and Product Grid</h2>
-<p>This is your Fairport page with a best sellers row picked from your own order data, and a cleaner product grid. Nothing on your live site changes until you approve.</p>
+<h2>Fairport Page: 16 Best Sellers</h2>
+<p>This is your Fairport page with the product section rebuilt around 16 best sellers from your own order data. Nothing on your live site changes until you approve.</p>
 </div><button aria-label="Close" id="twm-close" type="button">&times;</button></div>
 <div class="twm-list">
-<p class="twm-intro-note">The new best sellers row and the restyled product grid are the only changes. The products, prices, menu and text on the page stay as they are today.</p>
-<div class="twm-group">On the page</div><details class="twm-item" data-n="1"><summary><span class="twm-num">1</span><span class="twm-st">New Fairport best sellers row<small>Above the product grid</small></span></summary><div class="twm-body"><span class="twm-lbl">Before</span><div class="twm-before">The grid is a hand-picked mix of 24 products. The first five are four Thanksgiving centerpieces and a fall bouquet, and the order stays the same until someone changes it.</div>
-<span class="twm-lbl">After</span><div class="twm-after">A row of eight best sellers picked from your own orders: what Fairport customers send most, plus what is selling best across the shop right now. Each has a short label like &ldquo;Fairport favorite&rdquo; or &ldquo;Top seller this month&rdquo;.</div>
-<span class="twm-lbl">Why</span><p>Shoppers who land on a town page from Google have not picked an occasion yet. Showing proven sellers first helps them choose quickly, and labels like &ldquo;Fairport favorite&rdquo; tell them neighbors trust these arrangements.</p>
-<span class="twm-lbl">How</span><div class="twm-how">Set by hand in the Fairport category to start, refreshed monthly. A best seller can also appear again in its occasion group below, the same way a store shows a product on an endcap and in its aisle.</div><button class="twm-go" data-go="1" type="button">Show on page</button></div></details><details class="twm-item" data-n="2"><summary><span class="twm-num">2</span><span class="twm-st">Product grid restyled<small>The products below the best sellers</small></span></summary><div class="twm-body"><span class="twm-lbl">Before</span><div class="twm-before">Mixed card sizes (one oversized card, then rows of four and three), Buy Now buttons that only show on hover, and five large banner images between groups that push products far down the page on phones.</div>
-<span class="twm-lbl">After</span><div class="twm-after">Every product in the same clean card: square photo, name, price and an always-visible Buy Now button, four across on computers and two on phones. The banner images become short occasion headings (Thanksgiving, Birthday, Roses, Get Well, Sympathy, Gifts), each with a link to shop the full category.</div>
-<span class="twm-lbl">Why</span><p>Shoppers compare by photo and price, so equal cards make that faster, and a visible button tells phone shoppers where to tap. Headings instead of tall banners mean far less scrolling on phones, while every occasion link stays on the page.</p>
-<span class="twm-lbl">How</span><div class="twm-how">Your products, prices and groups stay exactly as they are. This is a style block on the page, plus setting each group&rsquo;s heading in the CMS in place of its banner image. It is the same layout already running on another m2 florist site, so we know the platform supports it.</div><button class="twm-go" data-go="2" type="button">Show on page</button></div></details>
-<div class="twm-group">The data behind the best sellers</div><details class="twm-item" data-n="3"><summary><span class="twm-num">3</span><span class="twm-st">Why these eight<small>The numbers behind each pick</small></span></summary><div class="twm-body"><table class="twm-tbl"><thead><tr><th>Product</th><th>All orders, last 30 days</th><th>Fairport, 12 months</th><th>Fairport, 90 days</th></tr></thead><tbody><tr><td>Harvest Radiance Bouquet</td><td>72</td><td>3</td><td>3</td></tr><tr><td>Turkey Time Delight Centerpiece</td><td>23</td><td>0</td><td>0</td></tr><tr><td>Happy Birthday Bouquet</td><td>17</td><td>19</td><td>3</td></tr><tr><td>Peace Lily Verdant Planter</td><td>15</td><td>19</td><td>5</td></tr><tr><td>Autumn Breeze Bouquet</td><td>18</td><td>7</td><td>7</td></tr><tr><td>Thinking of You Bouquet</td><td>30</td><td>8</td><td>3</td></tr><tr><td>Harvest Bliss Centerpiece</td><td>13</td><td>0</td><td>0</td></tr><tr><td>Sunbaked Blush Basket Bouquet</td><td>40</td><td>4</td><td>4</td></tr></tbody></table>
-<ul><li><strong>Harvest Radiance Bouquet</strong>: Your number one seller across all deliveries in the last 30 days.</li><li><strong>Turkey Time Delight Centerpiece</strong>: Number one Thanksgiving item this week (13 orders since Nov 14). Comes off the morning of Nov 27.</li><li><strong>Happy Birthday Bouquet</strong>: Tied for most ordered in Fairport this year, and your top seller store-wide over 12 months.</li><li><strong>Peace Lily Verdant Planter</strong>: Tied for most ordered in Fairport this year. Covers sympathy, which is about 1 in 5 Fairport orders.</li><li><strong>Autumn Breeze Bouquet</strong>: Fairport&#x27;s most ordered arrangement in the last 90 days.</li><li><strong>Thinking of You Bouquet</strong>: A top 5 seller store-wide this month and over the full year.</li><li><strong>Harvest Bliss Centerpiece</strong>: Number two Thanksgiving item this week, and already booked for a Fairport delivery. Comes off Nov 27.</li><li><strong>Sunbaked Blush Basket Bouquet</strong>: Number two seller across all deliveries in the last 30 days.</li></ul>
-<span class="twm-lbl">How they are ranked</span><p>Half the weight goes to sales across the whole shop in the last 30 days, and half to Fairport&rsquo;s own orders (12 months and the last 90 days). Only products on the site today can be picked. At least one sympathy and one birthday pick are always included, since each is about 1 in 5 Fairport orders.</p></div></details><details class="twm-item" data-n="4"><summary><span class="twm-num">4</span><span class="twm-st">Thanksgiving: best sellers or holiday picks?<small>How many holiday products to show, and when</small></span></summary><div class="twm-body"><p>Last year, Thanksgiving centerpieces and bouquets were a small share of orders until the final two days, then disappeared the day after.</p>
+<p class="twm-intro-note">Only the product section changes. The text, reviews, FAQs, menu and everything else on the page stay as they are today.</p>
+<div class="twm-group">On the page</div><details class="twm-item" data-n="1"><summary><span class="twm-num">1</span><span class="twm-st">16 best sellers in place of the 24-product grid<small>The product section near the top</small></span></summary><div class="twm-body"><span class="twm-lbl">Before</span><div class="twm-before">24 hand-picked products in mixed card sizes, split into six groups by five large banner images, with Buy Now buttons that only show on hover. The first five spots are Thanksgiving and fall pieces, and the order stays the same until someone changes it.</div>
+<span class="twm-lbl">After</span><div class="twm-after">One section of 16 best sellers picked from your own orders, in equal cards: photo, name, price and an always-visible Buy Now button. Four rows of four on computers, two across on phones. The top sellers carry a short label like &ldquo;Fairport favorite&rdquo;, and one line of links underneath goes to Birthday, Sympathy, Get Well, Roses, Thanksgiving and Gifts.</div>
+<span class="twm-lbl">Why</span><p>Fewer, proven choices make it easier to decide. Sixteen still covers every common occasion, and anyone looking for something specific is one click from the full category.</p>
+<span class="twm-lbl">How</span><div class="twm-how">We set these 16 as the products in your Fairport category, in this order, and add one style block to the page for the card layout and labels. The banner images and the Local Only corner tags come off this page. Refreshed monthly from your orders.</div><button class="twm-go" data-go="1" type="button">Show on page</button></div></details>
+<div class="twm-group">The data behind it</div><details class="twm-item" data-n="2"><summary><span class="twm-num">2</span><span class="twm-st">Why these 16<small>The numbers behind each pick</small></span></summary><div class="twm-body"><table class="twm-tbl"><thead><tr><th>Product</th><th>All orders, last 30 days</th><th>Fairport, 12 months</th><th>Fairport, 90 days</th></tr></thead><tbody><tr><td>Harvest Radiance Bouquet</td><td>72</td><td>3</td><td>3</td></tr><tr><td>Turkey Time Delight Centerpiece <small>(Thanksgiving)</small></td><td>23</td><td>0</td><td>0</td></tr><tr><td>Happy Birthday Bouquet</td><td>17</td><td>19</td><td>3</td></tr><tr><td>Peace Lily Verdant Planter</td><td>15</td><td>19</td><td>5</td></tr><tr><td>Autumn Breeze Bouquet</td><td>18</td><td>7</td><td>7</td></tr><tr><td>Thinking of You Bouquet</td><td>30</td><td>8</td><td>3</td></tr><tr><td>Sunbaked Blush Basket Bouquet</td><td>40</td><td>4</td><td>4</td></tr><tr><td>Harvest Bliss Centerpiece <small>(Thanksgiving)</small></td><td>13</td><td>0</td><td>0</td></tr><tr><td>Pumpkin Spice Rose Bouquet</td><td>36</td><td>3</td><td>3</td></tr><tr><td>Tropical Twilight Bouquet</td><td>20</td><td>3</td><td>3</td></tr><tr><td>Peaceful White Lilies Basket</td><td>16</td><td>4</td><td>1</td></tr><tr><td>Fireside Harvest Centerpiece <small>(Thanksgiving)</small></td><td>10</td><td>0</td><td>0</td></tr><tr><td>Highland Park Sunset Bouquet</td><td>16</td><td>5</td><td>3</td></tr><tr><td>Feel Better Bouquet</td><td>15</td><td>3</td><td>1</td></tr><tr><td>Ever Near Succulent Garden</td><td>10</td><td>7</td><td>3</td></tr><tr><td>Verdant Charm Planter</td><td>10</td><td>10</td><td>0</td></tr></tbody></table>
+<span class="twm-lbl">How they are picked</span>
+<ul><li>Ranked by sales: half the weight on all orders in the last 30 days, half on Fairport&rsquo;s own orders (12 months and the last 90 days).</li>
+<li>Only products on the site today.</li>
+<li>At most four fall bouquets, so the mix doesn&rsquo;t tilt to one look.</li>
+<li>At least one pick for every occasion that is 5% or more of Fairport orders: birthday, sympathy and get well.</li>
+<li>Three holiday spots before a holiday (see next item).</li></ul></div></details><details class="twm-item" data-n="3"><summary><span class="twm-num">3</span><span class="twm-st">Thanksgiving: best sellers or holiday picks?<small>How many holiday products to show, and when</small></span></summary><div class="twm-body"><p>Last year, Thanksgiving items were a small share of orders until the final two days, then disappeared the day after.</p>
 <span class="twm-lbl">Share of deliveries with a Thanksgiving item, 2025</span><div class="twm-bar-row"><span class="twm-bar-l">Nov 18 to 24</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:8%"></span></span><span class="twm-bar-v">8%</span></div><div class="twm-bar-n">6 of 75 deliveries</div><div class="twm-bar-row"><span class="twm-bar-l">Nov 25</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:27%"></span></span><span class="twm-bar-v">27%</span></div><div class="twm-bar-n">6 of 22 deliveries</div><div class="twm-bar-row"><span class="twm-bar-l">Nov 26</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:46%"></span></span><span class="twm-bar-v">46%</span></div><div class="twm-bar-n">18 of 39 deliveries</div><div class="twm-bar-row"><span class="twm-bar-l">Nov 28</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:1%"></span></span><span class="twm-bar-v">0%</span></div><div class="twm-bar-n">0 of 13 deliveries</div>
 <p style="margin-top:12px">By order date, about 1 in 5 orders placed in the final week included a Thanksgiving item, and half of those were placed within two days of delivery. In Fairport, 3 of 16 deliveries in Thanksgiving week 2025 were Thanksgiving items. This year, 4 of the 11 Fairport orders booked for Nov 14 to 30 are Thanksgiving centerpieces.</p>
-<span class="twm-lbl">Recommendation</span><div class="twm-after">Keep holiday items to two of the eight spots, starting about 10 days before the holiday and ending after the last delivery day. Fill the rest with best sellers. Birthdays, sympathy and get well orders keep coming all week, and most Thanksgiving buyers will also see the holiday category in the menu.</div>
-<span class="twm-lbl">On Nov 27</span><p>The two Thanksgiving picks come off and the next best sellers move up:</p>
-<table class="twm-tbl"><thead><tr><th>Product</th><th>All orders, last 30 days</th><th>Fairport, 12 months</th><th>Fairport, 90 days</th></tr></thead><tbody><tr><td>Tropical Twilight Bouquet</td><td>20</td><td>3</td><td>3</td></tr><tr><td>Ever Near Succulent Garden</td><td>10</td><td>7</td><td>3</td></tr></tbody></table>
-<p>The same two-spot rule then applies to Christmas, Valentine&rsquo;s Day and Mother&rsquo;s Day.</p></div></details><details class="twm-item" data-n="5"><summary><span class="twm-num">5</span><span class="twm-st">Why not just a 12-month best seller list<small>Seasonal products come and go</small></span></summary><div class="twm-body"><p>Many of your best sellers are seasonal designs that rotate off the site. Of the 103 products that sold most over the last year, 34 are no longer available, and the 12-month list is led by spring designs like Morning Mimosa and Beachy Breeze.</p>
-<p>Fairport alone is also too spread out to rank on its own: its 574 deliveries over the last 12 months were spread across 245 different products, and the most ordered had 19. Blending in the whole shop&rsquo;s recent sales keeps the row current and reliable.</p></div></details><details class="twm-item" data-n="6"><summary><span class="twm-num">6</span><span class="twm-st">What Fairport customers send<small>Occasions on 574 Fairport deliveries, last 12 months</small></span></summary><div class="twm-body"><div class="twm-bar-row"><span class="twm-bar-l">No occasion given</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:26%"></span></span><span class="twm-bar-v">26%</span></div><div class="twm-bar-row"><span class="twm-bar-l">Sympathy</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:22%"></span></span><span class="twm-bar-v">22%</span></div><div class="twm-bar-row"><span class="twm-bar-l">Birthday</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:22%"></span></span><span class="twm-bar-v">22%</span></div><div class="twm-bar-row"><span class="twm-bar-l">Holiday</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:17%"></span></span><span class="twm-bar-v">17%</span></div><div class="twm-bar-row"><span class="twm-bar-l">Get well</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:8%"></span></span><span class="twm-bar-v">8%</span></div><div class="twm-bar-row"><span class="twm-bar-l">Anniversary</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:3%"></span></span><span class="twm-bar-v">3%</span></div><div class="twm-bar-row"><span class="twm-bar-l">New baby</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:2%"></span></span><span class="twm-bar-v">2%</span></div>
-<p style="margin-top:12px">Fairport is your third busiest town after Rochester and Canandaigua. About 3 in 4 deliveries go to homes, with businesses and funeral homes next. That steady mix of birthday and sympathy orders is why the row always keeps one of each.</p></div></details><details class="twm-item" data-n="7"><summary><span class="twm-num">7</span><span class="twm-st">Keeping it current<small>Monthly refresh, then other town pages</small></span></summary><div class="twm-body"><p>We refresh the eight picks once a month from your order history and the Top Products report, and switch holiday picks on and off on the dates above. Fairport would be the first page, then the other town pages. Smaller towns with only a handful of orders would use the shop-wide best sellers with the same holiday rule.</p>
-<span class="twm-lbl">How</span><div class="twm-how">The first version can be set by hand in the Fairport category. If it works well, we can ask m2 about filling the row automatically from orders by ZIP code.</div></div></details>
+<span class="twm-lbl">Recommendation</span><div class="twm-after">Three of the 16 spots (about 1 in 5) go to holiday items in the 10 days before Thanksgiving. The rest stay best sellers, because birthday, sympathy and get well orders keep coming all week.</div>
+<span class="twm-lbl">On Nov 27</span><p>The three Thanksgiving spots switch to Christmas. Last year Christmas designs were the two top sellers from Nov 28 on. This year the early leaders are Thomas Kinkade Sleighride Bouquet and Cardinal Christmas Bouquet; the third spot goes to whichever Christmas design leads sales that week.</p></div></details><details class="twm-item" data-n="4"><summary><span class="twm-num">4</span><span class="twm-st">Why not just a 12-month best seller list<small>Seasonal products come and go</small></span></summary><div class="twm-body"><p>Many of your best sellers are seasonal designs that rotate off the site. Of the 103 products that sold most over the last year, 34 are no longer available, and the 12-month list is led by spring designs like Morning Mimosa and Beachy Breeze.</p>
+<p>Fairport alone is also too spread out to rank on its own: its 574 deliveries over the last 12 months were spread across 245 different products, and the most ordered had 19. Blending in the whole shop&rsquo;s recent sales keeps the list current and reliable.</p></div></details><details class="twm-item" data-n="5"><summary><span class="twm-num">5</span><span class="twm-st">What Fairport customers send<small>Occasions on 574 Fairport deliveries, last 12 months</small></span></summary><div class="twm-body"><div class="twm-bar-row"><span class="twm-bar-l">No occasion given</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:26%"></span></span><span class="twm-bar-v">26%</span></div><div class="twm-bar-row"><span class="twm-bar-l">Sympathy</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:22%"></span></span><span class="twm-bar-v">22%</span></div><div class="twm-bar-row"><span class="twm-bar-l">Birthday</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:22%"></span></span><span class="twm-bar-v">22%</span></div><div class="twm-bar-row"><span class="twm-bar-l">Holiday</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:17%"></span></span><span class="twm-bar-v">17%</span></div><div class="twm-bar-row"><span class="twm-bar-l">Get well</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:8%"></span></span><span class="twm-bar-v">8%</span></div><div class="twm-bar-row"><span class="twm-bar-l">Anniversary</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:3%"></span></span><span class="twm-bar-v">3%</span></div><div class="twm-bar-row"><span class="twm-bar-l">New baby</span><span class="twm-bar-t"><span class="twm-bar-f" style="width:2%"></span></span><span class="twm-bar-v">2%</span></div><p style="margin-top:12px">Fairport is your third busiest town after Rochester and Canandaigua. About 3 in 4 deliveries go to homes, with businesses and funeral homes next.</p></div></details><details class="twm-item" data-n="6"><summary><span class="twm-num">6</span><span class="twm-st">Other town pages<small>After Fairport</small></span></summary><div class="twm-body"><p>The same 16-product setup works on every town page. Busier towns get their own ranking like Fairport. Smaller towns with only a handful of orders use the shop-wide best sellers with the same holiday rule.</p></div></details>
 <p class="twm-src">Sources: Rockcastle order records for deliveries to ZIP 14450, Nov 23, 2025 to Nov 22, 2026; Top Products report for Oct 24 to Nov 22, 2026 and Nov 14 to 23, 2026; Thanksgiving 2025 figures from every third delivery Nov 18 to 28, 2025 (149 orders).</p>
 </div>
 </aside>
-<script type="application/json" id="twm-config">{"items": [{"n": 1, "sel": {"css": ".rcf-fav-band"}}, {"n": 2, "sel": {"css": ".products-list"}}], "swaps": [], "renameV2": false}</script>
+<script type="application/json" id="twm-config">{"items": [{"n": 1, "sel": {"css": ".products-list"}}], "swaps": [], "renameV2": false}</script>
 <script>
 (function(){
   var d=document, b=d.body, cfg=JSON.parse(d.getElementById('twm-config').textContent);
